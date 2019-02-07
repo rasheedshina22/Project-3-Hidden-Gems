@@ -36,10 +36,36 @@ function deleteRoute (req, res) {
     .then(() => res.sendStatus(204))
 }
 
+function commentCreateRoute(req, res, next) {
+  req.body.user = req.currentUser
+  Gem
+    .findById(req.params.id)
+    .then(gem => {
+      gem.comments.push(req.body)
+      return gem.save()
+    })
+    .then(gem => res.status(201).json(gem))
+    .catch(next)
+}
+
+function commentDeleteRoute(req, res, next) {
+  Gem
+    .findById(req.params.id)
+    .then(gem => {
+      const comment = gem.comments.id(req.params.commentId)
+      return comment.remove()
+    })
+    .then(gem => res.json(gem))
+    .catch(next)
+}
+
+
 module.exports = {
   index: indexRoute,
   create: createRoute,
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  commentCreate: commentCreateRoute,
+  commentDelete: commentDeleteRoute
 }
