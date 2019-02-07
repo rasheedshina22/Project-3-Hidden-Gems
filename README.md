@@ -1,4 +1,7 @@
 # Project-3
 WDI Project-3
 
-Seb Yeates 
+
+Ed Lea
+Gessica Santoro
+Seb Yeates
