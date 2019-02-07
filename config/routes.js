@@ -35,8 +35,7 @@ router.route('/trips/:id')
   .put(tripsController.update)
   .delete(tripsController.delete)
 
-// router.post('/tracks/:id/comments', secureRoute, tracksController.commentCreate)
-// router.delete('/tracks/:id/comments/:commentId', secureRoute, tracksController.commentDelete)
-
+// router.post('/trips/:id/comments', secureRoute, tripsController.commentCreate)
+// router.delete('/trips/:id/comments/:commentId', tripsController.commentDelete)
 
 module.exports = router
