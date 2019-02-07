@@ -1,14 +1,14 @@
 const router = require('express').Router()
 const gemsController = require('../controllers/gems')
-// const authController = require('../controllers/auth')
+const authController = require('../controllers/auth')
 //
 // const secureRoute = require('../lib/secureRoute')
 
-// router.route('/register')
-//   .post(authController.register)
-//
-// router.route('/login')
-//   .post(authController.login)
+router.route('/register')
+  .post(authController.register)
+
+router.route('/login')
+  .post(authController.login)
 //
 // router.route('/confirm/:code')
 //   .get(authController.confirm)
