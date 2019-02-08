@@ -5,6 +5,12 @@ const authController = require('../controllers/auth')
 //
 const secureRoute = require('../lib/secureRoute')
 
+router.route('/register')
+  .post(authController.register)
+
+router.route('/login')
+  .post(authController.login)
+//
 // router.route('/confirm/:code')
 //   .get(authController.confirm)
 
