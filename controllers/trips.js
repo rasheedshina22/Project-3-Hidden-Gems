@@ -8,6 +8,7 @@ function indexRoute(req, res, next) {
 }
 
 function createRoute(req, res, next) {
+  req.body.user = req.currentUser
   Trip
     .create(req.body)
     .then(trip => res.status(201).json(trip))
@@ -36,7 +37,6 @@ function deleteRoute (req, res, next) {
     .then(trip => trip.remove())
     .then(() => res.sendStatus(204))
     .catch(next)
-
 }
 
 function commentCreateRoute(req, res, next) {
@@ -56,7 +56,9 @@ function commentDeleteRoute(req, res, next) {
     .findById(req.params.id)
     .then(trip => {
       const comment = trip.comments.id(req.params.commentId)
-      return comment.remove()
+      comment.remove()
+      trip.save()
+      return trip
     })
     .then(trip => res.json(trip))
     .catch(next)
