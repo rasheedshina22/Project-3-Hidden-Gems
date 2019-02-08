@@ -2,97 +2,92 @@ import React from 'react'
 import axios from 'axios'
 
 class Register extends React.Component {
-  constructor(){
+  constructor() {
     super()
 
-    this.state={
-      data: {
-        username: '',
-        email: '',
-        password: '',
-        passwordConfirmation: ''
-      }
+    this.state = {
+      data: {},
+      error: null
     }
-    //EVENT HANDELERS
+
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
-  //EVENT listerners function
-  // spread the data obj and after the comma update value that comes from the name atrribute of the form
-  handleChange({target: {name, value}}){
-    const data={...this.state.data, [name]: value}
-    this.setState({data})
+  handleChange({target: { name, value }}) {
+    const data = {...this.state.data, [name]: value }
+    const error = null
+    this.setState({ data, error })
   }
 
-  // on the post request all of the state Data is sent
-  handleSubmit(e){
+  handleSubmit(e) {
     e.preventDefault()
     axios
-      .post('http://localhost:4000/api/login', this.state.data)
+      .post('/api/register', this.state.data)
       .then(() => this.props.history.push('/login'))
-      .catch(err => alert(err))
-
-    console.log(this.state.data)
+      .catch(() => this.setState({ error: 'An error occured' }))
   }
 
   render() {
-    const { username, email, password, passwordConfirmation } = this.state.data
-
     return (
       <main className="section">
         <div className="container">
+          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
           <form onSubmit={this.handleSubmit}>
-
-            <h2 className="title"> Register </h2>
-
+            <h2 className="title">Register</h2>
             <div className="field">
               <label className="label">Username</label>
-
-              <input
-                className="input"
-                name="username"
-                placeholder="Username"
-                value={username}
-                onChange={this.handleChange}
-              />
+              <div className="control">
+                <input
+                  className="input"
+                  name="username"
+                  placeholder="Username"
+                  onChange={this.handleChange}
+                  value={this.state.data.username || ''}
+                />
+              </div>
             </div>
-
             <div className="field">
               <label className="label">Email</label>
-              <input
-                className="input"
-                name="email"
-                placeholder="Email"
-                value={email}
-                onChange={this.handleChange}
-              />
+              <div className="control">
+                <input
+                  className="input"
+                  name="email"
+                  placeholder="Email"
+                  onChange={this.handleChange}
+                  value={this.state.data.email || ''}
+                />
+              </div>
             </div>
-
             <div className="field">
               <label className="label">Password</label>
-              <input
-                className="input"
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={password}
-                onChange={this.handleChange}
-              />
+              <div className="control">
+                <input
+                  className="input"
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  onChange={this.handleChange}
+                  value={this.state.data.password || ''}
+                />
+              </div>
+            </div>
+            <div className="field">
+              <label className="label">Confirm Password</label>
+              <div className="control">
+                <input
+                  className="input"
+                  name="passwordConfirmation"
+                  type="password"
+                  placeholder="Confirm Password"
+                  onChange={this.handleChange}
+                  value={this.state.data.passwordConfirmation || ''}
+                />
+              </div>
             </div>
 
-            <div className="field">
-              <label className="label">Password Confirmation</label>
-              <input
-                className="input"
-                type="password"
-                name="passwordConfirmation"
-                placeholder="Password Confirmation"
-                value={passwordConfirmation}
-                onChange={this.handleChange}
-              />
-            </div>
-            <button className="button is-info"> Submit </button>
+            <button className="button is-info">Submit</button>
+
           </form>
         </div>
       </main>

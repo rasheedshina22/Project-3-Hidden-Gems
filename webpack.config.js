@@ -1,7 +1,10 @@
 const path = require('path')
 const webpack = require('webpack')
+<<<<<<< HEAD
 const Dotenv = require('dotenv-webpack')
 
+=======
+>>>>>>> development
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {

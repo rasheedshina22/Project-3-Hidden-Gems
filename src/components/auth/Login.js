@@ -1,74 +1,74 @@
 import React from 'react'
 import axios from 'axios'
 
-// we need to import Auth comp because we need its method to set token
 import Auth from '../../lib/Auth'
+import Flash from '../../lib/Flash'
 
 class Login extends React.Component {
-  constructor(){
+  constructor() {
     super()
 
-    this.state ={
-      data: {
-        email: '',
-        password: ''
-      }
+    this.state = {
+      data: {},
+      error: null
     }
-    // bind functions
-    this.handleChange = this.handleChange.bind(this)
+    this.handleChange =  this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
-  //handle event listeners
+
   handleChange({ target: { name, value }}) {
-    const data = {...this.state.data, [name]: value}
-    this.setState({ data })
+    const data = {...this.state.data, [name]: value }
+    const error = null
+    this.setState({ data, error })
   }
 
   handleSubmit(e) {
     e.preventDefault()
 
     axios
-      .post('http://localhost:4000/api/login', this.state.data)
+      .post('/api/login', this.state.data)
       .then((res) => {
-        console.log(res.data.token)
         Auth.setToken(res.data.token)
-        this.props.history.push('/gems')
+        Flash.setMessage('success', res.data.message)
+        this.props.history.push('/')
       })
-      .catch(err => alert(err.message))
+      .catch(() => this.setState({ error: 'An error occured' }))
   }
 
   render() {
     return (
       <main className="section">
         <div className="container">
-          <h2 className="title"> Login </h2>
+          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
           <form onSubmit={this.handleSubmit}>
+            <h2 className="title">Login</h2>
             <div className="field">
+              <label className="label">Email</label>
               <div className="control">
-
                 <input
                   className="input"
+                  type="email"
                   name="email"
-                  placeholder="email"
-                  value={this.state.data.email}
+                  placeholder="Email"
+                  value={this.state.data.email || ''}
                   onChange={this.handleChange}
                 />
               </div>
             </div>
-
             <div className="field">
+              <label className="label">Password</label>
               <div className="control">
                 <input
                   type="password"
                   className="input"
                   name="password"
                   placeholder="Password"
-                  value={this.state.data.password}
+                  value={this.state.data.password || ''}
                   onChange={this.handleChange}
                 />
               </div>
             </div>
-            <button className="button is-info"> Login </button>
+            <button className="button is-info">Log In</button>
           </form>
         </div>
       </main>
