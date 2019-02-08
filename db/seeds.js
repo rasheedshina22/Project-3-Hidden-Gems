@@ -29,7 +29,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
           image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
           description: 'Nice pub in Aldgate',
           category: 'Pub',
-          location: 'Aldgate'
+          location: {lat: 2, lon: 4}
         }),
         gem2: Gem.create({
           name: 'White Swan',
@@ -37,7 +37,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
           image: 'https://media-cdn.tripadvisor.com/media/photo-s/03/18/db/11/white-swan-restaurant.jpg',
           description: 'Brilliant restaurant',
           category: 'Restaurant',
-          location: 'Shoreditch'
+          location: {lat: 2, lon: 4}
         })
       })
     })
