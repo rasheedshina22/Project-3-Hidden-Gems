@@ -47,7 +47,6 @@ class Login extends React.Component {
               <div className="control">
                 <input
                   className="input"
-                  type="email"
                   name="email"
                   placeholder="Email"
                   value={this.state.data.email || ''}

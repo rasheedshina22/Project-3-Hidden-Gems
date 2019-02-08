@@ -5,7 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import 'bulma'
 import './style.scss'
-// import ArtistsIndex from './components/artists/ArtistsIndex'
+import GemsIndex from './components/gems/GemsIndex'
 // import ArtistsShow from './components/artists/ArtistsShow'
 import GemsNew from './components/gems/GemsNew'
 //
@@ -36,7 +36,9 @@ class App extends React.Component {
           <FlashMessages />
 
           <Switch>
+
             <SecureRoute path="/gems/new" component={GemsNew} />
+            <Route path="/gems" component={GemsIndex} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />
