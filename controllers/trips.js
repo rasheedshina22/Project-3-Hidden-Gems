@@ -37,7 +37,6 @@ function deleteRoute (req, res, next) {
     .then(trip => trip.remove())
     .then(() => res.sendStatus(204))
     .catch(next)
-
 }
 
 function commentCreateRoute(req, res, next) {
