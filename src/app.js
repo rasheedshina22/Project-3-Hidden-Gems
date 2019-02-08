@@ -8,6 +8,7 @@ import './style.scss'
 // import ArtistsIndex from './components/artists/ArtistsIndex'
 // import ArtistsShow from './components/artists/ArtistsShow'
 import GemsNew from './components/gems/GemsNew'
+import GemsShow from './components/gems/GemsShow'
 //
 // import AlbumsIndex from './components/albums/AlbumsIndex'
 // import AlbumsShow from './components/albums/AlbumsShow'
@@ -36,6 +37,7 @@ class App extends React.Component {
           <FlashMessages />
 
           <Switch>
+            <Route path="/gems/:id" component={GemsShow} />
             <SecureRoute path="/gems/new" component={GemsNew} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
