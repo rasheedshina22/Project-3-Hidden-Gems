@@ -22,10 +22,10 @@ function showRoute(req, res) {
 
 function updateRoute (req, res) {
   Trip
-    .findById(req.params.id) //finding trip by id passed in via the URL
-    .then(trip => trip.set(req.body)) // set value of found trip to req body
-    .then(trip => trip.save()) // saving trip to database
-    .then(trip => res.status(200).json(trip)) // sending status and json response
+    .findById(req.params.id)
+    .then(trip => trip.set(req.body))
+    .then(trip => trip.save())
+    .then(trip => res.status(200).json(trip))
     .catch(err => res.status(422).json(err.errors))
 }
 

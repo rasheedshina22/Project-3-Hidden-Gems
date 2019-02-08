@@ -3,6 +3,7 @@ const Gem = require('../models/gem')
 function indexRoute(req, res) {
   Gem
     .find()
+    .populate( {path: 'user', select: 'username'} )
     .then(gems => res.status(200).json(gems))
 }
 
