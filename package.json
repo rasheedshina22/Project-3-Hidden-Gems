@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "serve": "webpack-dev-server --mode=development",
+    "build": "webpack -p",
     "start": "node index",
     "seed": "node db/seeds"
   },
