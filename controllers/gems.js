@@ -57,7 +57,10 @@ function commentDeleteRoute(req, res, next) {
     .findById(req.params.id)
     .then(gem => {
       const comment = gem.comments.id(req.params.commentId)
-      return comment.remove()
+      console.log(comment)
+      comment.remove()
+      gem.save()
+      return gem
     })
     .then(gem => res.json(gem))
     .catch(next)
