@@ -25,7 +25,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
       return Promise.props({
         gem1: Gem.create({
           name: 'Black Dragon',
-          user: user._id,
+          user: user,
           image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
           description: 'Nice pub in Aldgate',
           category: 'Pub',
@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
         }),
         gem2: Gem.create({
           name: 'White Swan',
-          user: user._id,
+          user: user,
           image: 'https://media-cdn.tripadvisor.com/media/photo-s/03/18/db/11/white-swan-restaurant.jpg',
           description: 'Brilliant restaurant',
           category: 'Restaurant',
@@ -44,7 +44,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
     .then(user => {
       return Trip.create({
         name: 'Museum of Happiness',
-        user: user._id,
+        user: user,
         image: 'https://static1.squarespace.com/static/593e67221e5b6ca18cbebfac/t/59e3e548b07869a85b1e71a5/1546765976263/?format=1500w',
         description: 'The best museum ever',
         category: 'Museum',
