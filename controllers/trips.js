@@ -1,39 +1,67 @@
 const Trip = require('../models/trip')
 
-function indexRoute(req, res) {
+function indexRoute(req, res, next) {
   Trip
     .find()
     .then(trips => res.status(200).json(trips))
+    .catch(next)
 }
 
-function createRoute(req, res) {
+function createRoute(req, res, next) {
+  req.body.user = req.currentUser
   Trip
     .create(req.body)
     .then(trip => res.status(201).json(trip))
-    .catch(err => res.status(422).json(err.errors))
+    .catch(next)
 }
 
-function showRoute(req, res) {
+function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
     .then(trip => res.status(200).json(trip))
-    .catch(err => res.status(422).json(err.errors))
+    .catch(next)
 }
 
-function updateRoute (req, res) {
+function updateRoute (req, res, next) {
   Trip
     .findById(req.params.id)
     .then(trip => trip.set(req.body))
     .then(trip => trip.save())
     .then(trip => res.status(200).json(trip))
-    .catch(err => res.status(422).json(err.errors))
+    .catch(next)
 }
 
-function deleteRoute (req, res) {
+function deleteRoute (req, res, next) {
   Trip
     .findById(req.params.id)
     .then(trip => trip.remove())
     .then(() => res.sendStatus(204))
+    .catch(next)
+}
+
+function commentCreateRoute(req, res, next) {
+  req.body.user = req.currentUser
+  Trip
+    .findById(req.params.id)
+    .then(trip => {
+      trip.comments.push(req.body)
+      return trip.save()
+    })
+    .then(trip => res.status(201).json(trip))
+    .catch(next)
+}
+
+function commentDeleteRoute(req, res, next) {
+  Trip
+    .findById(req.params.id)
+    .then(trip => {
+      const comment = trip.comments.id(req.params.commentId)
+      comment.remove()
+      trip.save()
+      return trip
+    })
+    .then(trip => res.json(trip))
+    .catch(next)
 }
 
 module.exports = {
@@ -41,5 +69,7 @@ module.exports = {
   create: createRoute,
   show: showRoute,
   update: updateRoute,
-  delete: deleteRoute
+  delete: deleteRoute,
+  commentCreate: commentCreateRoute,
+  commentDelete: commentDeleteRoute
 }
