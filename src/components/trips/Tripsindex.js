@@ -25,6 +25,7 @@ class TripsIndex extends React.Component {
 
   render() {
     console.log('index/trips state is ----->',this.state.data)
+
     if(!this.state.trips) return (
       <section className="section">
         <div className="container">
