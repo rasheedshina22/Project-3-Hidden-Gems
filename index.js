@@ -9,8 +9,8 @@ const errorHandler = require('./lib/errorHandler')
 
 const app = express()
 
-// mongoose.connect(process.env.MONGODB_URI)
-mongoose.connect('mongodb://localhost/hidden-gems')
+mongoose.connect(process.env.MONGODB_URI)
+// mongoose.connect('mongodb://localhost/hidden-gems')
 
 app.use(express.static(`${__dirname}/dist`))
 
