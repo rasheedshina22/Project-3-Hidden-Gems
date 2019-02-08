@@ -37,8 +37,8 @@ class App extends React.Component {
           <FlashMessages />
 
           <Switch>
-            <Route path="/gems/:id" component={GemsShow} />
             <SecureRoute path="/gems/new" component={GemsNew} />
+            <SecureRoute path="/gems/:id" component={GemsShow} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />

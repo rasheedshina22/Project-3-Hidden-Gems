@@ -19,6 +19,7 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Gem
     .findById(req.params.id)
+    .populate('user')
     .then(gem => res.status(200).json(gem))
     .catch(next)
 }

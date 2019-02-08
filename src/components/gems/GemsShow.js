@@ -1,6 +1,8 @@
 import React from 'react'
 import axios from 'axios'
 
+import Map from './GemsMap'
+
 import {Link} from 'react-router-dom'
 
 class GemsShow extends React.Component {
@@ -11,19 +13,19 @@ class GemsShow extends React.Component {
 
     }
 
-    this.handleDelete = this.handleDelete.bind(this)
+    // this.handleDelete = this.handleDelete.bind(this)
   }
 
-  handleDelete(){
-    axios
-      .delete(`/api/gems/${this.props.match.params.id}`,{
-      })
-      .then(() => {
-        this.props.history.push('/gems')
-      })
-      .catch(err => console.log(err))
-
-  }
+  // handleDelete(){
+  //   axios
+  //     .delete(`/api/gems/${this.props.match.params.id}`,{
+  //     })
+  //     .then(() => {
+  //       this.props.history.push('/gems')
+  //     })
+  //     .catch(err => console.log(err))
+  //
+  // }
 
   componentDidMount() {
     axios.get(`/api/gems/${this.props.match.params.id}`)
@@ -31,13 +33,14 @@ class GemsShow extends React.Component {
   }
 
   render(){
+    console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description} = this.state.gem
+    const { _id, name, image, category, description, user, location} = this.state.gem
     return (
       <section className="section">
         <div className="container">
           <h1 className="title is-1"> {name} </h1>
-          <h4 className="title is-4">Added by: {_id.username} </h4>
+          <h4 className="title is-4">Added by: {user.username} </h4>
           <hr />
           <div className="columns">
             <div className="column">
@@ -66,9 +69,7 @@ class GemsShow extends React.Component {
             </div>
             <div className="column">
               <div className="content">
-                <figure className="image">
-                  <img src={image} alt={name} />
-                </figure>
+                <Map />
               </div>
             </div>
           </div>
