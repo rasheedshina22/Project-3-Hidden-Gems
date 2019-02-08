@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 
-// import Auth from '../../lib/Auth'
+import Auth from '../../lib/Auth'
 
 class Navbar extends React.Component {
 
@@ -12,25 +12,25 @@ class Navbar extends React.Component {
       navbarOpen: false
     }
 
-    // this.logout = this.logout.bind(this)
-    // this.toggleNavbar = this.toggleNavbar.bind(this)
+    this.logout = this.logout.bind(this)
+    this.toggleNavbar = this.toggleNavbar.bind(this)
   }
 
-  // toggleNavbar() {
-  //   this.setState({ navbarOpen: !this.state.navbarOpen })
-  //
-  // }
-  //
-  // logout(){
-  //   Auth.removeToken()
-  //   this.props.history.push('/')
-  // }
-  //
-  // componentDidUpdate(prevProps){
-  //   if(prevProps.location.pathname !== this.props.location.pathname){
-  //     this.setState({ navbarOpen: false })
-  //   }
-  // }
+  toggleNavbar() {
+    this.setState({ navbarOpen: !this.state.navbarOpen })
+
+  }
+
+  logout(){
+    Auth.removeToken()
+    this.props.history.push('/')
+  }
+
+  componentDidUpdate(prevProps){
+    if(prevProps.location.pathname !== this.props.location.pathname){
+      this.setState({ navbarOpen: false })
+    }
+  }
 
   render() {
     return (
@@ -43,21 +43,21 @@ class Navbar extends React.Component {
             </Link>
 
             <a
-
-              className="navbar-burger"
+              className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
+              onClick={this.toggleNavbar}
             >
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
             </a>
           </div>
-          <div className="navbar-menu">
+          <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
-              <Link className="navbar-item" to="/cheeses">Discover Gems</Link>
-              <Link className="navbar-item" to="/cheeses/new"></Link>
-              <Link className="navbar-item" to="/register">Register</Link>
-              <Link className="navbar-item" to="/login">Login</Link>
-              <a className="navbar-item">Logout</a>
+              <Link className="navbar-item" to="/gems">Discover Gems</Link>
+              {Auth.isAuthenticated() && <Link className="navbar-item" to="/gems/new">Add Gem</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Register</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
+              {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
             </div>
           </div>
         </div>
