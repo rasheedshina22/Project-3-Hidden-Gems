@@ -19,7 +19,7 @@ router.route('/gems')
   .post(secureRoute, gemsController.create)
 
 router.route('/gems/:id')
-  .get(secureRoute, gemsController.show)
+  .get(gemsController.show)
   .put(secureRoute, gemsController.update)
   .delete(secureRoute, gemsController.delete)
 
