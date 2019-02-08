@@ -22,7 +22,7 @@ app.use('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`))
 
 app.use(errorHandler)
 
+// app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
 app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
-// app.listen(4000, () => console.log('Up and running on port 4000'))
 
 module.exports = app
