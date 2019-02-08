@@ -38,12 +38,8 @@ class App extends React.Component {
 
           <Switch>
             <SecureRoute path="/gems/new" component={GemsNew} />
-<<<<<<< HEAD
-            <SecureRoute path="/gems/:id" component={GemsShow} />
-=======
             <Route path="/gems" component={GemsIndex} />
             <Route path="/trips" component={TripsIndex} />
->>>>>>> development
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />

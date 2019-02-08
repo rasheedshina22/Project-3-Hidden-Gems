@@ -15,7 +15,7 @@ const GemCard = ({ _id, name, image, category, location }) => {
             </figure>
             <div className="content">
               <p><strong>Category: </strong> {category}</p>
-              <p><strong>Location: </strong> {location}</p>
+              <p><strong>Location: </strong> {location.lat}</p>
             </div>
           </div>}
         </div>
