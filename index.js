@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 mongoose.plugin(require('mongoose-unique-validator'))
 const bodyParser = require('body-parser')
 const routes = require('./config/routes')
-// const errorHandler = require('./lib/errorHandler')
+const errorHandler = require('./lib/errorHandler')
 
 const app = express()
 
@@ -20,7 +20,7 @@ app.use('/api', routes)
 
 app.use('/*', (req, res) => res.sendFile(`${__dirname}/public/index.html`))
 
-// app.use(errorHandler)
+app.use(errorHandler)
 
 // app.listen(process.env.PORT, () => console.log(`Up and running on port ${process.env.PORT}`))
 app.listen(4000, () => console.log('Up and running on port 4000'))

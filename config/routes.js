@@ -14,34 +14,28 @@ router.route('/login')
 // router.route('/confirm/:code')
 //   .get(authController.confirm)
 
-router.route('/register')
-  .post(authController.register)
-
-router.route('/login')
-  .post(authController.login)
-
 router.route('/gems')
   .get(gemsController.index)
-  .post(gemsController.create)
+  .post(secureRoute, gemsController.create)
 
 router.route('/gems/:id')
-  .get(gemsController.show)
-  .put(gemsController.update)
-  .delete(gemsController.delete)
+  .get(secureRoute, gemsController.show)
+  .put(secureRoute, gemsController.update)
+  .delete(secureRoute, gemsController.delete)
 
 router.post('/gems/:id/comments', secureRoute, gemsController.commentCreate)
-router.delete('/gems/:id/comments/:commentId', gemsController.commentDelete)
+router.delete('/gems/:id/comments/:commentId', secureRoute, gemsController.commentDelete)
 
 router.route('/trips')
   .get(tripsController.index)
-  .post(tripsController.create)
+  .post(secureRoute, tripsController.create)
 
 router.route('/trips/:id')
-  .get(tripsController.show)
-  .put(tripsController.update)
-  .delete(tripsController.delete)
+  .get(secureRoute, tripsController.show)
+  .put(secureRoute, tripsController.update)
+  .delete(secureRoute,tripsController.delete)
 
-// router.post('/trips/:id/comments', secureRoute, tripsController.commentCreate)
-// router.delete('/trips/:id/comments/:commentId', tripsController.commentDelete)
+router.post('/trips/:id/comments', secureRoute, tripsController.commentCreate)
+router.delete('/trips/:id/comments/:commentId', secureRoute, tripsController.commentDelete)
 
 module.exports = router

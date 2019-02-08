@@ -1,40 +1,43 @@
 const Gem = require('../models/gem')
 
-function indexRoute(req, res) {
+function indexRoute(req, res, next) {
   Gem
     .find()
     .populate( {path: 'user', select: 'username'} )
     .then(gems => res.status(200).json(gems))
+    .catch(next)
 }
 
-function createRoute(req, res) {
+function createRoute(req, res, next) {
+  req.body.user = req.currentUser
   Gem
     .create(req.body)
     .then(gem => res.status(201).json(gem))
-    .catch(err => res.status(422).json(err.errors))
+    .catch(next)
 }
 
-function showRoute(req, res) {
+function showRoute(req, res, next) {
   Gem
     .findById(req.params.id)
     .then(gem => res.status(200).json(gem))
-    .catch(err => res.status(422).json(err.errors))
+    .catch(next)
 }
 
-function updateRoute (req, res) {
+function updateRoute (req, res, next) {
   Gem
-    .findById(req.params.id) //finding gem by id passed in via the URL
-    .then(gem => gem.set(req.body)) // set value of found gem to req body
-    .then(gem => gem.save()) // saving gem to database
-    .then(gem => res.status(200).json(gem)) // sending status and json response
-    .catch(err => res.status(422).json(err.errors))
+    .findById(req.params.id)
+    .then(gem => gem.set(req.body))
+    .then(gem => gem.save())
+    .then(gem => res.status(200).json(gem))
+    .catch(next)
 }
 
-function deleteRoute (req, res) {
+function deleteRoute (req, res, next) {
   Gem
     .findById(req.params.id)
     .then(gem => gem.remove())
     .then(() => res.sendStatus(204))
+    .catch(next)
 }
 
 function commentCreateRoute(req, res, next) {
