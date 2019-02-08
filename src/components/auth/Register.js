@@ -51,6 +51,7 @@ class Register extends React.Component {
               <label className="label">Email</label>
               <div className="control">
                 <input
+                  type="email"
                   className="input"
                   name="email"
                   placeholder="Email"

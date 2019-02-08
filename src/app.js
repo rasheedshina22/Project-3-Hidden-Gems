@@ -5,12 +5,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 import 'bulma'
 import './style.scss'
-// import ArtistsIndex from './components/artists/ArtistsIndex'
+import GemsIndex from './components/gems/GemsIndex'
 // import ArtistsShow from './components/artists/ArtistsShow'
 import GemsNew from './components/gems/GemsNew'
 import GemsShow from './components/gems/GemsShow'
 //
-// import AlbumsIndex from './components/albums/AlbumsIndex'
+import TripsIndex from './components/trips/TripsIndex'
 // import AlbumsShow from './components/albums/AlbumsShow'
 // import AlbumsNew from './components/albums/AlbumsNew'
 //
@@ -38,7 +38,12 @@ class App extends React.Component {
 
           <Switch>
             <SecureRoute path="/gems/new" component={GemsNew} />
+<<<<<<< HEAD
             <SecureRoute path="/gems/:id" component={GemsShow} />
+=======
+            <Route path="/gems" component={GemsIndex} />
+            <Route path="/trips" component={TripsIndex} />
+>>>>>>> development
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
             <Route path="/" component={Home} />
