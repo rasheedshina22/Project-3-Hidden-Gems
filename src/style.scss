@@ -6,8 +6,6 @@ body {
   margin: 0;
 }
 
-
-
 div.hero-body{
   // background-image: url("");
   // background-repeat: no-repeat;
@@ -22,14 +20,13 @@ div.hero-body{
   }
 }
 
-div.hero-body button {
-    margin: 0;
+div.column {
+  color: #7A7A7A;
 }
 
 .card-content {
-    padding: 1.5rem;
+  padding: 1.5rem;
 }
-
 
 .map {
   height: 500px;
