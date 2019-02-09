@@ -31,7 +31,7 @@ router.route('/trips')
   .post(secureRoute, tripsController.create)
 
 router.route('/trips/:id')
-  .get(secureRoute, tripsController.show)
+  .get(tripsController.show)
   .put(secureRoute, tripsController.update)
   .delete(secureRoute,tripsController.delete)
 
