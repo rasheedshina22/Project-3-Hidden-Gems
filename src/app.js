@@ -11,6 +11,7 @@ import GemsNew from './components/gems/GemsNew'
 import GemsShow from './components/gems/GemsShow'
 //
 import TripsIndex from './components/trips/TripsIndex'
+import TripsShow from './components/trips/TripsShow'
 // import AlbumsShow from './components/albums/AlbumsShow'
 // import AlbumsNew from './components/albums/AlbumsNew'
 //
@@ -40,6 +41,7 @@ class App extends React.Component {
             <SecureRoute path="/gems/new" component={GemsNew} />
             <Route path="/gems/:id" component={GemsShow} />
             <Route path="/gems" component={GemsIndex} />
+            <Route path="/trips/:id" component={TripsShow} />
             <Route path="/trips" component={TripsIndex} />
             <Route path="/register" component={Register} />
             <Route path="/login" component={Login} />
