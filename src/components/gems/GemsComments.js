@@ -1,8 +1,7 @@
 import React from 'react'
 import moment from 'moment'
 
-const GemsComments = ({comments}) => {
-  console.log(comments)
+const GemsComments = ({ comments, content, handleCommentChange, handleCommentSubmit}) => {
   return (
     <div>
       <h2 className="title is-4"> Comments</h2>
@@ -14,7 +13,10 @@ const GemsComments = ({comments}) => {
           </div>
         )
       })}
-      <button className="button is-dark"> Add Commment </button>
+      <form onSubmit={handleCommentSubmit}>
+        <textarea className="textarea" placeholder="Add your comments!" value={content} onChange={handleCommentChange} rows="6"></textarea>
+        <button className="button is-dark"> Add Commment </button>
+      </form>
     </div>
 
   )
