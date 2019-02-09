@@ -52,18 +52,17 @@ class TripsNew extends React.Component {
   render() {
     // console.log(this.state.gems)
     return(
-      <main className="section">
-        <div className="container">
-          <h2 className="title">New Trip</h2>
-          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-          <TripsForm
-            data={this.state.data}
-            options = {this.state.options}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      </main>
+      <div className="section">
+        
+        <TripsForm
+          data={this.state.data}
+          error={this.state.error}
+          options = {this.state.options}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+
+      </div>
     )
   }
 }

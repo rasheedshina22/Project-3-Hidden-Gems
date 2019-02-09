@@ -49,17 +49,16 @@ class GemsNew extends React.Component {
 
   render() {
     return(
-      <main className="section">
-        <div className="container">
-          <h2 className="title">New Gem</h2>
-          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-          <GemsForm
-            data={this.state.data}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      </main>
+      <div className="section">
+
+        <GemsForm
+          data={this.state.data}
+          error={this.state.error}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+
+      </div>
     )
   }
 }
