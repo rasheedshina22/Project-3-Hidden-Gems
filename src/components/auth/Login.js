@@ -37,40 +37,64 @@ class Login extends React.Component {
 
   render() {
     return (
-      <main className="section">
-        <div className="container">
-          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-          <form onSubmit={this.handleSubmit}>
-            <h2 className="title">Login</h2>
-            <div className="field">
-              <label className="label">Email</label>
-              <div className="control">
-                <input
-                  className="input"
-                  name="email"
-                  placeholder="Email"
-                  value={this.state.data.email || ''}
-                  onChange={this.handleChange}
-                />
+      <section className="hero is-fullheight">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <div className="column is-3 is-offset-4">
+
+              <h3 className="title has-text-grey">Login</h3>
+              <p className="subtitle has-text-grey">Please login to proceed.</p>
+              {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
+
+              <div className="box">
+                <form onSubmit={this.handleSubmit}>
+                  <div className="field">
+                    <div className="control">
+                      <label className="label">Email</label>
+                      <input
+                        className="input"
+                        name="email"
+                        placeholder=" Your Email"
+                        value={this.state.data.email || ''}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <div className="control">
+                      <label className="label">Password</label>
+                      <input
+                        type="password"
+                        className="input"
+                        name="password"
+                        placeholder="Password"
+                        value={this.state.data.password || ''}
+                        onChange={this.handleChange}
+                      />
+                    </div>
+                  </div>
+
+                  <div className="field">
+                    <label className="checkbox">
+                      <input type="checkbox" />
+                      Remember me
+                    </label>
+                  </div>
+                  <button className="button is-block is-info is-medium is-fullwidth">Login</button>
+                </form>
+
               </div>
+              <p className="has-text-grey">
+                <a href="../">Sign Up</a> &nbsp;·&nbsp;
+                <a href="../">Forgot Password</a> &nbsp;·&nbsp;
+                <a href="../">Need Help?</a>
+              </p>
             </div>
-            <div className="field">
-              <label className="label">Password</label>
-              <div className="control">
-                <input
-                  type="password"
-                  className="input"
-                  name="password"
-                  placeholder="Password"
-                  value={this.state.data.password || ''}
-                  onChange={this.handleChange}
-                />
-              </div>
-            </div>
-            <button className="button is-info">Log In</button>
-          </form>
+          </div>
         </div>
-      </main>
+      </section>
+
     )
   }
 }
