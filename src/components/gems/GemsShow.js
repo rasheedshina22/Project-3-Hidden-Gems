@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Map from './GemsMap'
+import Comments from './GemsComments'
 
 import {Link} from 'react-router-dom'
 
@@ -11,6 +12,44 @@ class GemsShow extends React.Component {
 
     this.state = {
 
+      comments: [
+        {
+          _id: '5c5d6111b86379150bbe78a2',
+          content: 'The Black Swan  is Amazing',
+          user: {
+            _id: '5c5d47d1fec6220d3fb62cdd',
+            email: 'ed2',
+            username: 'ed2',
+            __v: 0
+          },
+          createdAt: '2019-02-08T10:59:29.074Z',
+          updatedAt: '2019-02-08T10:59:29.074Z'
+        },
+        {
+          _id: '5c5d6111b86379150bbe78a2',
+          content: 'The Black Swan  is So Tasty!',
+          user: {
+            _id: '5c5d47d1fec6220d3fb62cdd',
+            email: 'ed2',
+            username: 'ed3',
+            __v: 0
+          },
+          createdAt: '2019-02-08T10:59:29.074Z',
+          updatedAt: '2019-02-08T10:59:29.074Z'
+        },
+        {
+          _id: '5c5d6111b86379150bbe78a2',
+          content: 'The Black Swan  is BADD',
+          user: {
+            _id: '5c5d47d1fec6220d3fb62cdd',
+            email: 'ed2',
+            username: 'ed4',
+            __v: 0
+          },
+          createdAt: '2019-02-08T10:59:29.074Z',
+          updatedAt: '2019-02-08T10:59:29.074Z'
+        }
+      ]
     }
 
     // this.handleDelete = this.handleDelete.bind(this)
@@ -33,9 +72,9 @@ class GemsShow extends React.Component {
   }
 
   render(){
-    console.log(this.state)
     if(!this.state.gem) return null
     const { _id, name, image, category, description, user } = this.state.gem
+    // const {comments} = this.state.comments
     return (
       <section className="section">
         <div className="container">
@@ -65,7 +104,9 @@ class GemsShow extends React.Component {
           <hr />
           <div className="columns">
             <div className="column">
-              <h4 className="title is-4">Comments</h4>
+              <Comments
+                comments = {this.state.comments}
+              />
             </div>
             <div className="column">
               <div className="content">
