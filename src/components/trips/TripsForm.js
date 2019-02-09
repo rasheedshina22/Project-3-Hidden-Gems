@@ -1,7 +1,11 @@
 import React from 'react'
+import Select from 'react-select'
 
-const TripsForm = ({ data, handleChange, handleSubmit }) => {
+
+const TripsForm = ({ options, data, handleChange, handleSubmit }) => {
   return (
+
+
     <form onSubmit={handleSubmit}>
       <div className="field">
         <label className="label">Name</label>
@@ -58,19 +62,10 @@ const TripsForm = ({ data, handleChange, handleSubmit }) => {
       <div className="field">
         <label className="label">Category</label>
         <div className="control">
-          <div className="select is-halfwidth">
-            <select
-              name="category"
-              defaultValue="Please Choose..."
-              onChange={handleChange}
-            >
-              <option disabled>Please Choose...</option>
 
-              <option> Pubs </option>
-              <option> Restaurant </option>
-              <option> Museum </option>
-            </select>
-          </div>
+          <Select className="multi" isMulti
+            options={options} />
+
         </div>
       </div>
 

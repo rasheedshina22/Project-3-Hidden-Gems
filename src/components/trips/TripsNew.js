@@ -36,7 +36,21 @@ class TripsNew extends React.Component {
       .catch(() => this.setState({ error: 'An error occured' }))
   }
 
+  componentDidMount() {
+    axios.get('/api/gems')
+      .then(res => {
+        console.log(res)
+        const options = res.data.map(gem => {
+          return {'value': gem._id, 'label': gem.name}
+        })
+        console.log(options)
+        this.setState({ options })
+      })
+  }
+
+
   render() {
+    // console.log(this.state.gems)
     return(
       <main className="section">
         <div className="container">
@@ -44,6 +58,7 @@ class TripsNew extends React.Component {
           {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
           <TripsForm
             data={this.state.data}
+            options = {this.state.options}
             handleChange={this.handleChange}
             handleSubmit={this.handleSubmit}
           />
