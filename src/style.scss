@@ -22,10 +22,14 @@ div.hero-body{
   }
 }
 
-
-.input{
-  width: 40%;
+div.hero-body button {
+    margin: 0;
 }
+
+.card-content {
+    padding: 1.5rem;
+}
+
 
 .map {
   height: 500px;
