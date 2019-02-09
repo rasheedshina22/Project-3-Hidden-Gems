@@ -11,6 +11,11 @@ class GemsNew extends React.Component {
 
     this.state = {
       data: {
+        location: {
+          lat: '',
+          lon: ''
+
+        }
 
       },
       error: null
@@ -21,9 +26,15 @@ class GemsNew extends React.Component {
   }
 
   handleChange({ target: { name, value } }) {
-    const data = {...this.state.data, [name]: value }
-    const error = null
-    this.setState({ data, error })
+    if(name.includes('location')){
+      const data = {...this.state.data, location: { ...this.state.data.location, [name.split('.')[1]]: value }  }
+      const error = null
+      this.setState({ data, error })
+    } else {
+      const data = {...this.state.data, [name]: value }
+      const error = null
+      this.setState({ data, error })
+    }
   }
 
   handleSubmit(e) {

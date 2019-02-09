@@ -41,16 +41,28 @@ const GemsForm = ({ data, handleChange, handleSubmit }) => {
           />
         </div>
       </div>
-
+      <h4>Location</h4>
       <div className="field">
-        <label className="label">Location</label>
+        <label className="label">Lat</label>
         <div className="control">
           <input
             className="input"
-            placeholder="Location"
-            name="location"
+            placeholder="Lat"
+            name="location.lat"
             onChange={handleChange}
-            value={data.location || ''}
+            value={data.location.lat || ''}
+          />
+        </div>
+      </div>
+      <div className="field">
+        <label className="label">Lon</label>
+        <div className="control">
+          <input
+            className="input"
+            placeholder="Lon"
+            name="location.lon"
+            onChange={handleChange}
+            value={data.location.lon || ''}
           />
         </div>
       </div>

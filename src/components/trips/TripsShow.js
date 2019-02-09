@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import Map from '../gems/GemsMap'
+import TripsMap from '../trips/TripsMap'
 
 
 import {Link} from 'react-router-dom'
@@ -36,7 +36,7 @@ class TripsShow extends React.Component {
   render(){
     console.log(this.state)
     if(!this.state.trip) return null
-    const { _id, name, image, category, description, user } = this.state.trip
+    const { _id, name, image, category, description, user, gems } = this.state.trip
     return (
       <section className="section">
         <div className="container">
@@ -70,7 +70,10 @@ class TripsShow extends React.Component {
             </div>
             <div className="column">
               <div className="content">
-                <Map />
+                <TripsMap
+                  gems = {gems}
+
+                />
               </div>
             </div>
 

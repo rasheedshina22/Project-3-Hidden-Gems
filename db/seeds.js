@@ -33,7 +33,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
         image: 'https://media-cdn.tripadvisor.com/media/photo-s/03/18/db/11/white-swan-restaurant.jpg',
         description: 'Brilliant restaurant',
         category: 'Restaurant',
-        location: {lat: 51.5134382, lon: -0.0793599}
+        location: {lat: 51.5144682, lon: -0.0793569}
       }])
         .then(gems => {
           return Trip.create({
