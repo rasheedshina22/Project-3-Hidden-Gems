@@ -11,7 +11,7 @@ class GemsNew extends React.Component {
 
     this.state = {
       data: {
-        location: {}
+
       },
       error: null
     }

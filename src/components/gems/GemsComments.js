@@ -10,6 +10,7 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
           <div key={index}>
             <p> <strong>{comment.user.username}</strong> {comment.content} </p>
             <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
+            <hr/>
           </div>
         )
       })}

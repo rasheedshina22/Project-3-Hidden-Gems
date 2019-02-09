@@ -13,7 +13,7 @@ const gemSchema = new mongoose.Schema({
   image: { type: String, required: true },
   description: { type: String},
   category: { type: String, required: true },
-  location: { type: Object, required: true},
+  location: { type: Object, required: true },
   comments: [ commentSchema ]
 })
 
