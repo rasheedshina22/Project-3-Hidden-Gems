@@ -6,8 +6,6 @@ body {
   margin: 0;
 }
 
-
-
 div.hero-body{
   // background-image: url("");
   // background-repeat: no-repeat;
@@ -23,12 +21,14 @@ div.hero-body{
 }
 
 
-.card-content {
-    padding: 1.5rem;
-}
 
-.input{
-  width: 40%;
+// .input{
+//   width: 40%;
+// }
+
+
+div.hero-body button {
+    margin: 70px 10px 0 0;
 }
 
 .map {
