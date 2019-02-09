@@ -47,20 +47,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit }) => {
       </div>
 
       <div className="field">
-        <label className="label">Location</label>
-        <div className="control">
-          <input
-            className="input"
-            placeholder="Location"
-            name="location"
-            onChange={handleChange}
-            value={data.location || ''}
-          />
-        </div>
-      </div>
-
-      <div className="field">
-        <label className="label">Category</label>
+        <label className="label">Gems</label>
         <div className="control">
 
           <Select className="multi" isMulti
