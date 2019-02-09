@@ -26,14 +26,14 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
         image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
         description: 'Nice pub in Aldgate',
         category: 'Pub',
-        location: {lat: 2, lon: 4}
+        location: {lat: 51.5134382, lon: -0.0793599}
       },{
         name: 'White Swan',
         user: user._id,
         image: 'https://media-cdn.tripadvisor.com/media/photo-s/03/18/db/11/white-swan-restaurant.jpg',
         description: 'Brilliant restaurant',
         category: 'Restaurant',
-        location: {lat: 2, lon: 4}
+        location: {lat: 51.5134382, lon: -0.0793599}
       }])
         .then(gems => {
           return Trip.create({
