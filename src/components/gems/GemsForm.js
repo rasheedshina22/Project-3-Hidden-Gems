@@ -73,8 +73,9 @@ const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect })
                     onChange={handleChange}
                   >
                     <option disabled>Please Choose...</option>
-
                     <option> Pubs </option>
+                    <option> Musuems </option>
+                    <option> Restaurants </option>
 
                   </select>
                 </div>

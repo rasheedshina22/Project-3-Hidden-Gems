@@ -1,13 +1,13 @@
 import React from 'react'
 
-const TripsForm = ({handleSearch}) => {
+const TripsForm = ({ handleSearch }) => {
 
   return (
     <div className="field">
       <div className="control">
         <label> <strong> Explore by category </strong> </label>
       </div>
-      <div className="select is-halfwidth">
+      <div className="select">
         <select
           name="category"
           defaultValue="Please Choose..."
@@ -15,7 +15,7 @@ const TripsForm = ({handleSearch}) => {
         >
           <option disabled>Please Choose...</option>
           <option> Pubs </option>
-          <option> Museums </option>
+          <option> Museum </option>
           <option> Restaurants </option>
         </select>
       </div>

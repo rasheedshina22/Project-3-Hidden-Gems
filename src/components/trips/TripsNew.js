@@ -48,12 +48,10 @@ class TripsNew extends React.Component {
       })
   }
 
-
   render() {
-    // console.log(this.state.gems)
     return(
       <div className="section">
-        
+
         <TripsForm
           data={this.state.data}
           error={this.state.error}
