@@ -10,7 +10,7 @@ class TripMap extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
       center: {lng: -0.0793599, lat: 51.5134382 },
-      style: 'mapbox://styles/mapbox/dark-v9',
+      style: 'mapbox://styles/mapbox/light-v9',
       zoom: 12
     })
 

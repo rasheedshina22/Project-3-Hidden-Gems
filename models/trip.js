@@ -12,8 +12,8 @@ const tripSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
   image: { type: String, required: true },
   description: { type: String},
-  category: { type: String, required: true },
-  location: { type: String, required: true},
+  category: { type: String},
+  location: { type: String},
   gems: { type: Array, required: true },
   comments: [ commentSchema ]
 })
