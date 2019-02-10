@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import TripsMap from '../trips/TripsMap'
+import TripsMap from './TripsMap'
 
 
 import {Link} from 'react-router-dom'
