@@ -6,7 +6,6 @@ import Auth from '../../lib/Auth'
 import GemsForm from './GemsForm'
 
 
-
 class GemsNew extends React.Component {
   constructor() {
     super()
