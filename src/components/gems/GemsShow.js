@@ -15,20 +15,21 @@ class GemsShow extends React.Component {
       data: {}
     }
 
-    // this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
 
   }
 
-  // handleDelete(){
-  //   axios
-  //     .delete(`/api/gems/${this.props.match.params.id}`,{
-  //     })
-  //     .then(() => {
-  //       this.props.history.push('/gems')
-  //     })
-  //     .catch(err => console.log(err))
-  //
-  // }
+  handleDelete(){
+    axios
+      .delete(`/api/gems/${this.props.match.params.id}`,{
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => {
+        this.props.history.push('/gems')
+      })
+      .catch(err => console.log(err))
+
+  }
 
 
 

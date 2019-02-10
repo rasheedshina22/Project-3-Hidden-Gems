@@ -15,19 +15,20 @@ class TripsShow extends React.Component {
 
     }
 
-    // this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
-  // handleDelete(){
-  //   axios
-  //     .delete(`/api/trips/${this.props.match.params.id}`,{
-  //     })
-  //     .then(() => {
-  //       this.props.history.push('/trips')
-  //     })
-  //     .catch(err => console.log(err))
-  //
-  // }
+  handleDelete(){
+    axios
+      .delete(`/api/trips/${this.props.match.params.id}`,{
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => {
+        this.props.history.push('/trips')
+      })
+      .catch(err => console.log(err))
+
+  }
 
   componentDidMount() {
     axios.get(`/api/trips/${this.props.match.params.id}`)
@@ -40,7 +41,7 @@ class TripsShow extends React.Component {
   // }
 
   render(){
-    console.log(this.state)
+    // console.log(this.state)
     if(!this.state.trip) return null
     const { _id, name, image, category, description, user, gems } = this.state.trip
     return (

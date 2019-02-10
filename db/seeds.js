@@ -43,7 +43,7 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
             description: 'The best museum ever',
             category: 'Museum',
             location: 'London',
-            gems: gems
+            gems: gems.map(gem => gem._id)
           })
         })
     })
