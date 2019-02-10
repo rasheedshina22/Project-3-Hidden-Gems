@@ -9,9 +9,23 @@ class TripMap extends React.Component {
   componentDidMount() {
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
+      center: {lng: -0.0793599, lat: 51.5134382 },
       style: 'mapbox://styles/mapbox/dark-v9',
       zoom: 12
     })
+
+    // Add geolocate control to the map.
+    this.map.addControl(new mapboxgl.GeolocateControl({
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      trackUserLocation: true
+    }))
+
+
+    console.log('HERE are props (unsorted)', this.props.gems)
+
+
     this.props.gems.map(gem => {
       const latitude = gem.location.lat
       const longitude = gem.location.lon
@@ -19,6 +33,7 @@ class TripMap extends React.Component {
       const desc = gem.description
       const image = gem.image
       const type = gem.category
+
 
       //add a popup
       const popup = new mapboxgl.Popup({offset: 20})
@@ -31,7 +46,7 @@ class TripMap extends React.Component {
         <a href="https://www.google.com/maps/dir/?api=1&origin=${this.props.userLat},${this.props.userLng}&destination=${latitude},${longitude}" target="_blank" > Directions </a>
         `)
 
-
+      console.log('THERE data is flowing down', gem.location.lon)
 
       // Added type to be category so can be diffrent colors for Category
       const markerElement = document.createElement('DIV')
@@ -45,7 +60,11 @@ class TripMap extends React.Component {
 
   render() {
     return (
-      <div className="map" ref={el => this.mapDiv = el}/>
+
+      <div>
+        <div className='map' ref={mapDiv => this.mapDiv = mapDiv}></div>
+        <div>{this.props.children}</div>
+      </div>
     )
   }
 }
