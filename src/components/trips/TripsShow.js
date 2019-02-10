@@ -2,6 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import TripsMap from './TripsMap'
+import Auth from '../../lib/Auth'
 import Comments from '../common/Comments'
 
 import {Link} from 'react-router-dom'
@@ -33,10 +34,10 @@ class TripsShow extends React.Component {
       .then(res => this.setState({ trip: res.data }))
   }
 
-  componentDidUpdate() {
-    axios.get(`/api/trips/${this.props.match.params.id}`)
-      .then(res => this.setState({ gem: res.data }))
-  }
+  // componentDidUpdate() {
+  //   axios.get(`/api/trips/${this.props.match.params.id}`)
+  //     .then(res => this.setState({ trip: res.data }))
+  // }
 
   render(){
     console.log(this.state)
@@ -60,9 +61,13 @@ class TripsShow extends React.Component {
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
                 <hr />
-                <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
-                <hr />
-                <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                {Auth.canEdit(user._id) && (
+                  <div>
+                    <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
+                    <hr />
+                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -80,19 +85,9 @@ class TripsShow extends React.Component {
               <div className="content">
                 <TripsMap
                   gems = {gems}
-
                 />
               </div>
             </div>
-
-            <div className="columns is-multiline">
-              {this.state.trip.gems.map(gem =>
-                <div key={gem._id} className="column is-one-third">
-
-                </div>
-              )}
-            </div>
-
           </div>
         </div>
       </section>

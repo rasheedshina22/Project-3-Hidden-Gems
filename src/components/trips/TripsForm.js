@@ -2,7 +2,7 @@ import React from 'react'
 import Select from 'react-select'
 
 
-const TripsForm = ({ options, data, handleChange, handleSubmit, error }) => {
+const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChange, error }) => {
   return (
 
     <div className="container">
@@ -54,8 +54,15 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, error }) => {
             <div className="field">
               <label className="label">Gems</label>
               <div className="control">
-                <Select className="multi" isMulti
-                  options={options} />
+                <Select
+                  className="multi"
+                  isMulti
+                  options={options}
+                  // value={data.gems || ''}
+
+                  onChange={handleMultiChange}
+
+                />
               </div>
             </div>
 

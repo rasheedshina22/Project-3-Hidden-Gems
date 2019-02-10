@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Map from './GemsMap'
 import Comments from '../common/Comments'
+import Auth from '../../lib/Auth'
 
 import {Link} from 'react-router-dom'
 
@@ -37,12 +38,13 @@ class GemsShow extends React.Component {
       .then(res => this.setState({ gem: res.data }))
   }
 
-  componentDidUpdate() {
-    axios.get(`/api/gems/${this.props.match.params.id}`)
-      .then(res => this.setState({ gem: res.data }))
-  }
+  // componentDidUpdate() {
+  //   axios.get(`/api/gems/${this.props.match.params.id}`)
+  //     .then(res => this.setState({ gem: res.data }))
+  // }
 
   render(){
+    console.log(this.state)
     if(!this.state.gem) return null
     const { _id, name, image, category, description, user, location } = this.state.gem
     // const {comments} = this.state.comments
@@ -63,10 +65,15 @@ class GemsShow extends React.Component {
                 <h4 className="title is-4">Category: {category}</h4>
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
+
                 <hr />
-                <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
-                <hr />
-                <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                {Auth.canEdit(user._id) && (
+                  <div>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
+                    <hr />
+                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                  </div>
+                )}
               </div>
             </div>
           </div>

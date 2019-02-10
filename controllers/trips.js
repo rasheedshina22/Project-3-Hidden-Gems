@@ -18,6 +18,14 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
+    .populate(
+      [{
+        path: 'user'
+      },{
+        path: 'gems',
+        model: 'Gem'
+      }]
+    )
     .then(trip => res.status(200).json(trip))
     .catch(next)
 }
