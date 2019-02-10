@@ -1,6 +1,9 @@
 import React from 'react'
+import MapboxAutocomplete from 'react-mapbox-autocomplete'
 
-const GemsForm = ({ data, handleChange, handleSubmit, error }) => {
+
+
+const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect }) => {
   return (
 
     <div className="container">
@@ -48,31 +51,17 @@ const GemsForm = ({ data, handleChange, handleSubmit, error }) => {
                 />
               </div>
             </div>
-            <h4>Location</h4>
-            <div className="field">
-              <label className="label">Lat</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Lat"
-                  name="location.lat"
-                  onChange={handleChange}
-                  value={data.location.lat || ''}
-                />
-              </div>
+
+
+            <label className="label">Location</label>
+            <div className="control">
+              <MapboxAutocomplete
+                publicKey= {process.env.MAP_BOX_TOKEN}
+                inputClass="input"
+                onSuggestionSelect={suggestionSelect}
+                resetSearch={false}/>
             </div>
-            <div className="field">
-              <label className="label">Lon</label>
-              <div className="control">
-                <input
-                  className="input"
-                  placeholder="Lon"
-                  name="location.lon"
-                  onChange={handleChange}
-                  value={data.location.lon || ''}
-                />
-              </div>
-            </div>
+
 
             <div className="field">
               <label className="label">Category</label>
