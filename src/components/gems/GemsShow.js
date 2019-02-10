@@ -2,9 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Map from './GemsMap'
-import Comments from './GemsComments'
-import Auth from '../../lib/Auth'
-
+import Comments from '../common/Comments'
 
 import {Link} from 'react-router-dom'
 
@@ -13,50 +11,11 @@ class GemsShow extends React.Component {
     super()
 
     this.state = {
-      data: {},
-      comments: [
-        {
-          _id: '5c5d6111b86379150bbe78a2',
-          content: 'The Black Swan  is Amazing',
-          user: {
-            _id: '5c5d47d1fec6220d3fb62cdd',
-            email: 'ed2',
-            username: 'ed2',
-            __v: 0
-          },
-          createdAt: '2019-02-08T10:59:29.074Z',
-          updatedAt: '2019-02-08T10:59:29.074Z'
-        },
-        {
-          _id: '5c5d6111b86379150bbe78a2',
-          content: 'The Black Swan  is So Tasty!',
-          user: {
-            _id: '5c5d47d1fec6220d3fb62cdd',
-            email: 'ed2',
-            username: 'ed3',
-            __v: 0
-          },
-          createdAt: '2019-02-08T10:59:29.074Z',
-          updatedAt: '2019-02-08T10:59:29.074Z'
-        },
-        {
-          _id: '5c5d6111b86379150bbe78a2',
-          content: 'The Black Swan  is BADD',
-          user: {
-            _id: '5c5d47d1fec6220d3fb62cdd',
-            email: 'ed2',
-            username: 'ed4',
-            __v: 0
-          },
-          createdAt: '2019-02-08T10:59:29.074Z',
-          updatedAt: '2019-02-08T10:59:29.074Z'
-        }
-      ]
+      data: {}
     }
 
     // this.handleDelete = this.handleDelete.bind(this)
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
-    this.handleCommentChange = this.handleCommentChange.bind(this)
+
   }
 
   // handleDelete(){
@@ -71,28 +30,6 @@ class GemsShow extends React.Component {
   // }
 
 
-  handleCommentChange(e) {
-    const data = {...this.state.data, content: e.target.value }
-    const error = null
-    this.setState({ data, error })
-  }
-
-
-  handleCommentSubmit(e){
-    e.preventDefault()
-    axios
-      .post(`/api/gems/${this.props.match.params.id}/comments/`,
-        this.state.data,
-        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
-        })
-      .then(() => {
-        const data = {...this.state.data, content: '' }
-        const error = null
-        this.setState({ data, error })
-      })
-      .then(() => this.props.history.push(`/gems/${this.props.match.params.id}`))
-      .catch(() => this.setState({ error: 'An error occured' }))
-  }
 
 
   componentDidMount() {
@@ -140,10 +77,7 @@ class GemsShow extends React.Component {
             <div className="column">
               <Comments
                 {...this.state.gem}
-                {...this.state.data}
-                handleCommentChange ={this.handleCommentChange}
-                handleCommentSubmit ={this.handleCommentSubmit}
-
+                show='gems'
               />
             </div>
             <div className="column">

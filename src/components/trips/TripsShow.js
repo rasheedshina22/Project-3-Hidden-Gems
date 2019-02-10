@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import TripsMap from './TripsMap'
-
+import Comments from '../common/Comments'
 
 import {Link} from 'react-router-dom'
 
@@ -31,6 +31,11 @@ class TripsShow extends React.Component {
   componentDidMount() {
     axios.get(`/api/trips/${this.props.match.params.id}`)
       .then(res => this.setState({ trip: res.data }))
+  }
+
+  componentDidUpdate() {
+    axios.get(`/api/trips/${this.props.match.params.id}`)
+      .then(res => this.setState({ gem: res.data }))
   }
 
   render(){
@@ -66,7 +71,10 @@ class TripsShow extends React.Component {
           <hr />
           <div className="columns">
             <div className="column">
-              <h4 className="title is-4">Comments</h4>
+              <Comments
+                {...this.state.trip}
+                show='trips'
+              />
             </div>
             <div className="column">
               <div className="content">
