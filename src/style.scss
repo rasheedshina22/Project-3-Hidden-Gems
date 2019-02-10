@@ -7,9 +7,6 @@ body {
 }
 
 div.hero-body{
-  // background-image: url("");
-  // background-repeat: no-repeat;
-  // background-size: cover;
   justify-content: center;
     button{
       margin: 120px 10px 0 0;
@@ -20,12 +17,20 @@ div.hero-body{
   }
 }
 
-div.column {
-  color: #7A7A7A;
-}
-
 .card-content {
   padding: 1.5rem;
+}
+
+input.react-mapbox-ac-input {
+  margin-bottom: 10px;
+}
+
+.react-mapbox-ac-suggestion {
+  font-size: 18px;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .map {
