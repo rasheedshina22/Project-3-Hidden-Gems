@@ -29,6 +29,13 @@ class Auth {
     const now = Math.floor(Date.now() / 1000)
     return now < payload.exp
   }
+
+
+  static canEdit(id) {
+    const payload = this.getPayload()
+    if(!payload) return false
+    return payload.sub === id
+  }
 }
 
 export default Auth

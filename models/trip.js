@@ -14,7 +14,7 @@ const tripSchema = new mongoose.Schema({
   description: { type: String},
   category: { type: String},
   location: { type: String},
-  gems: { type: Array, required: true },
+  gems: { type: Array, required: true,  ref: 'Gems'},
   comments: [ commentSchema ]
 })
 

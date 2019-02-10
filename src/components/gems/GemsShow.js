@@ -2,9 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 import Map from './GemsMap'
-import Comments from './GemsComments'
+import Comments from '../common/Comments'
 import Auth from '../../lib/Auth'
-
 
 import {Link} from 'react-router-dom'
 
@@ -13,86 +12,26 @@ class GemsShow extends React.Component {
     super()
 
     this.state = {
-      data: {},
-      comments: [
-        {
-          _id: '5c5d6111b86379150bbe78a2',
-          content: 'The Black Swan  is Amazing',
-          user: {
-            _id: '5c5d47d1fec6220d3fb62cdd',
-            email: 'ed2',
-            username: 'ed2',
-            __v: 0
-          },
-          createdAt: '2019-02-08T10:59:29.074Z',
-          updatedAt: '2019-02-08T10:59:29.074Z'
-        },
-        {
-          _id: '5c5d6111b86379150bbe78a2',
-          content: 'The Black Swan  is So Tasty!',
-          user: {
-            _id: '5c5d47d1fec6220d3fb62cdd',
-            email: 'ed2',
-            username: 'ed3',
-            __v: 0
-          },
-          createdAt: '2019-02-08T10:59:29.074Z',
-          updatedAt: '2019-02-08T10:59:29.074Z'
-        },
-        {
-          _id: '5c5d6111b86379150bbe78a2',
-          content: 'The Black Swan  is BADD',
-          user: {
-            _id: '5c5d47d1fec6220d3fb62cdd',
-            email: 'ed2',
-            username: 'ed4',
-            __v: 0
-          },
-          createdAt: '2019-02-08T10:59:29.074Z',
-          updatedAt: '2019-02-08T10:59:29.074Z'
-        }
-      ]
+      data: {}
     }
 
-    // this.handleDelete = this.handleDelete.bind(this)
-    this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
-    this.handleCommentChange = this.handleCommentChange.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+
   }
 
-  // handleDelete(){
-  //   axios
-  //     .delete(`/api/gems/${this.props.match.params.id}`,{
-  //     })
-  //     .then(() => {
-  //       this.props.history.push('/gems')
-  //     })
-  //     .catch(err => console.log(err))
-  //
-  // }
-
-
-  handleCommentChange(e) {
-    const data = {...this.state.data, content: e.target.value }
-    const error = null
-    this.setState({ data, error })
-  }
-
-
-  handleCommentSubmit(e){
-    e.preventDefault()
+  handleDelete(){
     axios
-      .post(`/api/gems/${this.props.match.params.id}/comments/`,
-        this.state.data,
-        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
-        })
-      .then(() => {
-        const data = {...this.state.data, content: '' }
-        const error = null
-        this.setState({ data, error })
+      .delete(`/api/gems/${this.props.match.params.id}`,{
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
-      .then(() => this.props.history.push(`/gems/${this.props.match.params.id}`))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .then(() => {
+        this.props.history.push('/gems')
+      })
+      .catch(err => console.log(err))
+
   }
+
+
 
 
   componentDidMount() {
@@ -100,12 +39,13 @@ class GemsShow extends React.Component {
       .then(res => this.setState({ gem: res.data }))
   }
 
-  componentDidUpdate() {
-    axios.get(`/api/gems/${this.props.match.params.id}`)
-      .then(res => this.setState({ gem: res.data }))
-  }
+  // componentDidUpdate() {
+  //   axios.get(`/api/gems/${this.props.match.params.id}`)
+  //     .then(res => this.setState({ gem: res.data }))
+  // }
 
   render(){
+    console.log(this.state)
     if(!this.state.gem) return null
     const { _id, name, image, category, description, user, location } = this.state.gem
     // const {comments} = this.state.comments
@@ -126,10 +66,15 @@ class GemsShow extends React.Component {
                 <h4 className="title is-4">Category: {category}</h4>
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
+
                 <hr />
-                <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
-                <hr />
-                <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                {Auth.canEdit(user._id) && (
+                  <div>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
+                    <hr />
+                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -140,10 +85,7 @@ class GemsShow extends React.Component {
             <div className="column">
               <Comments
                 {...this.state.gem}
-                {...this.state.data}
-                handleCommentChange ={this.handleCommentChange}
-                handleCommentSubmit ={this.handleCommentSubmit}
-
+                show='gems'
               />
             </div>
             <div className="column">

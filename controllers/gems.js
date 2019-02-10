@@ -19,7 +19,13 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Gem
     .findById(req.params.id)
-    .populate('user')
+    .populate(
+      [{
+        path: 'user'
+      },{
+        path: 'comments.user'
+      }]
+    )
     .then(gem => res.status(200).json(gem))
     .catch(next)
 }
@@ -34,14 +40,9 @@ function updateRoute (req, res, next) {
 }
 
 function deleteRoute (req, res, next) {
-  // console.log(req.currentUser._id)
   Gem
     .findById(req.params.id)
-    // .then(gem => {
-    //   if(req.currentUser._id !== gem._id){
-    //     throw new Error()
-    //   }
-    // })
+    
     .then(gem => gem.remove())
     .then(() => res.sendStatus(204))
     .catch(next)

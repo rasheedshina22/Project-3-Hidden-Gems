@@ -7,9 +7,20 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 
 class TripMap extends React.Component {
   componentDidMount() {
+    let totalLat = 0
+    let totalLng = 0
+
+    this.props.gems.forEach(gem => {
+      totalLat += parseFloat(gem.location.lat)
+      totalLng += parseFloat(gem.location.lon)
+    })
+
+    const averageLat = totalLat / this.props.gems.length
+    const averageLng = totalLng / this.props.gems.length
+
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
-      center: {lng: -0.0793599, lat: 51.5134382 },
+      center: {lng: averageLng, lat: averageLat },
       style: 'mapbox://styles/mapbox/light-v9',
       zoom: 12
     })
@@ -22,9 +33,7 @@ class TripMap extends React.Component {
       trackUserLocation: true
     }))
 
-
     console.log('HERE are props (unsorted)', this.props.gems)
-
 
     this.props.gems.map(gem => {
       const latitude = gem.location.lat
