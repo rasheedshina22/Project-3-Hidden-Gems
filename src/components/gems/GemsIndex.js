@@ -11,17 +11,29 @@ class GemsIndex extends React.Component {
 
   constructor() {
     super()
-    this.state = { gems: null }
+    this.state = {
+      gems: [],
+      filteredGems: []
+    }
+
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
     axios.get('/api/gems')
-      .then(res => this.setState({ gems: res.data }))
+      .then(res => this.setState({ gems: res.data, filteredGems: res.data }))
   }
 
-  // handleSearch(e) {
-  // handleSearch for DROP DOWN Category
-  // }
+  handleSearch(e) {
+    if(e.target.value !== '') {
+      const getCategory = this.state.filteredGems.filter(gem =>
+        e.target.value === gem.category)
+      this.setState({ gems: getCategory })
+    } else {
+      this.setState({ gems: this.state.filteredGems })
+    }
+  }
+
 
   render() {
     if(!this.state.gems) return (
@@ -31,7 +43,8 @@ class GemsIndex extends React.Component {
         </div>
       </section>
     )
-    console.log('index/gems state is ----->',this.state.data)
+    console.log('index/gems state is -',this.state.gems)
+    console.log('filteredGems state is -',this.state.filteredGems)
     return (
 
       <section className="section">

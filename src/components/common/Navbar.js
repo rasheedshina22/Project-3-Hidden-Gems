@@ -52,19 +52,21 @@ class Navbar extends React.Component {
             </a>
           </div>
 
-          <div className="navbar-item has-dropdown is-hoverable navbar-start">
-            <a className="navbar-link">
-             Discover
-            </a>
+          <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
+            <div className="navbar-item has-dropdown is-hoverable navbar-start">
+              <a className="navbar-link">
+               Discover
+              </a>
 
-            <div className="navbar-dropdown">
-              <Link to="/gems" className="navbar-item">
-               The Hidden Gems
-              </Link>
-              <hr className="navbar-divider" />
-              <Link to="/trips" className="navbar-item">
-               The Trips
-              </Link>
+              <div className="navbar-dropdown">
+                <Link to="/gems" className="navbar-item">
+                 The Hidden Gems
+                </Link>
+                <hr className="navbar-divider" />
+                <Link to="/trips" className="navbar-item">
+                 The Trips
+                </Link>
+              </div>
             </div>
           </div>
 

@@ -10,6 +10,7 @@
     "seed": "node db/seeds"
   },
   "dependencies": {
+    "@mapbox/react-geocoder": "^2.5.0",
     "bcrypt": "^3.0.3",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
