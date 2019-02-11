@@ -131,9 +131,6 @@ $Parks: green;
 .Landmarks:before {
   background-color: $Landmarks;
   border: 0.5px solid darken($Landmarks, 20%);
-  z-index: -1;
-  border-radius: 50% 50% 0 50%;
-  transform: rotate(45deg);
 }
 
 .Viewpoints:before {
