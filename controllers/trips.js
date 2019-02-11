@@ -21,6 +21,9 @@ function showRoute(req, res, next) {
     .populate(
       [{
         path: 'user'
+      },
+      {
+        path: 'comments.user'
       },{
         path: 'gems',
         model: 'Gem'

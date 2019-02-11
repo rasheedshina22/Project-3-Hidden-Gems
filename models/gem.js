@@ -8,12 +8,12 @@ const commentSchema = new mongoose.Schema({
 })
 
 const gemSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: 'Please give your Gem a Name' },
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  image: { type: String, required: true },
+  image: { type: String, required: 'Please upload an Image for your Gem a name' },
   description: { type: String},
-  category: { type: String, required: true },
-  location: { type: Object, required: true },
+  category: { type: String, required: 'Please give your Gem a Category' },
+  location: { type: Object, required: 'Please give your Gem a Location' },
   comments: [ commentSchema ]
 })
 

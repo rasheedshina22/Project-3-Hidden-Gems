@@ -39,6 +39,19 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
             </div>
 
             <div className="field">
+              <label className="label">Category</label>
+              <div className="control">
+                <input
+                  className="input"
+                  placeholder="Category"
+                  name="category"
+                  onChange={handleChange}
+                  value={data.category || ''}
+                />
+              </div>
+            </div>
+
+            <div className="field">
               <label className="label">Description</label>
               <div className="control">
                 <input

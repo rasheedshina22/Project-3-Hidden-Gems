@@ -13,6 +13,7 @@ class Comments extends React.Component {
     }
 
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
+    this.handleCommentDelete = this.handleCommentDelete.bind(this)
     this.handleCommentChange = this.handleCommentChange.bind(this)
   }
 
@@ -40,14 +41,33 @@ class Comments extends React.Component {
   }
 
 
+  handleCommentDelete(e){
+    console.log(e.target.value)
+    e.preventDefault()
+    axios
+      .delete(`/api/${this.props.show}/${this.props._id}/comments/${e.target.value}`,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then(() => this.props.history.push(`/${this.props.show}/${this.props._id}`))
+      .catch(() => this.setState({ error: 'An error occured' }))
+  }
+
+  componentDidMount() {
+    axios.get(`/api/${this.props.show}/${this.props._id}`)
+      .then(res => this.setState({ gems: res.data }))
+  }
+
+
   render(){
+    if(!this.state.gems) return null
     return (
       <div>
         <h2 className="title is-4"> Comments</h2>
-        {this.props.comments.map((comment, index) => {
+        {this.state.gems.comments.map((comment, index) => {
           return (
             <div key={index}>
               <p> <strong>{comment.user.username}</strong> {comment.content} </p>
+              {Auth.canEdit(comment.user._id) &&<button value={comment._id} onClick={this.handleCommentDelete}>Delete</button>}
               <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
               <hr/>
             </div>

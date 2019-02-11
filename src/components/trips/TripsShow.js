@@ -41,7 +41,6 @@ class TripsShow extends React.Component {
   // }
 
   render(){
-    // console.log(this.state)
     if(!this.state.trip) return null
     const { _id, name, image, category, description, user, gems } = this.state.trip
     return (
