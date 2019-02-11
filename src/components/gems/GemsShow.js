@@ -100,9 +100,9 @@ class GemsShow extends React.Component {
                 <hr />
                 {Auth.canEdit(user._id) && (
                   <div>
-                    <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
                     <hr />
-                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                    <button className="button is-dark is-rounded" onClick={this.handleDelete}>Delete</button>
                   </div>
                 )}
               </div>

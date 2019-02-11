@@ -6,7 +6,7 @@ const GemsForm = ({handleSearch}) => {
     <div className="field">
       <div className="control">
         <label className="label"> <strong> Explore by category </strong> </label>
-        <div className="select">
+        <div className="select is-rounded">
           <select
             name="category"
             defaultValue="Please Choose..."

@@ -47,7 +47,7 @@ class TripsIndex extends React.Component {
       <section className="section">
         <div className="container">
           {Auth.isAuthenticated() && <header>
-            <Link to="/trips/new" className="button is-primary">Add trips</Link>
+            <Link to="/trips/new" className="button is-primary is-rounded">Add trips</Link>
             <hr />
           </header>}
 

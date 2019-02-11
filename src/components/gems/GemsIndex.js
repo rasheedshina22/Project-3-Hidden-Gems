@@ -50,7 +50,7 @@ class GemsIndex extends React.Component {
       <section className="section">
         <div className="container">
           {Auth.isAuthenticated() && <header>
-            <Link to="/gems/new" className="button is-primary">Add gem</Link>
+            <Link to="/gems/new" className="button is-primary is-rounded">Add gem</Link>
             <hr />
           </header>}
 
