@@ -53,7 +53,7 @@ class GemsShow extends React.Component {
         this.setState({...this.state, gem: res.data, data: {content: ''} })
       })
       .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch(() => this.setState({ errors: 'An error occured' }))
   }
 
 

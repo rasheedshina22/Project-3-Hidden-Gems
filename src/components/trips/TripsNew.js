@@ -23,25 +23,14 @@ class TripsNew extends React.Component {
 
   handleChange({ target: { name, value } }) {
     const data = {...this.state.data, [name]: value }
-    const error = null
-    this.setState({ data, error })
+    const errors = { ...this.state.errors, [name]: '' }
+    this.setState({ data, errors })
   }
 
   handleMultiChange(e) {
     const gems = e.map(gem => gem.value)
     const data = {...this.state.data, gems: gems }
     this.setState({ data })
-
-    //
-    // const options = e.target.options
-    // const value = []
-    // for (var i = 0, l = options.length; i < l; i++) {
-    //   if (options[i].selected) {
-    //     value.push(options[i].value)
-    //   }
-    //   const data = {...this.state.data.gems, gems: value }
-    //   this.setState({ data })
-    // }
   }
 
   handleSubmit(e) {
