@@ -61,7 +61,7 @@ import Auth from '../../lib/Auth'
 // render(){
 //   if(!this.state.gems) return null
 
-const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit, error  }) => {
+const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit  }) => {
   return (
     <div>
       <h2 className="title is-4"> Comments</h2>
