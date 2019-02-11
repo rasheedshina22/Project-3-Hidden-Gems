@@ -34,9 +34,23 @@ userSchema.pre('save', function hashPassword(next) {
 
 userSchema.methods.validatePassword = function(password) {
   return bcrypt.compareSync(password, this.password)
+
 }
 
+userSchema.virtual('gems',{
+  ref: 'Gem',
+  localField: '_id',
+  foreignField: 'user'
+})
+
+userSchema.virtual('trips',{
+  ref: 'Trip',
+  localField: '_id',
+  foreignField: 'user'
+})
+
 userSchema.set('toJSON', {
+  virtuals: true,
   transform(doc, json) {
     delete json.password
     return json

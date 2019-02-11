@@ -6,9 +6,11 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import 'bulma'
 import './style.scss'
 import GemsIndex from './components/gems/GemsIndex'
-// import ArtistsShow from './components/artists/ArtistsShow'
+
 import GemsNew from './components/gems/GemsNew'
 import GemsShow from './components/gems/GemsShow'
+
+import UserShow from './components/user/UserShow'
 //
 import TripsIndex from './components/trips/TripsIndex'
 import TripsNew from './components/trips/TripsNew'
@@ -42,6 +44,7 @@ class App extends React.Component {
 
           <Switch>
             <SecureRoute path="/gems/new" component={GemsNew} />
+            <SecureRoute path="/user/:id" component={UserShow} />
             <Route path="/gems/:id" component={GemsShow} />
             <Route path="/gems" component={GemsIndex} />
             <SecureRoute path="/trips/new" component={TripsNew} />
