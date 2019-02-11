@@ -92,7 +92,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
               </div>
             </div>
 
-            <button className="button is-primary is-block is-info is-medium is-fullwidth">Create Trip</button>
+            <button className="button is-rounded is-medium is-fullwidth is-primary">Create Trip</button>
           </form>
         </div>
       </div>

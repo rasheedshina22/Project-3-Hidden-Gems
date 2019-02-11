@@ -80,7 +80,7 @@ class Login extends React.Component {
                     Remember me
                   </label>
                 </div>
-                <button className="button is-block is-info is-medium is-fullwidth">Login</button>
+                <button className="button is-rounded is-medium is-fullwidth is-primary">Login</button>
               </form>
 
             </div>

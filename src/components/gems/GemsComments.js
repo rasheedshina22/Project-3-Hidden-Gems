@@ -15,7 +15,7 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
       })}
       <form onSubmit={handleCommentSubmit}>
         <textarea className="textarea" placeholder="Add your comments!" value={content} onChange={handleCommentChange} rows="6"></textarea>
-        <button className="button is-dark"> Add Commment </button>
+        <button className="button is-dark is-rounded"> Add Commment </button>
       </form>
     </div>
 

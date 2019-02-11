@@ -77,7 +77,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
       })}
       <form onSubmit={handleCommentSubmit}>
         <textarea className="textarea" placeholder="Add your comments!" value={contentInput} onChange={handleCommentChange} rows="6"></textarea>
-        <button className="button is-dark"> Add Commment </button>
+        <button className="button is-dark is-rounded"> Add Commment </button>
       </form>
     </div>
   )

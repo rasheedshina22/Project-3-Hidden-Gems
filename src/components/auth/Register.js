@@ -91,7 +91,7 @@ class Register extends React.Component {
                   </div>
                 </div>
 
-                <button className="button is-block is-info is-medium is-fullwidth">Sign Up</button>
+                <button className="button is-primary is-medium is-fullwidth is-rounded">Sign Up</button>
 
               </form>
             </div>
