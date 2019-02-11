@@ -47,7 +47,7 @@ class GemsShow extends React.Component {
   render(){
     console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description, user, location } = this.state.gem
+    const { _id, name, image, category, description, user, location, address } = this.state.gem
     // const {comments} = this.state.comments
     return (
       <section className="section">
@@ -91,6 +91,7 @@ class GemsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <h2 className="title is-4"> Location</h2>
+                <p> {address} </p>
                 <Map
                   location ={location}/>
               </div>
