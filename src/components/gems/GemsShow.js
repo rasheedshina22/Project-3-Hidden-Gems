@@ -92,7 +92,11 @@ class GemsShow extends React.Component {
               <div className="content">
                 <h2 className="title is-4"> Location</h2>
                 <Map
-                  location ={location}/>
+                  location ={location}
+                  gems = {this.state.gem}
+
+                />
+
               </div>
             </div>
           </div>
