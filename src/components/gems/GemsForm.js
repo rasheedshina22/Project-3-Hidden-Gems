@@ -3,14 +3,14 @@ import MapboxAutocomplete from 'react-mapbox-autocomplete'
 
 
 
-const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect }) => {
+const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
 
     <div className="container">
       <div className="column is-6 is-offset-3 ">
 
         <h3 className="title has-text-centered">Add Your Gem</h3>
-        {error && <div className="notification is-danger">{error}</div>}
+        {errors && <div className="notification is-danger">Missing fields</div>}
         <div className="box">
           <form onSubmit={handleSubmit}>
             <div className="field">
@@ -23,6 +23,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect })
                   onChange={handleChange}
                   value={data.name || ''}
                 />
+                {errors.name && <small>{errors.name}</small>}
               </div>
             </div>
 
@@ -36,6 +37,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect })
                   onChange={handleChange}
                   value={data.image || ''}
                 />
+                {errors.image && <small>{errors.image}</small>}
+
               </div>
             </div>
 
@@ -49,19 +52,10 @@ const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect })
                   onChange={handleChange}
                   value={data.description || ''}
                 />
+                {errors.description && <small>{errors.description}</small>}
+
               </div>
             </div>
-
-
-            <label className="label">Location</label>
-            <div className="control">
-              <MapboxAutocomplete
-                publicKey= {process.env.MAP_BOX_TOKEN}
-                inputClass="input"
-                onSuggestionSelect={suggestionSelect}
-                resetSearch={false}/>
-            </div>
-
 
             <div className="field">
               <label className="label">Category</label>
@@ -85,11 +79,35 @@ const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect })
                     <option> Parks </option>
 
                   </select>
+
                 </div>
+                {errors.category && <small>{errors.category}</small>}
               </div>
             </div>
 
+<<<<<<< HEAD
             <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
+=======
+
+            <label className="label">Location</label>
+            <div className="control">
+              <MapboxAutocomplete
+                publicKey= {process.env.MAP_BOX_TOKEN}
+                inputClass="input"
+                onSuggestionSelect={suggestionSelect}
+                resetSearch={false}
+                onchange={handleChange}
+                name="location"
+              />
+              {errors.location && <small>{errors.location}</small>}
+
+            </div>
+
+
+            <div>
+              <button className="button is-block is-info is-medium is-fullwidth">Submit</button>
+            </div>
+>>>>>>> development
           </form>
         </div>
       </div>

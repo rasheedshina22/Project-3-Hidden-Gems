@@ -13,8 +13,9 @@ class TripsShow extends React.Component {
     super()
 
     this.state = {
+      trip: null,
+      userLocation: null,
       data: {}
-
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -72,7 +73,22 @@ class TripsShow extends React.Component {
   componentDidMount() {
     axios.get(`/api/trips/${this.props.match.params.id}`)
       .then(res => this.setState({ trip: res.data }))
+
+    // also get the user location...
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(position => {
+        console.log('LOCATION FOUND')
+        this.setState({
+          userLocation: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        })
+      })
+    }
+
   }
+
 
   render(){
     if(!this.state.trip) return null
@@ -132,6 +148,7 @@ class TripsShow extends React.Component {
               <div className="content">
                 <TripsMap
                   gems = {gems}
+                  userLocation={this.state.userLocation}
                 />
               </div>
             </div>
