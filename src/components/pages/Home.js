@@ -1,11 +1,9 @@
 import React from 'react'
-import LoadingPage from '../LoadingPage'
 
 const Home = () => {
   return (
     <section>
 
-      <LoadingPage/>
       <section className="hero is-large is-dark">
         <div className="hero-body">
           <div className="container">
