@@ -73,9 +73,17 @@ const GemsForm = ({ data, handleChange, handleSubmit, error, suggestionSelect })
                     onChange={handleChange}
                   >
                     <option disabled>Please Choose...</option>
+                    <option value="" > Search All </option>
                     <option> Pubs </option>
-                    <option> Musuems </option>
+                    <option> Bars </option>
                     <option> Restaurants </option>
+                    <option> Bars </option>
+                    <option> Cafes </option>
+                    <option> Landmarks </option>
+                    <option> Viewpoints </option>
+                    <option> Religious Sites </option>
+                    <option> Galleries </option>
+                    <option> Parks </option>
 
                   </select>
                 </div>
