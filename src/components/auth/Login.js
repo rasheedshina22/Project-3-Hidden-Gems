@@ -32,7 +32,7 @@ class Login extends React.Component {
         Flash.setMessage('success', res.data.message)
         this.props.history.push('/')
       })
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch(() => this.setState({ error: 'Incorrect Credentials' }))
   }
 
   render() {

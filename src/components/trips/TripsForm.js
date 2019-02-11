@@ -2,14 +2,14 @@ import React from 'react'
 import Select from 'react-select'
 
 
-const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChange, error }) => {
+const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChange, errors }) => {
   return (
 
     <div className="container">
       <div className="column is-6 is-offset-3 ">
 
         <h3 className="title has-text-centered">Create Your Trip</h3>
-        {error && <div className="notification is-danger">{error}</div>}
+        {errors && <div className="notification is-danger">Missing Fields</div>}
         <div className="box">
           <form onSubmit={handleSubmit}>
             <div className="field">
@@ -22,6 +22,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   onChange={handleChange}
                   value={data.name || ''}
                 />
+                {errors.name && <small>{errors.name}</small>}
+
               </div>
             </div>
 
@@ -35,6 +37,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   onChange={handleChange}
                   value={data.image || ''}
                 />
+                {errors.image && <small>{errors.image}</small>}
+
               </div>
             </div>
 
@@ -61,6 +65,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                     <option> Family Trips </option>
                   </select>
                 </div>
+                {errors.category && <small>{errors.category}</small>}
+
               </div>
             </div>
 
@@ -74,6 +80,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   onChange={handleChange}
                   value={data.description || ''}
                 />
+                {errors.description && <small>{errors.description}</small>}
+
               </div>
             </div>
 
@@ -85,10 +93,12 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   isMulti
                   options={options}
                   // value={data.gems || ''}
-
+                  name="gems"
                   onChange={handleMultiChange}
 
                 />
+                {errors.gems && <small>{errors.gems}</small>}
+
               </div>
             </div>
 
