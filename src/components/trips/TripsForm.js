@@ -41,13 +41,26 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
             <div className="field">
               <label className="label">Category</label>
               <div className="control">
-                <input
-                  className="input"
-                  placeholder="Category"
-                  name="category"
-                  onChange={handleChange}
-                  value={data.category || ''}
-                />
+                <div className="select is-fullwidth">
+                  <select
+                    name="category"
+                    defaultValue="Please Choose..."
+                    onChange={handleChange}
+                  >
+                    <option disabled>Please Choose...</option>
+                    <option value="" > Search All </option>
+                    <option> Pubs </option>
+                    <option> Museums </option>
+                    <option> Restaurants </option>
+                    <option> Caravan Trips </option>
+                    <option> Road Trips </option>
+                    <option> Weekend Trips </option>
+                    <option> Sunday Trips </option>
+                    <option> Mid-week Trips </option>
+                    <option> Business Trips </option>
+                    <option> Family Trips </option>
+                  </select>
+                </div>
               </div>
             </div>
 
