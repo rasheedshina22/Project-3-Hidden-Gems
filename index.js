@@ -6,10 +6,10 @@ mongoose.plugin(require('mongoose-unique-validator'))
 const bodyParser = require('body-parser')
 const routes = require('./config/routes')
 const errorHandler = require('./lib/errorHandler')
-
+const { dbURI } = require('./config/environment')
 const app = express()
 
-mongoose.connect(process.env.MONGODB_URI)
+mongoose.connect(dbURI)
 // mongoose.connect('mongodb://localhost/hidden-gems')
 
 app.use(express.static(`${__dirname}/dist`))
