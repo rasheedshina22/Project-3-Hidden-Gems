@@ -12,10 +12,14 @@ class TripsShow extends React.Component {
     super()
 
     this.state = {
+      data: {}
 
     }
 
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
+    // this.handleCommentDelete = this.handleCommentDelete.bind(this)
+    this.handleCommentChange = this.handleCommentChange.bind(this)
   }
 
   handleDelete(){
@@ -29,6 +33,41 @@ class TripsShow extends React.Component {
       .catch(err => console.log(err))
 
   }
+
+  handleCommentChange(e) {
+    const data = {...this.state.data, content: e.target.value }
+    const error = null
+    this.setState({ data, error })
+  }
+
+
+  handleCommentSubmit(e){
+    e.preventDefault()
+    axios
+      .post(`/api/trips/${this.state.trip._id}/comments/`,
+        this.state.data,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        console.log(res.data)
+        this.setState({...this.state, trip: res.data  })
+      })
+      .then(() => this.props.history.push(`/trips/${this.state.gem._id}`))
+      .catch(() => this.setState({ error: 'An error occured' }))
+  }
+
+
+  // handleCommentDelete(e){
+  //   console.log(e.target.value)
+  //   e.preventDefault()
+  //   axios
+  //     .delete(`/api/gems/${this.props._id}/comments/${e.target.value}`,
+  //       {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+  //       })
+  //     .then(() => this.props.history.push(`/${this.props.show}/${this.props._id}`))
+  //     .catch(() => this.setState({ error: 'An error occured' }))
+  // }
+
 
   componentDidMount() {
     axios.get(`/api/trips/${this.props.match.params.id}`)
@@ -77,8 +116,11 @@ class TripsShow extends React.Component {
           <div className="columns">
             <div className="column">
               <Comments
+                handleCommentSubmit={this.handleCommentSubmit}
+                handleCommentChange={this.handleCommentChange}
+                handleCommentDelete={this.handleCommentDelete}
                 {...this.state.trip}
-                show='trips'
+                contentInput= {this.state.data.content}
               />
             </div>
             <div className="column">
