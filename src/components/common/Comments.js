@@ -61,7 +61,7 @@ import Auth from '../../lib/Auth'
 // render(){
 //   if(!this.state.gems) return null
 
-const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit, error  }) => {
+const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit  }) => {
   return (
     <div>
       <h2 className="title is-4"> Comments</h2>
@@ -77,7 +77,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
       })}
       <form onSubmit={handleCommentSubmit}>
         <textarea className="textarea" placeholder="Add your comments!" value={contentInput} onChange={handleCommentChange} rows="6"></textarea>
-        <button className="button is-dark"> Add Commment </button>
+        <button className="button is-dark is-rounded"> Add Commment </button>
       </form>
     </div>
   )

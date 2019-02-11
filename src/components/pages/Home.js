@@ -13,8 +13,8 @@ const Home = () => {
             <h2 className="subtitle">
     Welcome
             </h2>
-            <a href = "/gems"><button className="button is-medium is-primary"> Gems </button></a>
-            <a href = "/trips"><button className="button is-medium is-primary"> Trips </button></a>
+            <a href = "/gems"><button className="button is-medium is-primary is-rounded"> Gems </button></a>
+            <a href = "/trips"><button className="button is-medium is-primary is-rounded"> Trips </button></a>
 
           </div>
         </div>

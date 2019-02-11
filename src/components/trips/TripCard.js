@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const TripCard = ({ _id, name, image, category, location }) => {
+const TripCard = ({ _id, name, image, category }) => {
   return (
 
     <Link to={`/trips/${_id}`}>
@@ -17,7 +17,6 @@ const TripCard = ({ _id, name, image, category, location }) => {
         <div className="card-content">
           <div className="content">
             <p><strong>Category: </strong> {category}</p>
-            <p><strong>Location: </strong> {location}</p>
           </div>
         </div>
       </div>

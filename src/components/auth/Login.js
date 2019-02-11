@@ -32,7 +32,7 @@ class Login extends React.Component {
         Flash.setMessage('success', res.data.message)
         this.props.history.push('/')
       })
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch(() => this.setState({ error: 'Incorrect Credentials' }))
   }
 
   render() {
@@ -80,7 +80,7 @@ class Login extends React.Component {
                     Remember me
                   </label>
                 </div>
-                <button className="button is-block is-info is-medium is-fullwidth">Login</button>
+                <button className="button is-rounded is-medium is-fullwidth is-primary">Login</button>
               </form>
 
             </div>

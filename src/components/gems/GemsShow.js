@@ -56,7 +56,7 @@ class GemsShow extends React.Component {
         this.setState({...this.state, gem: res.data, data: {content: ''} })
       })
       .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch(() => this.setState({ errors: 'An error occured' }))
   }
 
 
@@ -97,7 +97,6 @@ class GemsShow extends React.Component {
     console.log(this.state)
     if(!this.state.gem) return null
     const { _id, name, image, category, description, user, location, address } = this.state.gem
-    // const {comments} = this.state.comments
     return (
       <section className="section">
         <div className="container">
@@ -119,9 +118,8 @@ class GemsShow extends React.Component {
                 <hr />
                 {Auth.canEdit(user._id) && (
                   <div>
-                    <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
-                    <hr />
-                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
+                    <button className="button is-dark is-rounded" onClick={this.handleDelete}>Delete</button>
                   </div>
                 )}
               </div>

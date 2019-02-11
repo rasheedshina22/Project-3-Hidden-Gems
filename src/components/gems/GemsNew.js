@@ -15,13 +15,10 @@ class GemsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        location: {
-          lat: '',
-          lon: ''
-        },
+        location: null,
         address: ''
       },
-      error: null
+      errors: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -30,9 +27,13 @@ class GemsNew extends React.Component {
   }
 
   handleChange({ target: { name, value } }) {
+    if(name === 'location'){
+      console.log('location')
+    }
+
     const data = {...this.state.data, [name]: value }
-    const error = null
-    this.setState({ data, error })
+    const errors = { ...this.state.errors, [name]: '' }
+    this.setState({ data, errors })
   }
 
   suggestionSelect(result, lat, lng, text) {
@@ -44,7 +45,9 @@ class GemsNew extends React.Component {
       },
       address: result, text
     }
-    this.setState({data})
+    const errors = { ...this.state.errors, location: '' }
+
+    this.setState({data, errors})
   }
 
   handleSubmit(e) {
@@ -54,7 +57,7 @@ class GemsNew extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/gems'))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch((err) => this.setState({errors: err.response.data}))
   }
 
   render() {
@@ -63,7 +66,7 @@ class GemsNew extends React.Component {
 
         <GemsForm
           data={this.state.data}
-          error={this.state.error}
+          errors={this.state.errors}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}

@@ -13,7 +13,7 @@ class TripsNew extends React.Component {
       data: {
 
       },
-      error: null
+      errors: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -23,25 +23,15 @@ class TripsNew extends React.Component {
 
   handleChange({ target: { name, value } }) {
     const data = {...this.state.data, [name]: value }
-    const error = null
-    this.setState({ data, error })
+    const errors = { ...this.state.errors, [name]: '' }
+    this.setState({ data, errors })
   }
 
   handleMultiChange(e) {
     const gems = e.map(gem => gem.value)
     const data = {...this.state.data, gems: gems }
-    this.setState({ data })
-
-    //
-    // const options = e.target.options
-    // const value = []
-    // for (var i = 0, l = options.length; i < l; i++) {
-    //   if (options[i].selected) {
-    //     value.push(options[i].value)
-    //   }
-    //   const data = {...this.state.data.gems, gems: value }
-    //   this.setState({ data })
-    // }
+    const errors = { ...this.state.errors, gems: '' }
+    this.setState({ data, errors })
   }
 
   handleSubmit(e) {
@@ -52,7 +42,7 @@ class TripsNew extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/trips'))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch((err) => this.setState({errors: err.response.data}))
   }
 
   componentDidMount() {
@@ -72,7 +62,7 @@ class TripsNew extends React.Component {
 
         <TripsForm
           data={this.state.data}
-          error={this.state.error}
+          errors={this.state.errors}
           options = {this.state.options}
           handleChange={this.handleChange}
           handleMultiChange={this.handleMultiChange}
