@@ -4,6 +4,7 @@ import axios from 'axios'
 import Map from '../gems/GemsMap'
 
 
+
 import {Link} from 'react-router-dom'
 
 class TripsShow extends React.Component {
@@ -36,7 +37,7 @@ class TripsShow extends React.Component {
   render(){
     console.log(this.state)
     if(!this.state.trip) return null
-    const { _id, name, image, category, description, user } = this.state.trip
+    const { _id, name, image, category, description, user, gems } = this.state.trip
     return (
       <section className="section">
         <div className="container">
@@ -54,6 +55,14 @@ class TripsShow extends React.Component {
                 <h4 className="title is-4">Category: {category}</h4>
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
+                <hr />
+                <h4 className="title is-4">Gems:</h4>
+                <div>
+                  {gems.map((gem, index) => {
+                    return <Link to={`/gems/${gem._id}`} className="button is-primary" key={index}> {gem.name} </Link>
+                  })}
+                </div>
+
                 <hr />
                 <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
                 <hr />

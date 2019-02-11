@@ -49,10 +49,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit }) => {
       <div className="field">
         <label className="label">Gems</label>
         <div className="control">
-
           <Select className="multi" isMulti
             options={options} />
-
         </div>
       </div>
 
