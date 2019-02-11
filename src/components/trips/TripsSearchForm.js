@@ -14,9 +14,17 @@ const TripsForm = ({ handleSearch }) => {
           onChange={handleSearch}
         >
           <option disabled>Please Choose...</option>
+          <option value="" > Search All </option>
           <option> Pubs </option>
-          <option> Museum </option>
+          <option> Museums </option>
           <option> Restaurants </option>
+          <option> Caravan Trips </option>
+          <option> Road Trips </option>
+          <option> Weekend Trips </option>
+          <option> Sunday Trips </option>
+          <option> Mid-week Trips </option>
+          <option> Business Trips </option>
+          <option> Family Trips </option>
         </select>
       </div>
     </div>

@@ -42,7 +42,7 @@ function updateRoute (req, res, next) {
 function deleteRoute (req, res, next) {
   Gem
     .findById(req.params.id)
-    
+
     .then(gem => gem.remove())
     .then(() => res.sendStatus(204))
     .catch(next)
@@ -56,6 +56,7 @@ function commentCreateRoute(req, res, next) {
       gem.comments.push(req.body)
       return gem.save()
     })
+    .then(gem => Gem.populate(gem, { path: 'user comments.user' }))
     .then(gem => res.status(201).json(gem))
     .catch(next)
 }
@@ -67,10 +68,11 @@ function commentDeleteRoute(req, res, next) {
       const comment = gem.comments.id(req.params.commentId)
       console.log(comment)
       comment.remove()
-      gem.save()
-      return gem
+      return gem.save()
+
     })
-    .then(gem => res.json(gem))
+    .then(gem => Gem.populate(gem, { path: 'user comments.user' }))
+    .then(gem => res.status(201).json(gem))
     .catch(next)
 }
 

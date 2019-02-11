@@ -25,15 +25,41 @@ mongoose.connect(process.env.MONGODB_URI, (err, db) => {
         user: user._id,
         image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
         description: 'Nice pub in Aldgate',
-        category: 'Pub',
-        location: {lat: 51.5134382, lon: -0.0793599}
+        category: 'Pubs',
+        location: {lat: 51.5134382, lon: -0.0793599},
+        address: '7, Monohaus, 143 Mare St, London E8 3FW'
       },{
         name: 'White Swan',
         user: user._id,
         image: 'https://media-cdn.tripadvisor.com/media/photo-s/03/18/db/11/white-swan-restaurant.jpg',
         description: 'Brilliant restaurant',
-        category: 'Restaurant',
-        location: {lat: 51.5144682, lon: -0.0793569}
+        category: 'Restaurants',
+        location: {lat: 51.5144682, lon: -0.0793569},
+        address: '2 Station Rd, Teddington TW11 8EW'
+      },{
+        name: 'Black Dragon',
+        user: user._id,
+        image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
+        description: 'Nice pub in Aldgate',
+        category: 'Pubs',
+        location: {lat: 51.5134382, lon: -0.0793599},
+        address: 'Showcase Complex, Redfield Way, Nottingham NG7 2UW'
+      },{
+        name: 'Nepali Food',
+        user: user._id,
+        image: 'https://static1.squarespace.com/static/5a45133832601e14c4a7d06e/t/5a4e9929005559236df8f0f9/1515120824769/photo.jpg',
+        description: 'Best Food In the World',
+        category: 'Restaurants',
+        location: {lat: 51.5134382, lon: -0.0793599},
+        address: '7, Monohaus, 143 Mare St, London E8 3FW'
+      },{
+        name: 'Nepali Food',
+        user: user._id,
+        image: 'https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg',
+        description: 'nice mountain',
+        category: 'Pubs',
+        location: {lat: 51.5134382, lon: -0.0793599},
+        address: ' 77-79 George St, Oxford OX1 2BQ'
       }])
         .then(gems => {
           return Trip.create({

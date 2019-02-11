@@ -14,10 +14,14 @@ class TripsShow extends React.Component {
 
     this.state = {
       trip: null,
-      userLocation: null
+      userLocation: null,
+      data: {}
     }
 
     this.handleDelete = this.handleDelete.bind(this)
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
+    this.handleCommentDelete = this.handleCommentDelete.bind(this)
+    this.handleCommentChange = this.handleCommentChange.bind(this)
   }
 
   handleDelete(){
@@ -30,6 +34,40 @@ class TripsShow extends React.Component {
       })
       .catch(err => console.log(err))
 
+  }
+
+  handleCommentChange(e) {
+    const data = {...this.state.data, content: e.target.value }
+    const error = null
+    this.setState({ data, error })
+  }
+
+
+  handleCommentSubmit(e){
+    e.preventDefault()
+    axios
+      .post(`/api/trips/${this.state.trip._id}/comments/`,
+        this.state.data,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        this.setState({...this.state, content: '', trip: res.data, data: {content: ''}  })
+      })
+      .then(() => this.props.history.push(`/trips/${this.state.trip._id}`))
+      .catch(() => this.setState({ error: 'An error occured' }))
+  }
+
+  handleCommentDelete(e){
+    e.preventDefault()
+    axios
+      .delete(`/api/trips/${this.state.trip._id}/comments/${e.target.value}`,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        this.setState({...this.state, trip: res.data  })
+      })
+      .then(() => this.props.history.push(`/trips/${this.state.trip._id}`))
+      .catch(() => this.setState({ error: 'An error occured' }))
   }
 
   componentDidMount() {
@@ -51,12 +89,6 @@ class TripsShow extends React.Component {
 
   }
 
-
-
-  // componentDidUpdate() {
-  //   axios.get(`/api/trips/${this.props.match.params.id}`)
-  //     .then(res => this.setState({ trip: res.data }))
-  // }
 
   render(){
     if(!this.state.trip) return null
@@ -102,8 +134,11 @@ class TripsShow extends React.Component {
           <div className="columns">
             <div className="column">
               <Comments
+                handleCommentSubmit={this.handleCommentSubmit}
+                handleCommentChange={this.handleCommentChange}
+                handleCommentDelete={this.handleCommentDelete}
                 {...this.state.trip}
-                show='trips'
+                contentInput= {this.state.data.content}
               />
             </div>
             <div className="column">

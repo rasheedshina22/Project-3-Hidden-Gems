@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const GemCard = ({ _id, name, image, category, location }) => {
+const GemCard = ({ _id, name, image, category, address }) => {
   return (
 
     <Link to={`/gems/${_id}`}>
@@ -16,8 +16,8 @@ const GemCard = ({ _id, name, image, category, location }) => {
         </div>
         <div className="card-content">
           <div className="content">
-            <p><strong>Category: </strong> {category}</p>
-            <p><strong>Location: </strong> {location.lat}</p>
+            <p><strong>Category: </strong> {category} </p>
+            <p><strong>Location: </strong> {address} </p>
           </div>
         </div>
       </div>
