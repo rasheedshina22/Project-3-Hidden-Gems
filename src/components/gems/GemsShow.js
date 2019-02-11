@@ -17,7 +17,7 @@ class GemsShow extends React.Component {
 
     this.handleDelete = this.handleDelete.bind(this)
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
-    // this.handleCommentDelete = this.handleCommentDelete.bind(this)
+    this.handleCommentDelete = this.handleCommentDelete.bind(this)
     this.handleCommentChange = this.handleCommentChange.bind(this)
 
   }
@@ -50,23 +50,27 @@ class GemsShow extends React.Component {
         })
       .then((res) => {
         console.log(res.data)
-        this.setState({...this.state, gem: res.data  })
+        this.setState({...this.state, gem: res.data, data: {content: ''} })
       })
       .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
       .catch(() => this.setState({ error: 'An error occured' }))
   }
 
 
-  // handleCommentDelete(e){
-  //   console.log(e.target.value)
-  //   e.preventDefault()
-  //   axios
-  //     .delete(`/api/gems/${this.props._id}/comments/${e.target.value}`,
-  //       {headers: { Authorization: `Bearer ${Auth.getToken()}`}
-  //       })
-  //     .then(() => this.props.history.push(`/${this.props.show}/${this.props._id}`))
-  //     .catch(() => this.setState({ error: 'An error occured' }))
-  // }
+  handleCommentDelete(e){
+    console.log(e.target.value)
+    e.preventDefault()
+    axios
+      .delete(`/api/gems/${this.state.gem._id}/comments/${e.target.value}`,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        console.log(res.data)
+        this.setState({...this.state, gem: res.data })
+      })
+      .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
+      .catch(() => this.setState({ error: 'An error occured' }))
+  }
 
 
   componentDidMount() {
@@ -77,7 +81,7 @@ class GemsShow extends React.Component {
   render(){
     console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description, user, location } = this.state.gem
+    const { _id, name, image, category, description, user, location, address } = this.state.gem
     // const {comments} = this.state.comments
     return (
       <section className="section">
@@ -124,6 +128,7 @@ class GemsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <h2 className="title is-4"> Location</h2>
+                <p> {address} </p>
                 <Map
                   location ={location}/>
               </div>

@@ -13,29 +13,32 @@ class GemsIndex extends React.Component {
     super()
     this.state = {
       gems: [],
-      filteredGems: []
+      category: 'All',
+      location: ''
     }
 
-    this.handleSearch = this.handleSearch.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
     axios.get('/api/gems')
-      .then(res => this.setState({ gems: res.data, filteredGems: res.data }))
+      .then(res => this.setState({ gems: res.data }))
   }
 
-  handleSearch(e) {
-    if(e.target.value !== '') {
-      const getCategory = this.state.filteredGems.filter(gem =>
-        e.target.value === gem.category)
-      this.setState({ gems: getCategory })
-    } else {
-      this.setState({ gems: this.state.filteredGems })
-    }
+  handleChange({ target: { name, value } }) {
+    this.setState({ [name]: value })
   }
 
+  filteredGems() {
+    const re = new RegExp(this.state.location, 'i')
+    if(!this.state.category && !this.state.location) return this.state.gems
+    return this.state.gems.filter(gem => {
+      return re.test(gem.address) && (this.state.category === 'All' || gem.category === this.state.category)
+    })
+  }
 
   render() {
+    console.log(this.state)
     if(!this.state.gems) return (
       <section className="section">
         <div className="container">
@@ -54,10 +57,10 @@ class GemsIndex extends React.Component {
             <hr />
           </header>}
 
-          <GemsSearchForm handleSearch={this.handleSearch}/>
+          <GemsSearchForm handleChange={this.handleChange} />
 
           <div className="columns is-multiline">
-            {this.state.gems.map(gem =>
+            {this.filteredGems().map(gem =>
               <div key={gem._id} className="column is-one-third">
                 <GemCard {...gem} />
 

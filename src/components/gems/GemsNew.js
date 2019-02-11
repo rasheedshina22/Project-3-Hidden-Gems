@@ -18,7 +18,8 @@ class GemsNew extends React.Component {
         location: {
           lat: '',
           lon: ''
-        }
+        },
+        address: ''
       },
       error: null
     }
@@ -34,14 +35,15 @@ class GemsNew extends React.Component {
     this.setState({ data, error })
   }
 
-  suggestionSelect(result, lat, lng) {
+  suggestionSelect(result, lat, lng, text) {
+    console.log(result, lat, lng, text)
     const data = {...this.state.data,
       location: {
         lat: lat,
         lon: lng
-      }
+      },
+      address: result, text
     }
-
     this.setState({data})
   }
 
