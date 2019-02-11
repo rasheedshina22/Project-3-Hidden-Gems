@@ -50,7 +50,7 @@ class TripMap extends React.Component {
 
       // Added type to be category so can be diffrent colors for Category
       const markerElement = document.createElement('DIV')
-      markerElement.className = `${type}`
+      markerElement.className = `All ${type}`
 
       return new mapboxgl.Marker(markerElement)
         .setLngLat({ lat: latitude, lng: longitude })
