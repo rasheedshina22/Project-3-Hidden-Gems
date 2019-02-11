@@ -15,6 +15,13 @@ const GemsForm = ({ handleChange }) => {
             <option> All </option>
             <option> Pubs </option>
             <option> Restaurants </option>
+            <option> Bars </option>
+            <option> Cafes </option>
+            <option> Landmarks </option>
+            <option> Viewpoints </option>
+            <option> Religious Sites </option>
+            <option> Galleries </option>
+            <option> Parks </option>
           </select>
         </div>
 

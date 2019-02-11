@@ -33,8 +33,10 @@ import FlashMessages from './components/common/FlashMessages'
 class App extends React.Component {
   render() {
     return (
+
       <BrowserRouter>
         <main>
+
           <Navbar />
           <FlashMessages />
 
@@ -53,6 +55,7 @@ class App extends React.Component {
 
         </main>
       </BrowserRouter>
+
     )
   }
 }
