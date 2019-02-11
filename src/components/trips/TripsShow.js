@@ -110,21 +110,24 @@ class TripsShow extends React.Component {
                 <h4 className="title is-4">Category: {category}</h4>
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
-                <hr />
+
                 <h4 className="title is-4">Gems:</h4>
                 <div>
                   {gems.map((gem, index) => {
-                    return <Link to={`/gems/${gem._id}`} className="button is-primary" key={index}> {gem.name} </Link>
+                    return <Link to={`/gems/${gem._id}`} className="button is-primary is-rounded" key={index}> {gem.name} </Link>
                   })}
+                  <hr/>
                 </div>
-
-                {Auth.canEdit(user._id) && (
-                  <div>
-                    <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
-                    <hr />
-                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                <div className="column">
+                  <div className="content">
+                    {Auth.canEdit(user._id) && (
+                      <div>
+                        <Link to={`/trips/${_id}/edit`} className="button is-primary is-rounded"> Edit </Link>
+                        <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
+                      </div>
+                    )}
                   </div>
-                )}
+                </div>
               </div>
             </div>
           </div>

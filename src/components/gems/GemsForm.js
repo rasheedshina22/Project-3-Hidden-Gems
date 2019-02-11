@@ -69,7 +69,6 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                     <option disabled>Please Choose...</option>
                     <option value="" > Search All </option>
                     <option> Pubs </option>
-                    <option> Bars </option>
                     <option> Restaurants </option>
                     <option> Bars </option>
                     <option> Cafes </option>
@@ -86,6 +85,9 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
               </div>
             </div>
 
+<<<<<<< HEAD
+            <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
+=======
 
             <label className="label">Location</label>
             <div className="control">
@@ -105,6 +107,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
             <div>
               <button className="button is-block is-info is-medium is-fullwidth">Submit</button>
             </div>
+>>>>>>> development
           </form>
         </div>
       </div>

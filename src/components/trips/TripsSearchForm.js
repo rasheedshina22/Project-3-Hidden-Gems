@@ -7,7 +7,7 @@ const TripsForm = ({ handleSearch }) => {
       <div className="control">
         <label> <strong> Explore by category </strong> </label>
       </div>
-      <div className="select">
+      <div className="select is-rounded">
         <select
           name="category"
           defaultValue="Please Choose..."
