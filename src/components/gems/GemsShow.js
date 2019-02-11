@@ -12,7 +12,9 @@ class GemsShow extends React.Component {
     super()
 
     this.state = {
-      data: {}
+      data: {},
+      gem: null,
+      userLocation: null
     }
 
     this.handleDelete = this.handleDelete.bind(this)
@@ -33,6 +35,7 @@ class GemsShow extends React.Component {
       .catch(err => console.log(err))
 
   }
+
 
   handleCommentChange(e) {
     const data = {...this.state.data, content: e.target.value }
@@ -72,10 +75,22 @@ class GemsShow extends React.Component {
       .catch(() => this.setState({ error: 'An error occured' }))
   }
 
-
   componentDidMount() {
     axios.get(`/api/gems/${this.props.match.params.id}`)
       .then(res => this.setState({ gem: res.data }))
+
+    // also get the user location...
+    if (navigator.geolocation) {
+      navigator.geolocation.watchPosition(position => {
+        this.setState({
+          userLocation: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        })
+      })
+    }
+
   }
 
   render(){
@@ -130,7 +145,12 @@ class GemsShow extends React.Component {
                 <h2 className="title is-4"> Location</h2>
                 <p> {address} </p>
                 <Map
-                  location ={location}/>
+                  location={location}
+                  userLocation={this.state.userLocation}
+                  gem={this.state.gem}
+
+                />
+
               </div>
             </div>
           </div>
