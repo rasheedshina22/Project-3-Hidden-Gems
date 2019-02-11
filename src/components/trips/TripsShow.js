@@ -5,6 +5,7 @@ import TripsMap from './TripsMap'
 import Auth from '../../lib/Auth'
 import Comments from '../common/Comments'
 
+
 import {Link} from 'react-router-dom'
 
 class TripsShow extends React.Component {
@@ -100,6 +101,13 @@ class TripsShow extends React.Component {
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
                 <hr />
+                <h4 className="title is-4">Gems:</h4>
+                <div>
+                  {gems.map((gem, index) => {
+                    return <Link to={`/gems/${gem._id}`} className="button is-primary" key={index}> {gem.name} </Link>
+                  })}
+                </div>
+
                 {Auth.canEdit(user._id) && (
                   <div>
                     <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
