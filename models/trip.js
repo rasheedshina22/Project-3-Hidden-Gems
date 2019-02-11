@@ -8,13 +8,13 @@ const commentSchema = new mongoose.Schema({
 })
 
 const tripSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: 'Please give your Trip a Name' },
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  image: { type: String, required: true },
+  image: { type: String, required: 'Please give your Trip an Image' },
   description: { type: String},
-  category: { type: String, required: true },
-  location: { type: String, required: true},
-  gems: { type: Array, required: true },
+  category: { type: String, required: 'Please give your Trip a Category'},
+  location: { type: String},
+  gems: { type: Array, required: 'Please select the Gems included in your Trip',  ref: 'Gems'},
   comments: [ commentSchema ]
 })
 

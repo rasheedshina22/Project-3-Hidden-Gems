@@ -5,25 +5,44 @@ import Auth from '../../lib/Auth'
 
 import GemsForm from './GemsForm'
 
+
 class GemsNew extends React.Component {
   constructor() {
     super()
 
     this.state = {
       data: {
-        location: {}
+        name: '',
+        image: '',
+        description: '',
+        location: {
+          lat: '',
+          lon: ''
+        }
       },
       error: null
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.suggestionSelect = this.suggestionSelect.bind(this)
   }
 
   handleChange({ target: { name, value } }) {
     const data = {...this.state.data, [name]: value }
     const error = null
     this.setState({ data, error })
+  }
+
+  suggestionSelect(result, lat, lng) {
+    const data = {...this.state.data,
+      location: {
+        lat: lat,
+        lon: lng
+      }
+    }
+
+    this.setState({data})
   }
 
   handleSubmit(e) {
@@ -38,17 +57,17 @@ class GemsNew extends React.Component {
 
   render() {
     return(
-      <main className="section">
-        <div className="container">
-          <h2 className="title">New Gem</h2>
-          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-          <GemsForm
-            data={this.state.data}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      </main>
+      <div className="section">
+
+        <GemsForm
+          data={this.state.data}
+          error={this.state.error}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          suggestionSelect={this.suggestionSelect}
+        />
+
+      </div>
     )
   }
 }

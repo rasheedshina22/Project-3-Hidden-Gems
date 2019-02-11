@@ -11,12 +11,13 @@ class TripsNew extends React.Component {
 
     this.state = {
       data: {
-        location: {}
+
       },
       error: null
     }
 
     this.handleChange = this.handleChange.bind(this)
+    this.handleMultiChange = this.handleMultiChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -26,8 +27,26 @@ class TripsNew extends React.Component {
     this.setState({ data, error })
   }
 
+  handleMultiChange(e) {
+    const gems = e.map(gem => gem.value)
+    const data = {...this.state.data, gems: gems }
+    this.setState({ data })
+
+    //
+    // const options = e.target.options
+    // const value = []
+    // for (var i = 0, l = options.length; i < l; i++) {
+    //   if (options[i].selected) {
+    //     value.push(options[i].value)
+    //   }
+    //   const data = {...this.state.data.gems, gems: value }
+    //   this.setState({ data })
+    // }
+  }
+
   handleSubmit(e) {
     e.preventDefault()
+    console.log(this.state.data)
     axios
       .post('/api/trips', this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
@@ -43,27 +62,24 @@ class TripsNew extends React.Component {
         const options = res.data.map(gem => {
           return {'value': gem._id, 'label': gem.name}
         })
-        console.log(options)
         this.setState({ options })
       })
   }
 
-
   render() {
-    // console.log(this.state.gems)
     return(
-      <main className="section">
-        <div className="container">
-          <h2 className="title">New Trip</h2>
-          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-          <TripsForm
-            data={this.state.data}
-            options = {this.state.options}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      </main>
+      <div className="section">
+
+        <TripsForm
+          data={this.state.data}
+          error={this.state.error}
+          options = {this.state.options}
+          handleChange={this.handleChange}
+          handleMultiChange={this.handleMultiChange}
+          handleSubmit={this.handleSubmit}
+        />
+
+      </div>
     )
   }
 }

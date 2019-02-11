@@ -10,6 +10,7 @@
     "seed": "node db/seeds"
   },
   "dependencies": {
+    "@mapbox/react-geocoder": "^2.5.0",
     "bcrypt": "^3.0.3",
     "bluebird": "^3.5.3",
     "body-parser": "^1.18.3",
@@ -23,6 +24,7 @@
     "mongoose-unique-validator": "^2.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-mapbox-autocomplete": "^0.2.3",
     "react-router-dom": "^4.3.1",
     "react-select": "^2.3.0",
     "serve": "^10.1.2"

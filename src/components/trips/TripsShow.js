@@ -1,8 +1,9 @@
 import React from 'react'
 import axios from 'axios'
 
-import Map from '../gems/GemsMap'
-
+import TripsMap from './TripsMap'
+import Auth from '../../lib/Auth'
+import Comments from '../common/Comments'
 
 
 import {Link} from 'react-router-dom'
@@ -15,27 +16,32 @@ class TripsShow extends React.Component {
 
     }
 
-    // this.handleDelete = this.handleDelete.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
   }
 
-  // handleDelete(){
-  //   axios
-  //     .delete(`/api/trips/${this.props.match.params.id}`,{
-  //     })
-  //     .then(() => {
-  //       this.props.history.push('/trips')
-  //     })
-  //     .catch(err => console.log(err))
-  //
-  // }
+  handleDelete(){
+    axios
+      .delete(`/api/trips/${this.props.match.params.id}`,{
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => {
+        this.props.history.push('/trips')
+      })
+      .catch(err => console.log(err))
+
+  }
 
   componentDidMount() {
     axios.get(`/api/trips/${this.props.match.params.id}`)
       .then(res => this.setState({ trip: res.data }))
   }
 
+  // componentDidUpdate() {
+  //   axios.get(`/api/trips/${this.props.match.params.id}`)
+  //     .then(res => this.setState({ trip: res.data }))
+  // }
+
   render(){
-    console.log(this.state)
     if(!this.state.trip) return null
     const { _id, name, image, category, description, user, gems } = this.state.trip
     return (
@@ -63,10 +69,13 @@ class TripsShow extends React.Component {
                   })}
                 </div>
 
-                <hr />
-                <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
-                <hr />
-                <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                {Auth.canEdit(user._id) && (
+                  <div>
+                    <Link to={`/trips/${_id}/edit`} className="button is-dark" >Edit </Link>
+                    <hr />
+                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
@@ -75,22 +84,18 @@ class TripsShow extends React.Component {
           <hr />
           <div className="columns">
             <div className="column">
-              <h4 className="title is-4">Comments</h4>
+              <Comments
+                {...this.state.trip}
+                show='trips'
+              />
             </div>
             <div className="column">
               <div className="content">
-                <Map />
+                <TripsMap
+                  gems = {gems}
+                />
               </div>
             </div>
-
-            <div className="columns is-multiline">
-              {this.state.trip.gems.map(gem =>
-                <div key={gem._id} className="column is-one-third">
-
-                </div>
-              )}
-            </div>
-
           </div>
         </div>
       </section>
