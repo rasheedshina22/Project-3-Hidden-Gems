@@ -3,7 +3,13 @@ const Gem = require('../models/gem')
 function indexRoute(req, res, next) {
   Gem
     .find()
-    .populate( {path: 'user', select: 'username'} )
+    .populate(
+      [{
+        path: 'user', select: 'username'
+      },{
+        path: 'trips'
+      }]
+    )
     .then(gems => res.status(200).json(gems))
     .catch(next)
 }
@@ -21,9 +27,15 @@ function showRoute(req, res, next) {
     .findById(req.params.id)
     .populate(
       [{
-        path: 'user'
+        path: 'user',
+        select: 'username'
       },{
-        path: 'comments.user'
+        path: 'comments.user',
+        select: 'username'
+      }
+      ,{
+        path: 'trips',
+        select: 'name'
       }]
     )
     .then(gem => res.status(200).json(gem))
@@ -56,7 +68,7 @@ function commentCreateRoute(req, res, next) {
       gem.comments.push(req.body)
       return gem.save()
     })
-    .then(gem => Gem.populate(gem, { path: 'user comments.user' }))
+    .then(gem => Gem.populate(gem, { path: 'user trips comments.user' }))
     .then(gem => res.status(201).json(gem))
     .catch(next)
 }
@@ -71,7 +83,7 @@ function commentDeleteRoute(req, res, next) {
       return gem.save()
 
     })
-    .then(gem => Gem.populate(gem, { path: 'user comments.user' }))
+    .then(gem => Gem.populate(gem, { path: 'user trips comments.user' }))
     .then(gem => res.status(201).json(gem))
     .catch(next)
 }

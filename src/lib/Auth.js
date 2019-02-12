@@ -36,6 +36,13 @@ class Auth {
     if(!payload) return false
     return payload.sub === id
   }
+
+  static getUserId() {
+    const payload = this.getPayload()
+    return payload.sub
+  }
 }
+
+
 
 export default Auth

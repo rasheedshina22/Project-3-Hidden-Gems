@@ -1,6 +1,8 @@
 import React from 'react'
 import moment from 'moment'
 
+import Auth from '../../lib/Auth'
+
 const GemsComments = ({ comments, content, handleCommentChange, handleCommentSubmit}) => {
   return (
     <div>
@@ -13,10 +15,11 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
           </div>
         )
       })}
+      {Auth.isAuthenticated() &&
       <form onSubmit={handleCommentSubmit}>
         <textarea className="textarea" placeholder="Add your comments!" value={content} onChange={handleCommentChange} rows="6"></textarea>
         <button className="button is-dark is-rounded"> Add Commment </button>
-      </form>
+      </form>}
     </div>
 
   )

@@ -10,6 +10,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 class TripMap extends React.Component {
 
   componentDidMount() {
+    console.log('props there on Mount', this.props)
 
     let totalLat = 0
     let totalLng = 0
@@ -62,12 +63,13 @@ class TripMap extends React.Component {
 
   componentDidUpdate() {
     console.log('DID UPDATE!!!!!!')
+    console.log('props there on Update', this.props)
+
     if(!this.props.userLocation) return false
     const { lat, lng } = this.props.userLocation
 
 
     this.props.gems.map((gem, index) => {
-      console.log(gem)
 
       const { location, name, image, _id } = gem
 

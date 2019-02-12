@@ -37,7 +37,7 @@ class GemsNew extends React.Component {
   }
 
   suggestionSelect(result, lat, lng, text) {
-    console.log(result, lat, lng, text)
+    console.log(lat, lng)
     const data = {...this.state.data,
       location: {
         lat: lat,
