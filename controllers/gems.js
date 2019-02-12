@@ -7,7 +7,7 @@ function indexRoute(req, res, next) {
       [{
         path: 'user', select: 'username'
       },{
-        path: 'trips'
+        path: 'trips', model: 'Trip'
       }]
     )
     .then(gems => res.status(200).json(gems))
@@ -34,8 +34,7 @@ function showRoute(req, res, next) {
         select: 'username'
       }
       ,{
-        path: 'trips',
-        select: 'name'
+        path: 'trips', model: 'Trip'
       }]
     )
     .then(gem => res.status(200).json(gem))

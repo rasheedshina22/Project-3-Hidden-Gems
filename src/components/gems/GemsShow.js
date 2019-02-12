@@ -17,6 +17,8 @@ class GemsShow extends React.Component {
       userLocation: null
     }
 
+    console.log('this is data', this.state.data)
+
     this.handleDelete = this.handleDelete.bind(this)
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
     this.handleCommentDelete = this.handleCommentDelete.bind(this)
@@ -78,7 +80,7 @@ class GemsShow extends React.Component {
 
     // also get the user location...
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
+      navigator.geolocation.getCurrentPosition(position => {
         this.setState({
           userLocation: {
             lat: position.coords.latitude,
@@ -86,7 +88,7 @@ class GemsShow extends React.Component {
           }
         })
       })
-    } 
+    }
   }
 
   render(){
@@ -99,26 +101,28 @@ class GemsShow extends React.Component {
           <h1 className="title is-1"> {name} </h1>
           <h4 className="title is-4">Added by: {user.username} </h4>
           <hr />
+
           <div className="columns">
             <div className="column">
-              <figure className="image">
+              <figure className="image is-3by2">
                 <img src={image} alt={name} />
               </figure>
             </div>
-            <div className="column">
+
+
+            <div className="column has-text-centered">
               <div className="content">
-                <h4 className="title is-4">Category: {category}</h4>
-                <hr />
-                <h4 className="title is-4">Description:</h4>
+                <h4 className="title is-4">Category</h4>
+                <p> {category} </p>
+                <h4 className="title is-4">Description</h4>
                 <p> {description}</p>
-                <hr />
-                <h4 className="title is-4">Trips:</h4>
+                <h4 className="title is-4">Trips</h4>
                 {trips.map((trip) => {
                   return <Link to={`/trips/${trip._id}`} className="button is-primary is-rounded" key={trip._id}> {trip.name} </Link>
                 })}
                 {Auth.canEdit(user._id) && (
                   <div>
-                    <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded"> Edit </Link>
                     <button className="button is-dark is-rounded" onClick={this.handleDelete}>Delete</button>
                   </div>
                 )}
@@ -126,6 +130,7 @@ class GemsShow extends React.Component {
             </div>
           </div>
         </div>
+
         <div className="container">
           <hr />
           <div className="columns">
@@ -135,13 +140,15 @@ class GemsShow extends React.Component {
                 handleCommentChange={this.handleCommentChange}
                 handleCommentDelete={this.handleCommentDelete}
                 {...this.state.gem}
-                contentInput= {this.state.data.content}
+                contentInput={this.state.data.content}
               />
             </div>
-            <div className="column">
+
+            <div className="column ">
               <div className="content">
                 <h2 className="title is-4"> Location</h2>
                 <p> {address} </p>
+
                 <Map
                   location={location}
                   userLocation={this.state.userLocation}

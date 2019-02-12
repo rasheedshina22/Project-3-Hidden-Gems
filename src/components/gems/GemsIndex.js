@@ -52,16 +52,15 @@ class GemsIndex extends React.Component {
 
       <section className="section">
         <div className="container">
-          {Auth.isAuthenticated() && <header>
-            <Link to="/gems/new" className="button is-primary is-rounded">Add gem</Link>
-            <hr />
-          </header>}
 
           <GemsSearchForm handleChange={this.handleChange} />
-
+          {Auth.isAuthenticated() && <div>
+            <Link to="/gems/new" className="button is-primary is-rounded">Add gem</Link>
+          </div>}
+          <hr />
           <div className="columns is-multiline">
             {this.filteredGems().map(gem =>
-              <div key={gem._id} className="column is-one-third">
+              <div key={gem._id} className="column is-one-quarter">
                 <GemCard {...gem} />
 
               </div>

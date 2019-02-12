@@ -1,15 +1,15 @@
 import React from 'react'
 import Select from 'react-select'
+import ReactFilestack from 'react-filestack'
 
+const fileStack = process.env.FILESTACK_API_KEY
 
 const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChange, errors }) => {
-  return (
 
+  return (
     <div className="container">
       <div className="column is-6 is-offset-3 ">
-
         <h3 className="title has-text-centered">Create Your Trip</h3>
-        {errors && <div className="notification is-danger">Missing Fields</div>}
         <div className="box">
           <form onSubmit={handleSubmit}>
             <div className="field">
@@ -23,19 +23,30 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   value={data.name || ''}
                 />
                 {errors.name && <small>{errors.name}</small>}
-
               </div>
             </div>
 
             <div className="field">
               <label className="label">Image</label>
               <div className="control">
-                <input
+                {/*<input
                   className="input"
                   placeholder="Image"
                   name="image"
                   onChange={handleChange}
                   value={data.image || ''}
+                />*/}
+                <ReactFilestack
+                  apikey={`${fileStack}`}
+                  mode={'pick'}
+                  onSuccess={(res) => handleChange({
+                    target: {
+                      name: 'image',
+                      value: res.filesUploaded[0].url
+                    }})}
+                  onError={(err) => console.log(err)}
+                  buttonText={'Add Image'}
+                  buttonClass={'button is-dark is-rounded'}
                 />
                 {errors.image && <small>{errors.image}</small>}
 
@@ -92,7 +103,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   className="multi"
                   isMulti
                   options={options}
-                  // value={data.gems || ''}
+                  // value={data.gems}
                   name="gems"
                   onChange={handleMultiChange}
 

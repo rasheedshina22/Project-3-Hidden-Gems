@@ -16,7 +16,7 @@ const Home = () => {
 
         <Link to = {'/gems'}><button className="button home is-medium "> Gems Around the World </button></Link>
 
-        <Link to={'/trips/'} className="button home is medium" >Trips </Link>
+        <Link to={'/trips/'}><button className="button homesecond is-medium"> Trips</button></Link>
 
       </div>
 
