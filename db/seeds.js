@@ -75,9 +75,7 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'The Sheep Heid Inn is a premium pub, bar, and restaurant with its very own courtyard, centrally located in the heart of the picturesque town of Edinburgh',
         category: 'Restaurants',
         location: {lat: 55.942004, lon: -3.150730},
-        address: '43-45 The Causeway, Edinburgh EH15 3QA',
-        location: {lat: 51.444252, lon: -0.091543},
-        address: '7, Monohaus, 143 Mare St, London E8 3FW'
+        address: '43-45 The Causeway, Edinburgh EH15 3QA'
       },{
         name: 'Urquhart Castle',
         user: user._id,

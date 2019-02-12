@@ -18,7 +18,6 @@ class Navbar extends React.Component {
 
   toggleNavbar() {
     this.setState({ navbarOpen: !this.state.navbarOpen })
-
   }
 
   logout(){
@@ -39,11 +38,9 @@ class Navbar extends React.Component {
       <nav className= { this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
-
             <Link className="navbar-item" to="/">
               <strong>Hidden Gems</strong>
             </Link>
-
             <a
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
               onClick={this.toggleNavbar}
@@ -53,13 +50,11 @@ class Navbar extends React.Component {
               <span aria-hidden="true"></span>
             </a>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
               <a className="navbar-link">
                Discover
               </a>
-
               <div className="navbar-dropdown">
                 <Link to="/gems" className="navbar-item">
                  The Hidden Gems
@@ -71,7 +66,6 @@ class Navbar extends React.Component {
               </div>
             </div>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               {Auth.isAuthenticated() && <div className="navbar-item has-dropdown is-hoverable">
@@ -81,7 +75,6 @@ class Navbar extends React.Component {
                 <a className="navbar-link">
                  Add
                 </a>
-
                 <div className="navbar-dropdown">
                   <Link to="/gems/new" className="navbar-item">
                    Your Gems
@@ -92,7 +85,6 @@ class Navbar extends React.Component {
                   </Link>
                 </div>
               </div>}
-
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Sign Up</Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
               {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}

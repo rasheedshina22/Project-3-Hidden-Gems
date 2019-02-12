@@ -18,7 +18,6 @@ const gemSchema = new mongoose.Schema({
   comments: [ commentSchema ]
 })
 
-
 gemSchema.virtual('trips',{
   ref: 'Trip',
   localField: '_id',
@@ -28,7 +27,6 @@ gemSchema.virtual('trips',{
 gemSchema.set('toJSON', {
   virtuals: true,
   transform(doc, json) {
-    
     return json
   }
 })
