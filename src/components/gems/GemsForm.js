@@ -87,6 +87,9 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 {errors.category && <small>{errors.category}</small>}
               </div>
             </div>
+
+            <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
+
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
