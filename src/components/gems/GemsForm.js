@@ -1,12 +1,14 @@
 import React from 'react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
+import ReactFilestack from 'react-filestack'
+
+const fileStack = process.env.FILESTACK_API_KEY
 
 const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
 
     <div className="container">
       <div className="column is-6 is-offset-3 ">
-
         <h3 className="title has-text-centered">Add Your Gem</h3>
         <div className="box">
           <form onSubmit={handleSubmit}>
@@ -27,12 +29,17 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
             <div className="field">
               <label className="label">Image</label>
               <div className="control">
-                <input
-                  className="input"
-                  placeholder="Image"
-                  name="image"
-                  onChange={handleChange}
-                  value={data.image || ''}
+                <ReactFilestack
+                  apikey={`${fileStack}`}
+                  mode={'pick'}
+                  onSuccess={(res) => handleChange({
+                    target: {
+                      name: 'image',
+                      value: res.filesUploaded[0].url
+                    }})}
+                  onError={(err) => console.log(err)}
+                  buttonText={'Add Image'}
+                  buttonClass={'button is-dark is-rounded'}
                 />
                 {errors.image && <small>{errors.image}</small>}
 

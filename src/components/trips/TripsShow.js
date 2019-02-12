@@ -5,7 +5,6 @@ import TripsMap from './TripsMap'
 import Auth from '../../lib/Auth'
 import Comments from '../common/Comments'
 
-
 import {Link} from 'react-router-dom'
 
 class TripsShow extends React.Component {
@@ -33,7 +32,6 @@ class TripsShow extends React.Component {
         this.props.history.push('/trips')
       })
       .catch(err => console.log(err))
-
   }
 
   handleCommentChange(e) {
@@ -51,7 +49,12 @@ class TripsShow extends React.Component {
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
-        this.setState({...this.state, content: '', trip: res.data, data: {content: ''}  })
+        this.setState(
+          {...this.state,
+            content: '',
+            trip: res.data,
+            data: { content: '' }
+          })
       })
       .then(() => this.props.history.push(`/trips/${this.state.trip._id}`))
       .catch(() => this.setState({ error: 'An error occured' }))
@@ -89,7 +92,6 @@ class TripsShow extends React.Component {
 
   }
 
-
   render(){
     if(!this.state.trip) return null
     const { _id, name, image, category, description, user, gems } = this.state.trip
@@ -122,7 +124,10 @@ class TripsShow extends React.Component {
                 <div className="column">
                   <div className="content">
                     {Auth.canEdit(user._id) && (
-                      <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
+                      <div>
+                        <Link to={`/trips/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
+                        <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
+                      </div>
                     )}
                   </div>
                 </div>

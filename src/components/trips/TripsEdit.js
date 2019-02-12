@@ -38,7 +38,7 @@ class TripsEdit extends React.Component {
     e.preventDefault()
     console.log(this.state.data)
     axios
-      .post('/api/trips', this.state.data, {
+      .put(`/api/trips/${this.props.match.params.id}`, this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/trips'))

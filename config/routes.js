@@ -13,9 +13,6 @@ router.route('/login')
 
 router.route('/user/:id')
   .get(authController.user)
-//
-// router.route('/confirm/:code')
-//   .get(authController.confirm)
 
 router.route('/gems')
   .get(gemsController.index)
