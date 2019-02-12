@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
@@ -13,9 +14,8 @@ const Home = () => {
             <h2 className="subtitle">
     Welcome
             </h2>
-            <a href = "/gems"><button className="button is-medium is-primary is-rounded"> Gems </button></a>
-            <a href = "/trips"><button className="button is-medium is-primary is-rounded"> Trips </button></a>
-
+            <Link to={'/gems/'} className="button is-large is-dark is-rounded" >Gems </Link>
+            <Link to={'/trips/'} className="button is-large is-dark is-rounded" >Trips </Link>
           </div>
         </div>
       </section>

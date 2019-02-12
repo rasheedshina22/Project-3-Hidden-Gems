@@ -7,7 +7,7 @@ import Auth from '../../lib/Auth'
 const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit  }) => {
   return (
     <div>
-      <h2 className="title is-4"> Comments</h2>
+      <h2 className="title is-4"> Comments ({comments.length})</h2>
       {comments.map((comment, index) => {
         return (
           <div key={index}>
@@ -18,10 +18,12 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
           </div>
         )
       })}
+      {!Auth.isAuthenticated() && <h6 className="title is-6"> Login to leave your comments</h6>}
+      {Auth.isAuthenticated() &&
       <form onSubmit={handleCommentSubmit}>
         <textarea className="textarea" placeholder="Add your comments!" value={contentInput} onChange={handleCommentChange} rows="6"></textarea>
         <button className="button is-dark is-rounded"> Add Commment </button>
-      </form>
+      </form>}
     </div>
   )
 

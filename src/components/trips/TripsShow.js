@@ -108,9 +108,10 @@ class TripsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <h4 className="title is-4">Category: {category}</h4>
+                <hr />
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
-
+                <hr />
                 <h4 className="title is-4">Gems:</h4>
                 <div>
                   {gems.map((gem, index) => {
