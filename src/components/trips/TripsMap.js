@@ -61,7 +61,8 @@ class TripMap extends React.Component {
 
       const { location, name, image, _id } = gem
 
-      //add a popup NOTE: view gem Link using needs to be updated for heroku
+      //add a popup
+      // NOTE: view gem Link needs to be updated for heroku
 
       this.markers[index].setPopup(
         new mapboxgl.Popup({offset: 20})
