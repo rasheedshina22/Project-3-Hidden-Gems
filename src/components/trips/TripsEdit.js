@@ -5,12 +5,14 @@ import Auth from '../../lib/Auth'
 
 import TripsForm from './TripsForm'
 
-class TripsNew extends React.Component {
+class TripsEdit extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      data: {},
+      data: {
+
+      },
       errors: ''
     }
 
@@ -36,7 +38,7 @@ class TripsNew extends React.Component {
     e.preventDefault()
     console.log(this.state.data)
     axios
-      .post('/api/trips', this.state.data, {
+      .put(`/api/trips/${this.props.match.params.id}`, this.state.data, {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/trips'))
@@ -44,9 +46,12 @@ class TripsNew extends React.Component {
   }
 
   componentDidMount() {
+    axios
+      .get(`/api/trips/${this.props.match.params.id}`)
+      .then(res => this.setState({ data: res.data }))
+
     axios.get('/api/gems')
       .then(res => {
-        console.log(res)
         const options = res.data.map(gem => {
           return {'value': gem._id, 'label': gem.name}
         })
@@ -72,4 +77,4 @@ class TripsNew extends React.Component {
   }
 }
 
-export default TripsNew
+export default TripsEdit

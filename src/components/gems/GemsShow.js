@@ -17,6 +17,8 @@ class GemsShow extends React.Component {
       userLocation: null
     }
 
+    console.log('this is data', this.state.data)
+
     this.handleDelete = this.handleDelete.bind(this)
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
     this.handleCommentDelete = this.handleCommentDelete.bind(this)
@@ -78,7 +80,7 @@ class GemsShow extends React.Component {
 
     // also get the user location...
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
+      navigator.geolocation.getCurrentPosition(position => {
         this.setState({
           userLocation: {
             lat: position.coords.latitude,
@@ -138,7 +140,7 @@ class GemsShow extends React.Component {
                 handleCommentChange={this.handleCommentChange}
                 handleCommentDelete={this.handleCommentDelete}
                 {...this.state.gem}
-                contentInput= {this.state.data.content}
+                contentInput={this.state.data.content}
               />
             </div>
 

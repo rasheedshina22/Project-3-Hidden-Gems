@@ -5,7 +5,6 @@ import TripsMap from './TripsMap'
 import Auth from '../../lib/Auth'
 import Comments from '../common/Comments'
 
-
 import {Link} from 'react-router-dom'
 
 class TripsShow extends React.Component {
@@ -33,7 +32,6 @@ class TripsShow extends React.Component {
         this.props.history.push('/trips')
       })
       .catch(err => console.log(err))
-
   }
 
   handleCommentChange(e) {
@@ -51,7 +49,12 @@ class TripsShow extends React.Component {
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
-        this.setState({...this.state, content: '', trip: res.data, data: {content: ''}  })
+        this.setState(
+          {...this.state,
+            content: '',
+            trip: res.data,
+            data: { content: '' }
+          })
       })
       .then(() => this.props.history.push(`/trips/${this.state.trip._id}`))
       .catch(() => this.setState({ error: 'An error occured' }))
@@ -76,7 +79,7 @@ class TripsShow extends React.Component {
 
     // also get the user location...
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
+      navigator.geolocation.getCurrentPosition(position => {
         console.log('LOCATION FOUND')
         this.setState({
           userLocation: {
@@ -88,7 +91,6 @@ class TripsShow extends React.Component {
     }
 
   }
-
 
   render(){
     if(!this.state.trip) return null
@@ -114,16 +116,16 @@ class TripsShow extends React.Component {
                 <hr />
                 <h4 className="title is-4">Gems:</h4>
                 <div>
-                  {gems.map((gem, index) => {
-                    return <Link to={`/gems/${gem._id}`} className="button is-primary is-rounded" key={index}> {gem.name} </Link>
-                  })}
+                  {gems.map((gem, index) =>
+                    <Link to={`/gems/${gem._id}`} className="button is-primary is-rounded" key={index}> {gem.name} </Link>
+                  )}
                   <hr/>
                 </div>
                 <div className="column">
                   <div className="content">
                     {Auth.canEdit(user._id) && (
                       <div>
-                        <Link to={`/trips/${_id}/edit`} className="button is-primary is-rounded"> Edit </Link>
+                        <Link to={`/trips/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
                         <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
                       </div>
                     )}
@@ -148,7 +150,7 @@ class TripsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <TripsMap
-                  gems = {gems}
+                  gems={gems}
                   userLocation={this.state.userLocation}
                 />
               </div>
