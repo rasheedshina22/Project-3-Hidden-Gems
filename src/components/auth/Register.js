@@ -7,7 +7,7 @@ class Register extends React.Component {
 
     this.state = {
       data: {},
-      error: null
+      errors: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -16,8 +16,8 @@ class Register extends React.Component {
 
   handleChange({target: { name, value }}) {
     const data = {...this.state.data, [name]: value }
-    const error = null
-    this.setState({ data, error })
+    const errors = { ...this.state.errors, [name]: '' }
+    this.setState({ data, errors })
   }
 
   handleSubmit(e) {
@@ -25,7 +25,7 @@ class Register extends React.Component {
     axios
       .post('/api/register', this.state.data)
       .then(() => this.props.history.push('/login'))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch((err) => this.setState({errors: err.response.data}))
   }
 
   render() {
@@ -34,7 +34,7 @@ class Register extends React.Component {
 
         <div className="container">
           <div className="column is-4 is-offset-4">
-            {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
+            {this.state.errors && <div className="notification is-danger">Missing Fields</div>}
 
             <h3 className="title has-text-centered">Register</h3>
             <div className="box">
@@ -49,6 +49,8 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.username || ''}
                     />
+                    {this.state.errors.username && <small>{this.state.errors.username}</small>}
+
                   </div>
                 </div>
                 <div className="field">
@@ -62,6 +64,8 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.email || ''}
                     />
+                    {this.state.errors.email && <small>{this.state.errors.email}</small>}
+
                   </div>
                 </div>
                 <div className="field">
@@ -75,6 +79,7 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.password || ''}
                     />
+                    {this.state.errors.password && <small>{this.state.errors.password}</small>}
                   </div>
                 </div>
                 <div className="field">
@@ -91,7 +96,7 @@ class Register extends React.Component {
                   </div>
                 </div>
 
-                <button className="button is-block is-info is-medium is-fullwidth">Sign Up</button>
+                <button className="button is-primary is-medium is-fullwidth is-rounded">Sign Up</button>
 
               </form>
             </div>

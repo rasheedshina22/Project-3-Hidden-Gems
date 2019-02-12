@@ -1,3 +1,32 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+$dark: #05386B;
+$greeny: #5CDB95;
+
+$primary: $dark;
+$family-sans-serif: "Quicksand", sans-serif;
+$navbar-background-color: $dark;
+$navbar-item-hover-background-color: $dark;
+$body-background-color: $greeny;
+$column-gap: 0.25rem;
+
+$control-radius: 0;
+$control-radius-small: 0;
+
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/form.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/card.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/layout/section.sass";
+
+
 *{
   box-sizing: border-box;
 }
@@ -97,14 +126,21 @@ button.button.home {
     opacity: 0
   }
 }
-
+.card-header-title{
+  color: white;
+}
 .card {
     text-align: center;
+    min-height: 450px;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
     border-radius: 10px;
     margin: 10px;
     transition: all .2s ease-in-out;
+    background-color:$dark ;
+    color:white;
       .image img{
+        background-color: white;
+        min-height: 250px;
         border-radius: 10px 10px 0px 0px;
       }
         &:hover {
@@ -115,6 +151,7 @@ button.button.home {
           justify-content: center;
       }
 }
+
 
 .mapboxgl-popup {
   max-width: 170px;
@@ -147,7 +184,7 @@ input.react-mapbox-ac-input {
 
 .map {
   height: 500px;
-  width: 500px;
+  width: 100%;
 }
 
 .custom-marker {
@@ -173,7 +210,7 @@ input.react-mapbox-ac-input {
   transform: rotate(45deg);
 }
 
-.Pub {
+.Pubs {
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -184,7 +221,7 @@ input.react-mapbox-ac-input {
   align-items: center;
 }
 
-.Pub:before {
+.Pubs:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -196,7 +233,7 @@ input.react-mapbox-ac-input {
   transform: rotate(45deg);
 }
 
-.Restaurant {
+.Restaurants {
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -207,7 +244,7 @@ input.react-mapbox-ac-input {
   align-items: center;
 }
 
-.Restaurant:before {
+.Restaurants:before {
   content: '';
   position: absolute;
   width: 100%;

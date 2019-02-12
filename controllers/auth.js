@@ -25,7 +25,16 @@ function loginRoute(req, res, next) {
     .catch(next)
 }
 
+function userShow(req, res, next){
+  User
+    .findById(req.params.id)
+    .populate('gems trips')
+    .then(user => res.json(user))
+    .catch(next)
+}
+
 module.exports = {
   register: registerRoute,
-  login: loginRoute
+  login: loginRoute,
+  user: userShow
 }

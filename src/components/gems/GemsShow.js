@@ -21,7 +21,6 @@ class GemsShow extends React.Component {
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
     this.handleCommentDelete = this.handleCommentDelete.bind(this)
     this.handleCommentChange = this.handleCommentChange.bind(this)
-
   }
 
   handleDelete(){
@@ -33,9 +32,7 @@ class GemsShow extends React.Component {
         this.props.history.push('/gems')
       })
       .catch(err => console.log(err))
-
   }
-
 
   handleCommentChange(e) {
     const data = {...this.state.data, content: e.target.value }
@@ -89,14 +86,13 @@ class GemsShow extends React.Component {
           }
         })
       })
-    }
-
+    } 
   }
 
   render(){
     console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description, user, location, address } = this.state.gem
+    const { _id, name, image, category, description, user, location, address, trips } = this.state.gem
     return (
       <section className="section">
         <div className="container">
@@ -112,15 +108,18 @@ class GemsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <h4 className="title is-4">Category: {category}</h4>
+                <hr />
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
-
                 <hr />
+                <h4 className="title is-4">Trips:</h4>
+                {trips.map((trip) => {
+                  return <Link to={`/trips/${trip._id}`} className="button is-primary is-rounded" key={trip._id}> {trip.name} </Link>
+                })}
                 {Auth.canEdit(user._id) && (
                   <div>
-                    <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
-                    <hr />
-                    <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
+                    <button className="button is-dark is-rounded" onClick={this.handleDelete}>Delete</button>
                   </div>
                 )}
               </div>
@@ -147,7 +146,6 @@ class GemsShow extends React.Component {
                   location={location}
                   userLocation={this.state.userLocation}
                   gem={this.state.gem}
-
                 />
 
               </div>

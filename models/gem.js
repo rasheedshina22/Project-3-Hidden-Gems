@@ -19,6 +19,18 @@ const gemSchema = new mongoose.Schema({
 })
 
 
-//virtual
+gemSchema.virtual('trips',{
+  ref: 'Trip',
+  localField: '_id',
+  foreignField: 'gems'
+})
+
+gemSchema.set('toJSON', {
+  virtuals: true,
+  transform(doc, json) {
+    
+    return json
+  }
+})
 
 module.exports = mongoose.model('Gem', gemSchema)

@@ -10,6 +10,9 @@ router.route('/register')
 
 router.route('/login')
   .post(authController.login)
+
+router.route('/user/:id')
+  .get(authController.user)
 //
 // router.route('/confirm/:code')
 //   .get(authController.confirm)
