@@ -149,7 +149,7 @@ class TripsShow extends React.Component {
               <div className="content">
                 <TripsMap
                   gems = {gems}
-                  // userLocation={this.state.userLocation}
+                  userLocation={this.state.userLocation}
                 />
               </div>
             </div>

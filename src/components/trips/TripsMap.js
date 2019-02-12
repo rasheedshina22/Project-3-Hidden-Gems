@@ -2,10 +2,8 @@ import React from 'react'
 import mapboxgl from 'mapbox-gl'
 // import { Link, withRouter } from 'react-router-dom'
 
-
 mapboxgl.accessToken = process.env.MAP_BOX_TOKEN
 import 'mapbox-gl/dist/mapbox-gl.css'
-
 
 class TripMap extends React.Component {
 
@@ -15,13 +13,11 @@ class TripMap extends React.Component {
     // Creates bounds
     const bounds = new mapboxgl.LngLatBounds()
 
-
     // MAP Component new map made
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
       style: 'mapbox://styles/mapbox/light-v9'
     })
-
 
     // Add geolocate control to the map.
     this.map.addControl(new mapboxgl.GeolocateControl({
@@ -50,7 +46,6 @@ class TripMap extends React.Component {
 
     this.map.fitBounds(bounds, { padding: 50 })
   }
-
 
   componentDidUpdate() {
     console.log('DID UPDATE!!!!!!')
