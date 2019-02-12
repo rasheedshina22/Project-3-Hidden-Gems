@@ -17,6 +17,8 @@ class GemsShow extends React.Component {
       userLocation: null
     }
 
+    console.log('this is data', this.state.data)
+
     this.handleDelete = this.handleDelete.bind(this)
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
     this.handleCommentDelete = this.handleCommentDelete.bind(this)

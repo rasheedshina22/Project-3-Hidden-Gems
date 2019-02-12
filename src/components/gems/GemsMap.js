@@ -26,9 +26,18 @@ class Map extends React.Component {
         lat: this.props.gem.location.lat
       })
       .addTo(this.map)
+
+    this.generatePopups()
   }
 
+
+
   componentDidUpdate() {
+    if(!this.popupsGenerated) this.generatePopups()
+  }
+  generatePopups() {
+    if(!this.props.userLocation) return false
+    this.popupsGenerated = true
     if(!this.props.userLocation) return false
     const { lat, lng } = this.props.userLocation
 
@@ -41,6 +50,9 @@ class Map extends React.Component {
         <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${this.props.location.lat},${this.props.location.lon}" target="_blank" > Directions </a>
       `)
       .addTo(this.map)
+
+    console.log('inside componentDidUpdate',this.props.userLocation)
+
 
     this.marker.setPopup(this.popup)
   }
