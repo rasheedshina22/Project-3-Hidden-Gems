@@ -43,17 +43,19 @@ class TripMap extends React.Component {
 
     })
 
-
     this.map.fitBounds(bounds, { padding: 50 })
+
+    this.generatePopups()
   }
 
   componentDidUpdate() {
-    console.log('DID UPDATE!!!!!!')
-    console.log('props there on Update', this.props)
+    if(!this.popupsGenerated) this.generatePopups()
+  }
 
+  generatePopups() {
     if(!this.props.userLocation) return false
+    this.popupsGenerated = true
     const { lat, lng } = this.props.userLocation
-
 
     this.props.gems.map((gem, index) => {
 
