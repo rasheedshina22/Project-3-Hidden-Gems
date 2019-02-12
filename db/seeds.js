@@ -23,19 +23,11 @@ mongoose.connect(dbURI, (err, db) => {
       return Gem.create([{
         name: 'Sky Garden',
         user: user._id,
-<<<<<<< HEAD
         image: 'https://ucarecdn.com/478c2fa1-95f8-4314-8825-19a46984628f/587e487480b3a.jpg',
         description: 'The Sky Garden is a unique public space that spans three storeys and offers 360 degree uninterrupted views across the City of London. Visitors can wander around the exquisitely landscaped gardens, observation decks and an open air terrace of what is London\'s highest public garden.',
         category: 'Restaurants',
         location: {lat: 51.511203, lon: -0.0857297},
         address: '20 Fenchurch St, London EC3M 8AF'
-=======
-        image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
-        description: 'Nice pub in Aldgate',
-        category: 'Pubs',
-        location: {lat: 51.538746, lon: -0.143074},
-        address: '7, Monohaus, 143 Mare St, London E8 3FW'
->>>>>>> development
       },{
         name: 'St. Paul\'s Cathedral',
         user: user._id,
@@ -47,19 +39,11 @@ mongoose.connect(dbURI, (err, db) => {
       },{
         name: 'London Eye',
         user: user._id,
-<<<<<<< HEAD
         image: 'https://www.divento.com/14151/the-london-eye-all-year.jpg',
         description: 'The London Eye is one of the more famous structures rising on the landscape of London. It is an enormous Ferris wheel that sits on the south bank of the River Thames. It is on the west end of Jubilee Gardens on the South Bank and it stands roughly 135 metres in height.',
         category: 'Landmarks',
         location: {lat: 51.5327045, lon: -0.1507498},
         address: 'Lambeth, London SE1 7PB, UK'
-=======
-        image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
-        description: 'Nice pub in Aldgate',
-        category: 'Pubs',
-        location: {lat: 51.528031, lon: -0.085656},
-        address: 'Showcase Complex, Redfield Way, Nottingham NG7 2UW'
->>>>>>> development
       },{
         name: 'Regent\'s Park',
         user: user._id,
@@ -74,17 +58,12 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://absolutely.london/wp-content/uploads/2018/02/Untitled-1-2-1068x712.jpg',
         description: 'The Sheep Heid Inn is a premium pub, bar, and restaurant with its very own courtyard, centrally located in the heart of the picturesque town of Edinburgh',
         category: 'Restaurants',
-<<<<<<< HEAD
         location: {lat: 55.942004, lon: -3.150730},
         address: '43-45 The Causeway, Edinburgh EH15 3QA'
-=======
-        location: {lat: 51.444252, lon: -0.091543},
-        address: '7, Monohaus, 143 Mare St, London E8 3FW'
->>>>>>> development
       },{
         name: 'Urquhart Castle',
         user: user._id,
-        image: 'https://www.rabbies.com/application/files/8414/8491/8176/LNESS3_1200_X_491.jpg',
+        image: 'https://images.unsplash.com/photo-1541855148-b3bb8f814fe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80',
         description: 'The castle, situated on a headland overlooking Loch Ness, is one of the largest in Scotland in area. It was approached from the west and defended by a ditch and drawbridge.',
         category: 'Landmarks',
         location: {lat: 57.3241399, lon: -4.4441899},
@@ -93,7 +72,6 @@ mongoose.connect(dbURI, (err, db) => {
       {
         name: 'Dan & Decarlo',
         user: user._id,
-<<<<<<< HEAD
         image: 'https://cdn.wallpaper.com/main/legacy/gallery/17052978/RM-Starbucks-Amsterdam-Bank-017.jpg',
         description: 'Breakfast, grills and burgers in arts centre cafe set in a former chapel with its own rear garden.',
         category: 'Cafes',
@@ -117,13 +95,6 @@ mongoose.connect(dbURI, (err, db) => {
         category: 'Galleries',
         location: {lat: 48.2993253, lon: 4.0736781},
         address: '15 Rue Passerat, 10000 Troyes, France'
-=======
-        image: 'https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg',
-        description: 'nice mountain',
-        category: 'Pubs',
-        location: {lat: 51.580605, lon: 0.180915},
-        address: ' 77-79 George St, Oxford OX1 2BQ'
->>>>>>> development
       }])
 
         .then(gems => {
@@ -171,14 +142,19 @@ mongoose.connect(dbURI, (err, db) => {
           {name: 'Caravan Holiday around France',
             user: user._id,
             image: 'https://images.unsplash.com/photo-1540500754616-370738ad6c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=815&q=80',
-            description: 'On a flowery island, on the Aube river, the camping de l\'île Cherlieu proposes you to choose your place yourself in the camp in the shade of trees or not.This quiet camp, at the entrance of the village of Arcis-sur-Aube, has a sport area, it is near a sandy beach and a pebble beach, you will have the opportunity to make white-water rafting or kayaking.Escape holiday are available to you, while keeping contact with the world thanks to a wifi access on 80% of the camp and the proximity with shops of Arcis sur Aube. ',
+            description: 'Experience The Magic Of France On Two Wheels ',
             category: 'Caravan Trips',
             location: 'Arcis-sur-Aube',
             gems: [gems[6]._id, gems[7]._id]
+          },
+          {name: 'Cycle around Cornwall',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1510135649765-8f3a1921bb1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80',
+            description: 'Get out and explore Cornwall\'s amazing cycling and walking routes while discovering wildlife, heritage and parts of Cornwall you never knew existed. ',
+            category: 'Cycling Trips',
+            location: 'Newquay',
+            gems: [gems[6]._id, gems[7]._id]
           }
-
-
-
           )
         })
     })
