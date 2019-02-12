@@ -34,7 +34,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-primary">
+      <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
 
