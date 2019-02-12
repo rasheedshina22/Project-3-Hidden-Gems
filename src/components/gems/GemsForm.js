@@ -85,9 +85,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
               </div>
             </div>
 
-
             <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
-
 
             <label className="label">Location</label>
             <div className="control">

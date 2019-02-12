@@ -3,7 +3,7 @@ import moment from 'moment'
 
 import Auth from '../../lib/Auth'
 
-const GemsComments = ({ comments, content, handleCommentChange, handleCommentSubmit}) => {
+const GemsComments = ({ comments, content, handleCommentChange, handleCommentSubmit }) => {
   return (
     <div>
       <h2 className="title is-4"> Comments</h2>
@@ -15,10 +15,11 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
           </div>
         )
       })}
+
       {Auth.isAuthenticated() &&
       <form onSubmit={handleCommentSubmit}>
         <textarea className="textarea" placeholder="Add your comments!" value={content} onChange={handleCommentChange} rows="6"></textarea>
-        <button className="button is-dark is-rounded"> Add Commment </button>
+        <button className="is-primary"> Add Commment </button>
       </form>}
     </div>
 
