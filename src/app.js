@@ -15,7 +15,7 @@ import UserShow from './components/user/UserShow'
 
 import TripsIndex from './components/trips/TripsIndex'
 import TripsNew from './components/trips/TripsNew'
-// import TripsEdit from './components/trips/TripsEdit'
+import TripsEdit from './components/trips/TripsEdit'
 import TripsShow from './components/trips/TripsShow'
 
 import SecureRoute from './components/common/SecureRoute'
@@ -45,6 +45,7 @@ class App extends React.Component {
             <Route path="/gems/:id" component={GemsShow} />
             <Route path="/gems" component={GemsIndex} />
             <SecureRoute path="/trips/new" component={TripsNew} />
+            <SecureRoute path="/trips/:id/edit" component={TripsEdit} />
             <Route path="/trips/:id" component={TripsShow} />
             <Route path="/trips" component={TripsIndex} />
             <Route path="/register" component={Register} />

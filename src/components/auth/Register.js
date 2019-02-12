@@ -34,8 +34,6 @@ class Register extends React.Component {
 
         <div className="container">
           <div className="column is-4 is-offset-4">
-            {this.state.errors && <div className="notification is-danger">Missing Fields</div>}
-
             <h3 className="title has-text-centered">Register</h3>
             <div className="box">
               <form onSubmit={this.handleSubmit}>
