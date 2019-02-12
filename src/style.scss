@@ -37,6 +37,9 @@ body {
 
 nav.navbar{
   background-color: transparent;
+ a {
+   font-weight: 900;
+ }
 }
 
 .navbar-dropdown, .navbar-divider{
@@ -45,6 +48,22 @@ nav.navbar{
 
 .navbar-item.has-dropdown:hover .navbar-link {
   background-color: rgba(141, 119, 92, 0.3);
+}
+
+.navbar-link:not(.is-arrowless)::after {
+    border-color: white;
+  }
+
+.far.fa-gem.homepage {
+  padding-left: 10px;
+}
+
+.rotate{
+    transition: all 2s linear;
+}
+
+.rotate.down{
+    transform: rotate(180deg);
 }
 
 button.button.home {
@@ -79,76 +98,6 @@ textarea.textarea {
   max-width: 50%;
 }
 
-.slideshow {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  /*background images are behind other content*/
-  z-index: 0;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  background-color: black;
-}
-
-.slideshow li {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  /*take entire space of the page*/
-  background-size: cover;
-  /*position in the middle*/
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  opacity: 0;
-  z-index: 0;
-  /*fade images in/out : name of the animation, last 50s linear same speed, loop infinite*/
-  animation: imageAnimation 50s linear infinite;
-}
-
-/*fade in each image after 10s of the previous img*/
-.slideshow li:nth-child(1) {
-  background-image: url(./images/picNpgx.jpg)
-}
-.slideshow li:nth-child(2) {
-  background-image: url(https://images.unsplash.com/photo-1534770311507-ec2bf6cf3f32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
-  animation-delay: 10s;
-}
-.slideshow li:nth-child(3) {
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
-  animation-delay: 20s;
-}
-.slideshow li:nth-child(4) {
-  background-image: url(https://images.unsplash.com/photo-1516526992402-7519663a4c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80);
-  animation-delay: 30s;
-}
-.slideshow li:nth-child(5) {
-  background-image: url(https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg);
-  animation-delay: 40s;
-}
-
-
-/*select imageAnimation property and set transition on keyframes */
-@keyframes imageAnimation {
-  0% {
-    opacity: 0;
-    animation-timing-function: ease-in;
-  }
-  10% {
-    opacity: 1;
-    animation-timing-function: ease-out;
-  }
-  20% {
-    opacity: 1
-  }
-  30% {
-    opacity: 0
-  }
-}
 
 .card-header-title{
   color: white;
@@ -203,7 +152,13 @@ textarea.textarea {
   opacity: 1;
 }
 
+.is-horizontial-center{
+  justify-content: center;
+}
 
+.user-header{
+  background-color: #f5f7fa;
+}
 
 .mapboxgl-popup {
   max-width: 170px;
@@ -285,8 +240,21 @@ $Parks: green;
   outline: 1px 1px 0 1px solid black;
 }
 
+
+.All {
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Allgems{
   border-color: transparent transparent red transparent;
+
 }
 .Allgems:after {
   border-color: red transparent transparent transparent;
@@ -356,10 +324,73 @@ nav.navbar .other{
   background-color: black;
 }
 
-.is-horizontial-center{
-  justify-content: center;
+//------------Home Page Animation --------------
+.slideshow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*background images are behind other content*/
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
 
-.user-header{
-  background-color: #f5f7fa;
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*take entire space of the page*/
+  background-size: cover;
+  /*position in the middle*/
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  /*fade images in/out : name of the animation, last 50s linear same speed, loop infinite*/
+  animation: imageAnimation 50s linear infinite;
 }
+
+/*fade in each image after 10s of the previous img*/
+.slideshow li:nth-child(1) {
+  background-image: url(./images/picNpgx.jpg)
+}
+.slideshow li:nth-child(2) {
+  background-image: url(https://images.unsplash.com/photo-1534770311507-ec2bf6cf3f32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+  background-image: url(https://images.unsplash.com/photo-1516526992402-7519663a4c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80);
+  animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+  background-image: url(https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg);
+  animation-delay: 40s;
+}
+
+
+/*select imageAnimation property and set transition on keyframes */
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
