@@ -26,7 +26,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
         description: 'Nice pub in Aldgate',
         category: 'Pubs',
-        location: {lat: 51.5134382, lon: -0.0793599},
+        location: {lat: 51.538746, lon: -0.143074},
         address: '7, Monohaus, 143 Mare St, London E8 3FW'
       },{
         name: 'White Swan',
@@ -42,7 +42,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
         description: 'Nice pub in Aldgate',
         category: 'Pubs',
-        location: {lat: 51.5134382, lon: -0.0793599},
+        location: {lat: 51.528031, lon: -0.085656},
         address: 'Showcase Complex, Redfield Way, Nottingham NG7 2UW'
       },{
         name: 'Nepali Food',
@@ -50,7 +50,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://static1.squarespace.com/static/5a45133832601e14c4a7d06e/t/5a4e9929005559236df8f0f9/1515120824769/photo.jpg',
         description: 'Best Food In the World',
         category: 'Restaurants',
-        location: {lat: 51.5134382, lon: -0.0793599},
+        location: {lat: 51.444252, lon: -0.091543},
         address: '7, Monohaus, 143 Mare St, London E8 3FW'
       },{
         name: 'Nepali Food',
@@ -58,7 +58,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg',
         description: 'nice mountain',
         category: 'Pubs',
-        location: {lat: 51.5134382, lon: -0.0793599},
+        location: {lat: 51.580605, lon: 0.180915},
         address: ' 77-79 George St, Oxford OX1 2BQ'
       }])
         .then(gems => {
