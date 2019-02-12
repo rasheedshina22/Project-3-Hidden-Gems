@@ -167,6 +167,15 @@ mongoose.connect(dbURI, (err, db) => {
         category: 'Religious Sites',
         location: {lat: 42.8805962, lon: -8.5468352},
         address: 'Praza do Obradoiro, s/n, 15704 Santiago de Compostela, A Coruña, Spain'
+      },
+      {
+        name: 'Buckingham Palace',
+        user: user._id,
+        image: 'https://www.royal.uk/sites/default/files/images/feature/buckingham-palace.jpg',
+        description: 'Buckingham Palace is the London residence and administrative headquarters of the monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.',
+        category: 'Landmarks',
+        location: {lat: 51.501364, lon: -0.144084},
+        address: 'Westminster, London SW1A 1AA'
       }])
 
         .then(gems => {
@@ -185,7 +194,7 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'Find out more about our history through our tours.',
             category: 'Family Trips',
             location: 'London',
-            gems: [gems[1]._id, gems[2]._id]
+            gems: [gems[1]._id, gems[2]._id , gems[17]._id]
           },
           {name: 'Lock Ness ',
             user: user._id,
