@@ -34,7 +34,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-primary">
+      <nav className="navbar">
         <div className="container">
           <div className="navbar-brand">
 
@@ -73,6 +73,9 @@ class Navbar extends React.Component {
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               {Auth.isAuthenticated() && <div className="navbar-item has-dropdown is-hoverable">
+                <Link to={`/user/${Auth.getUserId()}`} className="navbar-item">
+                Your Gems
+                </Link>
                 <a className="navbar-link">
                  Add
                 </a>

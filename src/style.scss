@@ -33,17 +33,97 @@ $control-radius-small: 0;
 
 body {
   margin: 0;
+
 }
 
-div.hero-body{
-  justify-content: center;
-  background-color: #5CDB95;
-    button{
-      margin: 120px 10px 0 0;
-      transition: box-shadow 0.3s;
-      &:hover{
-        box-shadow:0 8px 6px -6px #FFFFFF, 0 8px 6px 2px #8D8D8D;
-    }
+nav.navbar{
+
+  background-color: transparent;
+}
+
+.navbar-dropdown, .navbar-divider{
+  background-color: rgba(141, 119, 92, 0.3);
+}
+
+.navbar-item.has-dropdown:hover .navbar-link {
+  background-color: rgba(141, 119, 92, 0.3);
+}
+
+button.button.home {
+  margin: 25% 40% ;
+  border-radius: 20px;
+  border: 2px solid rgba(255,255,255, 0.3);
+  background-color: transparent;
+}
+
+.slideshow {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  /*background images are behind other content*/
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*take entire space of the page*/
+  background-size: cover;
+  /*position in the middle*/
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  /*fade images in/out : name of the animation, last 50s linear same speed, loop infinite*/
+  animation: imageAnimation 50s linear infinite;
+}
+
+/*fade in each image after 10s of the previous img*/
+.slideshow li:nth-child(1) {
+  background-image: url(./images/picNpgx.jpg)
+}
+.slideshow li:nth-child(2) {
+  background-image: url();
+  animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+  background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
+  animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+  background-image: url(https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg);
+  animation-delay: 40s;
+}
+
+
+/*select imageAnimation property and set transition on keyframes */
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
   }
 }
 .card-header-title{
@@ -107,7 +187,44 @@ input.react-mapbox-ac-input {
   width: 100%;
 }
 
-.custom-marker {
+// MARKERS acording to Category
+
+$Allred: red;
+$Pubs: blue;
+$Restaurant: cyan;
+$Bars: purple;
+$Cafes: brown;
+$Landmarks: yellow;
+$Viewpoints: orange;
+$Religious: grey;
+$Galleries: violet;
+$Parks: green;
+
+ // https://css-tricks.com/the-shapes-of-css/
+.Gem {
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 15px 15px 15px;
+  height: 0;
+  width: 20px;
+  box-sizing: content-box;
+  position: relative;
+  margin: 10px 0 25px 0;
+}
+.Gem:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 35px 25px 0 25px;
+}
+
+
+.All {
   color: white;
   font-size: 16px;
   font-weight: bold;
@@ -118,60 +235,62 @@ input.react-mapbox-ac-input {
   align-items: center;
 }
 
-.custom-marker:before {
+.All:before {
   content: '';
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: red;
-  border: 0.5px solid darken(red, 20%);
   z-index: -1;
   border-radius: 50% 50% 0 50%;
   transform: rotate(45deg);
 }
 
-.Pub {
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.Allred:before{
+  background-color: $Allred;
+  border: 0.5px solid darken($Allred, 20%);
 }
 
 .Pub:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: blue;
-  border: 0.5px solid darken(blue, 20%);
-  z-index: -1;
-  border-radius: 50% 50% 0 50%;
-  transform: rotate(45deg);
-}
-
-.Restaurant {
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background-color: $Pubs;
+  border: 0.5px solid darken($Pubs, 20%);
 }
 
 .Restaurant:before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-color: green;
-  border: 0.5px solid darken(green, 20%);
-  z-index: -1;
-  border-radius: 50% 50% 0 50%;
-  transform: rotate(45deg);
+  background-color: $Restaurant;
+  border: 0.5px solid darken($Restaurant, 20%);
+}
+
+.Bars:before {
+  background-color: $Bars;
+  border: 0.5px solid darken($Bars, 20%);
+}
+
+.Cafes:before {
+  background-color: $Cafes;
+  border: 0.5px solid darken($Cafes, 20%);
+}
+
+.Landmarks:before {
+  background-color: $Landmarks;
+  border: 0.5px solid darken($Landmarks, 20%);
+}
+
+.Viewpoints:before {
+  background-color: $Viewpoints;
+  border: 0.5px solid darken($Viewpoints, 20%);
+}
+
+.Religious:before {
+  background-color: $Religious;
+  border: 0.5px solid darken($Religious, 20%);
+}
+
+.Galleries:before {
+  background-color: $Galleries;
+  border: 0.5px solid darken($Galleries, 20%);
+}
+
+.Parks:before {
+background-color: $Parks;
+  border: 0.5px solid darken($Parks, 20%);
 }

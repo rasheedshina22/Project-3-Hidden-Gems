@@ -37,7 +37,7 @@ class GemsNew extends React.Component {
   }
 
   suggestionSelect(result, lat, lng, text) {
-    console.log(result, lat, lng, text)
+    console.log(lat, lng)
     const data = {...this.state.data,
       location: {
         lat: lat,
@@ -58,7 +58,6 @@ class GemsNew extends React.Component {
       })
       .then(() => this.props.history.push('/gems'))
       .catch((err) => this.setState({errors: err.response.data}))
-      // .catch((err) => this.setState({ error: err.response.data.errors }))
   }
 
   render() {
