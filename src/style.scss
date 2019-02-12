@@ -308,13 +308,8 @@ $Parks: green;
 }
 
 .Restaurants:before {
-<<<<<<< HEAD
   background-color: $Restaurants;
-  border: 0.5px solid darken($Restaurants, 20%);
-=======
-  background-color: $Restaurant;
-  border: 0.5px solid darken($Restaurant, 20%);
->>>>>>> development
+  border: 0.5px solid darken($Restaurants, 20%)
 }
 
 .Bars:before {

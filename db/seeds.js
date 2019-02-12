@@ -23,19 +23,19 @@ mongoose.connect(dbURI, (err, db) => {
       return Gem.create([{
         name: 'Sky Garden',
         user: user._id,
-<<<<<<< HEAD
         image: 'https://ucarecdn.com/478c2fa1-95f8-4314-8825-19a46984628f/587e487480b3a.jpg',
         description: 'The Sky Garden is a unique public space that spans three storeys and offers 360 degree uninterrupted views across the City of London. Visitors can wander around the exquisitely landscaped gardens, observation decks and an open air terrace of what is London\'s highest public garden.',
         category: 'Restaurants',
         location: {lat: 51.511203, lon: -0.0857297},
         address: '20 Fenchurch St, London EC3M 8AF'
-=======
+      },{
+        name: 'St. Paul\'s Cathedral',
+        user: user._id,
         image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
         description: 'Nice pub in Aldgate',
         category: 'Pubs',
         location: {lat: 51.538746, lon: -0.143074},
         address: '7, Monohaus, 143 Mare St, London E8 3FW'
->>>>>>> development
       },{
         name: 'St. Paul\'s Cathedral',
         user: user._id,
@@ -47,19 +47,19 @@ mongoose.connect(dbURI, (err, db) => {
       },{
         name: 'London Eye',
         user: user._id,
-<<<<<<< HEAD
         image: 'https://www.divento.com/14151/the-london-eye-all-year.jpg',
         description: 'The London Eye is one of the more famous structures rising on the landscape of London. It is an enormous Ferris wheel that sits on the south bank of the River Thames. It is on the west end of Jubilee Gardens on the South Bank and it stands roughly 135 metres in height.',
         category: 'Landmarks',
         location: {lat: 51.5327045, lon: -0.1507498},
         address: 'Lambeth, London SE1 7PB, UK'
-=======
+      },{
+        name: 'London Eye',
+        user: user._id,
         image: 'https://pbs.twimg.com/media/DXwnM9vXkAADfvm.jpg',
         description: 'Nice pub in Aldgate',
         category: 'Pubs',
         location: {lat: 51.528031, lon: -0.085656},
         address: 'Showcase Complex, Redfield Way, Nottingham NG7 2UW'
->>>>>>> development
       },{
         name: 'Regent\'s Park',
         user: user._id,
@@ -74,13 +74,10 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://absolutely.london/wp-content/uploads/2018/02/Untitled-1-2-1068x712.jpg',
         description: 'The Sheep Heid Inn is a premium pub, bar, and restaurant with its very own courtyard, centrally located in the heart of the picturesque town of Edinburgh',
         category: 'Restaurants',
-<<<<<<< HEAD
         location: {lat: 55.942004, lon: -3.150730},
-        address: '43-45 The Causeway, Edinburgh EH15 3QA'
-=======
+        address: '43-45 The Causeway, Edinburgh EH15 3QA',
         location: {lat: 51.444252, lon: -0.091543},
         address: '7, Monohaus, 143 Mare St, London E8 3FW'
->>>>>>> development
       },{
         name: 'Urquhart Castle',
         user: user._id,
@@ -93,7 +90,6 @@ mongoose.connect(dbURI, (err, db) => {
       {
         name: 'Dan & Decarlo',
         user: user._id,
-<<<<<<< HEAD
         image: 'https://cdn.wallpaper.com/main/legacy/gallery/17052978/RM-Starbucks-Amsterdam-Bank-017.jpg',
         description: 'Breakfast, grills and burgers in arts centre cafe set in a former chapel with its own rear garden.',
         category: 'Cafes',
@@ -115,15 +111,17 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://seda.college/wp-content/uploads/1499034853348.jpg',
         description: 'Passeart is a contemporary art exhibition space located in TROYES, in the heart of the city, Place Saint Rémy.PASSEART is also a place of exchange and training.',
         category: 'Galleries',
-        location: {lat: 48.2993253, lon: 4.0736781},
-        address: '15 Rue Passerat, 10000 Troyes, France'
-=======
+        address: '15 Rue Passerat, 10000 Troyes, France',
+        location: {lat: 48.2993253, lon: 4.0736781}
+      },
+      {
+        name: 'Next one',
+        user: user._id,
         image: 'https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg',
         description: 'nice mountain',
         category: 'Pubs',
         location: {lat: 51.580605, lon: 0.180915},
         address: ' 77-79 George St, Oxford OX1 2BQ'
->>>>>>> development
       }])
 
         .then(gems => {
@@ -176,9 +174,6 @@ mongoose.connect(dbURI, (err, db) => {
             location: 'Arcis-sur-Aube',
             gems: [gems[6]._id, gems[7]._id]
           }
-
-
-
           )
         })
     })

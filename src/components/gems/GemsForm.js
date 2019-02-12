@@ -9,7 +9,6 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
 
     <div className="container">
       <div className="column is-6 is-offset-3 ">
-
         <h3 className="title has-text-centered">Add Your Gem</h3>
         <div className="box">
           <form onSubmit={handleSubmit}>
@@ -87,9 +86,6 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 {errors.category && <small>{errors.category}</small>}
               </div>
             </div>
-
-            <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
-
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
