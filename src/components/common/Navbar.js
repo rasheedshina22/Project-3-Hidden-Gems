@@ -21,6 +21,10 @@ class Navbar extends React.Component {
 
   }
 
+  toggleIcon() {
+
+  }
+
   logout(){
     Auth.removeToken()
     this.props.history.push('/')
@@ -41,7 +45,7 @@ class Navbar extends React.Component {
           <div className="navbar-brand">
 
             <Link className="navbar-item" to="/">
-              <strong>Hidden <i className="far fa-gem"></i> Gems  </strong>
+              <strong className="has-text-white is-size-4">Hidden <i className="far fa-gem"></i> Gems  </strong>
             </Link>
 
             <a
@@ -56,16 +60,16 @@ class Navbar extends React.Component {
 
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
-              <a className="navbar-link">
+              <a className="navbar-link has-text-white">
                Discover
               </a>
 
               <div className="navbar-dropdown">
-                <Link to="/gems" className="navbar-item">
+                <Link to="/gems" className="navbar-item has-text-white">
                  The Hidden Gems
                 </Link>
                 <hr className="navbar-divider" />
-                <Link to="/trips" className="navbar-item">
+                <Link to="/trips" className="navbar-item has-text-white">
                  The Trips
                 </Link>
               </div>
@@ -75,10 +79,10 @@ class Navbar extends React.Component {
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               {Auth.isAuthenticated() && <div className="navbar-item has-dropdown is-hoverable">
-                <Link to={`/user/${Auth.getUserId()}`} className="navbar-item">
+                <Link to={`/user/${Auth.getUserId()}`} className="navbar-item has-text-white">
                 Your Gems
                 </Link>
-                <a className="navbar-link">
+                <a className="navbar-link has-text-white">
                  Add
                 </a>
 
@@ -93,8 +97,8 @@ class Navbar extends React.Component {
                 </div>
               </div>}
 
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Sign Up</Link>}
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item has-text-white" to="/register">Sign Up</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item has-text-white" to="/login">Login</Link>}
               {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
             </div>
           </div>
