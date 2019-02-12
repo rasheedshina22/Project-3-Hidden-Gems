@@ -76,7 +76,7 @@ class TripsShow extends React.Component {
 
     // also get the user location...
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
+      navigator.geolocation.getCurrentPosition(position => {
         console.log('LOCATION FOUND')
         this.setState({
           userLocation: {
@@ -114,18 +114,15 @@ class TripsShow extends React.Component {
                 <hr />
                 <h4 className="title is-4">Gems:</h4>
                 <div>
-                  {gems.map((gem, index) => {
-                    return <Link to={`/gems/${gem._id}`} className="button is-primary is-rounded" key={index}> {gem.name} </Link>
-                  })}
+                  {gems.map((gem, index) =>
+                    <Link to={`/gems/${gem._id}`} className="button is-primary is-rounded" key={index}> {gem.name} </Link>
+                  )}
                   <hr/>
                 </div>
                 <div className="column">
                   <div className="content">
                     {Auth.canEdit(user._id) && (
-                      <div>
-                        <Link to={`/trips/${_id}/edit`} className="button is-primary is-rounded"> Edit </Link>
-                        <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
-                      </div>
+                      <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
                     )}
                   </div>
                 </div>
@@ -148,7 +145,7 @@ class TripsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <TripsMap
-                  gems = {gems}
+                  gems={gems}
                   userLocation={this.state.userLocation}
                 />
               </div>

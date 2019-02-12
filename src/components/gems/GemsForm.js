@@ -1,8 +1,6 @@
 import React from 'react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 
-
-
 const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
 
@@ -10,7 +8,6 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
       <div className="column is-6 is-offset-3 ">
 
         <h3 className="title has-text-centered">Add Your Gem</h3>
-        {errors && <div className="notification is-danger">Missing fields</div>}
         <div className="box">
           <form onSubmit={handleSubmit}>
             <div className="field">
@@ -65,11 +62,11 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                     name="category"
                     defaultValue="Please Choose..."
                     onChange={handleChange}
+                    value={data.category}
                   >
                     <option disabled>Please Choose...</option>
                     <option value="" > Search All </option>
                     <option> Pubs </option>
-                    <option> Restaurants </option>
                     <option> Bars </option>
                     <option> Cafes </option>
                     <option> Landmarks </option>
@@ -77,15 +74,11 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                     <option> Religious Sites </option>
                     <option> Galleries </option>
                     <option> Parks </option>
-
                   </select>
-
                 </div>
                 {errors.category && <small>{errors.category}</small>}
               </div>
             </div>
-
-            <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
             <label className="label">Location</label>
             <div className="control">
               <MapboxAutocomplete
@@ -95,14 +88,12 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 resetSearch={false}
                 onchange={handleChange}
                 name="location"
+                value={data.address}
               />
               {errors.location && <small>{errors.location}</small>}
-
             </div>
-
-
             <div>
-              <button className="button is-primary is-rounded is-info is-medium is-fullwidth">Submit</button>
+              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
             </div>
           </form>
         </div>
