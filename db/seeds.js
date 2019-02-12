@@ -15,6 +15,7 @@ mongoose.connect(dbURI, (err, db) => {
       return User.create({
         username: 'Tom',
         email: 't@mail.com',
+        image: 'https://as1.ftcdn.net/jpg/02/23/35/10/500_F_223351013_WB9UMoJcCy2f3HDaNcFB0YhaGznHEfsa.jpg',
         password: 't',
         passwordConfirmation: 't'
       })

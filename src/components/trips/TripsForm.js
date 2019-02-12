@@ -61,6 +61,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                     name="category"
                     defaultValue="Please Choose..."
                     onChange={handleChange}
+                    value={data.category}
                   >
                     <option disabled>Please Choose...</option>
                     <option value="" > Search All </option>
