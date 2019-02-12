@@ -18,7 +18,7 @@ class Map extends React.Component {
     })
 
     const markerElement = document.createElement('div')
-    markerElement.className = 'All Allred'
+    markerElement.className = 'Gem Gem:after'
 
     this.marker = new mapboxgl.Marker(markerElement)
       .setLngLat({

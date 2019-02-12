@@ -120,6 +120,30 @@ $Religious: grey;
 $Galleries: violet;
 $Parks: green;
 
+ // https://css-tricks.com/the-shapes-of-css/ 
+.Gem {
+  border-style: solid;
+  border-color: transparent transparent red transparent;
+  border-width: 0 15px 15px 15px;
+  height: 0;
+  width: 20px;
+  box-sizing: content-box;
+  position: relative;
+  margin: 10px 0 25px 0;
+}
+.Gem:after {
+  content: "";
+  position: absolute;
+  top: 15px;
+  left: -15px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-color: red transparent transparent transparent;
+  border-width: 35px 25px 0 25px;
+}
+
+
 .All {
   color: white;
   font-size: 16px;
