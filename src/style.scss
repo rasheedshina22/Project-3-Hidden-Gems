@@ -203,6 +203,8 @@ textarea.textarea {
   opacity: 1;
 }
 
+
+
 .mapboxgl-popup {
   max-width: 170px;
   font: 9pt 'Courier New', Arial, Helvetica, sans-serif;
@@ -241,7 +243,7 @@ input.react-mapbox-ac-input {
 
 $Allred: red;
 $Pubs: blue;
-$Restaurant: cyan;
+$Restaurants: cyan;
 $Bars: purple;
 $Cafes: brown;
 $Landmarks: yellow;
@@ -306,8 +308,8 @@ $Parks: green;
 }
 
 .Restaurants:before {
-  background-color: $Restaurant;
-  border: 0.5px solid darken($Restaurant, 20%);
+  background-color: $Restaurants;
+  border: 0.5px solid darken($Restaurants, 20%);
 }
 
 .Bars:before {
@@ -343,4 +345,12 @@ $Parks: green;
 .Parks:before {
 background-color: $Parks;
   border: 0.5px solid darken($Parks, 20%);
+}
+
+nav.navbar .home{
+  color: white;
+}
+
+nav.navbar .other{
+  background-color: black;
 }
