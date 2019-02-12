@@ -33,8 +33,10 @@ class Navbar extends React.Component {
   }
 
   render() {
+
+    console.log(this.props.location.pathname)
     return (
-      <nav className="navbar">
+      <nav className= { this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
 
