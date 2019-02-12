@@ -48,6 +48,7 @@ class Login extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
                   <div className="control">
+                    <i className ="fas fa-user"></i>
                     <label className="label">Email</label>
                     <input
                       className="input"
