@@ -191,7 +191,7 @@ input.react-mapbox-ac-input {
 
 $Allred: red;
 $Pubs: blue;
-$Restaurant: cyan;
+$Restaurants: cyan;
 $Bars: purple;
 $Cafes: brown;
 $Landmarks: yellow;
@@ -255,9 +255,9 @@ $Parks: green;
   border: 0.5px solid darken($Pubs, 20%);
 }
 
-.Restaurant:before {
-  background-color: $Restaurant;
-  border: 0.5px solid darken($Restaurant, 20%);
+.Restaurants:before {
+  background-color: $Restaurants;
+  border: 0.5px solid darken($Restaurants, 20%);
 }
 
 .Bars:before {
