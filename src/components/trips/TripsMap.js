@@ -11,17 +11,17 @@ class TripMap extends React.Component {
 
   componentDidMount() {
     console.log('props there on Mount', this.props)
-
-    let totalLat = 0
-    let totalLng = 0
+    // 
+    // let totalLat = 0
+    // let totalLng = 0
 
     // Default centre
-    this.props.gems.forEach(gem => {
-      totalLat += parseFloat(gem.location.lat)
-      totalLng += parseFloat(gem.location.lon)
-    })
-    const averageLat = totalLat / this.props.gems.length
-    const averageLng = totalLng / this.props.gems.length
+    // this.props.gems.forEach(gem => {
+    //   totalLat += parseFloat(gem.location.lat)
+    //   totalLng += parseFloat(gem.location.lon)
+    // })
+    // const averageLat = totalLat / this.props.gems.length
+    // const averageLng = totalLng / this.props.gems.length
 
     // Creates bounds
     const bounds = this.props.gems.map(gem => {
@@ -31,7 +31,7 @@ class TripMap extends React.Component {
     // MAP Component new map made
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
-      center: {lng: averageLng, lat: averageLat },
+      // center: {lng: averageLng, lat: averageLat },
       style: 'mapbox://styles/mapbox/light-v9'
     })
     this.map.fitBounds(bounds,{ padding: 120 })

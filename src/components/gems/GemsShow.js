@@ -78,7 +78,7 @@ class GemsShow extends React.Component {
 
     // also get the user location...
     if (navigator.geolocation) {
-      navigator.geolocation.watchPosition(position => {
+      navigator.geolocation.getCurrentPosition(position => {
         this.setState({
           userLocation: {
             lat: position.coords.latitude,
@@ -86,7 +86,7 @@ class GemsShow extends React.Component {
           }
         })
       })
-    } 
+    }
   }
 
   render(){
@@ -113,9 +113,9 @@ class GemsShow extends React.Component {
                 <p> {description}</p>
                 <hr />
                 <h4 className="title is-4">Trips:</h4>
-                {trips.map((trip) => {
-                  return <Link to={`/trips/${trip._id}`} className="button is-primary is-rounded" key={trip._id}> {trip.name} </Link>
-                })}
+                {trips.map((trip) =>
+                  <Link to={`/trips/${trip._id}`} className="button is-primary is-rounded" key={trip._id}> {trip.name} </Link>
+                )}
                 {Auth.canEdit(user._id) && (
                   <div>
                     <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
@@ -135,7 +135,7 @@ class GemsShow extends React.Component {
                 handleCommentChange={this.handleCommentChange}
                 handleCommentDelete={this.handleCommentDelete}
                 {...this.state.gem}
-                contentInput= {this.state.data.content}
+                contentInput={this.state.data.content}
               />
             </div>
             <div className="column">

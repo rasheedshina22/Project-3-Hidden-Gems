@@ -9,7 +9,6 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
       <div className="column is-6 is-offset-3 ">
 
         <h3 className="title has-text-centered">Create Your Trip</h3>
-        {errors && <div className="notification is-danger">Missing Fields</div>}
         <div className="box">
           <form onSubmit={handleSubmit}>
             <div className="field">
