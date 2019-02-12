@@ -153,6 +153,8 @@ button.button.home {
 }
 
 
+
+
 .mapboxgl-popup {
   max-width: 170px;
   font: 9pt 'Courier New', Arial, Helvetica, sans-serif;
@@ -293,4 +295,12 @@ $Parks: green;
 .Parks:before {
 background-color: $Parks;
   border: 0.5px solid darken($Parks, 20%);
+}
+
+nav.navbar .home{
+  color: white;
+}
+
+nav.navbar .other{
+  background-color: black;
 }
