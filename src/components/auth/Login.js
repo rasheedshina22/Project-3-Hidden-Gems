@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 import Flash from '../../lib/Flash'
@@ -40,11 +41,9 @@ class Login extends React.Component {
       <section className="section">
         <div className="container has-text-centered">
           <div className="column is-4 is-offset-4">
-
             <h3 className="title has-text-grey">Login</h3>
             <p className="subtitle has-text-grey">Please login to proceed.</p>
             {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-
             <div className="box">
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
@@ -60,7 +59,6 @@ class Login extends React.Component {
                     />
                   </div>
                 </div>
-
                 <div className="field">
                   <div className="control">
                     <label className="label">Password</label>
@@ -74,26 +72,15 @@ class Login extends React.Component {
                     />
                   </div>
                 </div>
-
-                <div className="field">
-                  <label className="checkbox">
-                    <input type="checkbox" />
-                    Remember me
-                  </label>
-                </div>
                 <button className="button is-rounded is-medium is-fullwidth is-primary">Login</button>
               </form>
-
             </div>
             <p className="has-text-grey">
-              <a href="/register">Sign Up</a> &nbsp;·&nbsp;
-              <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-              <a href="../">Need Help?</a>
+              <Link to="/register">Sign Up</Link>
             </p>
           </div>
         </div>
       </section>
-
     )
   }
 }

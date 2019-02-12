@@ -18,7 +18,6 @@ class Navbar extends React.Component {
 
   toggleNavbar() {
     this.setState({ navbarOpen: !this.state.navbarOpen })
-
   }
 
   toggleIcon() {
@@ -43,11 +42,9 @@ class Navbar extends React.Component {
       <nav className= { this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
-
             <Link className="navbar-item" to="/">
               <strong className="has-text-white is-size-4">Hidden <i className="far fa-gem"></i> Gems  </strong>
             </Link>
-
             <a
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
               onClick={this.toggleNavbar}
@@ -57,13 +54,11 @@ class Navbar extends React.Component {
               <span aria-hidden="true"></span>
             </a>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
               <a className="navbar-link has-text-white">
                Discover
               </a>
-
               <div className="navbar-dropdown">
                 <Link to="/gems" className="navbar-item has-text-white">
                  The Hidden Gems
@@ -75,7 +70,6 @@ class Navbar extends React.Component {
               </div>
             </div>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               {Auth.isAuthenticated() && <div className="navbar-item has-dropdown is-hoverable">
@@ -85,7 +79,6 @@ class Navbar extends React.Component {
                 <a className="navbar-link has-text-white">
                  Add
                 </a>
-
                 <div className="navbar-dropdown">
                   <Link to="/gems/new" className="navbar-item">
                    Your Gems

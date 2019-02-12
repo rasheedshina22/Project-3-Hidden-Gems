@@ -6,7 +6,6 @@ const fileStack = process.env.FILESTACK_API_KEY
 
 const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
-
     <div className="container">
       <div className="column is-6 is-offset-3 ">
         <h3 className="title has-text-centered">Add Your Gem</h3>
@@ -100,7 +99,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
               {errors.location && <small>{errors.location}</small>}
             </div>
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit</button>
+              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit <i className="fas fa-gem"></i>
+              </button>
             </div>
           </form>
         </div>
