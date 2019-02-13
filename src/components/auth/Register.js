@@ -1,5 +1,8 @@
 import React from 'react'
 import axios from 'axios'
+import ReactFilestack from 'react-filestack'
+
+const fileStack = process.env.FILESTACK_API_KEY
 
 class Register extends React.Component {
   constructor() {
@@ -7,7 +10,7 @@ class Register extends React.Component {
 
     this.state = {
       data: {},
-      errors: ''
+      errors: {}
     }
 
     this.handleChange = this.handleChange.bind(this)
@@ -31,7 +34,6 @@ class Register extends React.Component {
   render() {
     return (
       <section className="section">
-
         <div className="container">
           <div className="column is-4 is-offset-4">
             <h3 className="title has-text-centered">Register</h3>
@@ -47,8 +49,7 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.username || ''}
                     />
-                    {this.state.errors.username && <small>{this.state.errors.username}</small>}
-
+                    {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
                   </div>
                 </div>
                 <div className="field">
@@ -62,7 +63,25 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.email || ''}
                     />
-                    {this.state.errors.email && <small>{this.state.errors.email}</small>}
+                    {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label">Image</label>
+                  <div className="control">
+                    <ReactFilestack
+                      apikey={`${fileStack}`}
+                      mode={'pick'}
+                      onSuccess={(res) => this.handleChange({
+                        target: {
+                          name: 'image',
+                          value: res.filesUploaded[0].url
+                        }})}
+                      onError={(err) => console.log(err)}
+                      buttonText={'Add Image'}
+                      buttonClass={'button is-dark is-rounded'}
+                    />
+                    {this.state.errors.image && <small>{this.state.errors.image}</small>}
 
                   </div>
                 </div>
@@ -77,7 +96,7 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.password || ''}
                     />
-                    {this.state.errors.password && <small>{this.state.errors.password}</small>}
+                    {this.state.errors.password && <small className="help is-danger">{this.state.errors.password}</small>}
                   </div>
                 </div>
                 <div className="field">
@@ -93,14 +112,11 @@ class Register extends React.Component {
                     />
                   </div>
                 </div>
-
                 <button className="button is-primary is-medium is-fullwidth is-rounded">Sign Up</button>
-
               </form>
             </div>
           </div>
         </div>
-
       </section>
     )
   }

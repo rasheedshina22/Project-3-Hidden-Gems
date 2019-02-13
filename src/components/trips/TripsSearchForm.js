@@ -18,9 +18,10 @@ const TripsForm = ({ handleSearch }) => {
           <option> Pubs Crawl</option>
           <option> Caravan Trips </option>
           <option> Road Trips </option>
+          <option> Rare Trips </option>
           <option> Weekend Trips </option>
           <option> Sunday Trips </option>
-          <option> Mid-week Trips </option>
+          <option> Camping Trips </option>
           <option> Cycling Trips </option>
           <option> Family Trips </option>
         </select>

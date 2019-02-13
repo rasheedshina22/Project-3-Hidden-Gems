@@ -15,6 +15,7 @@ mongoose.connect(dbURI, (err, db) => {
       return User.create({
         username: 'Tom',
         email: 't@mail.com',
+        image: 'http://www.stickpng.com/assets/images/585e4bf3cb11b227491c339a.png',
         password: 't',
         passwordConfirmation: 't'
       })
@@ -47,7 +48,7 @@ mongoose.connect(dbURI, (err, db) => {
       },{
         name: 'Regent\'s Park',
         user: user._id,
-        image: 'https://www.mutualart.com/Images/2011_10/18/12/124409779/586e086f-c5a5-4707-a481-97f054075e4b_570.Jpeg',
+        image: 'https://images.unsplash.com/photo-1459508583695-86e229e8855a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'The Regent\'s Park combines large open spaces with tree-lined pathways, formal gardens, and four children’s playgrounds. It has excellent sports facilities, and contains central London’s largest outdoor sports area.',
         category: 'Parks',
         location: {lat: 51.5313, lon: -0.1570},
@@ -88,13 +89,94 @@ mongoose.connect(dbURI, (err, db) => {
         address: '15 Rue Passerat, 10000 Troyes, France'
       },
       {
-        name: 'Next one',
+        name: 'St Michael\'s Mount',
         user: user._id,
-        image: 'https://seda.college/wp-content/uploads/1499034853348.jpg',
-        description: 'Passeart is a contemporary art exhibition space located in TROYES, in the heart of the city, Place Saint Rémy.PASSEART is also a place of exchange and training.',
-        category: 'Galleries',
-        location: {lat: 48.2993253, lon: 4.0736781},
-        address: '15 Rue Passerat, 10000 Troyes, France'
+        image: 'https://images.unsplash.com/photo-1493672044531-efdb1aa01b8d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
+        description: 'St Michael\'s Mount (Cornish: Karrek Loos yn Koos, meaning "hoar rock in woodland") is a small tidal island in Mount\'s Bay, Cornwall, England, United Kingdom. The island is a civil parish and is linked to the town of Marazion by a man-made causeway of granite setts, passable between mid-tide and low water',
+        category: 'Viewpoints',
+        location: {lat: 50.1175691, lon: -5.4822363},
+        address: 'St Michaels Mount, Marazion, TR170HS '
+      },
+      {
+        name: 'Camel Trail',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1532612821865-8cc3cb888f3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
+        description: 'The Camel Trail is an 18 mile largely traffic free, surfaced and virtually level multi use trail which provides access to the beautiful Cornish countryside ',
+        category: 'Landmarks',
+        location: {lat: 50.5089749, lon: -4.9587513},
+        address: ' Eddystone Rd, Wadebridge PL27 7AL'
+      },
+      {
+        name: 'Nerja Beaches',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
+        description: 'Nerja is a resort town along southern Spain\'s Costa del Sol. Its seafront promenade, Balcón de Europa, tops a promontory with views of the Mediterranean and surrounding mountains.',
+        category: 'Landmarks',
+        location: {lat: 36.7497316, lon: -3.870516},
+        address: ' Camino de Burriana, s/n, 29780 Nerja, Málaga, Spain'
+      },
+      {
+        name: 'Café Fresco',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
+        description: 'Hip, garden shed-style branch of small cafe chain for artisan coffee, plus sandwiches and cakes. ',
+        category: 'Cafes',
+        location: {lat: 36.1477101, lon: -5.35555},
+        address: ' Ocean Village Promenade 33, Gibraltar'
+      },
+      {
+        name: 'Camping Jungfrau Holiday Park',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1506535995048-638aa1b62b77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'Nestled in a valley of lush greenery in Switzerland, Jungfrau is one of Europe\'s most beautiful campsites offering the authentic alpine atmosphere.',
+        category: 'Landmarks',
+        location: {lat: 46.588744, lon: -7.906073},
+        address: 'Weid 406, 3822 Lauterbrunnen, Switzerland'
+      },
+      {
+        name: 'Camping Lazy Rancho 4',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1532876924456-d6460f2f56a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'Campsite Lazy-Rancho 4 is a campsite in Unterseen, Bern, located a river/stream.The campsite has which are marked out and pitches with some shade. It is possible to rent hikers\' cabins and bungalows. The campsite has a playground. ',
+        category: 'Landmarks',
+        location: {lat: 46.6860467, lon: 7.8286186},
+        address: ' Lehnweg 6, 3800 Unterseen, Switzerland'
+      },
+      {
+        name: 'The Old Joint Stock',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
+        description: 'Victorian bank building, now home to a theatre and pub with an island bar below a glass-domed roo',
+        category: 'Pubs',
+        location: {lat: 52.480799, lon: -1.902177},
+        address: '4 Temple Row W, Birmingham B2 5NY'
+      },
+      {
+        name: 'Bacchus Bar',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1521394573970-cdcef757fddd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80',
+        description: 'Cask ales and a crowd-pleasing menu in a plush venue with vaulted ceilings and dark wood tables.',
+        category: 'Pubs',
+        location: {lat: 52.4788598, lon: -1.9008796},
+        address: 'Burlington Arcade, New St, Birmingham B2 4JH'
+      },
+      {
+        name: 'Santiago de Compostela Cathedral',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1532726858233-f3c23319edc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'The Cathedral of Santiago de Compostela is part of the Roman Catholic Archdiocese of Santiago de Compostela and is an integral component of the Santiago de Compostela World Heritage Site in Galicia, Spain. The cathedral is the reputed burial place of Saint James the Great, the apostles of Jesus Christ.',
+        category: 'Religious Sites',
+        location: {lat: 42.8805962, lon: -8.5468352},
+        address: 'Praza do Obradoiro, s/n, 15704 Santiago de Compostela, A Coruña, Spain'
+      },
+      {
+        name: 'Buckingham Palace',
+        user: user._id,
+        image: 'https://www.royal.uk/sites/default/files/images/feature/buckingham-palace.jpg',
+        description: 'Buckingham Palace is the London residence and administrative headquarters of the monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.',
+        category: 'Landmarks',
+        location: {lat: 51.501364, lon: -0.144084},
+        address: 'Westminster, London SW1A 1AA'
       }])
 
         .then(gems => {
@@ -102,39 +184,31 @@ mongoose.connect(dbURI, (err, db) => {
             name: 'Sunday Afternoon Sights',
             user: user._id,
             image: 'https://absolutely.london/wp-content/uploads/2017/06/Gordons-hero-1068x712.jpg',
-            description: 'Established in 1890, Gordon\'s Wine Bar is possibly the oldest wine bar in London. Still family run, signs of the bar\'s long history can be found everywhere, from the cellar and candlelit tables, to the aged wooden walls covered in memorabilia and old newspaper cuttings.',
+            description: 'Take a sightseeing tour of London and learn from experts as they show you the city\'s best attractions and famous landmarks',
             category: 'Sunday Trips',
             location: 'London',
             gems: [gems[0]._id, gems[1]._id, gems[2]._id]
           },
-          {name: 'Busy Mid Week Treat',
-            user: user._id,
-            image: 'https://static1.squarespace.com/static/516ee454e4b0915f11da11cb/t/5b449a31575d1f575c33049e/1531221773180/notes-coffee-day-2-JustinDeSouza-15.jpg',
-            description: 'Notes is a collection of coffee shops and bars serving Notes speciality coffee, craft beers, well-chosen wines and classic cocktails, all with a signature Notes twist. We also offer delicious seasonally-inspired food throughout the day, to eat in or takeaway. ',
-            category: 'Sunday Trips',
-            location: 'London',
-            gems: [gems[0]._id , gems[3]._id]
-          },
-          {name: 'Historycal Trip',
+          {name: 'Historical Trip',
             user: user._id,
             image: 'https://vignette.wikia.nocookie.net/theenemy/images/d/de/Natural-history-museum.jpg/revision/latest?cb=20180106202456',
-            description: 'The Natural History Museum in London is a natural history museum that exhibits a vast range of specimens from various segments of natural history. It is one of three major museums on Exhibition Road in South Kensington, the others being the Science Museum and the Victoria and Albert Museum. ',
-            category: 'Sunday Trips',
+            description: 'Find out more about our history through our tours.',
+            category: 'Family Trips',
             location: 'London',
-            gems: [gems[1]._id, gems[2]._id]
+            gems: [gems[1]._id, gems[2]._id , gems[17]._id]
           },
-          {name: 'Lock Ness Trip',
+          {name: 'Lock Ness ',
             user: user._id,
             image: 'https://thewallpaper.co/wp-content/uploads/2016/03/mirror-lake-high-resolution-wallpaper-download-mirror-lake-photos-free-cool-colours-screen-1920x1200-768x480.jpg',
-            description: 'Loch Ness is a large, deep, freshwater loch in the Scottish Highlands extending for approximately 37 kilometres southwest of Inverness. Its surface is 16 metres above sea level. Loch Ness is best known for alleged sightings of the cryptozoological Loch Ness Monster, also known affectionately as "Nessie". ',
-            category: 'Weekend Trips',
+            description: 'With this rare trip you have the chance of visiting Loch Ness. Loch Ness is best known for alleged sightings of the cryptozoological Loch Ness Monster, also known affectionately as "Nessie". ',
+            category: 'Rare Trips',
             location: 'Edinburgh',
             gems: [gems[5]._id, gems[6]._id]
           },
-          {name: 'Scottish Tour',
+          {name: 'Discovering Scotland',
             user: user._id,
             image: 'https://blogs.library.duke.edu/bitstreams/files/2015/08/duke-chapel-960x576.jpg',
-            description: 'Rosslyn Chapel, formally known as the Collegiate Chapel of St Matthew, is a 15th-century chapel located in the village of Roslin, Midlothian, Scotland. Rosslyn Chapel was founded on a small hill above Roslin Glen as a Catholic collegiate church in the mid-15th century. ',
+            description: 'A wide range of itineraries and days out for your holiday in Scotland.',
             category: 'Weekend Trips',
             location: 'Edinburgh',
             gems: [gems[4]._id, gems[5]._id]
@@ -142,7 +216,7 @@ mongoose.connect(dbURI, (err, db) => {
           {name: 'Caravan Holiday around France',
             user: user._id,
             image: 'https://images.unsplash.com/photo-1540500754616-370738ad6c21?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=815&q=80',
-            description: 'Experience The Magic Of France On Two Wheels ',
+            description: 'France is a fantastic country for an unforgettable camping holiday, and for good reason. With gorgeous sandy beaches, cool lakes, stunning mountain ranges and beautiful cities we can see why it’s the most visited country in the world.',
             category: 'Caravan Trips',
             location: 'Arcis-sur-Aube',
             gems: [gems[6]._id, gems[7]._id]
@@ -150,10 +224,34 @@ mongoose.connect(dbURI, (err, db) => {
           {name: 'Cycle around Cornwall',
             user: user._id,
             image: 'https://images.unsplash.com/photo-1510135649765-8f3a1921bb1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80',
-            description: 'Get out and explore Cornwall\'s amazing cycling and walking routes while discovering wildlife, heritage and parts of Cornwall you never knew existed. ',
+            description: 'Get out and explore Cornwall\'s amazing cycling routes while discovering wildlife, heritage and parts of Cornwall you never knew existed. ',
             category: 'Cycling Trips',
             location: 'Newquay',
-            gems: [gems[6]._id, gems[7]._id]
+            gems: [gems[8]._id, gems[9]._id]
+          },
+          {name: 'Road Trip discovering Spain',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1529225596519-1262d0bfc242?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            description: 'Pick up a hire car and drive east along the coast so that you can discover Spain.',
+            category: 'Road Trips',
+            location: 'Nerja',
+            gems: [gems[10]._id, gems[11]._id,gems[16]._id]
+          },
+          {name: 'Camping in Switzerland',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1464547323744-4edd0cd0c746?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            description: 'Camping in Switzerland is a fantastic activity, providing hours of enjoyment and a welcome opportunity to connect with loved ones, as well as nature',
+            category: 'Camping Trips',
+            location: 'Geneva',
+            gems: [gems[12]._id, gems[13]._id]
+          },
+          {name: 'Pub Crawl in the Midlands',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1518005068251-37900150dfca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80',
+            description: 'Start a tour taking in several pubs or drinking places in the beautiful city of Birmingham',
+            category: 'Pubs Crawl',
+            location: 'Birmingham',
+            gems: [gems[14]._id, gems[15]._id]
           }
           )
         })

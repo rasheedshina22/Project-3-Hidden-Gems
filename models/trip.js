@@ -14,7 +14,7 @@ const tripSchema = new mongoose.Schema({
   description: { type: String},
   category: { type: String, required: 'Please give your Trip a Category'},
   location: { type: String},
-  gems: { type: [{ type: mongoose.Schema.ObjectId, ref: 'Gem' }], required: 'Please select the Gems included in your Trip' },
+  gems: { type: [{ type: mongoose.Schema.ObjectId, ref: 'Gem', required: 'Please select the Gems included in your Trip' }], required: 'Please select the Gems included in your Trip' },
   comments: [ commentSchema ]
 })
 

@@ -18,6 +18,9 @@ class Navbar extends React.Component {
 
   toggleNavbar() {
     this.setState({ navbarOpen: !this.state.navbarOpen })
+  }
+
+  toggleIcon() {
 
   }
 
@@ -39,11 +42,9 @@ class Navbar extends React.Component {
       <nav className= { this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
-
             <Link className="navbar-item" to="/">
-              <strong>Hidden <i className="far fa-gem"></i> Gems  </strong>
+              <strong className="has-text-white is-size-4">Hidden <i className="far fa-gem"></i> Gems  </strong>
             </Link>
-
             <a
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
               onClick={this.toggleNavbar}
@@ -53,35 +54,31 @@ class Navbar extends React.Component {
               <span aria-hidden="true"></span>
             </a>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
-              <a className="navbar-link">
+              <a className="navbar-link has-text-white">
                Discover
               </a>
-
               <div className="navbar-dropdown">
-                <Link to="/gems" className="navbar-item">
+                <Link to="/gems" className="navbar-item has-text-white">
                  The Hidden Gems
                 </Link>
                 <hr className="navbar-divider" />
-                <Link to="/trips" className="navbar-item">
+                <Link to="/trips" className="navbar-item has-text-white">
                  The Trips
                 </Link>
               </div>
             </div>
           </div>
-
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
               {Auth.isAuthenticated() && <div className="navbar-item has-dropdown is-hoverable">
-                <Link to={`/user/${Auth.getUserId()}`} className="navbar-item">
+                <Link to={`/user/${Auth.getUserId()}`} className="navbar-item has-text-white">
                 Your Gems
                 </Link>
-                <a className="navbar-link">
+                <a className="navbar-link has-text-white">
                  Add
                 </a>
-
                 <div className="navbar-dropdown">
                   <Link to="/gems/new" className="navbar-item">
                    Your Gems
@@ -93,8 +90,8 @@ class Navbar extends React.Component {
                 </div>
               </div>}
 
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/register">Sign Up</Link>}
-              {!Auth.isAuthenticated() && <Link className="navbar-item" to="/login">Login</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item has-text-white" to="/register">Sign Up</Link>}
+              {!Auth.isAuthenticated() && <Link className="navbar-item has-text-white" to="/login">Login</Link>}
               {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
             </div>
           </div>

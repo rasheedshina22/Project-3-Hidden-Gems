@@ -34,7 +34,8 @@ function showRoute(req, res, next) {
         select: 'username'
       }
       ,{
-        path: 'trips', model: 'Trip'
+        path: 'trips',
+        model: 'Trip'
       }]
     )
     .then(gem => res.status(200).json(gem))
@@ -53,7 +54,6 @@ function updateRoute (req, res, next) {
 function deleteRoute (req, res, next) {
   Gem
     .findById(req.params.id)
-
     .then(gem => gem.remove())
     .then(() => res.sendStatus(204))
     .catch(next)
@@ -77,16 +77,13 @@ function commentDeleteRoute(req, res, next) {
     .findById(req.params.id)
     .then(gem => {
       const comment = gem.comments.id(req.params.commentId)
-      console.log(comment)
       comment.remove()
       return gem.save()
-
     })
     .then(gem => Gem.populate(gem, { path: 'user trips comments.user' }))
     .then(gem => res.status(201).json(gem))
     .catch(next)
 }
-
 
 module.exports = {
   index: indexRoute,

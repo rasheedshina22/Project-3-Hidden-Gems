@@ -1,6 +1,5 @@
 import React from 'react'
 import moment from 'moment'
-// import axios from 'axios'
 
 import Auth from '../../lib/Auth'
 
@@ -12,7 +11,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
         return (
           <div key={index}>
             <p> <strong>{comment.user.username}</strong> {comment.content} </p>
-            {Auth.canEdit(comment.user._id) &&<button value={comment._id} onClick={handleCommentDelete}>Delete</button>}
+            {Auth.canEdit(comment.user._id) &&<button className=" button is-primary" value={comment._id} onClick={handleCommentDelete}>Delete</button>}
             <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
             <hr/>
           </div>
@@ -26,7 +25,6 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
       </form>}
     </div>
   )
-
 }
 
 export default Comments
