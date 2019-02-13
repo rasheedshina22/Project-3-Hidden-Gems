@@ -5,7 +5,7 @@ import mapboxgl from 'mapbox-gl'
 mapboxgl.accessToken = process.env.MAP_BOX_TOKEN
 import 'mapbox-gl/dist/mapbox-gl.css'
 
-class TripMap extends React.Component {
+class Map extends React.Component {
 
   componentDidMount() {
     console.log('props there on Mount', this.props)
@@ -50,6 +50,7 @@ class TripMap extends React.Component {
 
   componentDidUpdate() {
     if(!this.popupsGenerated) this.generatePopups()
+
   }
 
   generatePopups() {
@@ -57,15 +58,16 @@ class TripMap extends React.Component {
     this.popupsGenerated = true
     const { lat, lng } = this.props.userLocation
 
+
     this.props.gems.map((gem, index) => {
 
       const { location, name, image, _id } = gem
 
+
       //add a popup
       // NOTE: view gem Link needs to be updated for heroku
-
       this.markers[index].setPopup(
-        new mapboxgl.Popup({offset: 20})
+        this.popup = new mapboxgl.Popup({offset: 20})
           .setHTML(
             `
               <div class="event-image">
@@ -77,6 +79,9 @@ class TripMap extends React.Component {
             `
           )
       )
+      if(this.props.type === 'gem'){
+        this.popup.addTo(this.map)
+      }
     })
   }
 
@@ -91,4 +96,4 @@ class TripMap extends React.Component {
   }
 }
 
-export default TripMap
+export default Map
