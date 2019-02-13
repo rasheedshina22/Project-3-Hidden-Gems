@@ -5,28 +5,23 @@ import Auth from '../../lib/Auth'
 
 const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit  }) => {
   return (
-    <div>
+    <div className="comments">
       <h2 className="title is-4"> Comments ({comments.length})</h2>
       {comments.map((comment, index) => {
         return (
-          <div key={index}>
-            <div className="columns">
-              <div className="column is-2">
-                <figure className="image">
-                  <img className="is-rounded" src={comment.user.image} alt={comment.name}/>
-                </figure>
+          <div className="columns" key={index}>
+            <div className="column is-2">
+              <figure className="image">
+                <img className="is-rounded" src={comment.user.image} alt={comment.name}/>
+              </figure>
+            </div>
+            <div className="column is-8">
+              <p> <strong>{comment.user.username}</strong> {moment(comment.createdAt).format('DD/MM/YYYY')} </p>
 
-
-
-              </div>
-              <div className="column is-8">
-                <p> <strong>{comment.user.username}</strong> {comment.content} </p>
-
-                <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
-              </div>
-              <div>
-                {Auth.canEdit(comment.user._id) &&<button className=" button is-primary" value={comment._id} onClick={handleCommentDelete}>Delete</button>}
-              </div>
+              <p>{comment.content}</p>
+            </div>
+            <div>
+              {Auth.canEdit(comment.user._id) &&<button className=" button is-primary" value={comment._id} onClick={handleCommentDelete}><i className="fas fa-trash-alt"></i></button>}
             </div>
             <hr/>
 
