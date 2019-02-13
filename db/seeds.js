@@ -267,6 +267,33 @@ mongoose.connect(dbURI, (err, db) => {
         category: 'Landmarks',
         location: {lat: 56.7159113, lon: -3.8607612},
         address: 'Pitlochry PH16 5NR'
+      },
+      {
+        name: 'Annapurna Circuit Trek',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1504770197335-6dcbb939cdc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
+        description: 'The Annapurna Circuit is a trek within the Annapurna mountain range of central Nepal. The total length of the route varies between 160–230 km (100-145 mi), depending on where motor transportation is used and where the trek is ended.',
+        category: 'Landmarks',
+        location: {lat: 27.7235121, lon: 85.3133928},
+        address: 'Muktinath 33100, Nepal'
+      },
+      {
+        name: 'Pokhara Paragliding',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1471247511763-88a722fc9919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1190&q=80',
+        description: 'Paragliding in Pokhara is the most popular as far as this adventure port is concerned. The take-off point is Sarangkot, which is at an altitude of 1592 meters and just 2.4 km due north of Lakeside in Pokhara (593 m). You can either hike to the site or go on a vehicle (20 minutes).',
+        category: 'Viewpoints',
+        location: {lat: 28.2167288, lon: 83.9566286},
+        address: 'Lakeside, Pokhara 33700, Nepal'
+      },
+      {
+        name: 'Phewa Lake',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1508157942875-586a83457569?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80',
+        description: 'Phewa Lake, Phewa Tal or Fewa Lake is a freshwater lake in Nepal formerly called Baidam Tal located in the south of the Pokhara Valley that includes Pokhara city; parts of Sarangkot and Kaskikot.',
+        category: 'Landmarks',
+        location: {lat: 28.2116268, lon: 83.9322529},
+        address: 'Pokhara 33700, Nepal'
       }])
 
         .then(gems => {
@@ -350,6 +377,14 @@ mongoose.connect(dbURI, (err, db) => {
             category: 'Weekend Trips',
             location: 'Napoli',
             gems: [gems[18]._id, gems[19]._id, gems[23]._id]
+          },
+          {name: 'Visit Nepal',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1545917633-ea973917d3f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            description: 'Nepal, the land of Himalayas presents a wide range of travel options with its excellent natural beauty, massive mountains, breathtaking adventurous activities and more. Among all, trekking in Nepal is one of the most popular travel preferences among travelers all around the world',
+            category: 'Weekend Trips',
+            location: 'Nepal',
+            gems: [gems[28]._id, gems[29]._id, gems[30]._id]
           }
           )
         })
