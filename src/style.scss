@@ -1,3 +1,32 @@
+@charset 'utf-8';
+
+@import url('https://fonts.googleapis.com/css?family=Quicksand');
+
+$dark: #05386B;
+$greeny: #F4F7F6;
+
+$primary: $dark;
+$family-sans-serif: "Quicksand", sans-serif;
+$navbar-background-color: $dark;
+$navbar-item-hover-background-color: $dark;
+// $body-background-color: #F4F7F6;
+$column-gap: 0.30rem;
+
+$control-radius: 0;
+$control-radius-small: 0;
+
+@import "~bulma/sass/utilities/_all.sass";
+@import "~bulma/sass/base/_all.sass";
+@import "~bulma/sass/elements/button.sass";
+@import "~bulma/sass/elements/container.sass";
+@import "~bulma/sass/elements/form.sass";
+@import "~bulma/sass/elements/title.sass";
+@import "~bulma/sass/components/navbar.sass";
+@import "~bulma/sass/components/card.sass";
+@import "~bulma/sass/grid/_all.sass";
+@import "~bulma/sass/layout/section.sass";
+
+
 *{
   box-sizing: border-box;
 }
@@ -6,55 +35,312 @@ body {
   margin: 0;
 }
 
-div.hero-body{
-  // background-image: url("");
-  // background-repeat: no-repeat;
-  // background-size: cover;
-  justify-content: center;
-    button{
-      margin: 120px 10px 0 0;
-      transition: box-shadow 0.3s;
-      &:hover{
-        box-shadow:0 8px 6px -6px #FFFFFF, 0 8px 6px 2px #8D8D8D;
-    }
+nav.navbar{
+  background-color: transparent;
+  a {
+    font-weight: 900;
+  }
+}
+
+.navbar-dropdown, .navbar-divider{
+  background-color: rgba(141, 119, 92, 0.3);
+}
+
+.navbar-item.has-dropdown:hover .navbar-link {
+  background-color: rgba(141, 119, 92, 0.3);
+}
+
+.navbar-link:not(.is-arrowless)::after {
+  border-color: white;
+}
+
+a.navbar-item{
+  transition: 0.6s ease;
+  border-bottom: 2px solid transparent;
+  &:hover {
+    border-bottom: 2px solid white;
+    background-color: transparent;
   }
 }
 
 
+.far.fa-gem.homepage {
+  padding-left: 10px;
+}
 
-// .input{
-//   width: 40%;
-// }
+.rotate{
+    transition: all 1.5s linear;
+}
 
+.rotate.down{
+    transform: rotate(360deg);
+}
 
-div.hero-body button {
-    margin: 70px 10px 0 0;
+button.button.home {
+  color: white;
+  justify-content: center;
+  border-radius: 20px;
+  border: 3px solid white;
+  background-color: transparent;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+}
+
+button.homesecond {
+  color: white;
+  justify-content: center;
+  border-radius: 20px;
+  border: 3px solid white;
+  background-color: transparent;
+  position: absolute;
+  top: 40%;
+  left: 5%;
+}
+
+input.searchBar {
+  width: 30%;
+}
+
+textarea.textarea {
+  margin: 23px auto;
+  border-radius: 10px;
+  max-width: 50%;
+}
+
+.card-header-title{
+  color: white;
+}
+
+.isImage {
+  text-align: center;
+  max-height: 400px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.3);
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  margin: 10px;
+  transition: all .2s ease-in-out;
+  .image img{
+    height: 100%;
+    width: 100%;
+    border-radius: 8px;
+  }
+  &:hover {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,.3);
+    margin: 5px;
+  }
+}
+
+.middle {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.text {
+  color: white;
+  font-weight: 200px;
+  padding: 10% 10%;
+}
+
+.isImage:hover .gemImage {
+  opacity: 0.3;
+}
+
+.isImage:hover .middle {
+  opacity: 1;
+}
+
+.is-horizontial-center{
+  justify-content: center;
+}
+
+.user-header{
+  background-color: #f5f7fa;
+}
+
+.mapboxgl-popup {
+  max-width: 170px;
+  font: 9pt 'Courier New', Arial, Helvetica, sans-serif;
+  & h4 {
+    margin: 5px 2px 2px 2px;
+    color: orange;
+  }
+  & p {
+    margin: 2px;
+  }
+  & .event-image {
+    max-height: 70px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+input.react-mapbox-ac-input {
+  margin-bottom: 10px;
+}
+
+.react-mapbox-ac-suggestion {
+  font-size: 18px;
+  margin-bottom: .5rem;
+  cursor: pointer;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
 .map {
   height: 500px;
-  width: 500px;
+  width: 100%;
 }
 
-.custom-marker {
+// NOTES: MAP ICONS acording to Category
+// (color needs to be changed in relivent image file scr/accests/images)
+$Allred: red;
+$Pubs: blue;
+$Restaurants: cyan;
+$Bars: purple;
+$Cafes: brown;
+$Landmarks: yellow;
+$Viewpoints: orange;
+$Religious: grey;
+$Galleries: violet;
+$Parks: green;
+
+// ICONS LICENCE REFF ...
+// <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+
+// NOTES: ALL  TripsMap.js ICONS USE IMAGES SET AS BACKGROUND. They need class "ALL" then a class of thier name apartfrom GEMSMAP.js who use clases "ALL and picgems"
+
+.All{
+  height: 50px;
+  width: 50px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.picgems{
+  background-image: url(/accests/images/diamond.svg);
+}
+
+.Pubs{
+  background-image: url(/accests/images/Pubs.svg);
+}
+
+.Restaurants{
+  background-image: url(/accests/images/Restaurants.svg);
+}
+
+.Bars{
+  background-image: url(/accests/images/Bars.svg);
+}
+
+.Cafes{
+  background-image: url(/accests/images/Cafes.svg);
+}
+
+.Landmarks{
+  background-image: url(/accests/images/Landmarks.svg);
+}
+
+.Viewpoints{
+  background-image: url(/accests/images/Viewpoints.svg);
+}
+
+.Religious{
+  background-image: url(/accests/images/Religious.svg);
+}
+
+.Galleries{
+  background-image: url(/accests/images/Galleries.svg);
+}
+
+.Parks{
+  background-image: url(/accests/images/Parks.svg);
+}
+
+
+nav.navbar .home{
   color: white;
-  font-size: 16px;
-  font-weight: bold;
-  width: 30px;
-  height: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.custom-marker:before {
-  content: '';
-  position: absolute;
+nav.navbar .other{
+  background-color: black;
+}
+
+//------------Home Page Animation --------------
+.slideshow {
+  position: fixed;
   width: 100%;
   height: 100%;
-  background-color: red;
-  border: 0.5px solid darken(red, 20%);
-  z-index: -1;
-  border-radius: 50% 50% 0 50%;
-  transform: rotate(45deg);
+  top: 0;
+  left: 0;
+  /*background images are behind other content*/
+  z-index: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+.slideshow li {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  /*take entire space of the page*/
+  background-size: cover;
+  /*position in the middle*/
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  opacity: 0;
+  z-index: 0;
+  /*fade images in/out : name of the animation, last 50s linear same speed, loop infinite*/
+  animation: imageAnimation 50s linear infinite;
+}
+
+/*fade in each image after 10s of the previous img*/
+.slideshow li:nth-child(1) {
+  background-image: url(./images/picNpgx.jpg)
+}
+.slideshow li:nth-child(2) {
+  background-image: url(https://images.unsplash.com/photo-1534770311507-ec2bf6cf3f32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+  background-image: url(https://images.unsplash.com/photo-1516526992402-7519663a4c68?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1336&q=80);
+  animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+  background-image: url(https://mk0theadventuregfnyq.kinstacdn.com/wp-content/uploads/Types-of-climbing-3.jpg);
+  animation-delay: 40s;
+}
+
+
+/*select imageAnimation property and set transition on keyframes */
+@keyframes imageAnimation {
+  0% {
+    opacity: 0;
+    animation-timing-function: ease-in;
+  }
+  10% {
+    opacity: 1;
+    animation-timing-function: ease-out;
+  }
+  20% {
+    opacity: 1
+  }
+  30% {
+    opacity: 0
+  }
 }

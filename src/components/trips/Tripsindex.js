@@ -11,20 +11,29 @@ class TripsIndex extends React.Component {
 
   constructor() {
     super()
-    this.state = { trips: null }
+    this.state = {
+      trips: [],
+      filteredTrips: []
+    }
+    this.handleSearch = this.handleSearch.bind(this)
   }
 
   componentDidMount() {
     axios.get('/api/trips')
-      .then(res => this.setState({ trips: res.data }))
+      .then(res => this.setState({ trips: res.data, filteredTrips: res.data }))
   }
 
-  // handleSearch(e) {
-  // handleSearch for DROP DOWN Category
-  // }
+  handleSearch(e) {
+    if(e.target.value !== '') {
+      const getTripCategory = this.state.filteredTrips.filter(trip =>
+        e.target.value === trip.category)
+      this.setState({ trips: getTripCategory })
+    } else {
+      this.setState({ trips: this.state.filteredTrips })
+    }
+  }
 
   render() {
-    console.log('index/trips state is ----->',this.state.data)
 
     if(!this.state.trips) return (
       <section className="section">
@@ -38,7 +47,7 @@ class TripsIndex extends React.Component {
       <section className="section">
         <div className="container">
           {Auth.isAuthenticated() && <header>
-            <Link to="/trips/new" className="button is-primary">Add trips</Link>
+            <Link to="/trips/new" className="button is-primary is-rounded">Add trips</Link>
             <hr />
           </header>}
 

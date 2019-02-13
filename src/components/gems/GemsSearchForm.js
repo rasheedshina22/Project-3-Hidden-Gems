@@ -1,23 +1,40 @@
 import React from 'react'
 
-const GemsForm = ({handleSearch}) => {
+const GemsForm = ({ handleChange }) => {
 
   return (
+
     <div className="field">
-      <div className="control">
-        <label> <strong> Explore by category </strong> </label>
-      </div>
-      <div className="select is-halfwidth">
-        <select
-          name="category"
-          defaultValue="Please Choose..."
-          onChange={handleSearch}
-        >
-          <option disabled>Please Choose...</option>
-          <option> Pubs </option>
-          <option> Museums </option>
-          <option> Restaurants </option>
-        </select>
+      <div className="control gemFormDiv">
+
+        <label className="label"> <strong> Explore by category </strong> </label>
+        <div className="select is-rounded">
+          <select
+            name="category"
+            onChange={handleChange}
+          >
+            <option> All </option>
+            <option> Pubs </option>
+            <option> Restaurants </option>
+            <option> Bars </option>
+            <option> Cafes </option>
+            <option> Landmarks </option>
+            <option> Viewpoints </option>
+            <option> Religious Sites </option>
+            <option> Galleries </option>
+            <option> Parks </option>
+          </select>
+        </div>
+
+        <div className="field">
+          <div className="control">
+            <label className="label"> <strong> Search By City </strong> </label>
+            <form>
+              <input name="location" className="input searchBar is-rounded" type="text" placeholder="Location" onChange={handleChange} />
+            </form>
+          </div>
+        </div>
+
       </div>
     </div>
   )

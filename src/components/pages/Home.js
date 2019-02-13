@@ -1,21 +1,27 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Home = () => {
   return (
-    <section className="hero is-large is-dark">
-      <div className="hero-body">
-        <div className="container">
-          <h1 className="title">
-            HOME PAGE
-          </h1>
-          <h2 className="subtitle">
-            Welcome
-          </h2>
-          <a href = "/gems"><button className="button is-medium is-primary"> Gems </button></a>
-          <a href = "/trips"><button className="button is-medium is-primary"> Trips </button></a>
-        </div>
+
+    <section>
+      <div>
+
+        <ul className="slideshow">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+
+        <Link to = {'/gems'}><button className="button home is-medium "> Gems Around the World  <i className="far fa-gem homepage"></i>  </button></Link>
+
+        <Link to={'/trips/'}><button className="button homesecond is-medium"> Trips</button></Link>
+
       </div>
+
     </section>
+
   )
 }
 

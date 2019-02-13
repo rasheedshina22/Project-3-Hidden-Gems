@@ -3,7 +3,13 @@ const Gem = require('../models/gem')
 function indexRoute(req, res, next) {
   Gem
     .find()
-    .populate( {path: 'user', select: 'username'} )
+    .populate(
+      [{
+        path: 'user', select: 'username'
+      },{
+        path: 'trips', model: 'Trip'
+      }]
+    )
     .then(gems => res.status(200).json(gems))
     .catch(next)
 }
@@ -19,7 +25,19 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Gem
     .findById(req.params.id)
-    .populate('user')
+    .populate(
+      [{
+        path: 'user',
+        select: 'username'
+      },{
+        path: 'comments.user',
+        select: 'username image'
+      }
+      ,{
+        path: 'trips',
+        model: 'Trip'
+      }]
+    )
     .then(gem => res.status(200).json(gem))
     .catch(next)
 }
@@ -34,14 +52,8 @@ function updateRoute (req, res, next) {
 }
 
 function deleteRoute (req, res, next) {
-  // console.log(req.currentUser._id)
   Gem
     .findById(req.params.id)
-    // .then(gem => {
-    //   if(req.currentUser._id !== gem._id){
-    //     throw new Error()
-    //   }
-    // })
     .then(gem => gem.remove())
     .then(() => res.sendStatus(204))
     .catch(next)
@@ -55,6 +67,7 @@ function commentCreateRoute(req, res, next) {
       gem.comments.push(req.body)
       return gem.save()
     })
+    .then(gem => Gem.populate(gem, { path: 'user trips comments.user' }))
     .then(gem => res.status(201).json(gem))
     .catch(next)
 }
@@ -64,15 +77,13 @@ function commentDeleteRoute(req, res, next) {
     .findById(req.params.id)
     .then(gem => {
       const comment = gem.comments.id(req.params.commentId)
-      console.log(comment)
       comment.remove()
-      gem.save()
-      return gem
+      return gem.save()
     })
-    .then(gem => res.json(gem))
+    .then(gem => Gem.populate(gem, { path: 'user trips comments.user' }))
+    .then(gem => res.status(201).json(gem))
     .catch(next)
 }
-
 
 module.exports = {
   index: indexRoute,

@@ -2,6 +2,8 @@ import React from 'react'
 import axios from 'axios'
 
 import Map from './GemsMap'
+import Comments from '../common/Comments'
+import Auth from '../../lib/Auth'
 
 import {Link} from 'react-router-dom'
 
@@ -10,66 +12,149 @@ class GemsShow extends React.Component {
     super()
 
     this.state = {
-
+      data: {},
+      gem: null,
+      userLocation: null
     }
 
-    // this.handleDelete = this.handleDelete.bind(this)
+    console.log('this is data', this.state.data)
+
+    this.handleDelete = this.handleDelete.bind(this)
+    this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
+    this.handleCommentDelete = this.handleCommentDelete.bind(this)
+    this.handleCommentChange = this.handleCommentChange.bind(this)
   }
 
-  // handleDelete(){
-  //   axios
-  //     .delete(`/api/gems/${this.props.match.params.id}`,{
-  //     })
-  //     .then(() => {
-  //       this.props.history.push('/gems')
-  //     })
-  //     .catch(err => console.log(err))
-  //
-  // }
+  handleDelete(){
+    axios
+      .delete(`/api/gems/${this.props.match.params.id}`,{
+        headers: { Authorization: `Bearer ${Auth.getToken()}` }
+      })
+      .then(() => {
+        this.props.history.push('/gems')
+      })
+      .catch(err => console.log(err))
+  }
+
+  handleCommentChange(e) {
+    const data = {...this.state.data, content: e.target.value }
+    const error = null
+    this.setState({ data, error })
+  }
+
+
+  handleCommentSubmit(e){
+    e.preventDefault()
+    axios
+      .post(`/api/gems/${this.state.gem._id}/comments/`,
+        this.state.data,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        console.log(res.data)
+        this.setState({...this.state, gem: res.data, data: {content: ''} })
+      })
+      .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
+      .catch(() => this.setState({ errors: 'An error occured' }))
+  }
+
+
+  handleCommentDelete(e){
+    console.log(e.target.value)
+    e.preventDefault()
+    axios
+      .delete(`/api/gems/${this.state.gem._id}/comments/${e.target.value}`,
+        {headers: { Authorization: `Bearer ${Auth.getToken()}`}
+        })
+      .then((res) => {
+        console.log(res.data)
+        this.setState({...this.state, gem: res.data })
+      })
+      .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
+      .catch(() => this.setState({ error: 'An error occured' }))
+  }
 
   componentDidMount() {
     axios.get(`/api/gems/${this.props.match.params.id}`)
       .then(res => this.setState({ gem: res.data }))
+
+    // also get the user location...
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        this.setState({
+          userLocation: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        })
+      })
+    }
   }
 
   render(){
     console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description, user } = this.state.gem
+    const { _id, name, image, category, description, user, location, address, trips } = this.state.gem
     return (
       <section className="section">
         <div className="container">
           <h1 className="title is-1"> {name} </h1>
           <h4 className="title is-4">Added by: {user.username} </h4>
           <hr />
+
           <div className="columns">
             <div className="column">
-              <figure className="image">
+              <figure className="image is-3by2">
                 <img src={image} alt={name} />
               </figure>
             </div>
-            <div className="column">
+
+
+            <div className="column has-text-centered">
               <div className="content">
-                <h4 className="title is-4">Category: {category}</h4>
-                <h4 className="title is-4">Description:</h4>
+                <h4 className="title is-4">Category</h4>
+                <p> {category} </p>
+                <h4 className="title is-4">Description</h4>
                 <p> {description}</p>
-                <hr />
-                <Link to={`/gems/${_id}/edit`} className="button is-dark" >Edit </Link>
-                <hr />
-                <button className="button is-dark" onClick={this.handleDelete}>Delete</button>
+                <h4 className="title is-4">Trips</h4>
+                {trips.map((trip) => {
+                  return <Link to={`/trips/${trip._id}`} className="button is-primary is-rounded" key={trip._id}> {trip.name} </Link>
+                })}
+                {Auth.canEdit(user._id) && (
+                  <div>
+                    <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded"> Edit </Link>
+                    <button className="button is-dark is-rounded" onClick={this.handleDelete}>Delete</button>
+                  </div>
+                )}
               </div>
             </div>
           </div>
         </div>
+
         <div className="container">
           <hr />
           <div className="columns">
             <div className="column">
-              <h4 className="title is-4">Comments</h4>
+              <Comments
+                handleCommentSubmit={this.handleCommentSubmit}
+                handleCommentChange={this.handleCommentChange}
+                handleCommentDelete={this.handleCommentDelete}
+                {...this.state.gem}
+                contentInput={this.state.data.content}
+              />
             </div>
-            <div className="column">
+
+            <div className="column ">
               <div className="content">
-                <Map />
+                <h2 className="title is-4"> Location</h2>
+                <p> {address} </p>
+
+                <Map
+                  location={location}
+                  userLocation={this.state.userLocation}
+                  gem={this.state.gem}
+                />
+
               </div>
             </div>
           </div>

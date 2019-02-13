@@ -8,16 +8,27 @@ const commentSchema = new mongoose.Schema({
 })
 
 const gemSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  name: { type: String, required: 'Please give your Gem a Name' },
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  image: { type: String, required: true },
+  image: { type: String, required: 'Please upload an Image for your Gem a name' },
   description: { type: String},
-  category: { type: String, required: true },
-  location: { type: Object, required: true},
+  category: { type: String, required: 'Please give your Gem a Category' },
+  location: { type: { lat: Number, lng: Number }, required: 'Please give your Gem a Location' },
+  address: { type: String },
   comments: [ commentSchema ]
 })
 
+gemSchema.virtual('trips',{
+  ref: 'Trip',
+  localField: '_id',
+  foreignField: 'gems'
+})
 
-//virtual
+gemSchema.set('toJSON', {
+  virtuals: true,
+  transform(doc, json) {
+    return json
+  }
+})
 
 module.exports = mongoose.model('Gem', gemSchema)

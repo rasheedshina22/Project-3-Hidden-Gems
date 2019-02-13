@@ -1,26 +1,19 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const GemCard = ({ _id, name, image, category, location }) => {
+const GemCard = ({ _id, name, image, address }) => {
   return (
-    <div className="card">
-      <Link to={`/gems/${_id}`}>
-        <div className="card">
-          <div className="card-header">
-            <h4 className="card-header-title">{name}</h4>
+    <Link to={`/gems/${_id}`}>
+      <div className="isImage">
+        <figure className="image is-4by3">
+          <img src={image} alt={name}  className="gemImage"/>
+          <div className="middle">
+            <div className="text">{name}</div>
+            <div className="text">{address}</div>
           </div>
-          {image && <div className="card-image">
-            <figure className="image">
-              <img src={image} alt={name} />
-            </figure>
-            <div className="content">
-              <p><strong>Category: </strong> {category}</p>
-              <p><strong>Location: </strong> {location.lat}</p>
-            </div>
-          </div>}
-        </div>
-      </Link>
-    </div>
+        </figure>
+      </div>
+    </Link>
   )
 }
 

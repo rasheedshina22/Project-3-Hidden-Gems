@@ -13,10 +13,8 @@ function loginRoute(req, res, next) {
       if(!user || !user.validatePassword(req.body.password)) {
         return res.status(401).json({ message: 'Unauthorized' })
       }
-
       const payload = { sub: user._id }
       const token = jwt.sign(payload, process.env.SECRET, { expiresIn: '6h' })
-
       res.json({
         token,
         message: `Welcome back ${user.username}!`
@@ -25,7 +23,16 @@ function loginRoute(req, res, next) {
     .catch(next)
 }
 
+function userShow(req, res, next){
+  User
+    .findById(req.params.id)
+    .populate('gems trips')
+    .then(user => res.json(user))
+    .catch(next)
+}
+
 module.exports = {
   register: registerRoute,
-  login: loginRoute
+  login: loginRoute,
+  user: userShow
 }

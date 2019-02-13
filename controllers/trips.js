@@ -18,6 +18,17 @@ function createRoute(req, res, next) {
 function showRoute(req, res, next) {
   Trip
     .findById(req.params.id)
+    .populate(
+      [{
+        path: 'user'
+      },
+      {
+        path: 'comments.user'
+      },{
+        path: 'gems',
+        model: 'Gem'
+      }]
+    )
     .then(trip => res.status(200).json(trip))
     .catch(next)
 }
@@ -47,6 +58,17 @@ function commentCreateRoute(req, res, next) {
       trip.comments.push(req.body)
       return trip.save()
     })
+    .then(trip => Trip.populate(trip,
+      [{
+        path: 'user'
+      },
+      {
+        path: 'comments.user'
+      },{
+        path: 'gems',
+        model: 'Gem'
+      }]
+    ))
     .then(trip => res.status(201).json(trip))
     .catch(next)
 }
@@ -57,9 +79,20 @@ function commentDeleteRoute(req, res, next) {
     .then(trip => {
       const comment = trip.comments.id(req.params.commentId)
       comment.remove()
-      trip.save()
-      return trip
+      return trip.save()
     })
+    .then(trip => Trip.populate(trip,
+      [{
+        path: 'user'
+      },
+      {
+        path: 'comments.user'
+      },{
+        path: 'gems',
+        model: 'Gem'
+      }]
+    ))
+    .then(trip => res.status(201).json(trip))
     .then(trip => res.json(trip))
     .catch(next)
 }

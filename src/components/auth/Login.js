@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 import Flash from '../../lib/Flash'
@@ -32,70 +33,54 @@ class Login extends React.Component {
         Flash.setMessage('success', res.data.message)
         this.props.history.push('/')
       })
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch(() => this.setState({ error: 'Incorrect Credentials' }))
   }
 
   render() {
     return (
-      <section className="hero is-fullheight">
-        <div className="hero-body">
-          <div className="container has-text-centered">
-            <div className="column is-4 is-offset-4">
-
-
-              {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-              <h3 className="title has-text-grey">Login</h3>
-
-              <div className="box">
-                <form onSubmit={this.handleSubmit}>
-                  <p className="subtitle has-text-grey">Please login to proceed.</p>
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Email</label>
-                      <input
-                        className="input"
-                        name="email"
-                        placeholder=" Your Email"
-                        value={this.state.data.email || ''}
-                        onChange={this.handleChange}
-                      />
-                    </div>
+      <section className="section">
+        <div className="container has-text-centered">
+          <div className="column is-4 is-offset-4">
+            <h3 className="title has-text-grey">Login</h3>
+            <p className="subtitle has-text-grey">Please login to proceed.</p>
+            {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
+            <div className="box">
+              <form onSubmit={this.handleSubmit}>
+                <div className="field">
+                  <div className="control">
+                    <i className ="fas fa-user"></i>
+                    <label className="label">Email</label>
+                    <input
+                      className="input"
+                      name="email"
+                      placeholder=" Your Email"
+                      value={this.state.data.email || ''}
+                      onChange={this.handleChange}
+                    />
                   </div>
-
-                  <div className="field">
-                    <div className="control">
-                      <label className="label">Password</label>
-                      <input
-                        type="password"
-                        className="input"
-                        name="password"
-                        placeholder="Password"
-                        value={this.state.data.password || ''}
-                        onChange={this.handleChange}
-                      />
-                    </div>
+                </div>
+                <div className="field">
+                  <div className="control">
+                    <label className="label">Password</label>
+                    <input
+                      type="password"
+                      className="input"
+                      name="password"
+                      placeholder="Password"
+                      value={this.state.data.password || ''}
+                      onChange={this.handleChange}
+                    />
                   </div>
-
-                  <div className="field">
-                    <label className="checkbox">
-                      <input type="checkbox" />
-                      Remember me
-                    </label>
-                  </div>
-                  <button className="button is-block is-info is-medium is-fullwidth">Login</button>
-                </form>
-
-              </div>
-              <p className="has-text-grey">
-                <a href="../">Sign Up</a> &nbsp;·&nbsp;
-                <a href="../">Forgot Password</a> &nbsp;·&nbsp;
-                <a href="../">Need Help?</a>
-              </p>
+                </div>
+                <button className="button is-rounded is-medium is-fullwidth is-primary">Login</button>
+              </form>
             </div>
+            <p className="has-text-grey">
+              <Link to="/register">Sign Up</Link>
+            </p>
           </div>
         </div>
       </section>
-
     )
   }
 }

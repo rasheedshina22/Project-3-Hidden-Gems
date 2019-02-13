@@ -10,9 +10,9 @@ router.route('/register')
 
 router.route('/login')
   .post(authController.login)
-//
-// router.route('/confirm/:code')
-//   .get(authController.confirm)
+
+router.route('/user/:id')
+  .get(authController.user)
 
 router.route('/gems')
   .get(gemsController.index)
@@ -31,7 +31,7 @@ router.route('/trips')
   .post(secureRoute, tripsController.create)
 
 router.route('/trips/:id')
-  .get(secureRoute, tripsController.show)
+  .get(tripsController.show)
   .put(secureRoute, tripsController.update)
   .delete(secureRoute,tripsController.delete)
 

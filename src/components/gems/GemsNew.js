@@ -5,25 +5,49 @@ import Auth from '../../lib/Auth'
 
 import GemsForm from './GemsForm'
 
+
 class GemsNew extends React.Component {
   constructor() {
     super()
 
     this.state = {
       data: {
-        location: {}
+        name: '',
+        image: '',
+        description: '',
+        location: null,
+        address: ''
       },
-      error: null
+      errors: ''
     }
 
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
+    this.suggestionSelect = this.suggestionSelect.bind(this)
   }
 
   handleChange({ target: { name, value } }) {
+    if(name === 'location'){
+      console.log('location')
+    }
+
     const data = {...this.state.data, [name]: value }
-    const error = null
-    this.setState({ data, error })
+    const errors = { ...this.state.errors, [name]: '' }
+    this.setState({ data, errors })
+  }
+
+  suggestionSelect(result, lat, lng, text) {
+    console.log(lat, lng)
+    const data = {...this.state.data,
+      location: {
+        lat: lat,
+        lon: lng
+      },
+      address: result, text
+    }
+    const errors = { ...this.state.errors, location: '' }
+
+    this.setState({data, errors})
   }
 
   handleSubmit(e) {
@@ -33,22 +57,22 @@ class GemsNew extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/gems'))
-      .catch(() => this.setState({ error: 'An error occured' }))
+      .catch((err) => this.setState({errors: err.response.data}))
   }
 
   render() {
     return(
-      <main className="section">
-        <div className="container">
-          <h2 className="title">New Gem</h2>
-          {this.state.error && <div className="notification is-danger">{this.state.error}</div>}
-          <GemsForm
-            data={this.state.data}
-            handleChange={this.handleChange}
-            handleSubmit={this.handleSubmit}
-          />
-        </div>
-      </main>
+      <div className="section">
+
+        <GemsForm
+          data={this.state.data}
+          errors={this.state.errors}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+          suggestionSelect={this.suggestionSelect}
+        />
+
+      </div>
     )
   }
 }

@@ -11,7 +11,13 @@ class GemsIndex extends React.Component {
 
   constructor() {
     super()
-    this.state = { gems: null }
+    this.state = {
+      gems: [],
+      category: 'All',
+      location: ''
+    }
+
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
@@ -19,11 +25,20 @@ class GemsIndex extends React.Component {
       .then(res => this.setState({ gems: res.data }))
   }
 
-  // handleSearch(e) {
-  // handleSearch for DROP DOWN Category
-  // }
+  handleChange({ target: { name, value } }) {
+    this.setState({ [name]: value })
+  }
+
+  filteredGems() {
+    const re = new RegExp(this.state.location, 'i')
+    if(!this.state.category && !this.state.location) return this.state.gems
+    return this.state.gems.filter(gem => {
+      return re.test(gem.address) && (this.state.category === 'All' || gem.category === this.state.category)
+    })
+  }
 
   render() {
+    console.log(this.state)
     if(!this.state.gems) return (
       <section className="section">
         <div className="container">
@@ -31,21 +46,21 @@ class GemsIndex extends React.Component {
         </div>
       </section>
     )
-    console.log('index/gems state is ----->',this.state.data)
+    console.log('index/gems state is -',this.state.gems)
+    console.log('filteredGems state is -',this.state.filteredGems)
     return (
 
       <section className="section">
         <div className="container">
-          {Auth.isAuthenticated() && <header>
-            <Link to="/gems/new" className="button is-primary">Add gem</Link>
-            <hr />
-          </header>}
 
-          <GemsSearchForm handleSearch={this.handleSearch}/>
-
+          <GemsSearchForm handleChange={this.handleChange} />
+          {Auth.isAuthenticated() && <div>
+            <Link to="/gems/new" className="button is-primary is-rounded">Add gem</Link>
+          </div>}
+          <hr />
           <div className="columns is-multiline">
-            {this.state.gems.map(gem =>
-              <div key={gem._id} className="column is-one-third">
+            {this.filteredGems().map(gem =>
+              <div key={gem._id} className="column is-one-quarter">
                 <GemCard {...gem} />
 
               </div>
