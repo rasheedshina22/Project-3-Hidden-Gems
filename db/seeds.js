@@ -177,6 +177,123 @@ mongoose.connect(dbURI, (err, db) => {
         category: 'Landmarks',
         location: {lat: 51.501364, lon: -0.144084},
         address: 'Westminster, London SW1A 1AA'
+      },
+      {
+        name: 'Duomo di Napoli',
+        user: user._id,
+        image: 'https://d1c96a4wcgziwl.cloudfront.net/274201_NaplesCathedral.jpg',
+        description: 'Also known as the “City of Five Hundred Domes”, Naples boasts an incredible number of churches, monasteries and abbeys. In this forest of religious buildings, it’s impossible to ignore the Cattedrale di San Gennaro, the city’s main church, a splendid mixture of Gothic and Baroque styles. ',
+        category: 'Religious Sites',
+        location: {lat: 40.852589, lon: 14.2576883},
+        address: 'Via Duomo, 147, 80138 Napoli NA, Italy'
+      },
+      {
+        name: 'Reggia di Caserta',
+        user: user._id,
+        image: 'https://c1.staticflickr.com/4/3903/15130807755_7b754bc99d_b.jpg',
+        description: 'The Royal Palace of Caserta is a former royal residence in Caserta, southern Italy, constructed by the Spanish royal family as their main residence as kings of Naples. It is one of the largest palaces erected in Europe during the 18th century.',
+        category: 'Landmarks',
+        location: {lat: 41.0732181, lon: 14.3248743},
+        address: 'Viale Douhet, 2/a, 81100 Caserta CE, Italy'
+      },
+      {
+        name: 'Archaeological Museum',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1544213456-bc37cb97df74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'The Archaeological Museum hosts an extensive collection of Greek and Roman antiquities that were discovered during the excavations at Pompeii and Herculaneum. Among the great treasures of the museum are the Herculaneum papyri, carbonized by the eruption of Mount Vesuvius in AD 79 and found in the Villa of the Papyri. The Archaeological Museum of Naples is also famous for its Egyptian collection, the second largest in Italy after Turin',
+        category: 'Landmarks',
+        location: {lat: 40.8535985, lon: 14.2483314},
+        address: 'Piazza Museo, 19, 80135 Napoli NA, Italy'
+      },
+      {
+        name: 'Sandbar',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1520209268518-aec60b8bb5ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=884&q=80',
+        description: 'Sandbar is located in an idyllic location overlooking Praa Sands Beach with panoramic views of the ocean. ',
+        category: 'Bars',
+        location: {lat: 50.1040579, lon: -5.3940355},
+        address: ' Praa Sands, Cornwall TR20 9TQy'
+      },
+      {
+        name: 'Post Office Vaults',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1497644083578-611b798c60f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'Compact cellar bar serving real ales and international bottled beer selection.',
+        category: 'Bars',
+        location: {lat: 52.4793512, lon: -1.9040425},
+        address: ' 84 Pinfold St, Birmingham B2 4AY '
+      },
+      {
+        name: 'Palazzo Petrucci Ristorante',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1520099940286-947795ff7b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'We opened the Napoli restaurant back in June 2013 with the aim of bringing true Neapolitan pizza and beautiful handmade pasta to our home town of leek. The restaurant was designed to be a laid back and relaxing place to eat out with friends and loved ones whilst delivering the great quality traditional Italian food that we have come to love so much.',
+        category: 'Restaurants',
+        location: {lat: 40.8214106, lon: 14.2127399},
+        address: 'Via Posillipo, 16 C, 80123 Napoli NA, Italy'
+      },
+      {
+        name: 'Edinburgh Castle',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1533834181702-758cc2177c75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80',
+        description: 'Edinburgh Castle is a historic fortress which dominates the skyline of the city of Edinburgh, Scotland, from its position on the Castle Rock. Archaeologists have established human occupation of the rock since at least the Iron Age, although the nature of the early settlement is unclear',
+        category: 'Landmarks',
+        location: {lat: 55.9485947, lon: -3.2021075},
+        address: 'Castlehill, Edinburgh EH1 2NG'
+      },
+      {
+        name: 'Origin Coffee Roasters',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability.',
+        category: 'Cafes',
+        location: {lat: 55.9485947, lon: -3.2021075},
+        address: '65 Charlotte Rd, London EC2A 3PE'
+      },
+      {
+        name: 'Falls of Foyers',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1465350269328-169609160ee6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'The Fall of Foyers is a waterfall on the River Foyers, which feeds Loch Ness, in Highland, Scotland, United Kingdom. The waterfall has "a fine cascade", having a fall of 165 feet.',
+        category: 'Landmarks',
+        location: {lat: 57.2502946, lon: -4.492759},
+        address: '45 B852, Inverness IV2 6XX'
+      },
+      {
+        name: 'Queen\'s View',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1529098964758-f21d46b6c525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+        description: 'Historic viewpoint with iconic panoramas over Loch Tummel, a cafe/tea room & a visitor centre.',
+        category: 'Landmarks',
+        location: {lat: 56.7159113, lon: -3.8607612},
+        address: 'Pitlochry PH16 5NR'
+      },
+      {
+        name: 'Annapurna Circuit Trek',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1504770197335-6dcbb939cdc1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
+        description: 'The Annapurna Circuit is a trek within the Annapurna mountain range of central Nepal. The total length of the route varies between 160–230 km (100-145 mi), depending on where motor transportation is used and where the trek is ended.',
+        category: 'Landmarks',
+        location: {lat: 27.7235121, lon: 85.3133928},
+        address: 'Muktinath 33100, Nepal'
+      },
+      {
+        name: 'Pokhara Paragliding',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1471247511763-88a722fc9919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1190&q=80',
+        description: 'Paragliding in Pokhara is the most popular as far as this adventure port is concerned. The take-off point is Sarangkot, which is at an altitude of 1592 meters and just 2.4 km due north of Lakeside in Pokhara (593 m). You can either hike to the site or go on a vehicle (20 minutes).',
+        category: 'Viewpoints',
+        location: {lat: 28.2167288, lon: 83.9566286},
+        address: 'Lakeside, Pokhara 33700, Nepal'
+      },
+      {
+        name: 'Phewa Lake',
+        user: user._id,
+        image: 'https://images.unsplash.com/photo-1508157942875-586a83457569?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80',
+        description: 'Phewa Lake, Phewa Tal or Fewa Lake is a freshwater lake in Nepal formerly called Baidam Tal located in the south of the Pokhara Valley that includes Pokhara city; parts of Sarangkot and Kaskikot.',
+        category: 'Landmarks',
+        location: {lat: 28.2116268, lon: 83.9322529},
+        address: 'Pokhara 33700, Nepal'
       }])
 
         .then(gems => {
@@ -195,7 +312,7 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'Find out more about our history through our tours.',
             category: 'Family Trips',
             location: 'London',
-            gems: [gems[1]._id, gems[2]._id , gems[17]._id]
+            gems: [gems[1]._id, gems[2]._id , gems[17]._id, gems[25]._id]
           },
           {name: 'Lock Ness ',
             user: user._id,
@@ -203,7 +320,7 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'With this rare trip you have the chance of visiting Loch Ness. Loch Ness is best known for alleged sightings of the cryptozoological Loch Ness Monster, also known affectionately as "Nessie". ',
             category: 'Rare Trips',
             location: 'Edinburgh',
-            gems: [gems[5]._id, gems[6]._id]
+            gems: [gems[4]._id, gems[5]._id, gems[26]._id]
           },
           {name: 'Discovering Scotland',
             user: user._id,
@@ -211,7 +328,7 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'A wide range of itineraries and days out for your holiday in Scotland.',
             category: 'Weekend Trips',
             location: 'Edinburgh',
-            gems: [gems[4]._id, gems[5]._id]
+            gems: [gems[27]._id, gems[5]._id, gems[24]._id]
           },
           {name: 'Caravan Holiday around France',
             user: user._id,
@@ -223,11 +340,11 @@ mongoose.connect(dbURI, (err, db) => {
           },
           {name: 'Cycle around Cornwall',
             user: user._id,
-            image: 'https://images.unsplash.com/photo-1510135649765-8f3a1921bb1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=564&q=80',
+            image: 'https://images.unsplash.com/photo-1496104570434-e8719f0c1c02?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=944&q=80',
             description: 'Get out and explore Cornwall\'s amazing cycling routes while discovering wildlife, heritage and parts of Cornwall you never knew existed. ',
             category: 'Cycling Trips',
             location: 'Newquay',
-            gems: [gems[8]._id, gems[9]._id]
+            gems: [gems[8]._id, gems[9]._id, gems[21]._id]
           },
           {name: 'Road Trip discovering Spain',
             user: user._id,
@@ -251,7 +368,23 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'Start a tour taking in several pubs or drinking places in the beautiful city of Birmingham',
             category: 'Pubs Crawl',
             location: 'Birmingham',
-            gems: [gems[14]._id, gems[15]._id]
+            gems: [gems[14]._id, gems[15]._id, gems[22]._id]
+          },
+          {name: 'Discover Napoli',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=999&q=80',
+            description: 'The Province of Naples is a magical place where colors, flavors, culture and history are intertwined in a charming mix of knowledge, joy and fun.',
+            category: 'Weekend Trips',
+            location: 'Napoli',
+            gems: [gems[18]._id, gems[19]._id, gems[23]._id]
+          },
+          {name: 'Visit Nepal',
+            user: user._id,
+            image: 'https://images.unsplash.com/photo-1544735716-87fa59a45b4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
+            description: 'Nepal, the land of Himalayas presents a wide range of travel options with its excellent natural beauty, massive mountains, breathtaking adventurous activities and more. Among all, trekking in Nepal is one of the most popular travel preferences among travelers all around the world',
+            category: 'Weekend Trips',
+            location: 'Nepal',
+            gems: [gems[28]._id, gems[29]._id, gems[30]._id]
           }
           )
         })

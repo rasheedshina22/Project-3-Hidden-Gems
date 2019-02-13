@@ -3,6 +3,12 @@ const Trip = require('../models/trip')
 function indexRoute(req, res, next) {
   Trip
     .find()
+    .populate(
+      [{
+        path: 'gems',
+        model: 'Gem'
+      }]
+    )
     .then(trips => res.status(200).json(trips))
     .catch(next)
 }
