@@ -380,7 +380,7 @@ mongoose.connect(dbURI, (err, db) => {
           },
           {name: 'Visit Nepal',
             user: user._id,
-            image: 'https://images.unsplash.com/photo-1545917633-ea973917d3f6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
+            image: 'https://images.unsplash.com/photo-1544735716-87fa59a45b4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80',
             description: 'Nepal, the land of Himalayas presents a wide range of travel options with its excellent natural beauty, massive mountains, breathtaking adventurous activities and more. Among all, trekking in Nepal is one of the most popular travel preferences among travelers all around the world',
             category: 'Weekend Trips',
             location: 'Nepal',
