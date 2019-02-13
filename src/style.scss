@@ -239,8 +239,8 @@ input.react-mapbox-ac-input {
   width: 100%;
 }
 
-// MARKERS acording to Category
-
+// NOTES: MAP ICONS acording to Category
+// (color needs to be changed in relivent image file scr/accests/images)
 $Allred: red;
 $Pubs: blue;
 $Restaurants: cyan;
@@ -252,10 +252,12 @@ $Religious: grey;
 $Galleries: violet;
 $Parks: green;
 
- // https://css-tricks.com/the-shapes-of-css/
+// ICONS LICENCE REFF ...
  // <div>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
 
-.picgems{
+// NOTES: ALL  TripsMap.js ICONS USE IMAGES SET AS BACKGROUND. They need class "ALL" then a class of thier name apartfrom GEMSMAP.js who use clases "ALL and picgems"
+
+.All{
   height: 50px;
   width: 50px;
   background-image: url(/accests/images/diamond.svg);
@@ -263,90 +265,46 @@ $Parks: green;
   background-size: cover;
 }
 
-.All {
-  border-style: solid;
-  border-width: 0 15px 15px 15px;
-  height: 0;
-  width: 20px;
-  box-sizing: content-box;
-  position: relative;
-  margin: 10px 0 25px 0;
-  outline:1px 0 1px 0 solid black;
-}
-.All:after {
-  content: "";
-  position: absolute;
-  top: 15px;
-  left: -15px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 35px 25px 0 25px;
-  outline: 1px 1px 0 1px solid black;
-}
-
-.Allgems{
-  border-color: transparent transparent red transparent;
-}
-.Allgems:after {
-  border-color: red transparent transparent transparent;
+.picgems{
+  background-image: url(/accests/images/diamond.svg);
 }
 
 .Pubs{
-  border-color: transparent transparent $Pubs transparent;
-}
-.Pubs:after {
-  border-color: $Pubs transparent transparent transparent;
+background-image: url(/accests/images/Pubs.svg);
 }
 
 .Restaurants{
-  border-color: transparent transparent $Restaurants transparent;
+  background-image: url(/accests/images/Restaurants.svg);
 }
-.Restaurants:after {
-  border-color: $Restaurants transparent transparent transparent;
-}
+
 .Bars{
-  border-color: transparent transparent $Bars transparent;
+background-image: url(/accests/images/Bars.svg);
 }
-.Bars:after {
-  border-color: $Bars transparent transparent transparent;
-}
+
 .Cafes{
-  border-color: transparent transparent $Cafes transparent;
+background-image: url(/accests/images/Cafes.svg);
 }
-.Cafes:after {
-  border-color: $Cafes transparent transparent transparent;
-}
+
 .Landmarks{
-  border-color: transparent transparent $Landmarks transparent;
+background-image: url(/accests/images/Landmarks.svg);
 }
-.Landmarks:after {
-  border-color: $Landmarks transparent transparent transparent;
-}
+
 .Viewpoints{
-  border-color: transparent transparent $Viewpoints transparent;
+background-image: url(/accests/images/Viewpoints.svg);
 }
-.Viewpoints:after {
-  border-color: $Viewpoints transparent transparent transparent;
-}
+
 .Religious{
-  border-color: transparent transparent $Religious transparent;
+background-image: url(/accests/images/Religious.svg);
 }
-.Religious:after {
-  border-color: $Religious transparent transparent transparent;
-}
+
 .Galleries{
-  border-color: transparent transparent $Galleries transparent;
+background-image: url(/accests/images/Galleries.svg);
 }
-.Galleries:after {
-  border-color: $Galleries transparent transparent transparent;
-}
+
 .Parks{
-  border-color: transparent transparent $Parks transparent;
+background-image: url(/accests/images/Parks.svg);
 }
-.Parks:after {
-  border-color: $Parks transparent transparent transparent;
-}
+
 
 nav.navbar .home{
   color: white;

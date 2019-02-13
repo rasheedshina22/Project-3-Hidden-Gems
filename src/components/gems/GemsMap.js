@@ -18,7 +18,7 @@ class Map extends React.Component {
     })
 
     const markerElement = document.createElement('div')
-    markerElement.className = 'picgems'
+    markerElement.className = 'All picgems'
 
     this.marker = new mapboxgl.Marker(markerElement)
       .setLngLat({
