@@ -366,3 +366,22 @@ nav.navbar .other{
 .is-title-light{
   font-weight: 300;
 }
+
+//Comments COMPONENT
+
+.comments{
+  > .columns{
+    display: flex;
+    background-color: #eee;
+    >.column{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      >.delete-box{
+        display: flex;
+        justify-content: center;
+      }
+    }
+  }
+
+}

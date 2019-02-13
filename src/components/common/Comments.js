@@ -6,7 +6,7 @@ import Auth from '../../lib/Auth'
 const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit  }) => {
   return (
     <div className="comments">
-      <h2 className="title is-4"> Comments ({comments.length})</h2>
+      <h2 className="title is-title-light is-4"> Comments ({comments.length})</h2>
       {comments.map((comment, index) => {
         return (
           <div className="columns" key={index}>
@@ -16,12 +16,19 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
               </figure>
             </div>
             <div className="column is-8">
-              <p> <strong>{comment.user.username}</strong> {moment(comment.createdAt).format('DD/MM/YYYY')} </p>
+              <div>
+                <p> <strong>{comment.user.username}</strong> </p>
 
-              <p>{comment.content}</p>
+                <p>{comment.content}</p>
+              </div>
             </div>
-            <div>
-              {Auth.canEdit(comment.user._id) &&<button className=" button is-primary" value={comment._id} onClick={handleCommentDelete}><i className="fas fa-trash-alt"></i></button>}
+            <div className="column">
+              {Auth.canEdit(comment.user._id) &&
+                <button className="button is-small delete-box" value={comment._id} onClick={handleCommentDelete}>
+                  <i  className="fas fa-trash-alt"></i>
+                </button>
+              }
+              <p className="delete-box is-size-7"> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
             </div>
             <hr/>
 
