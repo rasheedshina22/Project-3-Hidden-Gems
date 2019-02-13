@@ -42,6 +42,7 @@ class TripsIndex extends React.Component {
         </div>
       </section>
     )
+
     return (
 
       <section className="section">
@@ -55,7 +56,7 @@ class TripsIndex extends React.Component {
 
           <div className="columns is-multiline">
             {this.state.trips.map(trip =>
-              <div key={trip._id} className="column is-one-third">
+              <div key={trip._id} className="column is-4">
                 <TripCard {...trip} />
 
               </div>
