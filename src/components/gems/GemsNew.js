@@ -2,8 +2,9 @@ import React from 'react'
 import axios from 'axios'
 
 import Auth from '../../lib/Auth'
-
+import RegMap from '../common/RegMap'
 import GemsForm from './GemsForm'
+
 
 
 class GemsNew extends React.Component {
@@ -15,7 +16,10 @@ class GemsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        location: null,
+        location: {
+          lat: 51.50722,
+          lon: -0.1275
+        },
         address: ''
       },
       errors: ''
@@ -24,6 +28,7 @@ class GemsNew extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.suggestionSelect = this.suggestionSelect.bind(this)
+    this.setLocation = this.setLocation.bind(this)
   }
 
   handleChange({ target: { name, value } }) {
@@ -60,7 +65,18 @@ class GemsNew extends React.Component {
       .catch((err) => this.setState({errors: err.response.data}))
   }
 
+  setLocation(lat, lng) {
+    console.log('setLocation',lat, lng)
+    this.setState({...this.state.data,
+      location: {
+        lat: lat,
+        lon: lng
+      }})
+
+  }
+
   render() {
+    console.log('this is GemsNEW state---', this.state.data)
     return(
       <div className="section">
 
@@ -70,6 +86,11 @@ class GemsNew extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}
+        />
+
+        <RegMap
+          location={this.state.data.location}
+          setLocation={this.setLocation}
         />
 
       </div>

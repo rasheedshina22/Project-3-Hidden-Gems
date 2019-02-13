@@ -1,66 +1,55 @@
 import React from 'react'
-
+// const MapboxGeocoder = require('mapbox-gl-geocoder')
 import mapboxgl from 'mapbox-gl'
 mapboxgl.accessToken = process.env.MAP_BOX_TOKEN
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 
+
 class RegMap extends React.Component {
 
 
-  componentDidMount() {
-    console.log('IN COMPONENT DID MOUNT', this.props.userLocation)
+
+  componentDidUpdate() {
+
+
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
       style: 'mapbox://styles/mapbox/light-v9',
-      center: {lng: this.props.location.lon, lat: this.props.location.lat},
-      zoom: 16
+      center: {lng: this.props.location.lon,lat: this.props.location.lat},
+      zoom: 13
     })
 
     const markerElement = document.createElement('div')
     markerElement.className = 'All picgems'
 
-    this.marker = new mapboxgl.Marker(markerElement)
+    const marker = new mapboxgl.Marker(markerElement,{
+      draggable: true
+    })
       .setLngLat({
-        lng: this.props.gem.location.lon,
-        lat: this.props.gem.location.lat
+        lng: this.props.location.lon,
+        lat: this.props.location.lat
       })
       .addTo(this.map)
 
-    this.generatePopups()
-  }
+    function onDragEnd() {
+      const lngLat = marker.getLngLat()
+      console.log(this)
+      // setLocation(lngLat.bu.lat, lngLat.bu.lng)
 
-
-
-  componentDidUpdate() {
-    if(!this.popupsGenerated) this.generatePopups()
-  }
-  generatePopups() {
-    if(!this.props.userLocation) return false
-    this.popupsGenerated = true
-    if(!this.props.userLocation) return false
-    const { lat, lng } = this.props.userLocation
-
-    this.popup = new mapboxgl.Popup({offset: 20 })
-      .setHTML(`
-        <div class="event-image">
-        <img src="${this.props.gem.image}" alt="${this.props.gem.name}" />
-        </div>
-        <h4>${this.props.gem.name}</h4>
-        <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${this.props.location.lat},${this.props.location.lon}" target="_blank" > Directions </a>
-      `)
-      .addTo(this.map)
-
-    console.log('inside componentDidUpdate',this.props.userLocation)
-
-
-    this.marker.setPopup(this.popup)
+      console.log('NEW LOCATION ON DRAG',lngLat)
+    }
+    marker.on('dragend', onDragEnd)
   }
 
 
   render() {
+    console.log('Props location ---',this.props.location)
     return (
-      <div className="map" ref={el => this.mapDiv = el}/>
+      <div>
+        <div className="map" ref={el => this.mapDiv = el}/>
+      </div>
+
     )
   }
 }
