@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import TripsMap from './TripsMap'
+import Map from '../common/Map'
 import Auth from '../../lib/Auth'
 import Comments from '../common/Comments'
 
@@ -149,7 +149,7 @@ class TripsShow extends React.Component {
             </div>
             <div className="column">
               <div className="content">
-                <TripsMap
+                <Map
                   gems={gems}
                   userLocation={this.state.userLocation}
                 />
