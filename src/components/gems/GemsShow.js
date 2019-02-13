@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 
-import Map from './GemsMap'
+import Map from '../common/Map'
 import Comments from '../common/Comments'
 import Auth from '../../lib/Auth'
 
@@ -14,6 +14,7 @@ class GemsShow extends React.Component {
     this.state = {
       data: {},
       gem: null,
+      gems: null,
       userLocation: null
     }
 
@@ -152,7 +153,9 @@ class GemsShow extends React.Component {
                 <Map
                   location={location}
                   userLocation={this.state.userLocation}
-                  gem={this.state.gem}
+                  // gem={this.state.gem}
+                  gems={[this.state.gem]}
+                  type= "gem"
                 />
 
               </div>

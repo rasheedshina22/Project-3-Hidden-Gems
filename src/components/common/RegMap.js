@@ -5,7 +5,7 @@ mapboxgl.accessToken = process.env.MAP_BOX_TOKEN
 import 'mapbox-gl/dist/mapbox-gl.css'
 
 
-class Map extends React.Component {
+class RegMap extends React.Component {
 
 
   componentDidMount() {
@@ -65,4 +65,4 @@ class Map extends React.Component {
   }
 }
 
-export default Map
+export default RegMap
