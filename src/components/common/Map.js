@@ -16,7 +16,7 @@ class Map extends React.Component {
     // MAP Component new map made
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
-      style: 'mapbox://styles/mapbox/light-v9'
+      style: 'mapbox://styles/mapbox/light-v9',
     })
 
     // Add geolocate control to the map.
@@ -75,12 +75,19 @@ class Map extends React.Component {
               </div>
               <h4>${name}</h4>
               <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${location.lat},${location.lon}" target="_blank" > Directions </a>
-              <a href="http://localhost:8000/gems/${_id}">View Gem</a>
-            `
-          )
+            `)
       )
       if(this.props.type === 'gem'){
         this.popup.addTo(this.map)
+      }else{
+        this.popup.setHTML(`
+          <div class="event-image">
+          <img src="${image}" alt="${name}" />
+          </div>
+          <h4>${name}</h4>
+          <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${location.lat},${location.lon}" target="_blank" > Directions </a>
+          <a href="http://localhost:8000/gems/${_id}">View Gem</a>
+          `)
       }
     })
   }
