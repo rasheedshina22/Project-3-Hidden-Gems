@@ -37,7 +37,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                       value: res.filesUploaded[0].url
                     }})}
                   onError={(err) => console.log(err)}
-                  buttonText={'Add Image'}
+                  buttonText={'Upload Image'}
                   buttonClass={'button is-dark is-rounded'}
                 />
                 {errors.image && <small>{errors.image}</small>}
@@ -99,7 +99,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
               {errors.location && <small>{errors.location}</small>}
             </div>
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit <i className="fas fa-gem"></i>
+              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit <i className="far fa-gem homepage"></i>
               </button>
             </div>
           </form>

@@ -31,7 +31,7 @@ function showRoute(req, res, next) {
         select: 'username'
       },{
         path: 'comments.user',
-        select: 'username'
+        select: 'username image'
       }
       ,{
         path: 'trips',

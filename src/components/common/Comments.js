@@ -10,10 +10,26 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
       {comments.map((comment, index) => {
         return (
           <div key={index}>
-            <p> <strong>{comment.user.username}</strong> {comment.content} </p>
-            {Auth.canEdit(comment.user._id) &&<button className=" button is-primary" value={comment._id} onClick={handleCommentDelete}>Delete</button>}
-            <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
+            <div className="columns">
+              <div className="column is-2">
+                <figure className="image">
+                  <img className="is-rounded" src={comment.user.image} alt={comment.name}/>
+                </figure>
+
+
+
+              </div>
+              <div className="column is-8">
+                <p> <strong>{comment.user.username}</strong> {comment.content} </p>
+
+                <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
+              </div>
+              <div>
+                {Auth.canEdit(comment.user._id) &&<button className=" button is-primary" value={comment._id} onClick={handleCommentDelete}>Delete</button>}
+              </div>
+            </div>
             <hr/>
+
           </div>
         )
       })}

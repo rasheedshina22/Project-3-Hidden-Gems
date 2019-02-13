@@ -9,11 +9,13 @@ class Navbar extends React.Component {
     super()
 
     this.state = {
-      navbarOpen: false
+      navbarOpen: false,
+      clickedIcon: false
     }
 
     this.logout = this.logout.bind(this)
     this.toggleNavbar = this.toggleNavbar.bind(this)
+    this.toggleIcon = this.toggleIcon.bind(this)
   }
 
   toggleNavbar() {
@@ -21,6 +23,8 @@ class Navbar extends React.Component {
   }
 
   toggleIcon() {
+
+    this.setState({clickedIcon: !this.state.clickedIcon})
 
   }
 
@@ -42,8 +46,8 @@ class Navbar extends React.Component {
       <nav className= { this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
-            <Link className="navbar-item" to="/">
-              <strong className="has-text-white is-size-4">Hidden <i className="far fa-gem"></i> Gems  </strong>
+            <Link className="navbar-item" onClick={this.toggleIcon} to="/">
+              <strong className="has-text-white is-size-4">Hidden <i className={`far fa-gem rotate ${this.state.clickedIcon && 'down'}`}></i> Gems  </strong>
             </Link>
             <a
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
