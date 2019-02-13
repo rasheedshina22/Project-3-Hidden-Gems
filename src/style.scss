@@ -390,6 +390,10 @@ nav.navbar .other{
       >.delete-box{
         display: flex;
         justify-content: center;
+        .is-delete-button{
+          border: none;
+          background: transparent;
+        }
       }
     }
   }

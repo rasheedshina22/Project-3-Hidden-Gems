@@ -24,7 +24,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
             </div>
             <div className="column">
               {Auth.canEdit(comment.user._id) &&
-                <button className="button is-small delete-box" value={comment._id} onClick={handleCommentDelete}>
+                <button className="button is-small is-delete-button delete-box" value={comment._id} onClick={handleCommentDelete}>
                   <i  className="fas fa-trash-alt"></i>
                 </button>
               }
