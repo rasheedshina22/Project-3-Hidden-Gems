@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const commentSchema = new mongoose.Schema({
   user: { type: mongoose.Schema.ObjectId, ref: 'User' },
-  content: { type: String, required: true, maxlength: 250 }
+  content: { type: String, required: 'Please add your Comment', maxlength: 250 }
 }, {
   timestamps: true
 })

@@ -18,5 +18,4 @@ const tripSchema = new mongoose.Schema({
   comments: [ commentSchema ]
 })
 
-
 module.exports = mongoose.model('Trip', tripSchema)

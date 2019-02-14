@@ -101,7 +101,7 @@ class TripsShow extends React.Component {
           <h1 className="title is-1"> {name} </h1>
           <h4 className="title is-4">Added by: {user.username} </h4>
           <hr />
-          <div className="columns">
+          <div className="columns is-variable is-5">
             <div className="column">
               <figure className="image">
                 <img src={image} alt={name} />
@@ -117,7 +117,7 @@ class TripsShow extends React.Component {
                 <h4 className="title is-4">Gems:</h4>
                 <div>
                   {gems.map((gem, index) =>
-                    <Link to={`/gems/${gem._id}`} className="button is-primary is-rounded" key={index}> {gem.name} </Link>
+                    <Link to={`/gems/${gem._id}`} className="button tripPageBtn is-primary is-rounded" key={index}> {gem.name} </Link>
                   )}
                   <hr/>
                 </div>
@@ -137,7 +137,16 @@ class TripsShow extends React.Component {
         </div>
         <div className="container">
           <hr />
-          <div className="columns">
+          <div className="columns is-variable is-5">
+            <div className="column">
+              <div className="content">
+                <Map
+                  gems={gems}
+                  userLocation={this.state.userLocation}
+                />
+              </div>
+            </div>
+
             <div className="column">
               <Comments
                 handleCommentSubmit={this.handleCommentSubmit}
@@ -147,14 +156,7 @@ class TripsShow extends React.Component {
                 contentInput= {this.state.data.content}
               />
             </div>
-            <div className="column">
-              <div className="content">
-                <Map
-                  gems={gems}
-                  userLocation={this.state.userLocation}
-                />
-              </div>
-            </div>
+
           </div>
         </div>
       </section>

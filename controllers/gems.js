@@ -42,7 +42,7 @@ function showRoute(req, res, next) {
     .catch(next)
 }
 
-function updateRoute (req, res, next) {
+function updateRoute(req, res, next) {
   Gem
     .findById(req.params.id)
     .then(gem => gem.set(req.body))
@@ -51,7 +51,7 @@ function updateRoute (req, res, next) {
     .catch(next)
 }
 
-function deleteRoute (req, res, next) {
+function deleteRoute(req, res, next) {
   Gem
     .findById(req.params.id)
     .then(gem => gem.remove())

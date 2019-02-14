@@ -3,6 +3,7 @@ import axios from 'axios'
 
 import Auth from '../../lib/Auth'
 import RegMap from '../common/RegMap'
+import Flash from '../../lib/Flash'
 import GemsForm from './GemsForm'
 
 
@@ -62,7 +63,10 @@ class GemsNew extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/gems'))
-      .catch((err) => this.setState({errors: err.response.data}))
+      .catch((err) => {
+        Flash.setMessage('success', 'Fields Missing')
+        return this.setState({errors: err.response.data})
+      })
   }
 
   setLocation(lat, lng) {

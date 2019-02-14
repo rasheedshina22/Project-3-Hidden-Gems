@@ -14,6 +14,9 @@ router.route('/login')
 router.route('/user/:id')
   .get(authController.user)
 
+router.route('/user/:id/follow/:follow')
+  .post(authController.follow)
+
 router.route('/gems')
   .get(gemsController.index)
   .post(secureRoute, gemsController.create)

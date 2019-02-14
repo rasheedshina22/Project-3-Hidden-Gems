@@ -26,13 +26,26 @@ function loginRoute(req, res, next) {
 function userShow(req, res, next){
   User
     .findById(req.params.id)
-    .populate('gems trips')
+    .populate('gems trips follows following')
     .then(user => res.json(user))
+    .catch(next)
+}
+
+function followUser(req, res, next){
+  User
+    .findById(req.params.id)
+    .then(user => {
+      user.follows.push(req.params.follow)
+      return user.save()
+    })
+    .then(user => User.populate(user, { path: 'gems trips follows following' }))
+    .then(user => res.status(201).json(user))
     .catch(next)
 }
 
 module.exports = {
   register: registerRoute,
   login: loginRoute,
-  user: userShow
+  user: userShow,
+  follow: followUser
 }
