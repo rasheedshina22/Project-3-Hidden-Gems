@@ -54,6 +54,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
             placeholder="Add your comments!"
             value={contentInput}
             onChange={handleCommentChange}
+            maxLength="250"
             rows="6">
           </textarea>
           <button className="button is-dark is-rounded"> Add Commment </button>
