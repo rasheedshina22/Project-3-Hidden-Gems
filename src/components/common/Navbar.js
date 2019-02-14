@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 
+
 class Navbar extends React.Component {
 
   constructor() {
@@ -43,7 +44,7 @@ class Navbar extends React.Component {
 
     console.log(this.props.location.pathname)
     return (
-      <nav className= { this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
+      <nav className= {this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
             <Link className="navbar-item" onClick={this.toggleIcon} to="/">
@@ -76,27 +77,28 @@ class Navbar extends React.Component {
           </div>
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-end">
-              {Auth.isAuthenticated() && <div className="navbar-item has-dropdown is-hoverable">
-                <Link to={`/user/${Auth.getUserId()}`} className="navbar-item has-text-white">
-                Your Gems
-                </Link>
-                <a className="navbar-link has-text-white">
-                 Add
-                </a>
-                <div className="navbar-dropdown">
-                  <Link to="/gems/new" className="navbar-item">
-                   Your Gems
-                  </Link>
-                  <hr className="navbar-divider" />
-                  <Link to="/trips/new" className="navbar-item">
-                   To Your Trips
-                  </Link>
-                </div>
-              </div>}
+              {Auth.isAuthenticated() &&
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link has-text-white">
+                   Add
+                  </a>
+                  <div className="navbar-dropdown">
+                    <Link to="/gems/new" className="navbar-item has-text-white">
+                     Your Gems
+                    </Link>
+                    <hr className="navbar-divider" />
+                    <Link to="/trips/new" className="navbar-item has-text-white">
+                     To Your Trips
+                    </Link>
+                  </div>
+                </div>}
 
+              {Auth.isAuthenticated() &&<Link to={`/user/${Auth.getUserId()}`} className="navbar-item has-text-white">
+              Your Gems
+              </Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item has-text-white" to="/register">Sign Up</Link>}
               {!Auth.isAuthenticated() && <Link className="navbar-item has-text-white" to="/login">Login</Link>}
-              {Auth.isAuthenticated() && <a className="navbar-item" onClick={this.logout}>Logout</a>}
+              {Auth.isAuthenticated() && <a className="navbar-item has-text-white" onClick={this.logout}>Logout</a>}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');
 
 $dark: #05386B;
 $greeny: #F4F7F6;
@@ -76,26 +76,35 @@ a.navbar-item{
     transform: rotate(360deg);
 }
 
-button.button.home {
+button.homesecond, button.home {
   color: white;
   justify-content: center;
   border-radius: 20px;
   border: 3px solid white;
   background-color: transparent;
   position: absolute;
-  top: 50%;
   left: 5%;
 }
 
+button.button.home {
+  top: 50%;
+}
+
 button.homesecond {
+  top: 40%;
+}
+
+button.tripBtn {
   color: white;
   justify-content: center;
   border-radius: 20px;
-  border: 3px solid white;
+  border: 1px solid white;
   background-color: transparent;
-  position: absolute;
-  top: 40%;
-  left: 5%;
+  margin: 2px;
+}
+
+a.button.showGemBtn, a.button.tripPageBtn{
+  margin: 5px 5px 5px 0;
 }
 
 input.searchBar {
@@ -195,7 +204,7 @@ input.react-mapbox-ac-input {
 }
 
 .map {
-  height: 500px;
+  height: 250px;
   width: 100%;
 }
 
@@ -324,11 +333,11 @@ nav.navbar .other{
   background-image: url(./images/picNpgx.jpg)
 }
 .slideshow li:nth-child(2) {
-  background-image: url(https://images.unsplash.com/photo-1534770311507-ec2bf6cf3f32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
+  background-image: url(https://images.unsplash.com/photo-1503254757736-955eb89eff64?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80);
   animation-delay: 10s;
 }
 .slideshow li:nth-child(3) {
-  background-image: url(http://i.imgur.com/emvhOnb.jpg);
+  background-image: url(https://images.unsplash.com/photo-1534770311507-ec2bf6cf3f32?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
   animation-delay: 20s;
 }
 .slideshow li:nth-child(4) {
@@ -357,4 +366,72 @@ nav.navbar .other{
   30% {
     opacity: 0
   }
+}
+//
+// .loader:empty {
+//     position: absolute;
+//     top: calc(50% - 15em);
+//     left: calc(50% - 10em);
+//     width: 20em;
+//     height: 20em;
+//     border: 1.5em solid orange;
+//     border-left: 1.5em solid dodgerblue;
+//     border-radius: 80%;
+//     border-right: 1.5em solid dodgerblue;
+//     animation: load8 3s infinite linear;
+//   }
+//
+//   @keyframes load8 {
+//     0% {
+//       transform: rotate(0deg);
+//     }
+//     100% {
+//       transform: rotate(360deg);
+//     }
+//   }
+
+
+// User page styling
+
+.user-header{
+  > .container{
+    > .columns{
+      > .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2{
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.is-title-light{
+  font-weight: 300;
+}
+
+//Comments COMPONENT
+
+.comments{
+  > .columns{
+    display: flex;
+    background-color: #eee;
+    >.column{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      >.delete-box{
+        display: flex;
+        justify-content: center;
+        .is-delete-button{
+          border: none;
+          background: transparent;
+        }
+      }
+    }
+  }
+
 }
