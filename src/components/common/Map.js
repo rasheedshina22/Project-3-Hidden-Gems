@@ -48,31 +48,6 @@ class Map extends React.Component {
     this.generatePopups()
   }
 
-  componentDidUpdate() {
-    if(!this.popupsGenerated) this.generatePopups()
-
-    this.markers.forEach(marker => marker.remove())
-
-    const bounds = new mapboxgl.LngLatBounds()
-
-
-    this.markers = this.props.gems.map(gem => {
-      const { lat, lon } = gem.location
-      const type = gem.category
-
-      bounds.extend([lon, lat])
-
-      // Added type to be category so can be diffrent colors for Category
-      const markerElement = document.createElement('DIV')
-      markerElement.className = `All ${type}`
-
-      return new mapboxgl.Marker(markerElement)
-        .setLngLat({ lat: lat, lng: lon })
-        .addTo(this.map)
-
-    })
-  }
-
   generatePopups() {
     if(!this.props.userLocation) return false
     this.popupsGenerated = true
@@ -110,6 +85,27 @@ class Map extends React.Component {
           `)
       }
     })
+  }
+
+  componentDidUpdate() {
+
+    if(!this.popupsGenerated) this.generatePopups()
+
+    this.markers.forEach(marker => marker.remove())
+
+    this.markers = this.props.gems.map(gem => {
+      const { lat, lon } = gem.location
+      const type = gem.category
+
+      // Added type to be category so can be diffrent colors for Category
+      const markerElement = document.createElement('DIV')
+      markerElement.className = `All ${type}`
+
+      return new mapboxgl.Marker(markerElement)
+        .setLngLat({ lat: lat, lng: lon })
+        .addTo(this.map)
+    })
+  
   }
 
   render() {

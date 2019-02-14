@@ -2,7 +2,6 @@ import React from 'react'
 import axios from 'axios'
 
 import { Link } from 'react-router-dom'
-import Map from '../common/Map'
 import Auth from '../../lib/Auth'
 import GemCard from './GemCard'
 import GemsSearchForm from './GemsSearchForm'
@@ -80,10 +79,6 @@ class GemsIndex extends React.Component {
           {Auth.isAuthenticated() && <div>
             <Link to="/gems/new" className="button is-primary is-rounded">Add gem</Link>
           </div>}
-          <Map
-            userLocation={this.state.userLocation}
-            gems={this.filteredGems()}
-          />
           <hr />
           <div className="columns is-multiline">
             {this.filteredGems().map(gem =>
