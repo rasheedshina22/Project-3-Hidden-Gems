@@ -95,7 +95,7 @@ class GemsShow extends React.Component {
   render(){
     console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description, user, location, address, trips } = this.state.gem
+    const { _id, name, image, category, description, user, location, trips } = this.state.gem
     return (
       <section className="section">
         <div className="container">
@@ -108,9 +108,7 @@ class GemsShow extends React.Component {
               </figure>
               <div className="added-by">
                 <Link to={`/user/${user._id}`} className="title is-5 is-title-light">
-
-              Added by: {user.username}<img  className="user-logo is-rounded" src={user.image} alt={user.username} />
-
+                  Added by: {user.username}<img  className="user-logo" src={user.image} alt={user.username} />
                 </Link>
               </div>
             </div>
@@ -146,7 +144,6 @@ class GemsShow extends React.Component {
                 <Map
                   location={location}
                   userLocation={this.state.userLocation}
-                  // gem={this.state.gem}
                   gems={[this.state.gem]}
                   type= "gem"
                 />

@@ -5,9 +5,9 @@ const GemsForm = ({ handleChange }) => {
   return (
 
     <div className="field">
-      <div className="control gemFormDiv">
+      <div className="control gemFormDiv is-flex">
 
-        <label className="label"> <strong> Explore by category </strong> </label>
+        <label className="label is-searchform"> <strong> Explore by category </strong> </label>
         <div className="select is-rounded">
           <select
             name="category"
@@ -27,8 +27,8 @@ const GemsForm = ({ handleChange }) => {
         </div>
 
         <div className="field">
-          <div className="control">
-            <label className="label"> <strong> Search By City </strong> </label>
+          <div className="control is-flex">
+            <label className="label is-searchform"> <strong> Search By City </strong> </label>
             <form>
               <input name="location" className="input searchBar is-rounded" type="text" placeholder="Location" onChange={handleChange} />
             </form>

@@ -41,7 +41,7 @@ class Register extends React.Component {
               <form onSubmit={this.handleSubmit}>
                 <div className="field">
                   <label className="label">Username</label>
-                  <div className="control">
+                  <div className="control has-icons-left has-icons-right">
                     <input
                       className="input"
                       name="username"
@@ -49,12 +49,15 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.username || ''}
                     />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-user"></i>
+                    </span>
                     {this.state.errors.username && <small className="help is-danger">{this.state.errors.username}</small>}
                   </div>
                 </div>
                 <div className="field">
                   <label className="label">Email</label>
-                  <div className="control">
+                  <div className="control has-icons-left">
                     <input
                       type="email"
                       className="input"
@@ -63,6 +66,9 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.email || ''}
                     />
+                    <span className="icon is-small is-left">
+                      <i className="fas fa-envelope"></i>
+                    </span>
                     {this.state.errors.email && (
                       <small
                         className="help is-danger">
@@ -86,6 +92,7 @@ class Register extends React.Component {
                       buttonText={'Add Image'}
                       buttonClass={'button is-dark is-rounded'}
                     />
+                    {this.state.data.image &&<small> Imaged Uploaded</small>}
                     <br/>
                     {this.state.errors.image && (
                       <small
