@@ -208,6 +208,20 @@ input.react-mapbox-ac-input {
   width: 100%;
 }
 
+.coordinates {
+background: rgba(0,0,0,0.5);
+color: #fff;
+position: absolute;
+bottom: 10px;
+left: 10px;
+padding:5px 10px;
+margin: 0;
+font-size: 11px;
+line-height: 18px;
+border-radius: 3px;
+display: none;
+}
+
 // NOTES: MAP ICONS acording to Category
 // (color needs to be changed in relivent image file scr/accests/images)
 $Allred: red;
