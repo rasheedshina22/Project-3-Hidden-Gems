@@ -34,6 +34,7 @@ class App extends React.Component {
     return (
 
       <BrowserRouter>
+      
         <main>
 
           <Navbar />
@@ -42,7 +43,7 @@ class App extends React.Component {
           <Switch>
             <SecureRoute path="/gems/new" component={GemsNew} />
             <SecureRoute path="/gems/:id/edit" component={GemsEdit} />
-            <SecureRoute path="/user/:id" component={UserShow} />
+            <Route path="/user/:id" component={UserShow} />
             <Route path="/gems/:id" component={GemsShow} />
             <Route path="/gems" component={GemsIndex} />
             <SecureRoute path="/trips/new" component={TripsNew} />

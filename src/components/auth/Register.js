@@ -63,7 +63,12 @@ class Register extends React.Component {
                       onChange={this.handleChange}
                       value={this.state.data.email || ''}
                     />
-                    {this.state.errors.email && <small className="help is-danger">{this.state.errors.email}</small>}
+                    {this.state.errors.email && (
+                      <small
+                        className="help is-danger">
+                        {this.state.errors.email}
+                      </small>
+                    )}
                   </div>
                 </div>
                 <div className="field">
@@ -82,7 +87,6 @@ class Register extends React.Component {
                       buttonClass={'button is-dark is-rounded'}
                     />
                     {this.state.errors.image && <small>{this.state.errors.image}</small>}
-
                   </div>
                 </div>
                 <div className="field">

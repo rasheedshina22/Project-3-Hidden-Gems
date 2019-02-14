@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-@import url('https://fonts.googleapis.com/css?family=Quicksand');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:300,400');
 
 $dark: #05386B;
 $greeny: #F4F7F6;
@@ -352,4 +352,72 @@ nav.navbar .other{
   30% {
     opacity: 0
   }
+}
+//
+// .loader:empty {
+//     position: absolute;
+//     top: calc(50% - 15em);
+//     left: calc(50% - 10em);
+//     width: 20em;
+//     height: 20em;
+//     border: 1.5em solid orange;
+//     border-left: 1.5em solid dodgerblue;
+//     border-radius: 80%;
+//     border-right: 1.5em solid dodgerblue;
+//     animation: load8 3s infinite linear;
+//   }
+//
+//   @keyframes load8 {
+//     0% {
+//       transform: rotate(0deg);
+//     }
+//     100% {
+//       transform: rotate(360deg);
+//     }
+//   }
+
+
+// User page styling
+
+.user-header{
+  > .container{
+    > .columns{
+      > .column{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        h2{
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+}
+
+.is-title-light{
+  font-weight: 300;
+}
+
+//Comments COMPONENT
+
+.comments{
+  > .columns{
+    display: flex;
+    background-color: #eee;
+    >.column{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      >.delete-box{
+        display: flex;
+        justify-content: center;
+        .is-delete-button{
+          border: none;
+          background: transparent;
+        }
+      }
+    }
+  }
+
 }
