@@ -17,18 +17,8 @@ class Map extends React.Component {
     this.map = new mapboxgl.Map({
       container: this.mapDiv,
       style: 'mapbox://styles/mapbox/light-v9'
-      // zoom: 15
-      // center: {
-      //   lng: this.props.location.lon,
-      //   lat: this.props.location.lat
-      // }
     })
 
-    // if(this.props.type === 'gem'){
-    //   console.log(this.map)
-    //   this.map.zoom = 15
-    // }
-    console.log(this.props.location)
 
     // Add geolocate control to the map.
     this.map.addControl(new mapboxgl.GeolocateControl({
