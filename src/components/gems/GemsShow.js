@@ -100,7 +100,7 @@ class GemsShow extends React.Component {
       <section className="section">
         <div className="container">
           <h1 className="title is-1"> {name} </h1>
-          <h4 className="title is-4">Added by: {user.username} </h4>
+          <Link to={`/user/${user._id}`} className="title is-4">Added by: {user.username} </Link>
           <hr />
 
           <div className="columns">
