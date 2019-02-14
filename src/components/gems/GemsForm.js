@@ -1,8 +1,10 @@
 import React from 'react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 import ReactFilestack from 'react-filestack'
+import RegMap from '../common/RegMap'
 
 const fileStack = process.env.FILESTACK_API_KEY
+
 
 const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
@@ -95,6 +97,10 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 onchange={handleChange}
                 name="location"
                 value={data.address}
+              />
+              <RegMap
+                location={data.location}
+                onChange={handleChange}
               />
               {errors.location && <small>{errors.location}</small>}
             </div>

@@ -3,8 +3,8 @@ import axios from 'axios'
 
 import Auth from '../../lib/Auth'
 import Flash from '../../lib/Flash'
-
 import GemsForm from './GemsForm'
+
 
 
 class GemsNew extends React.Component {
@@ -16,8 +16,11 @@ class GemsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        location: null,
-        address: ''
+        address: '',
+        location: {
+          lat: 51.5327045,
+          lon: -0.1507498
+        }
       },
       errors: ''
     }
@@ -28,17 +31,12 @@ class GemsNew extends React.Component {
   }
 
   handleChange({ target: { name, value } }) {
-    if(name === 'location'){
-      console.log('location')
-    }
-
     const data = {...this.state.data, [name]: value }
     const errors = { ...this.state.errors, [name]: '' }
     this.setState({ data, errors })
   }
 
   suggestionSelect(result, lat, lng, text) {
-    console.log(lat, lng)
     const data = {...this.state.data,
       location: {
         lat: lat,
@@ -64,6 +62,21 @@ class GemsNew extends React.Component {
       })
   }
 
+
+  componentDidMount() {
+    // also get the user location...
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        const data = {...this.state.data,
+          location: {
+            lat: position.coords.latitude,
+            lon: position.coords.longitude
+          }
+        }
+        this.setState({ data })
+      })
+    }
+  }
   render() {
     return(
       <div className="section">
@@ -74,6 +87,8 @@ class GemsNew extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}
+          location={location}
+          userLocation={this.state.userLocation}
         />
 
       </div>
