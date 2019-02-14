@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom'
 import Auth from '../../lib/Auth'
 import GemCard from './GemCard'
 import GemsSearchForm from './GemsSearchForm'
+import Loading from '../../components/Loading'
+
 
 class GemsIndex extends React.Component {
 
@@ -38,16 +40,13 @@ class GemsIndex extends React.Component {
   }
 
   render() {
-    console.log(this.state)
-    if(!this.state.gems) return (
-      <section className="section">
-        <div className="container">
-          <h4 className="title is-4">Loading...</h4>
-        </div>
-      </section>
-    )
+
+    this.state.loading ? <Loading /> : this.state.gems
+
+
     console.log('index/gems state is -',this.state.gems)
     console.log('filteredGems state is -',this.state.filteredGems)
+
     return (
 
       <section className="section">
