@@ -61,10 +61,10 @@ class GemsShow extends React.Component {
 
 
   handleCommentDelete(e){
-    console.log(e.target.value)
+    console.log(e.currentTarget)
     e.preventDefault()
     axios
-      .delete(`/api/gems/${this.state.gem._id}/comments/${e.target.value}`,
+      .delete(`/api/gems/${this.state.gem._id}/comments/${e.currentTarget.value}`,
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {

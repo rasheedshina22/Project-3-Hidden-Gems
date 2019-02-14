@@ -22,7 +22,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   onChange={handleChange}
                   value={data.name || ''}
                 />
-                {errors.name && <small>{errors.name}</small>}
+                {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
             </div>
 
@@ -45,10 +45,12 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                       value: res.filesUploaded[0].url
                     }})}
                   onError={(err) => console.log(err)}
-                  buttonText={'Add Image'}
+                  buttonText={'Upload Image'}
                   buttonClass={'button is-dark is-rounded'}
                 />
-                {errors.image && <small>{errors.image}</small>}
+                {data.image &&<small> Imaged Uploaded</small>}
+                <br/>
+                {errors.image && <small className="help is-danger">{errors.image}</small>}
 
               </div>
             </div>
@@ -77,7 +79,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                     <option> Family Trips </option>
                   </select>
                 </div>
-                {errors.category && <small>{errors.category}</small>}
+                {errors.category && <small className="help is-danger">{errors.category}</small>}
 
               </div>
             </div>
@@ -92,7 +94,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   onChange={handleChange}
                   value={data.description || ''}
                 />
-                {errors.description && <small>{errors.description}</small>}
+                {errors.description && <small className="help is-danger">{errors.description}</small>}
 
               </div>
             </div>
@@ -109,7 +111,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   onChange={handleMultiChange}
 
                 />
-                {errors.gems && <small>{errors.gems}</small>}
+                {errors.gems && <small className="help is-danger">{errors.gems}</small>}
 
               </div>
             </div>

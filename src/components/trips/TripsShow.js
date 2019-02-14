@@ -63,7 +63,7 @@ class TripsShow extends React.Component {
   handleCommentDelete(e){
     e.preventDefault()
     axios
-      .delete(`/api/trips/${this.state.trip._id}/comments/${e.target.value}`,
+      .delete(`/api/trips/${this.state.trip._id}/comments/${e.currentTarget.value}`,
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {

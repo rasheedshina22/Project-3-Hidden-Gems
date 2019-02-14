@@ -33,15 +33,20 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 <ReactFilestack
                   apikey={`${fileStack}`}
                   mode={'pick'}
-                  onSuccess={(res) => handleChange({
-                    target: {
-                      name: 'image',
-                      value: res.filesUploaded[0].url
-                    }})}
+                  onSuccess={(res) => {
+                    console.log('FileStack',res)
+                    handleChange({
+                      target: {
+                        name: 'image',
+                        value: res.filesUploaded[0].url
+                      }})
+                  }
+                  }
                   onError={(err) => console.log(err)}
                   buttonText={'Upload Image'}
                   buttonClass={'button is-dark is-rounded'}
                 />
+                {data.image &&<small> Imaged Uploaded</small>}
                 <br/>
                 {errors.image && <small className="help is-danger">{errors.image}</small>}
 
