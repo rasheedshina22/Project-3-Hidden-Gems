@@ -119,7 +119,7 @@ class GemsShow extends React.Component {
                 <p> {description}</p>
                 <h4 className="title is-4">Trips</h4>
                 {trips.map((trip) => {
-                  return <Link to={`/trips/${trip._id}`} className="button showTripsBtn is-primary is-rounded" key={trip._id}> {trip.name} </Link>
+                  return <Link to={`/trips/${trip._id}`} className="button showGemBtn is-primary is-rounded" key={trip._id}> {trip.name} </Link>
                 })}
                 {Auth.canEdit(user._id) && (
                   <div>
@@ -137,7 +137,7 @@ class GemsShow extends React.Component {
           <hr />
           <div className="columns is-variable is-5">
 
-            <div className="column ">
+            <div className="column">
               <div className="content">
                 <h2> Location</h2>
 
