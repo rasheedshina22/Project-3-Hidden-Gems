@@ -99,7 +99,7 @@ class TripsShow extends React.Component {
       <section className="section">
         <div className="container">
           <h1 className="title is-1"> {name} </h1>
-          <h4 className="title is-4">Added by: {user.username} </h4>
+          <Link to={`/user/${user._id}`} className="title is-4">Added by: {user.username} </Link>
           <hr />
           <div className="columns is-variable is-5">
             <div className="column">
@@ -110,27 +110,21 @@ class TripsShow extends React.Component {
             <div className="column">
               <div className="content">
                 <h4 className="title is-4">Category: {category}</h4>
-                <hr />
                 <h4 className="title is-4">Description:</h4>
                 <p> {description}</p>
-                <hr />
                 <h4 className="title is-4">Gems:</h4>
                 <div>
                   {gems.map((gem, index) =>
-                    <Link to={`/gems/${gem._id}`} className="button tripPageBtn is-primary is-rounded" key={index}> {gem.name} </Link>
+                    <Link to={`/gems/${gem._id}`} className="button pill is-rounded" key={index}> {gem.name} </Link>
                   )}
                   <hr/>
                 </div>
-                <div className="column">
-                  <div className="content">
-                    {Auth.canEdit(user._id) && (
-                      <div>
-                        <Link to={`/trips/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
-                        <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
-                      </div>
-                    )}
+                {Auth.canEdit(user._id) && (
+                  <div >
+                    <Link to={`/trips/${_id}/edit`} className="button is-dark is-rounded" >Edit </Link>
+                    <button className="button is-primary is-rounded " onClick={this.handleDelete}>Delete</button>
                   </div>
-                </div>
+                )}
               </div>
             </div>
           </div>

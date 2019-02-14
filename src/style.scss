@@ -391,6 +391,18 @@ nav.navbar .other{
 //   }
 
 
+a.button.pill {
+  color: $primary;
+  font-size: 16px;
+  padding: 8px;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid $primary;
+  background-color: transparent;
+  margin: 0 5px 5px 0;
+}
+
+
 // User page styling
 
 .user-header{
@@ -413,6 +425,37 @@ nav.navbar .other{
   font-weight: 300;
 }
 
+.content{
+  .is-title-light{
+    font-weight: 300;
+  }
+}
+
+button.followBtn {
+  color: white;
+  font-size: 16px;
+  padding: 6px;
+  justify-content: center;
+  border-radius: 20px;
+  border: 1px solid white;
+  background-color: transparent;
+  margin-bottom: 12px;
+}
+
+.added-by{
+  position: relative;
+  display: flex;
+  margin-top: 20px;
+  .user-logo{
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    bottom: 0;
+    margin-left: 5px;
+  }
+}
+
+
 //Comments COMPONENT
 
 .comments{
@@ -426,10 +469,11 @@ nav.navbar .other{
       >.delete-box{
         display: flex;
         justify-content: center;
-        .is-delete-button{
-          border: none;
-          background: transparent;
-        }
+      }
+      >button.is-delete-button{
+        border: none;
+        color: $primary;
+        background: transparent;
       }
     }
   }

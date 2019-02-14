@@ -19,6 +19,7 @@ class Map extends React.Component {
       style: 'mapbox://styles/mapbox/light-v9'
     })
 
+
     // Add geolocate control to the map.
     this.map.addControl(new mapboxgl.GeolocateControl({
       positionOptions: {
@@ -43,8 +44,15 @@ class Map extends React.Component {
 
     })
 
-    this.map.fitBounds(bounds, { padding: 50 })
-
+    if(this.props.type !== 'gem'){
+      this.map.fitBounds(bounds, { padding: 50 })
+    } else {
+      const { lat, lon } = this.props.gems[0].location
+      this.map.flyTo({
+        center: { lat: lat-0.001, lng: lon },
+        zoom: 15
+      })
+    }
     this.generatePopups()
   }
 
