@@ -20,14 +20,6 @@ class Map extends React.Component {
     })
 
 
-    // Add geolocate control to the map.
-    this.map.addControl(new mapboxgl.GeolocateControl({
-      positionOptions: {
-        enableHighAccuracy: true
-      },
-      trackUserLocation: true
-    }))
-
     this.markers = this.props.gems.map(gem => {
       const { lat, lon } = gem.location
       const type = gem.category
@@ -59,6 +51,26 @@ class Map extends React.Component {
   componentDidUpdate() {
     if(!this.popupsGenerated) this.generatePopups()
 
+    this.markers.forEach(marker => marker.remove())
+
+    const bounds = new mapboxgl.LngLatBounds()
+
+
+    this.markers = this.props.gems.map(gem => {
+      const { lat, lon } = gem.location
+      const type = gem.category
+
+      bounds.extend([lon, lat])
+
+      // Added type to be category so can be diffrent colors for Category
+      const markerElement = document.createElement('DIV')
+      markerElement.className = `All ${type}`
+
+      return new mapboxgl.Marker(markerElement)
+        .setLngLat({ lat: lat, lng: lon })
+        .addTo(this.map)
+
+    })
   }
 
   generatePopups() {
