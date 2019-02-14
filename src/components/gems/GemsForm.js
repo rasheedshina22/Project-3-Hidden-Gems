@@ -99,7 +99,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 value={data.address}
               />
 
-              {errors.location && <small className="help is-danger">{errors.location}</small>}
+              {errors.location && <small>{errors.location}</small>}
             </div>
             <div>
               <button className="button is-rounded is-medium is-fullwidth is-primary">Submit <i className="far fa-gem homepage"></i>
