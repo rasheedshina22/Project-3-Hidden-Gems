@@ -1,9 +1,6 @@
 import React from 'react'
 import axios from 'axios'
 
-import { Link } from 'react-router-dom'
-
-import Auth from '../../lib/Auth'
 import GemCard from './GemCard'
 import GemsSearchForm from './GemsSearchForm'
 
@@ -54,12 +51,13 @@ class GemsIndex extends React.Component {
 
       <section className="section">
         <div className="container">
+          <section className="section">
+            <h2 className="title has-text-centered is-title-light is-size-2">The Gems</h2>
+          </section>
 
-          <GemsSearchForm handleChange={this.handleChange} />
-          {Auth.isAuthenticated() && <div>
-            <Link to="/gems/new" className="button is-primary is-rounded">Add gem</Link>
-          </div>}
           <hr />
+          <GemsSearchForm handleChange={this.handleChange} />
+
           <div className="columns is-multiline">
             {this.filteredGems().map(gem =>
               <div key={gem._id} className="column is-one-quarter">
@@ -69,6 +67,7 @@ class GemsIndex extends React.Component {
             )}
           </div>
         </div>
+
       </section>
     )
   }

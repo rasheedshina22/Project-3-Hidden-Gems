@@ -95,7 +95,7 @@ class GemsShow extends React.Component {
   render(){
     console.log(this.state)
     if(!this.state.gem) return null
-    const { _id, name, image, category, description, user, location, address, trips } = this.state.gem
+    const { _id, name, image, category, description, user, location, trips } = this.state.gem
     return (
       <section className="section">
         <div className="container">
