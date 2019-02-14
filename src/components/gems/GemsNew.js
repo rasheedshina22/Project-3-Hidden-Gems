@@ -2,7 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Auth from '../../lib/Auth'
-import RegMap from '../common/RegMap'
+// import RegMap from '../common/RegMap'
 import GemsForm from './GemsForm'
 
 
@@ -16,11 +16,12 @@ class GemsNew extends React.Component {
         name: '',
         image: '',
         description: '',
+        userLocation: null,
+        address: '',
         location: {
-          lat: 51.50722,
-          lon: -0.1275
-        },
-        address: ''
+          lat: 51.5327045,
+          lon: -0.1507498
+        }
       },
       errors: ''
     }
@@ -28,7 +29,6 @@ class GemsNew extends React.Component {
     this.handleChange = this.handleChange.bind(this)
     this.handleSubmit = this.handleSubmit.bind(this)
     this.suggestionSelect = this.suggestionSelect.bind(this)
-    this.setLocation = this.setLocation.bind(this)
   }
 
   handleChange({ target: { name, value } }) {
@@ -42,7 +42,7 @@ class GemsNew extends React.Component {
   }
 
   suggestionSelect(result, lat, lng, text) {
-    console.log(lat, lng)
+    console.log('THis is lat lng of suggestionSelect',lat, lng)
     const data = {...this.state.data,
       location: {
         lat: lat,
@@ -65,18 +65,26 @@ class GemsNew extends React.Component {
       .catch((err) => this.setState({errors: err.response.data}))
   }
 
-  setLocation(lat, lng) {
-    console.log('setLocation',lat, lng)
-    this.setState({...this.state.data,
-      location: {
-        lat: lat,
-        lon: lng
-      }})
 
+  componentDidMount() {
+    console.log('IT"S HERE USER LOCATION!',this.state.userLocation)
+
+    // also get the user location...
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(position => {
+        console.log('LOCATION FOUND')
+        this.setState({
+          userLocation: {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          }
+        })
+      })
+    }
   }
-
   render() {
     console.log('this is GemsNEW state---', this.state.data)
+
     return(
       <div className="section">
 
@@ -86,12 +94,11 @@ class GemsNew extends React.Component {
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}
+          location={location}
+          userLocation={this.state.userLocation}
         />
 
-        <RegMap
-          location={this.state.data.location}
-          setLocation={this.setLocation}
-        />
+
 
       </div>
     )
