@@ -8,6 +8,8 @@ import GemCard from './GemCard'
 import GemsSearchForm from './GemsSearchForm'
 
 
+
+
 class GemsIndex extends React.Component {
 
   constructor() {
@@ -39,7 +41,7 @@ class GemsIndex extends React.Component {
   }
 
   render() {
-    console.log(this.state)
+
     if(!this.state.gems)(
       <section className="section">
         <div className="container">
@@ -47,8 +49,7 @@ class GemsIndex extends React.Component {
         </div>
       </section>
     )
-    console.log('index/gems state is -',this.state.gems)
-    console.log('filteredGems state is -',this.state.filteredGems)
+
     return (
 
       <section className="section">

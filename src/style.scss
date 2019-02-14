@@ -76,26 +76,22 @@ a.navbar-item{
     transform: rotate(360deg);
 }
 
-button.button.home {
+button.homesecond, button.home {
   color: white;
   justify-content: center;
   border-radius: 20px;
   border: 3px solid white;
   background-color: transparent;
   position: absolute;
-  top: 50%;
   left: 5%;
 }
 
+button.button.home {
+  top: 50%;
+}
+
 button.homesecond {
-  color: white;
-  justify-content: center;
-  border-radius: 20px;
-  border: 3px solid white;
-  background-color: transparent;
-  position: absolute;
   top: 40%;
-  left: 5%;
 }
 
 button.tripBtn {
@@ -107,6 +103,9 @@ button.tripBtn {
   margin: 2px;
 }
 
+a.button.showGemBtn, a.button.tripPageBtn{
+  margin: 5px 5px 5px 0;
+}
 
 input.searchBar {
   width: 30%;
@@ -205,7 +204,7 @@ input.react-mapbox-ac-input {
 }
 
 .map {
-  height: 500px;
+  height: 250px;
   width: 100%;
 }
 

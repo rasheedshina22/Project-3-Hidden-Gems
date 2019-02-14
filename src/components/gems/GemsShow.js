@@ -103,15 +103,15 @@ class GemsShow extends React.Component {
           <Link to={`/user/${user._id}`} className="title is-4">Added by: {user.username} </Link>
           <hr />
 
-          <div className="columns">
+          <div className="columns is-variable is-5">
             <div className="column">
-              <figure className="image is-3by2">
+              <figure className="image is-4by2">
                 <img src={image} alt={name} />
               </figure>
             </div>
 
 
-            <div className="column has-text-centered">
+            <div className="column">
               <div className="content">
                 <h4 className="title is-4">Category</h4>
                 <p> {category} </p>
@@ -119,12 +119,12 @@ class GemsShow extends React.Component {
                 <p> {description}</p>
                 <h4 className="title is-4">Trips</h4>
                 {trips.map((trip) => {
-                  return <Link to={`/trips/${trip._id}`} className="button is-primary is-rounded" key={trip._id}> {trip.name} </Link>
+                  return <Link to={`/trips/${trip._id}`} className="button showGemBtn is-primary is-rounded" key={trip._id}> {trip.name} </Link>
                 })}
                 {Auth.canEdit(user._id) && (
                   <div>
                     <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded"> Edit </Link>
-                    <button className="button is-dark is-rounded" onClick={this.handleDelete}>Delete</button>
+                    <button className="button is-dark is-rounded" onClick={this.handleDelete}> Delete </button>
                   </div>
                 )}
               </div>
@@ -132,9 +132,25 @@ class GemsShow extends React.Component {
           </div>
         </div>
 
+
         <div className="container">
           <hr />
-          <div className="columns">
+          <div className="columns is-variable is-5">
+
+            <div className="column">
+              <div className="content">
+                <h2> Location</h2>
+
+                <Map
+                  location={location}
+                  userLocation={this.state.userLocation}
+                  // gem={this.state.gem}
+                  gems={[this.state.gem]}
+                  type= "gem"
+                />
+              </div>
+            </div>
+
             <div className="column">
               <Comments
                 handleCommentSubmit={this.handleCommentSubmit}
@@ -145,21 +161,7 @@ class GemsShow extends React.Component {
               />
             </div>
 
-            <div className="column ">
-              <div className="content">
-                <h2 className="title is-4"> Location</h2>
-                <p> {address} </p>
 
-                <Map
-                  location={location}
-                  userLocation={this.state.userLocation}
-                  // gem={this.state.gem}
-                  gems={[this.state.gem]}
-                  type= "gem"
-                />
-
-              </div>
-            </div>
           </div>
         </div>
       </section>
