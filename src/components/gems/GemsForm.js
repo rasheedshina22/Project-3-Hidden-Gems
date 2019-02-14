@@ -6,7 +6,7 @@ import RegMap from '../common/RegMap'
 const fileStack = process.env.FILESTACK_API_KEY
 
 
-const GemsForm = ({location, data, handleChange, handleSubmit, errors, suggestionSelect }) => {
+const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
     <div className="container">
       <div className="column is-6 is-offset-3 ">
@@ -100,6 +100,7 @@ const GemsForm = ({location, data, handleChange, handleSubmit, errors, suggestio
               />
               <RegMap
                 location={data.location}
+                onChange={handleChange}
               />
               {errors.location && <small>{errors.location}</small>}
             </div>

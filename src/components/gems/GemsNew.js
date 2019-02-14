@@ -16,7 +16,6 @@ class GemsNew extends React.Component {
         name: '',
         image: '',
         description: '',
-        userLocation: null,
         address: '',
         location: {
           lat: 51.5327045,
@@ -32,17 +31,12 @@ class GemsNew extends React.Component {
   }
 
   handleChange({ target: { name, value } }) {
-    if(name === 'location'){
-      console.log('location')
-    }
-
     const data = {...this.state.data, [name]: value }
     const errors = { ...this.state.errors, [name]: '' }
     this.setState({ data, errors })
   }
 
   suggestionSelect(result, lat, lng, text) {
-    console.log('THis is lat lng of suggestionSelect',lat, lng)
     const data = {...this.state.data,
       location: {
         lat: lat,
@@ -67,24 +61,20 @@ class GemsNew extends React.Component {
 
 
   componentDidMount() {
-    console.log('IT"S HERE USER LOCATION!',this.state.userLocation)
-
     // also get the user location...
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log('LOCATION FOUND')
-        this.setState({
-          userLocation: {
+        const data = {...this.state.data,
+          location: {
             lat: position.coords.latitude,
-            lng: position.coords.longitude
+            lon: position.coords.longitude
           }
-        })
+        }
+        this.setState({ data })
       })
     }
   }
   render() {
-    console.log('this is GemsNEW state---', this.state.data)
-
     return(
       <div className="section">
 
@@ -97,8 +87,6 @@ class GemsNew extends React.Component {
           location={location}
           userLocation={this.state.userLocation}
         />
-
-
 
       </div>
     )
