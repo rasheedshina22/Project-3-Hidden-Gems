@@ -28,7 +28,7 @@ function showRoute(req, res, next) {
     .populate(
       [{
         path: 'user',
-        select: 'username'
+        select: 'username image'
       },{
         path: 'comments.user',
         select: 'username image'

@@ -59,7 +59,6 @@ class GemsNew extends React.Component {
       })
       .then(() => this.props.history.push('/gems'))
       .catch((err) => {
-        Flash.setMessage('success', 'Fields Missing')
         return this.setState({errors: err.response.data})
       })
   }

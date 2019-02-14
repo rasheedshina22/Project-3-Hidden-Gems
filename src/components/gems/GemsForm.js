@@ -21,7 +21,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   onChange={handleChange}
                   value={data.name || ''}
                 />
-                {errors.name && <small>{errors.name}</small>}
+                {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
             </div>
 
@@ -40,7 +40,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   buttonText={'Upload Image'}
                   buttonClass={'button is-dark is-rounded'}
                 />
-                {errors.image && <small>{errors.image}</small>}
+                <br/>
+                {errors.image && <small className="help is-danger">{errors.image}</small>}
 
               </div>
             </div>
@@ -55,7 +56,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   onChange={handleChange}
                   value={data.description || ''}
                 />
-                {errors.description && <small>{errors.description}</small>}
+
+                {errors.description && <small className="help is-danger">{errors.description}</small>}
 
               </div>
             </div>
@@ -82,7 +84,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                     <option> Parks </option>
                   </select>
                 </div>
-                {errors.category && <small>{errors.category}</small>}
+                {errors.category && <small className="help is-danger">{errors.category}</small>}
               </div>
             </div>
             <label className="label">Location</label>
@@ -96,7 +98,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 name="location"
                 value={data.address}
               />
-              {errors.location && <small>{errors.location}</small>}
+
+              {errors.location && <small className="help is-danger">{errors.location}</small>}
             </div>
             <div>
               <button className="button is-rounded is-medium is-fullwidth is-primary">Submit <i className="far fa-gem homepage"></i>

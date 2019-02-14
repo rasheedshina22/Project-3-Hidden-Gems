@@ -42,21 +42,22 @@ class UserShow extends React.Component {
             <div className="columns is-centered">
               <div className="column is-vcentered is-4">
                 <h1 className="title is-1 is-title-light has-text-white has-text-centered">{this.state.user.gems.length}</h1>
-                <h6 className="title has-text-centered is-vcentered is-6 is-title-light has-text-white">gems</h6>
+                <h1 className="title has-text-centered is-vcentered is-1 is-title-light has-text-white"><i className={`far fa-gem rotate ${this.state.clickedIcon && 'down'}`}></i></h1>
               </div>
               <div className="column is-4 is-flex is-horizontial-center">
                 <figure className="image is-128x128">
                   <img className="is-rounded" src={this.state.user.image} alt={this.state.user.name}/>
                 </figure>
                 <h2 className="title has-text-centered is-vcentered is-2 has-text-white"> {username} {Auth.hasFollowed(this.state.user._id, this.state.user.follows) && <i className="fas fa-check-circle"></i> }</h2>
-                {Auth.isAuthenticated() && Auth.canFollow(this.state.user._id, this.state.user.follows) && <button className="button" onClick={this.handleFollow}>Follow</button>}
+                {Auth.isAuthenticated() && Auth.canFollow(this.state.user._id, this.state.user.follows) && <button className="followBtn" onClick={this.handleFollow}>Follow</button>}
                 <h5 className="title is-5 has-text-white is-title-light">
-                  Followers: {this.state.user.follows.length} <hr/> Following: {this.state.user.following.length}
+                  Followers: {this.state.user.follows.length}  Following: {this.state.user.following.length}
+                  <hr/>
                 </h5>
               </div>
               <div className="column is-4">
                 <h1 className="title is-1 is-title-light has-text-white has-text-centered">{this.state.user.trips.length}</h1>
-                <h6 className="title has-text-centered is-vcentered is-6 is-title-light has-text-white">trips</h6>
+                <h1 className="title has-text-centered is-vcentered is-1 is-title-light has-text-white"><i className="fas fa-map-signs is-large"></i></h1>
               </div>
             </div>
             <hr/>

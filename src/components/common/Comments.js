@@ -2,6 +2,7 @@ import React from 'react'
 import moment from 'moment'
 
 import Auth from '../../lib/Auth'
+import {Link} from 'react-router-dom'
 
 const Comments = ({contentInput, comments, handleCommentDelete, handleCommentChange, handleCommentSubmit  }) => {
   return (
@@ -12,18 +13,20 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
       </h2>
       {comments.map((comment, index) => {
         return (
-          <div className="columns" key={index}>
+          <div className="columns comment" key={index}>
             <div className="column is-2">
-              <figure className="image">
-                <img
-                  className="is-rounded"
-                  src={comment.user.image}
-                  alt={comment.name}/>
-              </figure>
+              <Link to={`/user/${comment.user._id}`}>
+                <figure className="image">
+                  <img
+                    className="is-rounded"
+                    src={comment.user.image}
+                    alt={comment.name}/>
+                </figure>
+              </Link>
             </div>
             <div className="column is-8">
               <div>
-                <p> <strong>{comment.user.username}</strong> </p>
+                <p> <Link to={`/user/${comment.user._id}`}><strong className="is-primary">{comment.user.username}</strong> </Link> </p>
                 <p>{comment.content}</p>
               </div>
             </div>
