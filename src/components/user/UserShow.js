@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import Auth from '../../lib/Auth'
 
 import { Link } from 'react-router-dom'
 
@@ -8,9 +9,23 @@ class UserShow extends React.Component {
     super()
 
     this.state = {}
+
+    this.handleFollow = this.handleFollow.bind(this)
+    this.handleFollow = this.handleFollow.bind(this)
+  }
+
+  handleFollow(){
+    console.log(Auth.getUserId())
+    axios.post(`/api/user/${this.props.match.params.id}/follow/${Auth.getUserId()}`)
+      .then(res => this.setState({ user: res.data }))
+
   }
 
   componentDidMount() {
+    this.userRequest()
+  }
+
+  userRequest(){
     axios.get(`/api/user/${this.props.match.params.id}`)
       .then(res => this.setState({ user: res.data }))
   }
@@ -33,7 +48,11 @@ class UserShow extends React.Component {
                 <figure className="image is-128x128">
                   <img className="is-rounded" src={this.state.user.image} alt={this.state.user.name}/>
                 </figure>
-                <h2 className="title has-text-centered is-vcentered is-2 has-text-white"> {username} </h2>
+                <h2 className="title has-text-centered is-vcentered is-2 has-text-white"> {username} {Auth.hasFollowed(this.state.user._id, this.state.user.follows) && <i className="fas fa-check-circle"></i> }</h2>
+                {Auth.isAuthenticated() && Auth.canFollow(this.state.user._id, this.state.user.follows) && <button className="button" onClick={this.handleFollow}>Follow</button>}
+                <h5 className="title is-5 has-text-white is-title-light">
+                  Followers: {this.state.user.follows.length} <hr/> Following: {this.state.user.following.length}
+                </h5>
               </div>
               <div className="column is-4">
                 <h1 className="title is-1 is-title-light has-text-white has-text-centered">{this.state.user.trips.length}</h1>
@@ -51,7 +70,7 @@ class UserShow extends React.Component {
         </div>
         <section className="section">
           <div className="container">
-            <h3 className="title is-3 has-text-primary is-title-light"> Your Gems</h3>
+            <h3 className="title is-3 has-text-primary is-title-light"> {Auth.ownUserPage(this.state.user._id) && 'Your'} Gems</h3>
             <hr/>
             <div className="columns is-multiline">
               {this.state.user.gems.map(gem =>
@@ -63,7 +82,6 @@ class UserShow extends React.Component {
                         <div className="middle">
                           <div className="text">{gem.name}</div>
                           <div className="text">{gem.category}</div>
-
                         </div>
                       </figure>
                     </div>
@@ -72,7 +90,7 @@ class UserShow extends React.Component {
               )}
             </div>
             <div className="section">
-              <h3 className="title is-3 has-text-primary is-title-light"> Your Trips</h3>
+              <h3 className="title is-3 has-text-primary is-title-light"> {Auth.ownUserPage(this.state.user._id) && 'Your'} Trips</h3>
               <hr/>
               <div className="columns is-multiline">
                 {this.state.user.trips.map(trip =>
@@ -84,6 +102,27 @@ class UserShow extends React.Component {
                           <div className="middle">
                             <div className="text">{trip.name}</div>
                             <div className="text">{trip.category}</div>
+                          </div>
+                        </figure>
+                      </div>
+                    </Link>
+                  </div>
+                )}
+              </div>
+            </div>
+            <div className="section">
+              <h3 className="title is-3 has-text-primary is-title-light"> Following</h3>
+              <hr/>
+              <div className="columns is-multiline">
+                {this.state.user.following.map(user =>
+                  <div key={user._id} className="column is-3">
+                    <Link to={`/user/${user._id}`} onClick={this.userRequest}>
+                      <div className="isImage">
+                        <figure className="image is-4by3">
+                          <img src={user.image} alt={user.username} className="gemImage"/>
+                          <div className="middle">
+                            <div className="text">{user.username}</div>
+                            <div className="text"></div>
                           </div>
                         </figure>
                       </div>

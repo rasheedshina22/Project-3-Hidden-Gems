@@ -39,7 +39,7 @@ function showRoute(req, res, next) {
     .catch(next)
 }
 
-function updateRoute (req, res, next) {
+function updateRoute(req, res, next) {
   Trip
     .findById(req.params.id)
     .then(trip => trip.set(req.body))
@@ -48,7 +48,7 @@ function updateRoute (req, res, next) {
     .catch(next)
 }
 
-function deleteRoute (req, res, next) {
+function deleteRoute(req, res, next) {
   Trip
     .findById(req.params.id)
     .then(trip => trip.remove())
