@@ -1,8 +1,10 @@
 import React from 'react'
 import MapboxAutocomplete from 'react-mapbox-autocomplete'
 import ReactFilestack from 'react-filestack'
+import RegMap from '../common/RegMap'
 
 const fileStack = process.env.FILESTACK_API_KEY
+
 
 const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }) => {
   return (
@@ -21,7 +23,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   onChange={handleChange}
                   value={data.name || ''}
                 />
-                {errors.name && <small>{errors.name}</small>}
+                {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
             </div>
 
@@ -31,16 +33,22 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 <ReactFilestack
                   apikey={`${fileStack}`}
                   mode={'pick'}
-                  onSuccess={(res) => handleChange({
-                    target: {
-                      name: 'image',
-                      value: res.filesUploaded[0].url
-                    }})}
+                  onSuccess={(res) => {
+                    console.log('FileStack',res)
+                    handleChange({
+                      target: {
+                        name: 'image',
+                        value: res.filesUploaded[0].url
+                      }})
+                  }
+                  }
                   onError={(err) => console.log(err)}
                   buttonText={'Upload Image'}
                   buttonClass={'button is-dark is-rounded'}
                 />
-                {errors.image && <small>{errors.image}</small>}
+                {data.image &&<small> Imaged Uploaded</small>}
+                <br/>
+                {errors.image && <small className="help is-danger">{errors.image}</small>}
 
               </div>
             </div>
@@ -55,7 +63,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   onChange={handleChange}
                   value={data.description || ''}
                 />
-                {errors.description && <small>{errors.description}</small>}
+
+                {errors.description && <small className="help is-danger">{errors.description}</small>}
 
               </div>
             </div>
@@ -82,7 +91,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                     <option> Parks </option>
                   </select>
                 </div>
-                {errors.category && <small>{errors.category}</small>}
+                {errors.category && <small className="help is-danger">{errors.category}</small>}
               </div>
             </div>
             <label className="label">Location</label>
@@ -95,6 +104,10 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 onchange={handleChange}
                 name="location"
                 value={data.address}
+              />
+              <RegMap
+                location={data.location}
+                onChange={handleChange}
               />
               {errors.location && <small>{errors.location}</small>}
             </div>

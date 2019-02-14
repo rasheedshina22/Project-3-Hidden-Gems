@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema({
   image: { type: String, required: 'An Image is required' },
   email: { type: String, required: 'An Email is required', unique: true },
   password: { type: String, required: 'A password is required' },
-  follows: { type: [{ type: mongoose.Schema.ObjectId, ref: 'User'}]}
+  follows: { type: [{ type: mongoose.Schema.ObjectId, ref: 'User' }] }
 })
 
 userSchema.virtual('passwordConfirmation')
@@ -53,9 +53,9 @@ userSchema.virtual('following',{
   foreignField: 'follows'
 })
 
-userSchema.set('toJSON', {
+userSchema.set('toJSON',{
   virtuals: true,
-  transform(doc, json) {
+  transform(doc, json){
     delete json.password
     return json
   }
