@@ -15,27 +15,27 @@ mongoose.connect(dbURI, (err, db) => {
       return User.create([{
         username: 'Tom',
         email: 't@mail.com',
-        image: 'https://files.slack.com/files-pri/T0351JZQ0-FG6RAFFRA/screenshot_2019-02-14_at_10.40.05.png',
+        image: 'https://cdn.filestackcontent.com/bUezLSDsQJGpiT2tsecS',
         password: 't',
         passwordConfirmation: 't'
       },
       {
         username: 'Dexter',
         email: 'd@mail.com',
-        image: 'https://files.slack.com/files-pri/T0351JZQ0-FG6NUM951/screenshot_2019-02-14_at_10.02.50.png',
+        image: 'https://cdn.filestackcontent.com/BF5z5RVoRAq2gJ5rG9d7',
         password: 'd',
         passwordConfirmation: 'd'
       },
       {
         username: 'Bete',
         email: 'b@mail.com',
-        image: 'https://files.slack.com/files-pri/T0351JZQ0-FG6AH30E5/screenshot_2019-02-14_at_10.39.13.png',
+        image: '"https://cdn.filestackcontent.com/bnorpUvFSNCtKKCVHnMW"',
         password: 'b',
         passwordConfirmation: 'b'
       },{
         username: 'Jessica',
         email: 'j@mail.com',
-        image: 'https://files.slack.com/files-pri/T0351JZQ0-FG7UJ9JSK/gessy.png',
+        image: 'https://cdn.filestackcontent.com/iNyTMe2SnO19kvs9IQ0w',
         password: 'j',
         passwordConfirmation: 'j'
       }
@@ -49,7 +49,11 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'The Sky Garden is a unique public space that spans three storeys and offers 360 degree uninterrupted views across the City of London. Visitors can wander around the exquisitely landscaped gardens, observation decks and an open air terrace of what is London\'s highest public garden.',
         category: 'Restaurants',
         location: {lat: 51.5111997, lon: -0.085735},
-        address: '20 Fenchurch St, London EC3M 8AF'
+        address: '20 Fenchurch St, London EC3M 8AF',
+        comments: {
+          user: user[2]._id,
+          content: 'We visited the Sky Garden right around sunset. We allowed extra time to get in and I was quite glad we did, as it took about half an hour to clear security and get up to the top.'
+        }
       },{
         name: 'St. Paul\'s Cathedral',
         user: user[1]._id,
@@ -89,7 +93,11 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'The castle, situated on a headland overlooking Loch Ness, is one of the largest in Scotland in area. It was approached from the west and defended by a ditch and drawbridge.',
         category: 'Landmarks',
         location: {lat: 57.3241399, lon: -4.4441899},
-        address: ' Drumnadrochit, Inverness IV63 6XJ'
+        address: ' Drumnadrochit, Inverness IV63 6XJ',
+        comments: {
+          user: user[0]._id,
+          content: 'The views are stunning - which ever way you look. The visit was made all the more enjoyable by speaking to Graham - the castle Warden. He had an unbelievable knowledge of the history, the people, wildlife and events an his enthusiasm was inspiring. '
+        }
       },
       {
         name: 'Dan & Decarlo',
@@ -125,7 +133,11 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'The Camel Trail is an 18 mile largely traffic free, surfaced and virtually level multi use trail which provides access to the beautiful Cornish countryside ',
         category: 'Landmarks',
         location: {lat: 50.5089749, lon: -4.9587513},
-        address: ' Eddystone Rd, Wadebridge PL27 7AL'
+        address: ' Eddystone Rd, Wadebridge PL27 7AL',
+        comments: {
+          user: user[1]._id,
+          content: 'We walked the Camel Trail from Padstow to Wadebridge yesterday. It’s a beautiful and gentle walk, all on the level, alongside the estuary. The scenery changes and there are regular stopping points with benches (no toilet facilities though!).'
+        }
       },
       {
         name: 'Nerja Beaches',
@@ -134,7 +146,15 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'Nerja is a resort town along southern Spain\'s Costa del Sol. Its seafront promenade, Balcón de Europa, tops a promontory with views of the Mediterranean and surrounding mountains.',
         category: 'Landmarks',
         location: {lat: 36.7497316, lon: -3.870516},
-        address: ' Camino de Burriana, s/n, 29780 Nerja, Málaga, Spain'
+        address: ' Camino de Burriana, s/n, 29780 Nerja, Málaga, Spain',
+        comments: [{
+          user: user[3]._id,
+          content: 'Hi Dexter, should we go to Nerja Beaches at the end of the course?'
+        },
+        {
+          user: user[1]._id,
+          content: 'It will be lovely so that we can relax a bit'
+        }]
       },
       {
         name: 'Café Fresco',
@@ -197,7 +217,11 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'Buckingham Palace is the London residence and administrative headquarters of the monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.',
         category: 'Landmarks',
         location: {lat: 51.501364, lon: -0.144084},
-        address: 'Westminster, London SW1A 1AA'
+        address: 'Westminster, London SW1A 1AA',
+        comments: {
+          user: user[0]._id,
+          content: 'The Changing of the guard does not happen every day and it is subject to last minute cancellation. Make sure to check the website for the schedule before going. If you get there by 10, you should be able to get a good viewing spot.'
+        }
       },
       {
         name: 'Duomo di Napoli',
@@ -215,7 +239,15 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'The Royal Palace of Caserta is a former royal residence in Caserta, southern Italy, constructed by the Spanish royal family as their main residence as kings of Naples. It is one of the largest palaces erected in Europe during the 18th century.',
         category: 'Landmarks',
         location: {lat: 41.0732181, lon: 14.3248743},
-        address: 'Viale Douhet, 2/a, 81100 Caserta CE, Italy'
+        address: 'Viale Douhet, 2/a, 81100 Caserta CE, Italy',
+        comments: [{
+          user: user[2]._id,
+          content: 'Hi Jessica, this Royal Palace reminds me of Schönbrunn Palace.'
+        },
+        {
+          user: user[3]._id,
+          content: 'Yes it\'s very similar but I think that this is bigger than the one in Vienna.'
+        }]
       },
       {
         name: 'Archaeological Museum',
@@ -224,7 +256,11 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'The Archaeological Museum hosts an extensive collection of Greek and Roman antiquities that were discovered during the excavations at Pompeii and Herculaneum. Among the great treasures of the museum are the Herculaneum papyri, carbonized by the eruption of Mount Vesuvius in AD 79 and found in the Villa of the Papyri. The Archaeological Museum of Naples is also famous for its Egyptian collection, the second largest in Italy after Turin',
         category: 'Landmarks',
         location: {lat: 40.8535985, lon: 14.2483314},
-        address: 'Piazza Museo, 19, 80135 Napoli NA, Italy'
+        address: 'Piazza Museo, 19, 80135 Napoli NA, Italy',
+        comments: {
+          user: user[1]._id,
+          content: 'This is a must see when in Napoli because there are some amazing sculptures and artefacts from Romans and Egyptian times. Unfortunately some parts were closed for repair when we were there but we still had a brilliant time. '
+        }
       },
       {
         name: 'Sandbar',
@@ -242,7 +278,15 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'Compact cellar bar serving real ales and international bottled beer selection.',
         category: 'Bars',
         location: {lat: 52.4793512, lon: -1.9040425},
-        address: ' 84 Pinfold St, Birmingham B2 4AY '
+        address: ' 84 Pinfold St, Birmingham B2 4AY ',
+        comments: [{
+          user: user[1]._id,
+          content: 'Hi Tom, should we go here tonight?'
+        },
+        {
+          user: user[0]._id,
+          content: 'Yes please!'
+        }]
       },
       {
         name: 'Palazzo Petrucci Ristorante',
@@ -314,7 +358,11 @@ mongoose.connect(dbURI, (err, db) => {
         description: 'Phewa Lake, Phewa Tal or Fewa Lake is a freshwater lake in Nepal formerly called Baidam Tal located in the south of the Pokhara Valley that includes Pokhara city; parts of Sarangkot and Kaskikot.',
         category: 'Landmarks',
         location: {lat: 28.2116268, lon: 83.9322529},
-        address: 'Pokhara 33700, Nepal'
+        address: 'Pokhara 33700, Nepal',
+        comments: {
+          user: user[2]._id,
+          content: 'I\'ts my 3rd time in pokhara. Pokhara trip is always good. Boating in the lake is my first priority and freshend my mind doing boating'
+        }
       }])
 
         .then(gems => {
@@ -333,7 +381,11 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'Find out more about our history through our tours.',
             category: 'Family Trips',
             location: 'London',
-            gems: [gems[1]._id, gems[2]._id , gems[17]._id, gems[25]._id]
+            gems: [gems[1]._id, gems[2]._id , gems[17]._id, gems[25]._id],
+            comments: {
+              user: user[3]._id,
+              content: 'I\'m sure that my kids will love this tour.'
+            }
           },
           {name: 'Lock Ness ',
             user: user[2]._id,
@@ -349,7 +401,11 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'A wide range of itineraries and days out for your holiday in Scotland.',
             category: 'Weekend Trips',
             location: 'Edinburgh',
-            gems: [gems[27]._id, gems[5]._id, gems[24]._id]
+            gems: [gems[27]._id, gems[5]._id, gems[24]._id],
+            comments: {
+              user: user[3]._id,
+              content: 'SCOTLAND and Ireland are two majestic lands. Please go sometime in your life. Fun, safe, amazing, beautiful,....you name it.'
+            }
           },
           {name: 'Caravan Holiday around France',
             user: user[0]._id,
@@ -373,7 +429,11 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'Pick up a hire car and drive east along the coast so that you can discover Spain.',
             category: 'Road Trips',
             location: 'Nerja',
-            gems: [gems[10]._id, gems[11]._id,gems[16]._id]
+            gems: [gems[10]._id, gems[11]._id,gems[16]._id],
+            comments: {
+              user: user[3]._id,
+              content: 'Thanks for sharing this tour with us!'
+            }
           },
           {name: 'Camping in Switzerland',
             user: user[3]._id,
@@ -397,7 +457,11 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'The Province of Naples is a magical place where colors, flavors, culture and history are intertwined in a charming mix of knowledge, joy and fun.',
             category: 'Weekend Trips',
             location: 'Napoli',
-            gems: [gems[18]._id, gems[19]._id, gems[23]._id]
+            gems: [gems[18]._id, gems[19]._id, gems[23]._id],
+            comments: {
+              user: user[2]._id,
+              content: 'This tour looks great!'
+            }
           },
           {name: 'Visit Nepal',
             user: user[1]._id,
@@ -405,7 +469,11 @@ mongoose.connect(dbURI, (err, db) => {
             description: 'Nepal, the land of Himalayas presents a wide range of travel options with its excellent natural beauty, massive mountains, breathtaking adventurous activities and more. Among all, trekking in Nepal is one of the most popular travel preferences among travelers all around the world',
             category: 'Weekend Trips',
             location: 'Nepal',
-            gems: [gems[28]._id, gems[29]._id, gems[30]._id]
+            gems: [gems[28]._id, gems[29]._id, gems[30]._id],
+            comments: {
+              user: user[0]._id,
+              content: 'Can\'t wait to go to Nepal next year.'
+            }
           }
           )
         })

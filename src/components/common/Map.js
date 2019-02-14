@@ -53,11 +53,9 @@ class Map extends React.Component {
     this.popupsGenerated = true
     const { lat, lng } = this.props.userLocation
 
-
     this.props.gems.map((gem, index) => {
 
       const { location, name, image, _id } = gem
-
 
       //add a popup
       // NOTE: view gem Link needs to be updated for heroku
@@ -105,12 +103,11 @@ class Map extends React.Component {
         .setLngLat({ lat: lat, lng: lon })
         .addTo(this.map)
     })
-  
+
   }
 
   render() {
     return (
-
       <div>
         <div className='map' ref={mapDiv => this.mapDiv = mapDiv}></div>
         <div>{this.props.children}</div>

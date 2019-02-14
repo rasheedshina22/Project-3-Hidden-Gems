@@ -61,10 +61,10 @@ class GemsShow extends React.Component {
 
 
   handleCommentDelete(e){
-    console.log(e.target.value)
+    console.log(e.currentTarget)
     e.preventDefault()
     axios
-      .delete(`/api/gems/${this.state.gem._id}/comments/${e.target.value}`,
+      .delete(`/api/gems/${this.state.gem._id}/comments/${e.currentTarget.value}`,
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
@@ -99,28 +99,32 @@ class GemsShow extends React.Component {
     return (
       <section className="section">
         <div className="container">
-          <h1 className="title is-1"> {name} </h1>
-          <Link to={`/user/${user._id}`} className="title is-4">Added by: {user.username} </Link>
+          <h1 className="title is-1 is-title-light"> {name} </h1>
           <hr />
-
           <div className="columns is-variable is-5">
             <div className="column">
               <figure className="image is-4by2">
                 <img src={image} alt={name} />
               </figure>
+              <div className="added-by">
+                <Link to={`/user/${user._id}`} className="title is-5 is-title-light">
+
+              Added by: {user.username}<img  className="user-logo is-rounded" src={user.image} alt={user.username} />
+
+                </Link>
+              </div>
             </div>
-
-
             <div className="column">
               <div className="content">
-                <h4 className="title is-4">Category</h4>
-                <p> {category} </p>
+                <h4 className="title is-4">Category {category}</h4>
                 <h4 className="title is-4">Description</h4>
                 <p> {description}</p>
                 <h4 className="title is-4">Trips</h4>
                 {trips.map((trip) => {
-                  return <Link to={`/trips/${trip._id}`} className="button showGemBtn is-primary is-rounded" key={trip._id}> {trip.name} </Link>
+                  return <Link to={`/trips/${trip._id}`} className="button pill is-rounded" key={trip._id}> {trip.name} </Link>
                 })}
+                <hr/>
+
                 {Auth.canEdit(user._id) && (
                   <div>
                     <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded"> Edit </Link>
@@ -139,8 +143,6 @@ class GemsShow extends React.Component {
 
             <div className="column">
               <div className="content">
-                <h2> Location</h2>
-
                 <Map
                   location={location}
                   userLocation={this.state.userLocation}

@@ -10,8 +10,10 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
       {comments.map((comment, index) => {
         return (
           <div key={index}>
-            <p> <strong>{comment.user.username}</strong> {comment.content} </p>
-            <p> {moment(comment.createdAt).format('DD/MM/YYYY')}</p>
+            <p>
+              <strong> {comment.user.username} </strong> {comment.content} 
+            </p>
+            <p> {moment(comment.createdAt).format('DD/MM/YYYY')} </p>
           </div>
         )
       })}

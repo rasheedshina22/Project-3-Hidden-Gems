@@ -2,7 +2,7 @@ const router = require('express').Router()
 const gemsController = require('../controllers/gems')
 const tripsController = require('../controllers/trips')
 const authController = require('../controllers/auth')
-//
+
 const secureRoute = require('../lib/secureRoute')
 
 router.route('/register')
