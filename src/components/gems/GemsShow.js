@@ -108,9 +108,7 @@ class GemsShow extends React.Component {
               </figure>
               <div className="added-by">
                 <Link to={`/user/${user._id}`} className="title is-5 is-title-light">
-
-              Added by: {user.username}<img  className="user-logo is-rounded" src={user.image} alt={user.username} />
-
+                  Added by: {user.username}<img  className="user-logo" src={user.image} alt={user.username} />
                 </Link>
               </div>
             </div>
