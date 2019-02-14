@@ -3,7 +3,6 @@ import { Link, withRouter } from 'react-router-dom'
 
 import Auth from '../../lib/Auth'
 
-
 class Navbar extends React.Component {
 
   constructor() {
@@ -24,17 +23,15 @@ class Navbar extends React.Component {
   }
 
   toggleIcon() {
-
     this.setState({clickedIcon: !this.state.clickedIcon})
-
   }
 
-  logout(){
+  logout() {
     Auth.removeToken()
     this.props.history.push('/')
   }
 
-  componentDidUpdate(prevProps){
+  componentDidUpdate(prevProps) {
     if(prevProps.location.pathname !== this.props.location.pathname){
       this.setState({ navbarOpen: false })
     }
@@ -47,8 +44,15 @@ class Navbar extends React.Component {
       <nav className= {this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
           <div className="navbar-brand">
-            <Link className="navbar-item" onClick={this.toggleIcon} to="/">
-              <strong className="has-text-white is-size-4">Hidden <i className={`far fa-gem rotate ${this.state.clickedIcon && 'down'}`}></i> Gems  </strong>
+            <Link
+              className="navbar-item"
+              onClick={this.toggleIcon} to="/"
+            >
+              <strong className="has-text-white is-size-4">
+              Hidden
+                <i className={`far fa-gem rotate ${this.state.clickedIcon && 'down'}`}></i>
+              Gems
+              </strong>
             </Link>
             <a
               className={`navbar-burger ${this.state.navbarOpen ? 'is-active' : ''}`}
@@ -61,16 +65,21 @@ class Navbar extends React.Component {
           </div>
           <div className={`navbar-menu ${this.state.navbarOpen ? 'is-active' : ''}`}>
             <div className="navbar-item has-dropdown is-hoverable navbar-start">
-              <a className="navbar-link has-text-white">
-               Discover
+              <a
+                className="navbar-link has-text-white">
+                Discover
               </a>
               <div className="navbar-dropdown">
-                <Link to="/gems" className="navbar-item has-text-white">
-                 The Hidden Gems
+                <Link
+                  to="/gems"
+                  className="navbar-item has-text-white">
+                  The Hidden Gems
                 </Link>
                 <hr className="navbar-divider" />
-                <Link to="/trips" className="navbar-item has-text-white">
-                 The Trips
+                <Link
+                  to="/trips"
+                  className="navbar-item has-text-white">
+                  The Trips
                 </Link>
               </div>
             </div>

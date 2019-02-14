@@ -24,9 +24,9 @@ gemSchema.virtual('trips',{
   foreignField: 'gems'
 })
 
-gemSchema.set('toJSON', {
+gemSchema.set('toJSON',{
   virtuals: true,
-  transform(doc, json) {
+  transform(doc, json){
     return json
   }
 })

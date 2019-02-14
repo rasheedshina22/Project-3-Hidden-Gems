@@ -20,13 +20,18 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
                   <img
                     className="is-rounded"
                     src={comment.user.image}
-                    alt={comment.name}/>
+                    alt={comment.name}
+                  />
                 </figure>
               </Link>
             </div>
             <div className="column is-8">
               <div>
-                <p> <Link to={`/user/${comment.user._id}`}><strong className="is-primary">{comment.user.username}</strong> </Link> </p>
+                <p> <Link
+                  to={`/user/${comment.user._id}`}><strong
+                    className="is-primary">{comment.user.username}</strong>
+                </Link>
+                </p>
                 <p>{comment.content}</p>
               </div>
             </div>
@@ -36,7 +41,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
                   className="button is-small is-delete-button delete-box"
                   value={comment._id}
                   onClick={handleCommentDelete}>
-                  <i  className="fas fa-trash-alt"></i>
+                  <i className="fas fa-trash-alt"></i>
                 </button>
               )}
               <p className="delete-box is-size-7">
