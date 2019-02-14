@@ -27,7 +27,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://ucarecdn.com/478c2fa1-95f8-4314-8825-19a46984628f/587e487480b3a.jpg',
         description: 'The Sky Garden is a unique public space that spans three storeys and offers 360 degree uninterrupted views across the City of London. Visitors can wander around the exquisitely landscaped gardens, observation decks and an open air terrace of what is London\'s highest public garden.',
         category: 'Restaurants',
-        location: {lat: 51.511203, lon: -0.0857297},
+        location: {lat: 51.5111997, lon: -0.085735},
         address: '20 Fenchurch St, London EC3M 8AF'
       },{
         name: 'St. Paul\'s Cathedral',
@@ -35,7 +35,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/nick-jackson/large/night-falls-over-st.-paul-s-cathedral,-london.jpg',
         description: 'St. Paul\'s Cathedral is an iconic part of London\'s skyline. After being destroyed four times throughout history, the current cathedral – designed by Christopher Wren – has lived through three centuries, and its dome is the second largest in the world at 366 feet high.',
         category: 'Religious Sites',
-        location: {lat: 51.5138486, lon: -0.1005393},
+        location: {lat: 51.5138453, lon: -0.1005446},
         address: 'St. Paul\'s Churchyard, London EC4M 8AD'
       },{
         name: 'London Eye',
@@ -43,7 +43,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://www.divento.com/14151/the-london-eye-all-year.jpg',
         description: 'The London Eye is one of the more famous structures rising on the landscape of London. It is an enormous Ferris wheel that sits on the south bank of the River Thames. It is on the west end of Jubilee Gardens on the South Bank and it stands roughly 135 metres in height.',
         category: 'Landmarks',
-        location: {lat: 51.5327045, lon: -0.1507498},
+        location: {lat: 51.5009082, lon: -0.1217486},
         address: 'Lambeth, London SE1 7PB, UK'
       },{
         name: 'Regent\'s Park',
@@ -51,7 +51,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1459508583695-86e229e8855a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'The Regent\'s Park combines large open spaces with tree-lined pathways, formal gardens, and four children’s playgrounds. It has excellent sports facilities, and contains central London’s largest outdoor sports area.',
         category: 'Parks',
-        location: {lat: 51.5313, lon: -0.1570},
+        location: {lat: 51.5312705, lon: -0.1591634},
         address: 'Chester Rd, London NW1 4NR'
       },{
         name: 'The Sheep Heid Inn',
@@ -247,7 +247,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability.',
         category: 'Cafes',
-        location: {lat: 55.9485947, lon: -3.2021075},
+        location: {lat: 51.5291649, lon: -0.1289018}, 
         address: '65 Charlotte Rd, London EC2A 3PE'
       },
       {
