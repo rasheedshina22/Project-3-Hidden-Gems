@@ -10,10 +10,8 @@ const TripCard = ({ _id, name, image, category, gems }) => {
         <figure className="image is-4by3">
           <img src={image} alt={name} className="gemImage thumbnail"/>
           <div className="middle">
-
             <div className="text is-size-6">{name}</div>
             <p className="has-text-white">Included Gems</p>
-
             {gems.map((gem, i)=> {
               return  <button className="tripBtn" key={i}> {gem.name} </button>
             }

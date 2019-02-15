@@ -114,7 +114,7 @@ class GemsShow extends React.Component {
             </div>
             <div className="column">
               <div className="content">
-                <h4 className="title is-4">Category {category}</h4>
+                <h4 className="title is-4">Category: {category}</h4>
                 <h4 className="title is-4">Description</h4>
                 <p> {description}</p>
                 <h4 className="title is-4">Trips</h4>

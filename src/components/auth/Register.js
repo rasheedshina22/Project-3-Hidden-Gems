@@ -92,7 +92,7 @@ class Register extends React.Component {
                       buttonText={'Add Image'}
                       buttonClass={'button is-dark is-rounded'}
                     />
-                    {this.state.data.image &&<small> Imaged Uploaded</small>}
+                    {this.state.data.image && <small> Imaged Uploaded</small>}
                     <br/>
                     {this.state.errors.image && (
                       <small

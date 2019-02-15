@@ -39,7 +39,6 @@ class Navbar extends React.Component {
 
   render() {
 
-    console.log(this.props.location.pathname)
     return (
       <nav className= {this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
@@ -97,7 +96,6 @@ class Navbar extends React.Component {
                     </Link>
                   </div>
                 </div>}
-
               {Auth.isAuthenticated() &&<Link to={`/user/${Auth.getUserId()}`} className="navbar-item has-text-white">
               Your Gems
               </Link>}

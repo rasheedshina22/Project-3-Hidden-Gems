@@ -455,6 +455,13 @@ button.followBtn {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+
+        .comment-image{
+          width: 45px;
+          height: 45px;
+          border-radius: 45px;
+        }
+
       >.delete-box{
         display: flex;
         justify-content: center;
