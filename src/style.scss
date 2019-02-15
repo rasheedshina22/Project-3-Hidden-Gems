@@ -176,13 +176,22 @@ textarea.textarea {
 
 .mapboxgl-popup {
   max-width: 170px;
-  font: 9pt 'Courier New', Arial, Helvetica, sans-serif;
+  border-radius: 10px;
   & h4 {
-    margin: 5px 2px 2px 2px;
-    color: orange;
+    margin: 5px 2px 5px 2px;
+    color: $dark;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+
   }
-  & p {
+  & a {
     margin: 2px;
+    font-family: "Quicksand", sans-serif;
+    border-radius: 20px;
+    border: 1px solid $dark;
+    background-color: transparent;
+    padding: 4px;
+
   }
   & .event-image {
     max-height: 70px;
@@ -204,23 +213,24 @@ input.react-mapbox-ac-input {
 }
 
 .map {
-  height: 250px;
+  height: 320px;
   width: 100%;
+  border-radius: 5px;
 }
 
-.coordinates {
-background: rgba(0,0,0,0.5);
-color: #fff;
-position: absolute;
-bottom: 10px;
-left: 10px;
-padding:5px 10px;
-margin: 0;
-font-size: 11px;
-line-height: 18px;
-border-radius: 3px;
-display: none;
-}
+// .coordinates {
+// background: rgba(0,0,0,0.5);
+// color: #fff;
+// position: absolute;
+// bottom: 10px;
+// left: 10px;
+// padding:5px 10px;
+// margin: 0;
+// font-size: 11px;
+// line-height: 18px;
+// border-radius: 3px;
+// display: none;
+// }
 
 // NOTES: MAP ICONS acording to Category
 // (color needs to be changed in relivent image file scr/accests/images)
