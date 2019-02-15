@@ -25,7 +25,6 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                 {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
             </div>
-
             <div className="field">
               <label className="label">Image</label>
               <div className="control">
@@ -51,10 +50,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                 {data.image &&<small> Imaged Uploaded</small>}
                 <br/>
                 {errors.image && <small className="help is-danger">{errors.image}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Category</label>
               <div className="control">
@@ -74,16 +71,15 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                     <option> Road Trips </option>
                     <option> Weekend Trips </option>
                     <option> Sunday Trips </option>
+                    <option> Photography Trips </option>
                     <option> Mid-week Trips </option>
                     <option> Business Trips </option>
                     <option> Family Trips </option>
                   </select>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Description</label>
               <div className="control">
@@ -95,10 +91,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   value={data.description || ''}
                 />
                 {errors.description && <small className="help is-danger">{errors.description}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Gems</label>
               <div className="control">
@@ -109,14 +103,12 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   // value={data.gems}
                   name="gems"
                   onChange={handleMultiChange}
-
                 />
                 {errors.gems && <small className="help is-danger">{errors.gems}</small>}
-
               </div>
             </div>
-
-            <button className="button is-rounded is-medium is-fullwidth is-primary">Create Trip</button>
+            <button className="button is-rounded is-medium is-fullwidth is-primary">Create Trip <i className="fas fa-map-signs homepage"></i>
+            </button>
           </form>
         </div>
       </div>

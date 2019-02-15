@@ -6,7 +6,6 @@ const GemsForm = ({ handleChange }) => {
 
     <div className="field">
       <div className="control gemFormDiv is-flex">
-
         <label className="label is-searchform"> <strong> Explore by category </strong> </label>
         <div className="select is-rounded">
           <select
@@ -25,7 +24,6 @@ const GemsForm = ({ handleChange }) => {
             <option> Parks </option>
           </select>
         </div>
-
         <div className="field">
           <div className="control is-flex">
             <label className="label is-searchform"> <strong> Search By City </strong> </label>
@@ -34,7 +32,6 @@ const GemsForm = ({ handleChange }) => {
             </form>
           </div>
         </div>
-
       </div>
     </div>
   )

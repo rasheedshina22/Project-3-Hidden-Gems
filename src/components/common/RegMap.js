@@ -22,20 +22,20 @@ class RegMap extends React.Component {
     })
 
     this.marker.on('dragend', () => {
-      const [lon, lat] = this.marker.getLngLat().toArray()
-      this.props.onChange({ target: { name: 'location', value: { lon, lat } } })
+      const [lng, lat] = this.marker.getLngLat().toArray()
+      this.props.onChange({ target: { name: 'location', value: { lng, lat } } })
     })
   }
 
   componentDidUpdate() {
 
     this.map.setCenter({
-      lng: this.props.location.lon,
+      lng: this.props.location.lng,
       lat: this.props.location.lat
     })
 
     this.marker.setLngLat({
-      lng: this.props.location.lon,
+      lng: this.props.location.lng,
       lat: this.props.location.lat
     })
       .addTo(this.map)

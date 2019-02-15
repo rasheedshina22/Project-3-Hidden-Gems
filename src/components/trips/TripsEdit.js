@@ -10,9 +10,7 @@ class TripsEdit extends React.Component {
     super()
 
     this.state = {
-      data: {
-
-      },
+      data: {},
       errors: ''
     }
 
@@ -62,7 +60,6 @@ class TripsEdit extends React.Component {
   render() {
     return(
       <div className="section">
-
         <TripsForm
           data={this.state.data}
           errors={this.state.errors}
@@ -71,7 +68,6 @@ class TripsEdit extends React.Component {
           handleMultiChange={this.handleMultiChange}
           handleSubmit={this.handleSubmit}
         />
-
       </div>
     )
   }

@@ -16,13 +16,10 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
           <div className="columns comment" key={index}>
             <div className="column is-2">
               <Link to={`/user/${comment.user._id}`}>
-                <figure className="image">
-                  <img
-                    className="is-rounded"
-                    src={comment.user.image}
-                    alt={comment.name}
-                  />
-                </figure>
+                <img className="comment-image"
+                  src={comment.user.image}
+                  alt={comment.name}
+                />
               </Link>
             </div>
             <div className="column is-8">
@@ -53,7 +50,7 @@ const Comments = ({contentInput, comments, handleCommentDelete, handleCommentCha
         )
       })}
       {!Auth.isAuthenticated() && (
-        <h6 className="title is-6"> Login to leave your comments</h6>
+        <h6 className="title is-6"> <Link to="/login">Login </Link> to leave your comments</h6>
       )}
       {Auth.isAuthenticated() && (
         <form onSubmit={handleCommentSubmit}>

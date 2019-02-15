@@ -63,6 +63,7 @@ a.navbar-item{
 
 .rotate{
     transition: all 1.5s linear;
+    padding: 0 5px 0 5px;
 }
 
 .rotate.down{
@@ -198,13 +199,22 @@ a.hoverWrapper:hover + div.hoverShow, a.hoverWrapper2:hover + div.hoverShow2 {
 //--------------------- MAP Styling -------------------------
 .mapboxgl-popup {
   max-width: 170px;
-  font: 9pt 'Courier New', Arial, Helvetica, sans-serif;
+  border-radius: 10px;
   & h4 {
-    margin: 5px 2px 2px 2px;
-    color: orange;
+    margin: 5px 2px 5px 2px;
+    color: $dark;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+
   }
-  & p {
+  & a {
     margin: 2px;
+    font-family: "Quicksand", sans-serif;
+    border-radius: 20px;
+    border: 1px solid $dark;
+    background-color: transparent;
+    padding: 4px;
+
   }
   & .event-image {
     max-height: 70px;
@@ -226,8 +236,9 @@ input.react-mapbox-ac-input {
 }
 
 .map {
-  height: 250px;
+  height: 320px;
   width: 100%;
+  border-radius: 5px;
 }
 
 .All{
@@ -263,6 +274,10 @@ input.react-mapbox-ac-input {
 
 .Viewpoints{
   background-image: url(/accests/images/Viewpoints.svg);
+}
+
+.Photography{
+  background-image: url(/accests/images/Photography.svg);
 }
 
 .Religious{
@@ -369,6 +384,10 @@ a.button.pill {
   background-color: transparent;
   margin: 0 5px 5px 0;
 }
+
+.gem-form{
+  margin-top: 10px;
+}
 // User page styling
 
 .user-header{
@@ -418,6 +437,7 @@ button.followBtn {
     position: absolute;
     bottom: 0;
     margin-left: 5px;
+    border-radius: 25px;
   }
 }
 
@@ -431,6 +451,13 @@ button.followBtn {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
+
+        .comment-image{
+          width: 45px;
+          height: 45px;
+          border-radius: 45px;
+        }
+
       >.delete-box{
         display: flex;
         justify-content: center;

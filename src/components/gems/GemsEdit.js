@@ -38,16 +38,16 @@ class GemsEdit extends React.Component {
 
   suggestionSelect(result, lat, lng, text) {
     console.log(lat, lng)
-    const data = {...this.state.data,
+    const data = { ...this.state.data,
       location: {
         lat: lat,
-        lon: lng
+        lng: lng
       },
       address: result, text
     }
     const errors = { ...this.state.errors, location: '' }
 
-    this.setState({data, errors})
+    this.setState({ data, errors })
   }
 
   handleSubmit(e) {
@@ -57,7 +57,7 @@ class GemsEdit extends React.Component {
         headers: { Authorization: `Bearer ${Auth.getToken()}` }
       })
       .then(() => this.props.history.push('/gems'))
-      .catch((err) => this.setState({errors: err.response.data}))
+      .catch((err) => this.setState({ errors: err.response.data }))
   }
 
   componentDidMount(){
@@ -69,7 +69,6 @@ class GemsEdit extends React.Component {
   render() {
     return(
       <div className="section">
-
         <GemsForm
           data={this.state.data}
           errors={this.state.errors}
@@ -77,7 +76,6 @@ class GemsEdit extends React.Component {
           handleSubmit={this.handleSubmit}
           suggestionSelect={this.suggestionSelect}
         />
-
       </div>
     )
   }

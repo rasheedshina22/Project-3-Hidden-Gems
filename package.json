@@ -8,7 +8,7 @@
     "build": "webpack -p",
     "start": "node index",
     "seed": "node db/seeds",
-    "test": "mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
+    "test": "nyc mocha test/**/*_spec.js --require test/spec_helper --recursive --exit"
   },
   "dependencies": {
     "@mapbox/react-geocoder": "^2.5.0",

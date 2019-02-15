@@ -2,10 +2,7 @@ import React from 'react'
 import axios from 'axios'
 
 import Auth from '../../lib/Auth'
-import Flash from '../../lib/Flash'
 import GemsForm from './GemsForm'
-
-
 
 class GemsNew extends React.Component {
   constructor() {
@@ -19,7 +16,7 @@ class GemsNew extends React.Component {
         address: '',
         location: {
           lat: 51.5327045,
-          lon: -0.1507498
+          lng: -0.1507498
         }
       },
       errors: ''
@@ -40,7 +37,7 @@ class GemsNew extends React.Component {
     const data = {...this.state.data,
       location: {
         lat: lat,
-        lon: lng
+        lng: lng
       },
       address: result, text
     }
@@ -61,7 +58,6 @@ class GemsNew extends React.Component {
       })
   }
 
-
   componentDidMount() {
     // also get the user location...
     if (navigator.geolocation) {
@@ -69,7 +65,7 @@ class GemsNew extends React.Component {
         const data = {...this.state.data,
           location: {
             lat: position.coords.latitude,
-            lon: position.coords.longitude
+            lng: position.coords.longitude
           }
         }
         this.setState({ data })
@@ -80,7 +76,6 @@ class GemsNew extends React.Component {
   render() {
     return(
       <div className="section">
-
         <GemsForm
           data={this.state.data}
           errors={this.state.errors}
@@ -90,7 +85,6 @@ class GemsNew extends React.Component {
           location={location}
           userLocation={this.state.userLocation}
         />
-
       </div>
     )
   }

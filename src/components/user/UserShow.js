@@ -15,10 +15,8 @@ class UserShow extends React.Component {
   }
 
   handleFollow(){
-    console.log(Auth.getUserId())
     axios.post(`/api/user/${this.props.match.params.id}/follow/${Auth.getUserId()}`)
       .then(res => this.setState({ user: res.data }))
-
   }
 
   componentDidMount() {
@@ -90,47 +88,43 @@ class UserShow extends React.Component {
                 </div>
               )}
             </div>
-            <div className="section">
-              <h3 className="title is-3 has-text-primary is-title-light"> {Auth.ownUserPage(this.state.user._id) && 'Your'} Trips</h3>
-              <hr/>
-              <div className="columns is-multiline">
-                {this.state.user.trips.map(trip =>
-                  <div key={trip._id} className="column is-3">
-                    <Link to={`/trips/${trip._id}`}>
-                      <div className="isImage">
-                        <figure className="image is-4by3">
-                          <img src={trip.image} alt={trip.name} className="gemImage"/>
-                          <div className="middle">
-                            <div className="text">{trip.name}</div>
-                            <div className="text">{trip.category}</div>
-                          </div>
-                        </figure>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
+            <h3 className="title is-3 has-text-primary is-title-light"> {Auth.ownUserPage(this.state.user._id) && 'Your'} Trips</h3>
+            <hr/>
+            <div className="columns is-multiline">
+              {this.state.user.trips.map(trip =>
+                <div key={trip._id} className="column is-3">
+                  <Link to={`/trips/${trip._id}`}>
+                    <div className="isImage">
+                      <figure className="image is-4by3">
+                        <img src={trip.image} alt={trip.name} className="gemImage"/>
+                        <div className="middle">
+                          <div className="text">{trip.name}</div>
+                          <div className="text">{trip.category}</div>
+                        </div>
+                      </figure>
+                    </div>
+                  </Link>
+                </div>
+              )}
             </div>
-            <div className="section">
-              <h3 className="title is-3 has-text-primary is-title-light"> Following</h3>
-              <hr/>
-              <div className="columns is-multiline">
-                {this.state.user.following.map(user =>
-                  <div key={user._id} className="column is-3">
-                    <Link to={`/user/${user._id}`} onClick={this.userRequest}>
-                      <div className="isImage">
-                        <figure className="image is-4by3">
-                          <img src={user.image} alt={user.username} className="gemImage"/>
-                          <div className="middle">
-                            <div className="text">{user.username}</div>
-                            <div className="text"></div>
-                          </div>
-                        </figure>
-                      </div>
-                    </Link>
-                  </div>
-                )}
-              </div>
+            <h3 className="title is-3 has-text-primary is-title-light"> Following</h3>
+            <hr/>
+            <div className="columns is-multiline">
+              {this.state.user.following.map(user =>
+                <div key={user._id} className="column is-3">
+                  <Link to={`/user/${user._id}`} onClick={this.userRequest}>
+                    <div className="isImage">
+                      <figure className="image is-4by3">
+                        <img src={user.image} alt={user.username} className="gemImage"/>
+                        <div className="middle">
+                          <div className="text">{user.username}</div>
+                          <div className="text"></div>
+                        </div>
+                      </figure>
+                    </div>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </section>

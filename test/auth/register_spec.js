@@ -19,18 +19,9 @@ describe('POST /register', () => {
       })
   })
   //
-  // it('should return a token', done => {
-  //   api
-  //     .post('/api/login')
-  //     .send(userData)
-  //     .end((err, res) => {
-  //       expect(res.body.token.split('.').length).to.eq(3)
-  //       done()
-  //     })
-  // })
 
   it('should return a 422 response if the passwords don\'t match', done => {
-    const badData = Object.assign({}, userData, { password: 'tester' })
+    const badData = Object.assign({}, userData, { password: 'bad' })
     api
       .post('/api/register')
       .send(badData)

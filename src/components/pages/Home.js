@@ -7,7 +7,6 @@ const Home = () => {
 
     <section>
       <div>
-
         <ul className="slideshow">
           <li></li>
           <li></li>
@@ -22,9 +21,7 @@ const Home = () => {
         <div className="hoverShow"><span> Discover Hidden Gems around the World. . . </span></div>
 
       </div>
-
     </section>
-
   )
 }
 
