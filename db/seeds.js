@@ -43,33 +43,33 @@ mongoose.connect(dbURI, (err, db) => {
     })
     .then((user) => {
       return Gem.create([{
-        name: 'Sky Garden',
+        name: 'Gordon\'s Wine Bar',
         user: user[1]._id,
-        image: 'https://ucarecdn.com/478c2fa1-95f8-4314-8825-19a46984628f/587e487480b3a.jpg',
-        description: 'The Sky Garden is a unique public space that spans three storeys and offers 360 degree uninterrupted views across the City of London. Visitors can wander around the exquisitely landscaped gardens, observation decks and an open air terrace of what is London\'s highest public garden.',
-        category: 'Restaurants',
-        location: {lat: 51.5111997, lng: -0.085735},
-        address: '20 Fenchurch St, London EC3M 8AF',
+        image: 'https://adventuresinpubs.co.uk/wp-content/uploads/2011/03/gordons-wine-bar-7.jpg',
+        description: '19th-century wine bar in candlelit, vaulted cellars with original Dickensian-style decor.',
+        category: 'Bars',
+        location: {lat: 51.507944, lng: -0.1255027},
+        address: '47 Villiers St, London WC2N 6NE',
         comments: {
           user: user[2]._id,
-          content: 'We visited the Sky Garden right around sunset. We allowed extra time to get in and I was quite glad we did, as it took about half an hour to clear security and get up to the top.'
+          content: 'A very very different and interesting place to visit. Usually when I personally go to a bar I try to find a place where I will be able to admire the surroundings. Here the place to admire is the bar itself!'
         }
       },{
-        name: 'St. Paul\'s Cathedral',
+        name: 'Saint Dunstan in the East Church Garden',
         user: user[1]._id,
-        image: 'https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/nick-jackson/large/night-falls-over-st.-paul-s-cathedral,-london.jpg',
-        description: 'St. Paul\'s Cathedral is an iconic part of London\'s skyline. After being destroyed four times throughout history, the current cathedral – designed by Christopher Wren – has lived through three centuries, and its dome is the second largest in the world at 366 feet high.',
+        image: 'https://images.unsplash.com/photo-1467134903050-555df177d768?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+        description: 'City garden amongst the ruins of a grade I listed church with a tower & steeple by Christopher Wren.',
         category: 'Religious Sites',
-        location: {lat: 51.5138453, lng: -0.1005446},
-        address: 'St. Paul\'s Churchyard, London EC4M 8AD'
+        location: {lat: 51.5095891, lng: -0.087604},
+        address: 'St Dunstan\'s Hill, London EC3R 5DD'
       },{
-        name: 'London Eye',
+        name: 'Wharfinger Cottage',
         user: user[1]._id,
-        image: 'https://www.divento.com/14151/the-london-eye-all-year.jpg',
-        description: 'The London Eye is one of the more famous structures rising on the landscape of London. It is an enormous Ferris wheel that sits on the south bank of the River Thames. It is on the west end of Jubilee Gardens on the South Bank and it stands roughly 135 metres in height.',
+        image: 'https://images.unsplash.com/photo-1534067106003-bfd2053d0888?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+        description: 'There has been a cottage on this site for at least 200 years. Originally, it was the home of the Controller of the Tower Wharf.',
         category: 'Landmarks',
-        location: {lat: 51.5009082, lng: -0.1217486},
-        address: 'Lambeth, London SE1 7PB, UK'
+        location: {lat: 51.5082113, lng: -0.0804421},
+        address: 'St Katharine\'s & Wapping, London EC3R 6LA'
       },{
         name: 'Regent\'s Park',
         user: user[0]._id,

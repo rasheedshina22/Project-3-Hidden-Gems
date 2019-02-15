@@ -71,6 +71,7 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                     <option> Road Trips </option>
                     <option> Weekend Trips </option>
                     <option> Sunday Trips </option>
+                    <option> Photography Trips </option>
                     <option> Mid-week Trips </option>
                     <option> Business Trips </option>
                     <option> Family Trips </option>

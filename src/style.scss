@@ -277,6 +277,10 @@ input.react-mapbox-ac-input {
   background-image: url(/accests/images/Viewpoints.svg);
 }
 
+.Photography{
+  background-image: url(/accests/images/Photography.svg);
+}
+
 .Religious{
   background-image: url(/accests/images/Religious.svg);
 }
@@ -402,6 +406,10 @@ a.button.pill {
   border: 1px solid $primary;
   background-color: transparent;
   margin: 0 5px 5px 0;
+}
+
+.gem-form{
+  margin-top: 10px;
 }
 // User page styling
 

@@ -80,6 +80,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                     <option> Viewpoints </option>
                     <option> Religious Sites </option>
                     <option> Galleries </option>
+                    <option> Photography </option>
                     <option> Parks </option>
                   </select>
                 </div>
@@ -104,7 +105,7 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
               {errors.location && <small>{errors.location}</small>}
             </div>
             <div>
-              <button className="button is-rounded is-medium is-fullwidth is-primary">Submit <i className="far fa-gem homepage"></i>
+              <button className="button is-rounded is-medium is-fullwidth is-primary gem-form">Submit <i className="far fa-gem homepage"></i>
               </button>
             </div>
           </form>
