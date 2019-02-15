@@ -106,7 +106,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                 {errors.gems && <small className="help is-danger">{errors.gems}</small>}
               </div>
             </div>
-            <button className="button is-rounded is-medium is-fullwidth is-primary">Create Trip</button>
+            <button className="button is-rounded is-medium is-fullwidth is-primary">Create Trip <i className="fas fa-map-signs homepage"></i>
+            </button>
           </form>
         </div>
       </div>
