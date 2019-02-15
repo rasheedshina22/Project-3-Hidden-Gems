@@ -80,10 +80,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   </select>
                 </div>
                 {errors.category && <small className="help is-danger">{errors.category}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Description</label>
               <div className="control">
@@ -95,10 +93,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   value={data.description || ''}
                 />
                 {errors.description && <small className="help is-danger">{errors.description}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Gems</label>
               <div className="control">
@@ -109,13 +105,10 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                   // value={data.gems}
                   name="gems"
                   onChange={handleMultiChange}
-
                 />
                 {errors.gems && <small className="help is-danger">{errors.gems}</small>}
-
               </div>
             </div>
-
             <button className="button is-rounded is-medium is-fullwidth is-primary">Create Trip</button>
           </form>
         </div>

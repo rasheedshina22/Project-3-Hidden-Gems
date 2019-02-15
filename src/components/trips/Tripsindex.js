@@ -1,9 +1,5 @@
 import React from 'react'
 import axios from 'axios'
-
-import { Link } from 'react-router-dom'
-
-import Auth from '../../lib/Auth'
 import TripCard from './TripCard'
 import TripsSearchForm from './TripsSearchForm'
 
@@ -47,10 +43,10 @@ class TripsIndex extends React.Component {
 
       <section className="section">
         <div className="container">
-          {Auth.isAuthenticated() && <header>
-            <Link to="/trips/new" className="button is-primary is-rounded">Add trips</Link>
-            <hr />
-          </header>}
+          <section className="section">
+            <h2 className="title has-text-centered is-title-light is-size-2">The Trips</h2>
+          </section>
+          <hr />
 
           <TripsSearchForm handleSearch={this.handleSearch}/>
 

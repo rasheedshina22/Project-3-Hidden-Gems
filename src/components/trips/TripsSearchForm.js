@@ -3,9 +3,9 @@ import React from 'react'
 const TripsForm = ({ handleSearch }) => {
 
   return (
-    <div className="field">
+    <div className="field is-flex">
       <div className="control">
-        <label> <strong> Explore by category </strong> </label>
+        <label className="label is-searchform"> <strong> Explore by category </strong> </label>
       </div>
       <div className="select is-rounded">
         <select

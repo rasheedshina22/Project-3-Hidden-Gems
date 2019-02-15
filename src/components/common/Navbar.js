@@ -39,7 +39,6 @@ class Navbar extends React.Component {
 
   render() {
 
-    console.log(this.props.location.pathname)
     return (
       <nav className= {this.props.location.pathname === '/' ? 'navbar home' : 'navbar is-dark'}>
         <div className="container">
@@ -70,16 +69,12 @@ class Navbar extends React.Component {
                 Discover
               </a>
               <div className="navbar-dropdown">
-                <Link
-                  to="/gems"
-                  className="navbar-item has-text-white">
-                  The Hidden Gems
+                <Link to="/gems" className="navbar-item has-text-black">
+                 The Hidden Gems
                 </Link>
                 <hr className="navbar-divider" />
-                <Link
-                  to="/trips"
-                  className="navbar-item has-text-white">
-                  The Trips
+                <Link to="/trips" className="navbar-item has-text-black">
+                 The Trips
                 </Link>
               </div>
             </div>
@@ -92,16 +87,15 @@ class Navbar extends React.Component {
                    Add
                   </a>
                   <div className="navbar-dropdown">
-                    <Link to="/gems/new" className="navbar-item has-text-white">
+                    <Link to="/gems/new" className="navbar-item has-text-black">
                      Your Gems
                     </Link>
                     <hr className="navbar-divider" />
-                    <Link to="/trips/new" className="navbar-item has-text-white">
+                    <Link to="/trips/new" className="navbar-item has-text-black">
                      To Your Trips
                     </Link>
                   </div>
                 </div>}
-
               {Auth.isAuthenticated() &&<Link to={`/user/${Auth.getUserId()}`} className="navbar-item has-text-white">
               Your Gems
               </Link>}
