@@ -199,13 +199,22 @@ a.hoverWrapper:hover + div.hoverShow {
 //--------------------- MAP Styling -------------------------
 .mapboxgl-popup {
   max-width: 170px;
-  font: 9pt 'Courier New', Arial, Helvetica, sans-serif;
+  border-radius: 10px;
   & h4 {
-    margin: 5px 2px 2px 2px;
-    color: orange;
+    margin: 5px 2px 5px 2px;
+    color: $dark;
+    font-family: "Quicksand", sans-serif;
+    text-align: center;
+
   }
-  & p {
+  & a {
     margin: 2px;
+    font-family: "Quicksand", sans-serif;
+    border-radius: 20px;
+    border: 1px solid $dark;
+    background-color: transparent;
+    padding: 4px;
+
   }
   & .event-image {
     max-height: 70px;
@@ -227,8 +236,9 @@ input.react-mapbox-ac-input {
 }
 
 .map {
-  height: 250px;
+  height: 320px;
   width: 100%;
+  border-radius: 5px;
 }
 
 .All{
