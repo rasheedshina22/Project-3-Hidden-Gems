@@ -15,10 +15,8 @@ class UserShow extends React.Component {
   }
 
   handleFollow(){
-    console.log(Auth.getUserId())
     axios.post(`/api/user/${this.props.match.params.id}/follow/${Auth.getUserId()}`)
       .then(res => this.setState({ user: res.data }))
-
   }
 
   componentDidMount() {

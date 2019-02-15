@@ -57,7 +57,6 @@ class TripsNew extends React.Component {
   render() {
     return(
       <div className="section">
-
         <TripsForm
           data={this.state.data}
           errors={this.state.errors}
@@ -66,7 +65,6 @@ class TripsNew extends React.Component {
           handleMultiChange={this.handleMultiChange}
           handleSubmit={this.handleSubmit}
         />
-
       </div>
     )
   }

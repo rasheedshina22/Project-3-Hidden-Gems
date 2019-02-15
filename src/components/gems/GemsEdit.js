@@ -41,7 +41,7 @@ class GemsEdit extends React.Component {
     const data = { ...this.state.data,
       location: {
         lat: lat,
-        lon: lng
+        lng: lng
       },
       address: result, text
     }

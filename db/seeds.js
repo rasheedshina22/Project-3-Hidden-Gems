@@ -48,7 +48,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://ucarecdn.com/478c2fa1-95f8-4314-8825-19a46984628f/587e487480b3a.jpg',
         description: 'The Sky Garden is a unique public space that spans three storeys and offers 360 degree uninterrupted views across the City of London. Visitors can wander around the exquisitely landscaped gardens, observation decks and an open air terrace of what is London\'s highest public garden.',
         category: 'Restaurants',
-        location: {lat: 51.5111997, lon: -0.085735},
+        location: {lat: 51.5111997, lng: -0.085735},
         address: '20 Fenchurch St, London EC3M 8AF',
         comments: {
           user: user[2]._id,
@@ -60,7 +60,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://www.wallsauce.com/uploads/wallsauce-com/images/products/web/nick-jackson/large/night-falls-over-st.-paul-s-cathedral,-london.jpg',
         description: 'St. Paul\'s Cathedral is an iconic part of London\'s skyline. After being destroyed four times throughout history, the current cathedral – designed by Christopher Wren – has lived through three centuries, and its dome is the second largest in the world at 366 feet high.',
         category: 'Religious Sites',
-        location: {lat: 51.5138453, lon: -0.1005446},
+        location: {lat: 51.5138453, lng: -0.1005446},
         address: 'St. Paul\'s Churchyard, London EC4M 8AD'
       },{
         name: 'London Eye',
@@ -68,7 +68,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://www.divento.com/14151/the-london-eye-all-year.jpg',
         description: 'The London Eye is one of the more famous structures rising on the landscape of London. It is an enormous Ferris wheel that sits on the south bank of the River Thames. It is on the west end of Jubilee Gardens on the South Bank and it stands roughly 135 metres in height.',
         category: 'Landmarks',
-        location: {lat: 51.5009082, lon: -0.1217486},
+        location: {lat: 51.5009082, lng: -0.1217486},
         address: 'Lambeth, London SE1 7PB, UK'
       },{
         name: 'Regent\'s Park',
@@ -76,7 +76,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1459508583695-86e229e8855a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'The Regent\'s Park combines large open spaces with tree-lined pathways, formal gardens, and four children’s playgrounds. It has excellent sports facilities, and contains central London’s largest outdoor sports area.',
         category: 'Parks',
-        location: {lat: 51.5312705, lon: -0.1591634},
+        location: {lat: 51.5312705, lng: -0.1591634},
         address: 'Chester Rd, London NW1 4NR'
       },{
         name: 'The Sheep Heid Inn',
@@ -84,7 +84,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://absolutely.london/wp-content/uploads/2018/02/Untitled-1-2-1068x712.jpg',
         description: 'The Sheep Heid Inn is a premium pub, bar, and restaurant with its very own courtyard, centrally located in the heart of the picturesque town of Edinburgh',
         category: 'Restaurants',
-        location: {lat: 55.942004, lon: -3.150730},
+        location: {lat: 55.942004, lng: -3.150730},
         address: '43-45 The Causeway, Edinburgh EH15 3QA'
       },{
         name: 'Urquhart Castle',
@@ -92,7 +92,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1541855148-b3bb8f814fe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=968&q=80',
         description: 'The castle, situated on a headland overlooking Loch Ness, is one of the largest in Scotland in area. It was approached from the west and defended by a ditch and drawbridge.',
         category: 'Landmarks',
-        location: {lat: 57.3241399, lon: -4.4441899},
+        location: {lat: 57.3241399, lng: -4.4441899},
         address: ' Drumnadrochit, Inverness IV63 6XJ',
         comments: {
           user: user[0]._id,
@@ -105,7 +105,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://cdn.wallpaper.com/main/legacy/gallery/17052978/RM-Starbucks-Amsterdam-Bank-017.jpg',
         description: 'Breakfast, grills and burgers in arts centre cafe set in a former chapel with its own rear garden.',
         category: 'Cafes',
-        location: {lat: 48.4784702, lon: 4.1089442},
+        location: {lat: 48.4784702, lng: 4.1089442},
         address: '17 Rue de l\'Orme, 10700 Saint-Remy-sous-Barbuise, France'
       },
       {
@@ -114,7 +114,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1514195385834-0853a6eda41c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Passeart is a contemporary art exhibition space located in TROYES, in the heart of the city, Place Saint Rémy.PASSEART is also a place of exchange and training.',
         category: 'Galleries',
-        location: {lat: 48.2993253, lon: 4.0736781},
+        location: {lat: 48.2993253, lng: 4.0736781},
         address: '15 Rue Passerat, 10000 Troyes, France'
       },
       {
@@ -123,7 +123,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1493672044531-efdb1aa01b8d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
         description: 'St Michael\'s Mount (Cornish: Karrek Loos yn Koos, meaning "hoar rock in woodland") is a small tidal island in Mount\'s Bay, Cornwall, England, United Kingdom. The island is a civil parish and is linked to the town of Marazion by a man-made causeway of granite setts, passable between mid-tide and low water',
         category: 'Viewpoints',
-        location: {lat: 50.1175691, lon: -5.4822363},
+        location: {lat: 50.1175691, lng: -5.4822363},
         address: 'St Michaels Mount, Marazion, TR170HS '
       },
       {
@@ -132,7 +132,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1532612821865-8cc3cb888f3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
         description: 'The Camel Trail is an 18 mile largely traffic free, surfaced and virtually level multi use trail which provides access to the beautiful Cornish countryside ',
         category: 'Landmarks',
-        location: {lat: 50.5089749, lon: -4.9587513},
+        location: {lat: 50.5089749, lng: -4.9587513},
         address: ' Eddystone Rd, Wadebridge PL27 7AL',
         comments: {
           user: user[1]._id,
@@ -145,7 +145,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
         description: 'Nerja is a resort town along southern Spain\'s Costa del Sol. Its seafront promenade, Balcón de Europa, tops a promontory with views of the Mediterranean and surrounding mountains.',
         category: 'Landmarks',
-        location: {lat: 36.7497316, lon: -3.870516},
+        location: {lat: 36.7497316, lng: -3.870516},
         address: ' Camino de Burriana, s/n, 29780 Nerja, Málaga, Spain',
         comments: [{
           user: user[3]._id,
@@ -162,7 +162,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1453614512568-c4024d13c247?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80',
         description: 'Hip, garden shed-style branch of small cafe chain for artisan coffee, plus sandwiches and cakes. ',
         category: 'Cafes',
-        location: {lat: 36.1477101, lon: -5.35555},
+        location: {lat: 36.1477101, lng: -5.35555},
         address: ' Ocean Village Promenade 33, Gibraltar'
       },
       {
@@ -171,7 +171,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1506535995048-638aa1b62b77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Nestled in a valley of lush greenery in Switzerland, Jungfrau is one of Europe\'s most beautiful campsites offering the authentic alpine atmosphere.',
         category: 'Landmarks',
-        location: {lat: 46.588744, lon: 7.906073},
+        location: {lat: 46.588744, lng: 7.906073},
         address: 'Weid 406, 3822 Lauterbrunnen, Switzerland'
       },
       {
@@ -180,7 +180,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1532876924456-d6460f2f56a7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Campsite Lazy-Rancho 4 is a campsite in Unterseen, Bern, located a river/stream.The campsite has which are marked out and pitches with some shade. It is possible to rent hikers\' cabins and bungalows. The campsite has a playground. ',
         category: 'Landmarks',
-        location: {lat: 46.6860467, lon: 7.8286186},
+        location: {lat: 46.6860467, lng: 7.8286186},
         address: ' Lehnweg 6, 3800 Unterseen, Switzerland'
       },
       {
@@ -189,7 +189,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1543007630-9710e4a00a20?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80',
         description: 'Victorian bank building, now home to a theatre and pub with an island bar below a glass-domed roo',
         category: 'Pubs',
-        location: {lat: 52.480799, lon: -1.902177},
+        location: {lat: 52.480799, lng: -1.902177},
         address: '4 Temple Row W, Birmingham B2 5NY'
       },
       {
@@ -198,7 +198,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1521394573970-cdcef757fddd?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80',
         description: 'Cask ales and a crowd-pleasing menu in a plush venue with vaulted ceilings and dark wood tables.',
         category: 'Pubs',
-        location: {lat: 52.4788598, lon: -1.9008796},
+        location: {lat: 52.4788598, lng: -1.9008796},
         address: 'Burlington Arcade, New St, Birmingham B2 4JH'
       },
       {
@@ -207,7 +207,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1532726858233-f3c23319edc5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'The Cathedral of Santiago de Compostela is part of the Roman Catholic Archdiocese of Santiago de Compostela and is an integral component of the Santiago de Compostela World Heritage Site in Galicia, Spain. The cathedral is the reputed burial place of Saint James the Great, the apostles of Jesus Christ.',
         category: 'Religious Sites',
-        location: {lat: 42.8805962, lon: -8.5798751},
+        location: {lat: 42.8805962, lng: -8.5798751},
         address: 'Praza do Obradoiro, s/n, 15704 Santiago de Compostela, A Coruña, Spain'
       },
       {
@@ -216,7 +216,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://www.royal.uk/sites/default/files/images/feature/buckingham-palace.jpg',
         description: 'Buckingham Palace is the London residence and administrative headquarters of the monarch of the United Kingdom. Located in the City of Westminster, the palace is often at the centre of state occasions and royal hospitality. It has been a focal point for the British people at times of national rejoicing and mourning.',
         category: 'Landmarks',
-        location: {lat: 51.501364, lon: -0.144084},
+        location: {lat: 51.501364, lng: -0.144084},
         address: 'Westminster, London SW1A 1AA',
         comments: {
           user: user[0]._id,
@@ -229,7 +229,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://d1c96a4wcgziwl.cloudfront.net/274201_NaplesCathedral.jpg',
         description: 'Also known as the “City of Five Hundred Domes”, Naples boasts an incredible number of churches, monasteries and abbeys. In this forest of religious buildings, it’s impossible to ignore the Cattedrale di San Gennaro, the city’s main church, a splendid mixture of Gothic and Baroque styles. ',
         category: 'Religious Sites',
-        location: {lat: 40.852589, lon: 14.2576883},
+        location: {lat: 40.852589, lng: 14.2576883},
         address: 'Via Duomo, 147, 80138 Napoli NA, Italy'
       },
       {
@@ -238,7 +238,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://c1.staticflickr.com/4/3903/15130807755_7b754bc99d_b.jpg',
         description: 'The Royal Palace of Caserta is a former royal residence in Caserta, southern Italy, constructed by the Spanish royal family as their main residence as kings of Naples. It is one of the largest palaces erected in Europe during the 18th century.',
         category: 'Landmarks',
-        location: {lat: 41.0732181, lon: 14.3248743},
+        location: {lat: 41.0732181, lng: 14.3248743},
         address: 'Viale Douhet, 2/a, 81100 Caserta CE, Italy',
         comments: [{
           user: user[2]._id,
@@ -255,7 +255,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1544213456-bc37cb97df74?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'The Archaeological Museum hosts an extensive collection of Greek and Roman antiquities that were discovered during the excavations at Pompeii and Herculaneum. Among the great treasures of the museum are the Herculaneum papyri, carbonized by the eruption of Mount Vesuvius in AD 79 and found in the Villa of the Papyri. The Archaeological Museum of Naples is also famous for its Egyptian collection, the second largest in Italy after Turin',
         category: 'Landmarks',
-        location: {lat: 40.8535985, lon: 14.2483314},
+        location: {lat: 40.8535985, lng: 14.2483314},
         address: 'Piazza Museo, 19, 80135 Napoli NA, Italy',
         comments: {
           user: user[1]._id,
@@ -268,7 +268,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1520209268518-aec60b8bb5ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=884&q=80',
         description: 'Sandbar is located in an idyllic location overlooking Praa Sands Beach with panoramic views of the ocean. ',
         category: 'Bars',
-        location: {lat: 50.1040579, lon: -5.3940355},
+        location: {lat: 50.1040579, lng: -5.3940355},
         address: ' Praa Sands, Cornwall TR20 9TQy'
       },
       {
@@ -277,7 +277,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1497644083578-611b798c60f3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Compact cellar bar serving real ales and international bottled beer selection.',
         category: 'Bars',
-        location: {lat: 52.4793512, lon: -1.9040425},
+        location: {lat: 52.4793512, lng: -1.9040425},
         address: ' 84 Pinfold St, Birmingham B2 4AY ',
         comments: [{
           user: user[1]._id,
@@ -294,7 +294,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1520099940286-947795ff7b42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'We opened the Napoli restaurant back in June 2013 with the aim of bringing true Neapolitan pizza and beautiful handmade pasta to our home town of leek. The restaurant was designed to be a laid back and relaxing place to eat out with friends and loved ones whilst delivering the great quality traditional Italian food that we have come to love so much.',
         category: 'Restaurants',
-        location: {lat: 40.8214106, lon: 14.2127399},
+        location: {lat: 40.8214106, lng: 14.2127399},
         address: 'Via Posillipo, 16 C, 80123 Napoli NA, Italy'
       },
       {
@@ -303,7 +303,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1533834181702-758cc2177c75?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80',
         description: 'Edinburgh Castle is a historic fortress which dominates the skyline of the city of Edinburgh, Scotland, from its position on the Castle Rock. Archaeologists have established human occupation of the rock since at least the Iron Age, although the nature of the early settlement is unclear',
         category: 'Landmarks',
-        location: {lat: 55.9485947, lon: -3.2021075},
+        location: {lat: 55.9485947, lng: -3.2021075},
         address: 'Castlehill, Edinburgh EH1 2NG'
       },
       {
@@ -312,7 +312,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Seattle-based coffeehouse chain known for its signature roasts, light bites and WiFi availability.',
         category: 'Cafes',
-        location: {lat: 51.5291649, lon: -0.1289018},
+        location: {lat: 51.5291649, lng: -0.1289018},
         address: '65 Charlotte Rd, London EC2A 3PE'
       },
       {
@@ -321,7 +321,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1465350269328-169609160ee6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'The Fall of Foyers is a waterfall on the River Foyers, which feeds Loch Ness, in Highland, Scotland, United Kingdom. The waterfall has "a fine cascade", having a fall of 165 feet.',
         category: 'Landmarks',
-        location: {lat: 57.2502946, lon: -4.492759},
+        location: {lat: 57.2502946, lng: -4.492759},
         address: '45 B852, Inverness IV2 6XX'
       },
       {
@@ -330,7 +330,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1529098964758-f21d46b6c525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80',
         description: 'Historic viewpoint with iconic panoramas over Loch Tummel, a cafe/tea room & a visitor centre.',
         category: 'Landmarks',
-        location: {lat: 56.7159113, lon: -3.8607612},
+        location: {lat: 56.7159113, lng: -3.8607612},
         address: 'Pitlochry PH16 5NR'
       },
       {
@@ -339,7 +339,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1055&q=80',
         description: 'The Annapurna Circuit is a trek within the Annapurna mountain range of central Nepal. The total length of the route varies between 160–230 km (100-145 mi), depending on where motor transportation is used and where the trek is ended.',
         category: 'Landmarks',
-        location: {lat: 27.7235121, lon: 85.3133928},
+        location: {lat: 27.7235121, lng: 85.3133928},
         address: 'Muktinath 33100, Nepal'
       },
       {
@@ -348,7 +348,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1471247511763-88a722fc9919?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1190&q=80',
         description: 'Paragliding in Pokhara is the most popular as far as this adventure port is concerned. The take-off point is Sarangkot, which is at an altitude of 1592 meters and just 2.4 km due north of Lakeside in Pokhara (593 m). You can either hike to the site or go on a vehicle (20 minutes).',
         category: 'Viewpoints',
-        location: {lat: 28.229651, lon: 83.8165329},
+        location: {lat: 28.229651, lng: 83.8165329},
         address: 'Lakeside, Pokhara 33700, Nepal'
       },
       {
@@ -357,7 +357,7 @@ mongoose.connect(dbURI, (err, db) => {
         image: 'https://images.unsplash.com/photo-1508157942875-586a83457569?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1052&q=80',
         description: 'Phewa Lake, Phewa Tal or Fewa Lake is a freshwater lake in Nepal formerly called Baidam Tal located in the south of the Pokhara Valley that includes Pokhara city; parts of Sarangkot and Kaskikot.',
         category: 'Landmarks',
-        location: {lat: 28.2116268, lon: 83.9322529},
+        location: {lat: 28.2116268, lng: 83.9322529},
         address: 'Pokhara 33700, Nepal',
         comments: {
           user: user[2]._id,

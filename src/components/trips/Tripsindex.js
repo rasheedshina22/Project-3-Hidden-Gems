@@ -40,21 +40,17 @@ class TripsIndex extends React.Component {
     )
 
     return (
-
       <section className="section">
         <div className="container">
           <section className="section">
             <h2 className="title has-text-centered is-title-light is-size-2">The Trips</h2>
           </section>
           <hr />
-
           <TripsSearchForm handleSearch={this.handleSearch}/>
-
           <div className="columns is-multiline">
             {this.state.trips.map(trip =>
               <div key={trip._id} className="column is-4">
                 <TripCard {...trip} />
-
               </div>
             )}
           </div>

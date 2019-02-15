@@ -80,7 +80,6 @@ class TripsShow extends React.Component {
     // also get the user location...
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(position => {
-        console.log('LOCATION FOUND')
         this.setState({
           userLocation: {
             lat: position.coords.latitude,

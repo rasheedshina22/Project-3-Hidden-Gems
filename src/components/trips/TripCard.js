@@ -6,7 +6,6 @@ const TripCard = ({ _id, name, image, category, gems }) => {
 
     <Link to={`/trips/${_id}`}>
       <div className="isImage thumbnail">
-
         <figure className="image is-4by3">
           <img src={image} alt={name} className="gemImage thumbnail"/>
           <div className="middle">
@@ -17,10 +16,8 @@ const TripCard = ({ _id, name, image, category, gems }) => {
             }
             )}
             <div className="text">{category}</div>
-
           </div>
         </figure>
-
       </div>
 
     </Link>

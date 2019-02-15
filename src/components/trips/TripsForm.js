@@ -25,7 +25,6 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                 {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
             </div>
-
             <div className="field">
               <label className="label">Image</label>
               <div className="control">
@@ -51,10 +50,8 @@ const TripsForm = ({ options, data, handleChange, handleSubmit, handleMultiChang
                 {data.image &&<small> Imaged Uploaded</small>}
                 <br/>
                 {errors.image && <small className="help is-danger">{errors.image}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Category</label>
               <div className="control">

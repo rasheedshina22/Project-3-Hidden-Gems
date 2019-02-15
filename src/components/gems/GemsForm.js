@@ -26,7 +26,6 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 {errors.name && <small className="help is-danger">{errors.name}</small>}
               </div>
             </div>
-
             <div className="field">
               <label className="label">Image</label>
               <div className="control">
@@ -34,14 +33,12 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   apikey={`${fileStack}`}
                   mode={'pick'}
                   onSuccess={(res) => {
-                    console.log('FileStack',res)
                     handleChange({
                       target: {
                         name: 'image',
                         value: res.filesUploaded[0].url
                       }})
-                  }
-                  }
+                  }}
                   onError={(err) => console.log(err)}
                   buttonText={'Upload Image'}
                   buttonClass={'button is-dark is-rounded'}
@@ -49,10 +46,8 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                 {data.image &&<small> Imaged Uploaded</small>}
                 <br/>
                 {errors.image && <small className="help is-danger">{errors.image}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Description</label>
               <div className="control">
@@ -63,12 +58,9 @@ const GemsForm = ({ data, handleChange, handleSubmit, errors, suggestionSelect }
                   onChange={handleChange}
                   value={data.description || ''}
                 />
-
                 {errors.description && <small className="help is-danger">{errors.description}</small>}
-
               </div>
             </div>
-
             <div className="field">
               <label className="label">Category</label>
               <div className="control">
