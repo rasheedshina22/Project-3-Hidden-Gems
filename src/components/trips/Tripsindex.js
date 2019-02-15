@@ -48,7 +48,6 @@ class TripsIndex extends React.Component {
           </section>
           <hr />
 
-
           <TripsSearchForm handleSearch={this.handleSearch}/>
 
           <div className="columns is-multiline">
