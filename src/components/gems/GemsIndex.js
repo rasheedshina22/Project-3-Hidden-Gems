@@ -48,7 +48,6 @@ class GemsIndex extends React.Component {
     return this.state.gems.filter(gem => {
       return re.test(gem.address) && (this.state.category === 'All' || gem.category === this.state.category)
     })
-
   }
 
 

@@ -177,7 +177,7 @@ textarea.textarea {
 
 //---------- hide and show tèxt on homepage ----------->
 
-div.hoverShow {
+div.hoverShow, div.hoverShow2 {
  position: absolute;
  text-align: center;
  width: 60%;
@@ -191,10 +191,9 @@ div.hoverShow {
  transition: all 500ms ease-in-out;
 }
 
-a.hoverWrapper:hover + div.hoverShow {
+a.hoverWrapper:hover + div.hoverShow, a.hoverWrapper2:hover + div.hoverShow2 {
   opacity: 1.0;
 }
-
 
 //--------------------- MAP Styling -------------------------
 .mapboxgl-popup {
@@ -359,28 +358,6 @@ nav.navbar .other{
     opacity: 0
   }
 }
-//
-// .loader:empty {
-//     position: absolute;
-//     top: calc(50% - 15em);
-//     left: calc(50% - 10em);
-//     width: 20em;
-//     height: 20em;
-//     border: 1.5em solid orange;
-//     border-left: 1.5em solid dodgerblue;
-//     border-radius: 80%;
-//     border-right: 1.5em solid dodgerblue;
-//     animation: load8 3s infinite linear;
-//   }
-//
-//   @keyframes load8 {
-//     0% {
-//       transform: rotate(0deg);
-//     }
-//     100% {
-//       transform: rotate(360deg);
-//     }
-//   }
 
 a.button.pill {
   color: $primary;
