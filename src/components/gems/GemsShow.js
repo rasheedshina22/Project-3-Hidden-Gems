@@ -18,8 +18,6 @@ class GemsShow extends React.Component {
       userLocation: null
     }
 
-    console.log('this is data', this.state.data)
-
     this.handleDelete = this.handleDelete.bind(this)
     this.handleCommentSubmit = this.handleCommentSubmit.bind(this)
     this.handleCommentDelete = this.handleCommentDelete.bind(this)
@@ -43,7 +41,6 @@ class GemsShow extends React.Component {
     this.setState({ data, error })
   }
 
-
   handleCommentSubmit(e){
     e.preventDefault()
     axios
@@ -52,23 +49,19 @@ class GemsShow extends React.Component {
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
-        console.log(res.data)
         this.setState({...this.state, gem: res.data, data: {content: ''} })
       })
       .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
       .catch(() => this.setState({ errors: 'An error occured' }))
   }
 
-
   handleCommentDelete(e){
-    console.log(e.currentTarget)
     e.preventDefault()
     axios
       .delete(`/api/gems/${this.state.gem._id}/comments/${e.currentTarget.value}`,
         {headers: { Authorization: `Bearer ${Auth.getToken()}`}
         })
       .then((res) => {
-        console.log(res.data)
         this.setState({...this.state, gem: res.data })
       })
       .then(() => this.props.history.push(`/gems/${this.state.gem._id}`))
@@ -93,7 +86,6 @@ class GemsShow extends React.Component {
   }
 
   render(){
-    console.log(this.state)
     if(!this.state.gem) return null
     const { _id, name, image, category, description, user, location, trips } = this.state.gem
     return (
@@ -122,7 +114,6 @@ class GemsShow extends React.Component {
                   return <Link to={`/trips/${trip._id}`} className="button pill is-rounded" key={trip._id}> {trip.name} </Link>
                 })}
                 <hr/>
-
                 {Auth.canEdit(user._id) && (
                   <div>
                     <Link to={`/gems/${_id}/edit`} className="button is-dark is-rounded"> Edit </Link>
@@ -133,12 +124,9 @@ class GemsShow extends React.Component {
             </div>
           </div>
         </div>
-
-
         <div className="container">
           <hr />
           <div className="columns is-variable is-5">
-
             <div className="column">
               <div className="content">
                 <Map
@@ -149,7 +137,6 @@ class GemsShow extends React.Component {
                 />
               </div>
             </div>
-
             <div className="column">
               <Comments
                 handleCommentSubmit={this.handleCommentSubmit}
@@ -159,8 +146,6 @@ class GemsShow extends React.Component {
                 contentInput={this.state.data.content}
               />
             </div>
-
-
           </div>
         </div>
       </section>

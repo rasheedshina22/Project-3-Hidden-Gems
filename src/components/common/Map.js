@@ -21,17 +21,17 @@ class Map extends React.Component {
 
 
     this.markers = this.props.gems.map(gem => {
-      const { lat, lon } = gem.location
+      const { lat, lng } = gem.location
       const type = gem.category
 
-      bounds.extend([lon, lat])
+      bounds.extend([lng, lat])
 
       // Added type to be category so can be diffrent colors for Category
       const markerElement = document.createElement('DIV')
       markerElement.className = `All ${type}`
 
       return new mapboxgl.Marker(markerElement)
-        .setLngLat({ lat: lat, lng: lon })
+        .setLngLat({ lat: lat, lng: lng })
         .addTo(this.map)
 
     })
@@ -39,9 +39,9 @@ class Map extends React.Component {
     if(this.props.type !== 'gem'){
       this.map.fitBounds(bounds, { padding: 50 })
     } else {
-      const { lat, lon } = this.props.gems[0].location
+      const { lat, lng } = this.props.gems[0].location
       this.map.flyTo({
-        center: { lat: lat-0.001, lng: lon },
+        center: { lat: lat-0.001, lng: lng },
         zoom: 15
       })
     }
@@ -67,7 +67,7 @@ class Map extends React.Component {
               <img src="${image}" alt="${name}" />
               </div>
               <h4>${name}</h4>
-              <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${location.lat},${location.lon}" target="_blank" > Directions </a>
+              <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${location.lat},${location.lng}" target="_blank" > Directions </a>
             `)
       )
       if(this.props.type === 'gem'){
@@ -78,7 +78,7 @@ class Map extends React.Component {
           <img src="${image}" alt="${name}" />
           </div>
           <h4>${name}</h4>
-          <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${location.lat},${location.lon}" target="_blank" > Directions </a>
+          <a href="https://www.google.com/maps/dir/?api=1&origin=${lat},${lng}&destination=${location.lat},${location.lng}" target="_blank" > Directions </a>
           <a href="${process.env.PATH}/gems/${_id}">View Gem</a>
           `)
       }
@@ -92,7 +92,7 @@ class Map extends React.Component {
     this.markers.forEach(marker => marker.remove())
 
     this.markers = this.props.gems.map(gem => {
-      const { lat, lon } = gem.location
+      const { lat, lng } = gem.location
       const type = gem.category
 
       // Added type to be category so can be diffrent colors for Category
@@ -100,7 +100,7 @@ class Map extends React.Component {
       markerElement.className = `All ${type}`
 
       return new mapboxgl.Marker(markerElement)
-        .setLngLat({ lat: lat, lng: lon })
+        .setLngLat({ lat: lat, lng: lng })
         .addTo(this.map)
     })
 

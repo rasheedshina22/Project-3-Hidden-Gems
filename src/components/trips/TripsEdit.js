@@ -10,9 +10,7 @@ class TripsEdit extends React.Component {
     super()
 
     this.state = {
-      data: {
-
-      },
+      data: {},
       errors: ''
     }
 

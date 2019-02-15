@@ -11,7 +11,7 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
         return (
           <div key={index}>
             <p>
-              <strong> {comment.user.username} </strong> {comment.content} 
+              <strong> {comment.user.username} </strong> {comment.content}
             </p>
             <p> {moment(comment.createdAt).format('DD/MM/YYYY')} </p>
           </div>
@@ -20,7 +20,13 @@ const GemsComments = ({ comments, content, handleCommentChange, handleCommentSub
 
       {Auth.isAuthenticated() &&
       <form onSubmit={handleCommentSubmit}>
-        <textarea className="textarea" placeholder="Add your comments!" value={content} onChange={handleCommentChange} rows="6"></textarea>
+        <textarea
+          className="textarea"
+          laceholder="Add your comments!"
+          value={content}
+          onChange={handleCommentChange}
+          rows="6">
+        </textarea>
         <button className="is-primary"> Add Commment </button>
       </form>}
     </div>

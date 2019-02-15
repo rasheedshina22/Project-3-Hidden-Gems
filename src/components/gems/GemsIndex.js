@@ -3,7 +3,6 @@ import axios from 'axios'
 import GemCard from './GemCard'
 import GemsSearchForm from './GemsSearchForm'
 
-
 class GemsIndex extends React.Component {
 
   constructor() {
@@ -34,9 +33,7 @@ class GemsIndex extends React.Component {
         })
       })
     }
-
   }
-
 
   handleChange({ target: { name, value } }) {
     this.setState({ [name]: value })
@@ -48,14 +45,9 @@ class GemsIndex extends React.Component {
     return this.state.gems.filter(gem => {
       return re.test(gem.address) && (this.state.category === 'All' || gem.category === this.state.category)
     })
-
   }
 
-
-
   render() {
-    console.log('this.state.gems',this.state.gems)
-
 
     if(this.state.gems.length === 0){
       return(
@@ -73,10 +65,8 @@ class GemsIndex extends React.Component {
           <section className="section">
             <h2 className="title has-text-centered is-title-light is-size-2">The Gems</h2>
           </section>
-
           <hr />
           <GemsSearchForm handleChange={this.handleChange} />
-
           <div className="columns is-multiline">
             {this.filteredGems().map(gem =>
               <div key={gem._id} className="column is-one-quarter">
@@ -85,7 +75,6 @@ class GemsIndex extends React.Component {
             )}
           </div>
         </div>
-
       </section>
     )
   }
