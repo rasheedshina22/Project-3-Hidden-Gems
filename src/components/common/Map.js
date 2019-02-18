@@ -49,7 +49,7 @@ class Map extends React.Component {
   }
 
   generatePopups() {
-    if(!this.props.userLocation) return false
+    // if(!this.props.userLocation) return false
     this.popupsGenerated = true
     const { lat, lng } = this.props.userLocation
 
