@@ -13,9 +13,10 @@ const Home = () => {
           <li></li>
           <li></li>
         </ul>
-        <Link to={'/trips/'}><button className="button homesecond is-medium thumbnail"> Trips <i className="fas fa-map-signs homepage"></i> </button></Link>
-        <Link className="hoverWrapper" to = {'/gems'}><button className="button home is-medium"> Gems Around the World  <i className="far fa-gem homepage"></i>  </button></Link>
-        <div className="hoverShow"><span>Discover & Explore Hidden Gems around the World</span></div>
+        <Link className="hoverWrapper" to={'/trips'}><button className="button homesecond is-medium thumbnail"> Trips to Explore <i className="fas fa-map-signs homepage"></i> </button></Link>
+        <div className="hoverShow"><span> Explore remarkable trips . . . </span></div>
+        <Link className="hoverWrapper" to = {'/gems'}><button className="button home is-medium"> Hidden Gems  <i className="far fa-gem homepage"></i>  </button></Link>
+        <div className="hoverShow"><span> Discover Hidden Gems you did not know about . . . </span></div>
       </div>
     </section>
   )
