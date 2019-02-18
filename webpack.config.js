@@ -50,7 +50,7 @@ module.exports = {
     }),
     new Dotenv(),
     new CopyWebpackPlugin([
-      {from: 'src/accests', to: 'accests'}
+      {from: 'src/assets', to: 'assets'}
     ])
   ]
 }
