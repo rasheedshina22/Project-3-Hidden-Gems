@@ -1,4 +1,4 @@
-# General Assembly Project 03 : A MERN Stack App - Group Project
+# General Assembly Project 3 : A MERN Stack App - Group Project
 
 ### Timeframe
 7 days
