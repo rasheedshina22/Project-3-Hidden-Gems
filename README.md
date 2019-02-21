@@ -19,6 +19,10 @@
 * Heroku
 * GitHub/Git
 
+##  APIs:
+* FileStack.js
+* Mapbox
+
 ## Installation
 
 1. Set up a project repo by a git master
