@@ -35,6 +35,8 @@
 
 ## Our App - Hidden Gems
 
+You can find a hosted version here ----> https://sebyeates-project-3.herokuapp.com/
+
 ![hidden gems homepage](https://user-images.githubusercontent.com/42389173/52848831-9a9ca500-3107-11e9-9557-3c1fc40cc4d9.png)
 
 You can find a hosted version here ----> https://sebyeates-project-3.herokuapp.com/
@@ -56,20 +58,4 @@ Registration and login.
 3.Now the user can see the profile page with gems and the collection of trips.
 ![User Page](https://user-images.githubusercontent.com/44299893/52972325-72849e80-33b2-11e9-8aed-acf7fbf61614.png)
 
-Adding a Hidden Gem.
 
-
-Adding Trips.
-
-
-
-## Process
-
-
-### Challenges
-
-
-### Wins
-
-
-## Future features
