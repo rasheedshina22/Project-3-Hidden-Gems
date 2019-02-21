@@ -1,5 +1,9 @@
 # General Assembly Project 3 : A MERN Stack App - Group Project
 
+## Our App - Hidden Gems
+
+You can find a hosted version here ----> https://sebyeates-project-3.herokuapp.com/
+
 ### Timeframe
 7 days
 
@@ -33,9 +37,7 @@
 6. Open the `index.html` in Google Chrome
 7. Deployed on Heroku
 
-## Our App - Hidden Gems
 
-You can find a hosted version here ----> https://sebyeates-project-3.herokuapp.com/
 
 ![hidden gems homepage](https://user-images.githubusercontent.com/42389173/52848831-9a9ca500-3107-11e9-9557-3c1fc40cc4d9.png)
 
