@@ -50,12 +50,18 @@ The Hidden Gems website is a place where the user can look for "Hidden Gems" bas
 Registration and login.
 
 1.To start the App the user needs to register first.
+
+
 ![registration page](https://user-images.githubusercontent.com/42389173/52851319-b30fbe00-310d-11e9-883d-9fa2f0fd347e.png)
 
 2.The user will login in using the correct login credentials.
+
+
 ![login page](https://user-images.githubusercontent.com/42389173/52851380-e0f50280-310d-11e9-8a5f-4ef41a846ac1.png)
 
 3.Now the user can see the profile page with gems and the collection of trips.
+
+
 ![User Page](https://user-images.githubusercontent.com/44299893/52972325-72849e80-33b2-11e9-8aed-acf7fbf61614.png)
 
 
