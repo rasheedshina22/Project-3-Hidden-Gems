@@ -39,12 +39,13 @@ You can find a hosted version here ----> https://sebyeates-project-3.herokuapp.c
 
 
 
-![hidden gems homepage](https://user-images.githubusercontent.com/42389173/52848831-9a9ca500-3107-11e9-9557-3c1fc40cc4d9.png)
-
-You can find a hosted version here ----> https://sebyeates-project-3.herokuapp.com/
-
 ### App overview
 The Hidden Gems website is a place where the user can look for "Hidden Gems" based on looking up a location or find "trips" that link different "Hidden Gems" into a tour. The user can also add their own "Gems" or create "Trips" using any "Hidden Gems". Other features of the App are being able to follow other users. Navigate to a Gem from your location to the gem selected location via using a third party Navigation system such as google maps.
+
+
+![hidden gems homepage](https://user-images.githubusercontent.com/42389173/52848831-9a9ca500-3107-11e9-9557-3c1fc40cc4d9.png)
+
+
 
 
 ### App Instructions
