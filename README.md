@@ -86,3 +86,19 @@ Making use of git we carried out individual work on branches for each feature. T
 Tasks were managed and assigned through the task manager Trello. We performed daily stand-ups to keep track of progress.
 
 <img width="1275" alt="Screenshot 2019-03-26 at 23 31 05" src="https://user-images.githubusercontent.com/42609274/55040204-472f4800-501f-11e9-98d8-fbb69d36c562.png">
+
+### Challenges
+
+This was our first big group project at General Assembly and with React.js. It was a steep learning curve particularly managing state and props. We also used git on our project which introduce new challenges such as conflicts while merging code to development branch and unexpected bug fixing on deployed version of the site.
+
+### Wins
+
+Most part of the project's basic structure was created as a group effort linking and routing the backend with frontend. The React Mapbox Autocomplete package was introduced to us by our lecturer with filestack which gave our site more functionality.     
+
+I created the Maps with the functionality using MapBox, including the use of finding the users location that gives you ability for navigating to any address from the usser's location. To make the address of the Gems even more accurate, the users can drag and drop the marker on the map which is on the form this was done with a seprate map componant.
+
+### Future features
+
+Features that we wanted to add if time allowed are rating system for the gems, messaging and display the routes for multiple gems on the map. (Currently you can navigate from your location to any Gem by clicking "Directions" in the popup.) This would enhance users experience significantly on our site. 
+
+Another feature wanted was to have the Map on the index page to give the usser the option to to either look for Gems in a Grid view (current page layout) or in Map view for Gems in a location. The Map coponent I made was able to do this but we ran out of time to add to the website and test. 
